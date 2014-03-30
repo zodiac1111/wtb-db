@@ -37,6 +37,8 @@ where
         and wtb.wtb.idplayer = wtb.play.idplay
 LIMIT 5;
 " . $order;
+
+echo "\" . $query . "\""
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
