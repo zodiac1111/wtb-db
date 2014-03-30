@@ -14,13 +14,20 @@ $query = "select wtb.item.item_name,wtb.play.play_name,wtb.c,wtb.hath,wtb.num_wa
 
 $result = mysql_query($query) or die("Query failed");
 // json api start 
-$result = mysql_query($query) or die("Query failed");  
 $rows = array();
+
 while($r = mysql_fetch_assoc($result)) {
     $rows[] = $r;
 }
+/*
+while($r = mysqli_fetch_array($result)) {
+    $rows[] = $r;
+}
+*/
 // show json
+echo "{\"aaData\":";
 echo json_encode($rows);
+echo "}";
 
 // json api end
 // 释放资源 
