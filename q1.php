@@ -23,6 +23,8 @@ where
         and wtb.wtb.idplayer = wtb.play.idplay
 LIMIT 5;
 ";
+parse_str($_SERVER['QUERY_STRING']);
+echo $_SERVER['QUERY_STRING'];
 echo $name;
 $result = mysql_query($query) or die("Query failed");
 // json api start
