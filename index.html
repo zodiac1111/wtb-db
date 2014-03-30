@@ -21,8 +21,8 @@
                         primary : "ui-icon-plus"
                     }
                 }).click(function() {
-  					top.location.href = "/insert.html";
-				});
+                    top.location.href = "/insert.html";
+                });
                 $("#beginning").button({
                     text : false,
                     icons : {
@@ -86,11 +86,10 @@
                 });
                 $("#shuffle").button();
                 $("#repeat").buttonset();
-                
                 // **** datatable ****
-                 //$('#tbl').dataTable();
+                //$('#tbl').dataTable();
                 $('#tbl').dataTable({
-  					"bJQueryUI": true,
+                    "bJQueryUI" : true,
                     "bProcessing" : true,
                     "bServerSide" : true,
                     // 数据源
@@ -102,6 +101,16 @@
                             "value" : "my_value"
                         });
                     },
+                    "fnDrawCallback" : function(oSettings) {
+                        $(".del").button({
+                            text : false,
+                            icons : {
+                                primary : "ui-icon-trash"
+                            }
+                        }).click(function() {
+
+                        });
+                    },
                     // 格式化输出
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
@@ -109,17 +118,7 @@
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-							return data +"<button class=\"del\">"
-								+"	del this bid"
-								+"</button>";
-							$(".del").button({
-							    text : false,
-							    icons : {
-							        primary : "ui-icon-trash"
-							    }
-							}).click(function() {
-			  					
-							});
+                            return data + "<button class=\"del\">" + "	del this bid" + "</button>";
                         }
                     }, {
                         "mData" : "item_name",
@@ -150,7 +149,8 @@
                             return '<a href="' + data + '">link</a>';
                         }
                     }]
-                }); 
+                });
+
             });
 		</script>
 	</head>
