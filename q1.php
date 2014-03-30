@@ -38,7 +38,7 @@ where
 LIMIT 5;
 " . $order;
 
-echo "\" . $query . "\""
+echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
