@@ -28,7 +28,8 @@ if ($iSortCol_0 == "0") {
 
 $search="";
 if ($sSearch<>"") {
-	$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
+	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
+	$search .= "and (item.item_name LIKE \'%" . $sSearch . "%' or wtb.idplayer LIKE \'%" . $sSearch . "%\')"
 }
 
 $query = "select 
