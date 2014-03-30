@@ -1,0 +1,34 @@
+
+
+<html>
+<head>
+<title>connect.php</title>
+</head>
+<body>
+/*PHP手册中的PHP连接Mysql的实例*/
+<?php
+    /* 连接选择数据库 */   
+ 
+$link = mysql_connect("localhost", "root", "123456")        or die("Could not connect");  
+  print "Connected successfully";    
+mysql_select_db("my_database") or die("Could not select database");
+    /* 执行 SQL 查询 */    
+ 
+$query = "SELECT * FROM wtb";   
+ $result = mysql_query($query) or die("Query failed");  
+ 
+  /* 在 HTML 中打印结果 */  
+ 
+ print "<table>\n";   
+ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {        print "\t<tr>\n";        foreach ($line as $col_value) {            print "\t\t<td>$col_value</td>\n";        }        print "\t</tr>\n";    }    print "</table>\n";
+ 
+    /* 释放资源 */
+    
+mysql_free_result($result);    
+ 
+/* 断开连接 */   
+ 
+mysql_close($link);
+?>
+ 
+</body>
