@@ -5,11 +5,89 @@
 			@import "css/demo_page.css";
 			@import "css/demo_table.css";
 		</style>
+		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
+		<link rel="stylesheet" href="css/demos.css">
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
+		<script type='text/javascript' src="js/jquery-1.10.2.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                //$('#tbl').dataTable();
+           
+                /// jQuery UI
+                $("#add").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-plus"
+                    }
+                });
+                $("#beginning").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-seek-start"
+                    }
+                });
+                $("#rewind").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-seek-prev"
+                    }
+                });
+                $("#play").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-play"
+                    }
+                }).click(function() {
+                    var options;
+                    if ($(this).text() === "play") {
+                        options = {
+                            label : "pause",
+                            icons : {
+                                primary : "ui-icon-pause"
+                            }
+                        };
+                    } else {
+                        options = {
+                            label : "play",
+                            icons : {
+                                primary : "ui-icon-play"
+                            }
+                        };
+                    }
+                    $(this).button("option", options);
+                });
+                $("#stop").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-stop"
+                    }
+                }).click(function() {
+                    $("#play").button("option", {
+                        label : "play",
+                        icons : {
+                            primary : "ui-icon-play"
+                        }
+                    });
+                });
+                $("#forward").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-seek-next"
+                    }
+                });
+                $("#end").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-seek-end"
+                    }
+                });
+                $("#shuffle").button();
+                $("#repeat").buttonset();
+                // **** datatable
+                 //$('#tbl').dataTable();
                 $('#tbl').dataTable({
                     "bProcessing" : true,
                     "bServerSide" : true,
@@ -26,7 +104,7 @@
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
                         "aTargets" : [0]
-                    },{
+                    }, {
                         "mData" : "item_name",
                         "aTargets" : [1]
                     }, {
@@ -55,13 +133,45 @@
                             return '<a href="' + data + '">link</a>';
                         }
                     }]
-                });
+                }); 
             });
 		</script>
 	</head>
-	<h1>Want To Buy Table</h1>
-	<label>json format data : q1.php </label>
 	<label><a href="insert.html">Add My Order</a></label>
+	<div id="toolbar" class="ui-widget-header ui-corner-all">
+		<button id="add">
+			add bid
+		</button>
+		<button id="beginning">
+			go to beginning
+		</button>
+		<button id="rewind">
+			rewind
+		</button>
+		<button id="play">
+			play
+		</button>
+		<button id="stop">
+			stop
+		</button>
+		<button id="forward">
+			fast forward
+		</button>
+		<button id="end">
+			go to end
+		</button>
+
+		<input type="checkbox" id="shuffle" />
+		<label for="shuffle">Shuffle</label>
+
+		<span id="repeat">
+			<input type="radio" id="repeat0" name="repeat" checked="checked" />
+			<label for="repeat0">No Repeat</label>
+			<input type="radio" id="repeat1" name="repeat" />
+			<label for="repeat1">Once</label>
+			<input type="radio" id="repeatall" name="repeat" />
+			<label for="repeatall">All</label> </span>
+	</div>
 	<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 		<thead>
 			<tr>
@@ -80,5 +190,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<label>json format data : q1.php </label>
+	<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 	</body>
 </html>
