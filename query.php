@@ -14,32 +14,33 @@
                     "bProcessing" : true,
                     "bServerSide" : true,
                     "sAjaxSource" : "q1.php",
-                    "aoColumns" : [{
-                        "mData" : "item_name","aTargets": [0]
-                    }, {
-                        "mData" : "play_name","aTargets": [1]
-                    }, {
-                        "mData" : "c","aTargets": [2]
-                    }, {
-                        "mData" : "hath","aTargets": [3]
-                    }, {
-                        "mData" : "num_want","aTargets": [4]
-                    }, {
-                        "mData" : "src","aTargets": [5]
-                    }],
                     "aoColumnDefs" : [{
-                        "aTargets" : [5],
-                        "mRender" : function(data, type, full) {
-                            // 'full' is the row's data object, and 'data' is this column's data
-                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-                            return '<a href="' + data + '">link</a>';
-                        }
+                        "mData" : "item_name",
+                        "aTargets" : [0]
                     }, {
+                        "mData" : "play_name",
+                        "aTargets" : [1]
+                    }, {
+                        "mData" : "c",
                         "aTargets" : [2],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
                             return parseInt(data).toLocaleString();
+                        }
+                    }, {
+                        "mData" : "hath",
+                        "aTargets" : [3]
+                    }, {
+                        "mData" : "num_want",
+                        "aTargets" : [4]
+                    }, {
+                        "mData" : "src",
+                        "aTargets" : [5],
+                        "mRender" : function(data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+                            return '<a href="' + data + '">link</a>';
                         }
                     }]
                 });
