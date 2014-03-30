@@ -28,7 +28,7 @@ if ($iSortCol_0 == "0") {
 
 $search="";
 if ($sSearch<>"") {
-	$search .= "and LIKE %" . $sSearch . "%";
+	$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
 }
 
 $query = "select 
@@ -48,7 +48,7 @@ where
         and wtb.wtb.idplayer = wtb.play.idplay"
 . " " . $search
 . " " . $order
-. " LIMIT " .. $iDisplayLength 
+. " LIMIT " . $iDisplayLength 
 . " ;";
 
 // debugprint
