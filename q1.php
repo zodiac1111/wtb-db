@@ -11,10 +11,10 @@ parse_str($_SERVER['QUERY_STRING']);
 //echo $_SERVER['QUERY_STRING'];
 //echo $my_arg;
 $order = "";
-if ($iSortCol_0 == 1) {
+if ($iSortCol_0 == "0") {
 	$order .= "ORDER BY item.item_name ";
 	$order .= $sSortDir_0;
-} elseif ($iSortCol_0 == 2) {
+} elseif ($iSortCol_0 == "1") {
 	$order .= "ORDER BY play.play_name ";
 	$order .= $sSortDir_0;
 } else {;
