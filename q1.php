@@ -6,9 +6,26 @@ $link = mysql_connect("localhost", "root", "123456") or die("Could not connect")
 mysql_select_db("wtb") or die("Could not select database");
 // 执行 SQL 查询
 
+
+// pasre the query string ,get sort etc.
+parse_str($_SERVER['QUERY_STRING']);
+//echo $_SERVER['QUERY_STRING'];
+//echo $my_arg;
+$order=""
+if ($iSortCol_0==1){
+	$order+="ORDER BY item.item_name ";
+	$order+= $sSortDir_0;
+}elseif ($iSortCol_0==2){
+	$order+="ORDER BY play.play_name ";
+	$order+= $sSortDir_0;
+}else{
+
+}
+
+
 $query = "select 
-    wtb.item.item_name,
-    wtb.play.play_name,
+    item.item_name,
+    play.play_name,
     wtb.play.idplay,
     wtb.c,
     wtb.hath,
@@ -22,10 +39,7 @@ where
     wtb.wtb.iditem = wtb.item.iditem
         and wtb.wtb.idplayer = wtb.play.idplay
 LIMIT 5;
-";
-parse_str($_SERVER['QUERY_STRING']);
-echo $_SERVER['QUERY_STRING'];
-echo $my_arg;
+"+$order;
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
