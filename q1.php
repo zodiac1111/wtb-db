@@ -25,7 +25,7 @@ LIMIT 5;
 ";
 parse_str($_SERVER['QUERY_STRING']);
 echo $_SERVER['QUERY_STRING'];
-echo $name;
+echo $my_arg;
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();

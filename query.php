@@ -18,7 +18,7 @@
                     // 传递参数进入php
                     "fnServerParams" : function(aoData) {
                         aoData.push({
-                            "name" : "more_data",
+                            "name" : "my_arg",
                             "value" : "my_value"
                         });
                     },
