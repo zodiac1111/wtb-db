@@ -13,7 +13,16 @@
                 $('#tbl').dataTable({
                     "bProcessing" : true,
                     "bServerSide" : true,
+                    // 数据源
                     "sAjaxSource" : "q1.php",
+                    // 传递参数进入php
+                    "fnServerParams" : function(aoData) {
+                        aoData.push({
+                            "name" : "more_data",
+                            "value" : "my_value"
+                        });
+                    },
+                    // 格式化输出
                     "aoColumnDefs" : [{
                         "mData" : "item_name",
                         "aTargets" : [0]
