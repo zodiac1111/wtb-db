@@ -28,11 +28,18 @@
                         "mData" : "src"
                     }],
                     "aoColumnDefs" : [{
-                        "aTargets" : [5],
+                        "aTargets" : ["src"],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-                            return '<a href="' + data + '">' + data + '</a>';
+                            return '<a href="' + data + '">link</a>';
+                        }
+                    }, {
+                        "aTargets" : ["c"],
+                        "mRender" : function(data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+                            return data.toLocaleString();
                         }
                     }]
                 });
