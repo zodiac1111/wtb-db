@@ -35,8 +35,10 @@ from
 where
     wtb.wtb.iditem = wtb.item.iditem
         and wtb.wtb.idplayer = wtb.play.idplay
-LIMIT 5;
-" . $order;
+" 
+. " " . $order
+. " LIMIT 5" 
+. " ;";
 
 echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed");
