@@ -42,7 +42,7 @@ if($iDisplayStart ==""){
 	$iDisplayStart="0";
 }
 $query = "select 
-	wtb.idwtb
+    wtb.idwtb,
     item.item_name,
     play.play_name,
     wtb.play.idplay,
@@ -50,11 +50,11 @@ $query = "select
     wtb.hath,
     wtb.num_want,
     wtb.src
-from
+    FROM
     wtb.item,
     wtb.play,
     wtb.wtb
-where
+    WHERE
     wtb.wtb.iditem = wtb.item.iditem
         and wtb.wtb.idplayer = wtb.play.idplay"
 . " " . $search
@@ -64,7 +64,7 @@ where
 
 // debugprint
 // echo "\"" . $query . "\"";
-$result = mysql_query($query) or die("Query failed");
+$result = mysql_query($query) or die("Query failed:".$query);
 // json api start
 $rows = array();
 
