@@ -29,9 +29,12 @@ if ($iSortCol_0 == "0") {
 $search="";
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
-	$search .= "and (item.item_name LIKE \'%" . $sSearch . "%' or wtb.idplayer LIKE \'%" . $sSearch . "%\')";
+	$search .= "and (item.item_name LIKE \"%" . $sSearch . "%\" or wtb.idplayer LIKE \"%" . $sSearch . "%\")";
 }
 
+if($iDisplayLength ==""){
+	$iDisplayLength ="10";
+}
 $query = "select 
     item.item_name,
     play.play_name,
@@ -53,7 +56,7 @@ where
 . " ;";
 
 // debugprint
- echo "\"" . $query . "\"";
+// echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
