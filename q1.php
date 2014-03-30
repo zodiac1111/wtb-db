@@ -8,8 +8,8 @@ mysql_select_db("wtb") or die("Could not select database");
 
 $query = "select wtb.item.item_name,wtb.play.play_name,wtb.c,wtb.hath,wtb.num_want,wtb.src
 	from wtb.item,wtb.play,wtb.wtb 
-	where wtb.wtb.iditem = wtb.item.iditem 
-	and wtb.wtb.idplayer = wtb.play.idplay;
+	where wtb.wtb.iditem = wtb.item.iditem and wtb.wtb.idplayer = wtb.play.idplay
+	LIMIT 5;
 ";   
 
 $result = mysql_query($query) or die("Query failed");
