@@ -12,10 +12,10 @@ parse_str($_SERVER['QUERY_STRING']);
 //echo $my_arg;
 $order = "";
 if ($iSortCol_0 == "0") {
-	$order .= "ORDER BY item.item_name ";
+	$order .= " ORDER BY item.item_name ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "1") {
-	$order .= "ORDER BY play.play_name ";
+	$order .= " ORDER BY play.play_name ";
 	$order .= $sSortDir_0;
 } else {;
 }
@@ -40,7 +40,8 @@ where
 . " LIMIT 5" 
 . " ;";
 
-echo "\"" . $query . "\"";
+// debugprint
+// echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
