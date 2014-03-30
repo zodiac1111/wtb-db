@@ -17,6 +17,12 @@ if ($iSortCol_0 == "0") {
 } elseif ($iSortCol_0 == "1") {
 	$order .= " ORDER BY play.play_name ";
 	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "2") {
+	$order .= " ORDER BY wtb.c ";
+	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "3") {
+	$order .= " ORDER BY wtb.hath ";
+	$order .= $sSortDir_0;
 } else {;
 }
 
@@ -37,7 +43,7 @@ where
         and wtb.wtb.idplayer = wtb.play.idplay
 " 
 . " " . $order
-. " LIMIT 5" 
+. " LIMIT " .. $iDisplayLength 
 . " ;";
 
 // debugprint
