@@ -26,6 +26,11 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
+$search="";
+if ($sSearch<>"") {
+	$search .= "and LIKE %" . $sSearch . "%";
+}
+
 $query = "select 
     item.item_name,
     play.play_name,
@@ -40,14 +45,14 @@ from
     wtb.wtb
 where
     wtb.wtb.iditem = wtb.item.iditem
-        and wtb.wtb.idplayer = wtb.play.idplay
-" 
+        and wtb.wtb.idplayer = wtb.play.idplay"
+. " " . $search
 . " " . $order
 . " LIMIT " .. $iDisplayLength 
 . " ;";
 
 // debugprint
-// echo "\"" . $query . "\"";
+ echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed");
 // json api start
 $rows = array();
