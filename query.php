@@ -28,21 +28,11 @@
                         "mData" : "src"
                     }],
                     "aoColumnDefs" : [{
-                        "aTargets" : [0],
-                        "mData" : function(source, type, val) {
-                            if (type === 'set') {
-                                source.price = val;
-                                // Store the computed dislay and filter values for efficiency
-                                source.price_display = val == "" ? "" : "$" + numberFormat(val);
-                                source.price_filter = val == "" ? "" : "$" + numberFormat(val) + " " + val;
-                                return;
-                            } else if (type === 'display') {
-                                return source.price_display;
-                            } else if (type === 'filter') {
-                                return source.price_filter;
-                            }
-                            // 'sort', 'type' and undefined all just use the integer
-                            return source.price;
+                        "aTargets" : [5],
+                        "mRender" : function(data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+                            return '<a href="' + data + '">' + data + '</a>';
                         }
                     }]
                 });
