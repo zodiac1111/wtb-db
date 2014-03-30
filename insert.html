@@ -27,15 +27,20 @@
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                $(".nb").spinner({min:0});
-				//$("#now_num").spinner({min:0});
-               // $("#want_num").spinner({min:1});
-               // $("#c").spinner({min:0});
-               // $("#hath").spinner({min:0});
-                $('#tbl').dataTable({
-                    "bJQueryUI" : true
+                $(".nb").spinner({
+                    min : 0
                 });
-                $("#submit").click(function() {
+                //$("#now_num").spinner({min:0});
+                // $("#want_num").spinner({min:1});
+                // $("#c").spinner({min:0});
+                // $("#hath").spinner({min:0});
+                $("#submit").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-seek-start"
+                    }
+                }).click(function() {
+                    // 点击事件
                     $.ajax({
                         type : "post",
                         url : "insert.php",
@@ -56,23 +61,24 @@
                         }
                     });
                 });
-
-                function gettext() {
-                    enable = "1";
-                    iditem = $("#itemid")[0].value;
-                    idplayer = $("#playid")[0].value;
-                    num_now = $("#now_num")[0].value;
-                    num_want = $("#want_num")[0].value;
-                    c = $("#c")[0].value;
-                    hath = $("#hath")[0].value;
-                    src = $("#src")[0].value;
-
-                    var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '" + num_now + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
-                    $("#output")[0].textContent = str;
-                    return str;
-                }
-
+                $('#tbl').dataTable({
+                    "bJQueryUI" : true
+                });
             });
+            function gettext() {
+                enable = "1";
+                iditem = $("#itemid")[0].value;
+                idplayer = $("#playid")[0].value;
+                num_now = $("#now_num")[0].value;
+                num_want = $("#want_num")[0].value;
+                c = $("#c")[0].value;
+                hath = $("#hath")[0].value;
+                src = $("#src")[0].value;
+
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '" + num_now + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
+                $("#output")[0].textContent = str;
+                return str;
+            }
 		</script>
 	</head>
 
@@ -263,7 +269,9 @@
 				</tbody>
 			</table>
 			<p align="middle">
-				<input type="button" id="submit" value="Submit"/>
+				<button id="submit" value="Submit">
+					submit
+				</button>
 				<label id="wait"></label>
 			</p>
 			<p align="middle" style="margin: 100px;">
