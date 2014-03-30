@@ -12,6 +12,16 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
+		<style>
+			#toolbar {
+				padding: 4px;
+				display: inline-block;
+			}
+			/* support: IE7 */
+			*+ html #toolbar {
+				display: inline;
+			}
+		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
                 /// jQuery UI
@@ -118,7 +128,7 @@
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-                            return data + "<button class=\"del\">" + "	del this bid" + "</button>";
+                            return "<button class=\"del\">" + "	del this bid" + "</button>" + data;
                         }
                     }, {
                         "mData" : "item_name",
@@ -154,59 +164,63 @@
             });
 		</script>
 	</head>
-	<div id="toolbar" class="ui-widget-header ui-corner-all">
-		<button id="add">
-			add bid
-		</button>
-		<button id="beginning">
-			go to beginning
-		</button>
-		<button id="rewind">
-			rewind
-		</button>
-		<button id="play">
-			play
-		</button>
-		<button id="stop">
-			stop
-		</button>
-		<button id="forward">
-			fast forward
-		</button>
-		<button id="end">
-			go to end
-		</button>
+	<div>
+		<div align="right">
+		<div id="toolbar" class="ui-widget-header ui-corner-all">
+			<button id="add">
+				add bid
+			</button>
+			<button id="beginning">
+				go to beginning
+			</button>
+			<button id="rewind">
+				rewind
+			</button>
+			<button id="play">
+				play
+			</button>
+			<button id="stop">
+				stop
+			</button>
+			<button id="forward">
+				fast forward
+			</button>
+			<button id="end">
+				go to end
+			</button>
 
-		<input type="checkbox" id="shuffle" />
-		<label for="shuffle">Shuffle</label>
+			<input type="checkbox" id="shuffle" />
+			<label for="shuffle">Shuffle</label>
 
-		<span id="repeat">
-			<input type="radio" id="repeat0" name="repeat" checked="checked" />
-			<label for="repeat0">No Repeat</label>
-			<input type="radio" id="repeat1" name="repeat" />
-			<label for="repeat1">Once</label>
-			<input type="radio" id="repeatall" name="repeat" />
-			<label for="repeatall">All</label> </span>
-	</div>
-	<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
-		<thead>
-			<tr>
-				<th width="5%">ID</th>
-				<th width="18%">Item name</th>
-				<th width="16%">Player name</th>
-				<th width="10%">Credit</th>
-				<th width="5%">Hath</th>
-				<th width="5%">Quantityt</th>
-				<th>Ref.</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td colspan="7" class="dataTables_empty">Loading data from server</td>
-			</tr>
-		</tbody>
-	</table>
-	<label>json format data : q1.php </label>
-	<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
-	</body>
+			<span id="repeat">
+				<input type="radio" id="repeat0" name="repeat" checked="checked" />
+				<label for="repeat0">No Repeat</label>
+				<input type="radio" id="repeat1" name="repeat" />
+				<label for="repeat1">Once</label>
+				<input type="radio" id="repeatall" name="repeat" />
+				<label for="repeatall">All</label> </span>
+		</div>
+		<div>
+		<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
+			<thead>
+				<tr>
+					<th width="5%">ID</th>
+					<th width="18%">Item name</th>
+					<th width="16%">Player name</th>
+					<th width="10%">Credit</th>
+					<th width="5%">Hath</th>
+					<th width="5%">Quantityt</th>
+					<th>Ref.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="7" class="dataTables_empty">Loading data from server</td>
+				</tr>
+			</tbody>
+		</table>
+		<label>json format data : q1.php </label>
+		<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+		<div>
+			</body>
 </html>
