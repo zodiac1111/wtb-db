@@ -33,9 +33,9 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 } 
 print "</table>\n";
 
-
+/*
+// json api start 
 print "<h1>json string </h1>\n";
-/* json api start */
 $result = mysql_query($query) or die("Query failed");  
 $rows = array();
 while($r = mysql_fetch_assoc($result)) {
@@ -44,8 +44,8 @@ while($r = mysql_fetch_assoc($result)) {
 print "<p><code>\n";
 echo json_encode($rows);
 print "</code></p>\n";
-/* json api end */
-
+// json api end
+*/
 /* 释放资源 */
 
 mysql_free_result($result);    
@@ -53,8 +53,5 @@ mysql_free_result($result);
 /* 断开连接 */   
 
 mysql_close($link);
-
-print "<h1>TODOs</h1>\n"
-print "1. 查询入口\n"
 ?>
 </body>
