@@ -20,7 +20,9 @@
                     icons : {
                         primary : "ui-icon-plus"
                     }
-                });
+                }).click(function() {
+  					top.location.href = "/insert.html";
+				});
                 $("#beginning").button({
                     text : false,
                     icons : {
@@ -88,6 +90,7 @@
                 // **** datatable ****
                  //$('#tbl').dataTable();
                 $('#tbl').dataTable({
+  					"bJQueryUI": true,
                     "bProcessing" : true,
                     "bServerSide" : true,
                     // 数据源
@@ -102,7 +105,22 @@
                     // 格式化输出
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
-                        "aTargets" : [0]
+                        "aTargets" : [0],
+                        "mRender" : function(data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+							return data +"<button class=\"del\">"
+								+"	del this bid"
+								+"</button>";
+							$(".del").button({
+							    text : false,
+							    icons : {
+							        primary : "ui-icon-trash"
+							    }
+							}).click(function() {
+			  					
+							});
+                        }
                     }, {
                         "mData" : "item_name",
                         "aTargets" : [1]
@@ -136,9 +154,8 @@
             });
 		</script>
 	</head>
-	<label><a href="insert.html">Add My Order</a></label>
 	<div id="toolbar" class="ui-widget-header ui-corner-all">
-		<button id="add" href="insert.html">
+		<button id="add">
 			add bid
 		</button>
 		<button id="beginning">
@@ -174,13 +191,13 @@
 	<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 		<thead>
 			<tr>
-				<th width="5%">id</th>
-				<th width="18%">item_name</th>
-				<th width="16%">player_name</th>
-				<th width="10%">c</th>
-				<th width="5%">hath</th>
-				<th width="5%">num_want</th>
-				<th>src</th>
+				<th width="5%">ID</th>
+				<th width="18%">Item name</th>
+				<th width="16%">Player name</th>
+				<th width="10%">Credit</th>
+				<th width="5%">Hath</th>
+				<th width="5%">Quantityt</th>
+				<th>Ref.</th>
 			</tr>
 		</thead>
 		<tbody>
