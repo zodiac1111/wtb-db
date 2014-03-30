@@ -24,14 +24,17 @@
                     },
                     // 格式化输出
                     "aoColumnDefs" : [{
-                        "mData" : "item_name",
+                        "mData" : "idwtb",
                         "aTargets" : [0]
-                    }, {
-                        "mData" : "play_name",
+                    },{
+                        "mData" : "item_name",
                         "aTargets" : [1]
                     }, {
+                        "mData" : "play_name",
+                        "aTargets" : [2]
+                    }, {
                         "mData" : "c",
-                        "aTargets" : [2],
+                        "aTargets" : [3],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -39,13 +42,13 @@
                         }
                     }, {
                         "mData" : "hath",
-                        "aTargets" : [3]
-                    }, {
-                        "mData" : "num_want",
                         "aTargets" : [4]
                     }, {
+                        "mData" : "num_want",
+                        "aTargets" : [5]
+                    }, {
                         "mData" : "src",
-                        "aTargets" : [5],
+                        "aTargets" : [6],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -58,11 +61,13 @@
 	</head>
 	<h1>Want To Buy Table</h1>
 	<label>json format data : q1.php </label>
+	<label><a href="insert.html">Add My Order</a></label>
 	<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 		<thead>
 			<tr>
+				<th width="5%">ID</th>
 				<th width="18%">item_name</th>
-				<th width="16%">play_name</th>
+				<th width="16%">player_name</th>
 				<th width="10%">c</th>
 				<th width="5%">hath</th>
 				<th width="5%">num_want</th>
@@ -71,7 +76,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td colspan="6" class="dataTables_empty">Loading data from server</td>
+				<td colspan="7" class="dataTables_empty">Loading data from server</td>
 			</tr>
 		</tbody>
 	</table>

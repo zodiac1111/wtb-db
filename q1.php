@@ -12,15 +12,18 @@ parse_str($_SERVER['QUERY_STRING']);
 //echo $my_arg;
 $order = "";
 if ($iSortCol_0 == "0") {
-	$order .= " ORDER BY item.item_name ";
+	$order .= " ORDER BY wtb.idwtb ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "1") {
-	$order .= " ORDER BY play.play_name ";
+	$order .= " ORDER BY item.item_name ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "2") {
-	$order .= " ORDER BY wtb.c ";
+	$order .= " ORDER BY play.play_name ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "3") {
+	$order .= " ORDER BY wtb.c ";
+	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "4") {
 	$order .= " ORDER BY wtb.hath ";
 	$order .= $sSortDir_0;
 } else {;
@@ -35,7 +38,11 @@ if ($sSearch<>"") {
 if($iDisplayLength ==""){
 	$iDisplayLength ="10";
 }
+if($iDisplayStart ==""){
+	$iDisplayStart="0";
+}
 $query = "select 
+	wtb.idwtb
     item.item_name,
     play.play_name,
     wtb.play.idplay,
@@ -52,7 +59,7 @@ where
         and wtb.wtb.idplayer = wtb.play.idplay"
 . " " . $search
 . " " . $order
-. " LIMIT " . $iDisplayLength 
+. " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
 . " ;";
 
 // debugprint

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Add bid</title>
+		<style type="text/css" title="currentStyle">
+			@import "css/demo_page.css";
+			@import "css/demo_table.css";
+		</style>
+		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
+		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
+		<!--[if IE 6]>
+		<script src="js/DD_belatedPNG.js" mce_src="DD_belatedPNG.js"></script>
+		<script type="text/javascript">
+		DD_belatedPNG.fix('.english a,.chinese a,h1 a,.sidebar');
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+            $(document).ready(function() {
+				$('#tbl').dataTable();
+                $("#submit").click(function() {
+                    $.ajax({
+                        type : "post",
+                        url : "insert.php",
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType : "text",
+                        data : "query=" + gettext(),
+                        beforeSend : function(XMLHttpRequest) {
+                            //alert("提交");
+							$("#wait").val="waitng";
+                        },
+                        //成功(先成功,后完成)
+                        success : function(data, textStatus) {
+                            alert("return:" + data);
+							$("#wait").val="OK";
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert("ERR:" + XMLHttpRequest.responseText);
+                        }
+                    });
+                });
+
+                function gettext() {
+                    enable = "1";
+                    iditem = $("#itemid")[0].value;
+                    idplayer = $("#playid")[0].value;
+                    num_now = $("#now_num")[0].value;
+                    num_want = $("#want_num")[0].value;
+                    c = $("#c")[0].value;
+                    hath = $("#hath")[0].value;
+                    src = $("#src")[0].value;
+
+                    var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '" + num_now + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
+                    $("#output")[0].textContent = str;
+                    return str;
+                }
+
+            });
+		</script>
+	</head>
+
+	<body>
+		<div width="80%" align="middle" style="margin: 5px;">
+			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
+				<thead>
+					<th>Enable[yes]</th>
+					<th>Item</th>
+					<th>PlayID/Name</th>
+					<th>now num[0]</th>
+					<th>want num[1]</th>
+					<th>C[null]</th>
+					<th>Hath[null]</th>
+					<th>Src[bbslink]</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+						<input type="checkbox" checked class="chitic enb checked"  />
+						</td>
+						<td>
+						<select id="itemid">
+							<option value ="11112">Lesser Health Potion</option>
+							<option value ="11114">Greater Health Potion</option>
+							<option value ="11116">Heroic Health Potion</option>
+							<option value ="11199">Health Elixir</option>
+							<option value ="11212">Lesser Mana Potion</option>
+							<option value ="11214">Greater Mana Potion</option>
+							<option value ="11215">Superior Mana Potion</option>
+							<option value ="11216">Heroic Mana Potion</option>
+							<option value ="11299">Mana Elixir</option>
+							<option value ="11312">Lesser Spirit Potion</option>
+							<option value ="11314">Greater Spirit Potion</option>
+							<option value ="11316">Heroic Spirit Potion</option>
+							<option value ="11399">Spirit Elixir</option>
+							<option value ="11401">Energy Drink</option>
+							<option value ="11501">Last Elixir</option>
+							<option value ="12101">Infusion of Flames</option>
+							<option value ="12201">Infusion of Frost</option>
+							<option value ="12301">Infusion of Lightning</option>
+							<option value ="12401">Infusion of Storms</option>
+							<option value ="12501">Infusion of Divinity</option>
+							<option value ="12601">Infusion of Darkness</option>
+							<option value ="13101">Scroll of Swiftness</option>
+							<option value ="13111">Scroll of Protection</option>
+							<option value ="13199">Scroll of the Avatar</option>
+							<option value ="13201">Scroll of Absorption</option>
+							<option value ="13211">Scroll of Shadows</option>
+							<option value ="13221">Scroll of Life</option>
+							<option value ="13299">Scroll of the Gods</option>
+							<option value ="19101">Soul Stone</option>
+							<option value ="19111">Flower Vase</option>
+							<option value ="19131">Bubble-Gum</option>
+							<option value ="20001">Precursor Artifact</option>
+							<option value ="30017">Holy Hand Grenade of Antioch</option>
+							<option value ="30018">Mithra's Flower</option>
+							<option value ="30019">Dalek Voicebox</option>
+							<option value ="30020">Lock of Blue Hair</option>
+							<option value ="30021">Bunny-Girl Costume</option>
+							<option value ="30022">Hinamatsuri Doll</option>
+							<option value ="30023">Broken Glasses</option>
+							<option value ="30032">Noodly Appendage</option>
+							<option value ="50001">Crystal of Vigor</option>
+							<option value ="50002">Crystal of Finesse</option>
+							<option value ="50003">Crystal of Swiftness</option>
+							<option value ="50004">Crystal of Fortitude</option>
+							<option value ="50005">Crystal of Cunning</option>
+							<option value ="50006">Crystal of Knowledge</option>
+							<option value ="50011">Crystal of Flames</option>
+							<option value ="50012">Crystal of Frost</option>
+							<option value ="50013">Crystal of Lightning</option>
+							<option value ="50014">Crystal of Tempest</option>
+							<option value ="50015">Crystal of Devotion</option>
+							<option value ="50016">Crystal of Corruption</option>
+							<option value ="51001">Monster Chow</option>
+							<option value ="51002">Monster Edibles</option>
+							<option value ="51003">Monster Cuisine</option>
+							<option value ="51011">Happy Pills</option>
+							<option value ="60001">Low-Grade Cloth</option>
+							<option value ="60002">Mid-Grade Cloth</option>
+							<option value ="60003">High-Grade Cloth</option>
+							<option value ="60004">Low-Grade Leather</option>
+							<option value ="60005">Mid-Grade Leather</option>
+							<option value ="60006">High-Grade Leather</option>
+							<option value ="60007">Low-Grade Metals</option>
+							<option value ="60008">Mid-Grade Metals</option>
+							<option value ="60009">High-Grade Metals</option>
+							<option value ="60010">Low-Grade Wood</option>
+							<option value ="60011">Mid-Grade Wood</option>
+							<option value ="60012">High-Grade Wood</option>
+							<option value ="60051">Scrap Cloth</option>
+							<option value ="60052">Scrap Leather</option>
+							<option value ="60053">Scrap Metal</option>
+							<option value ="60054">Scrap Wood</option>
+							<option value ="60101">Crystallized Phazon</option>
+							<option value ="60102">Shade Fragment</option>
+							<option value ="60104">Repurposed Actuator</option>
+							<option value ="60105">Defense Matrix Modulator</option>
+							<option value ="60201">Binding of Slaughter</option>
+							<option value ="60202">Binding of Balance</option>
+							<option value ="60203">Binding of Destruction</option>
+							<option value ="60204">Binding of Focus</option>
+							<option value ="60205">Binding of Protection</option>
+							<option value ="60206">Binding of the Fleet</option>
+							<option value ="60207">Binding of the Barrier</option>
+							<option value ="60208">Binding of the Nimble</option>
+							<option value ="60209">Binding of the Elementalist</option>
+							<option value ="60210">Binding of the Heaven-sent</option>
+							<option value ="60211">Binding of the Demon-fiend</option>
+							<option value ="60212">Binding of the Curse-weaver</option>
+							<option value ="60213">Binding of the Earth-walker</option>
+							<option value ="60215">Binding of Surtr</option>
+							<option value ="60216">Binding of Niflheim</option>
+							<option value ="60217">Binding of Mjolnir</option>
+							<option value ="60218">Binding of Freyr</option>
+							<option value ="60219">Binding of Heimdall</option>
+							<option value ="60220">Binding of Fenrir</option>
+							<option value ="60221">Binding of Dampening</option>
+							<option value ="60222">Binding of Stoneskin</option>
+							<option value ="60223">Binding of Deflection</option>
+							<option value ="60224">Binding of the Fire-eater</option>
+							<option value ="60225">Binding of the Frost-born</option>
+							<option value ="60226">Binding of the Thunder-child</option>
+							<option value ="60227">Binding of the Wind-waker</option>
+							<option value ="60228">Binding of the Thrice-blessed</option>
+							<option value ="60229">Binding of the Spirit-ward</option>
+							<option value ="60230">Binding of the Ox</option>
+							<option value ="60231">Binding of the Raccoon</option>
+							<option value ="60232">Binding of the Cheetah</option>
+							<option value ="60233">Binding of the Turtle</option>
+							<option value ="60234">Binding of the Fox</option>
+							<option value ="60235">Binding of the Owl</option>
+							<option value ="60236">Binding of Warding</option>
+							<option value ="60237">Binding of Negation</option>
+							<option value ="60238">Binding of Isaac</option>
+							<option value ="60239">Binding of Friendship</option>
+							<option value ="61001">Voidseeker Shard</option>
+							<option value ="61101">Aether Shard</option>
+							<option value ="61501">Featherweight Shard</option>
+							<option value ="65001">Amnesia Shard</option>
+							<option value ="70002">Rainbow Dash Figurine</option>
+							<option value ="70003">Applejack Figurine</option>
+							<option value ="70004">Fluttershy Figurine</option>
+							<option value ="70005">Pinkie Pie Figurine</option>
+							<option value ="70006">Rarity Figurine</option>
+							<option value ="70007">Trixie Figurine</option>
+							<option value ="70008">Princess Celestia Figurine</option>
+							<option value ="70009">Princess Luna Figurine</option>
+							<option value ="70010">Apple Bloom Figurine</option>
+							<option value ="70011">Scootaloo Figurine</option>
+							<option value ="70012">Sweetie Belle Figurine</option>
+							<option value ="70013">Big Macintosh Figurine</option>
+							<option value ="70015">Derpy Hooves Figurine</option>
+							<option value ="70016">Lyra Heartstrings Figurine</option>
+							<option value ="70017">Octavia Figurine</option>
+							<option value ="70018">Zecora Figurine</option>
+							<option value ="70019">Cheerilee Figurine</option>
+							<option value ="70020">Vinyl Scratch Figurine</option>
+							<option value ="70021">Daring Do Figurine</option>
+							<option value ="70022">Doctor Whooves Figurine</option>
+							<option value ="70023">Berry Punch Figurine</option>
+							<option value ="70024">Bon-Bon Figurine</option>
+							<option value ="70025">Fluffle Puff Figurine</option>
+							<option value ="70101">Angel Bunny Figurine</option>
+							<option value ="70102">Gummy Figurine</option>
+
+						</select></td>
+						<td>
+						<input type="text" class="nb" id="playid" value="896192"/>
+						</td>
+						<td>
+						<input type="text" class="nb" id="now_num" value="0"/>
+						</td>
+						<td>
+						<input type="text" class="nb" id="want_num" value="1"/>
+						</td>
+						<td>
+						<input type="text" class="nb" id="c"/>
+						</td>
+						<td>
+						<input type="text" class="nb" id="hath"/>
+						</td>
+						<td>
+						<input type="text" id="src" value="http://forums.e-hentai.org/"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div align="middle">
+			<input type="button" id="submit" value="Submit"/>
+			<label id="wait"></label>
+		</div>
+		<div align="middle" style="margin: 100px;">
+			<label id="output">[---]</label>
+		</div>
+
+	</body>
+</html>
