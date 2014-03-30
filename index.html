@@ -9,13 +9,11 @@
 		<link rel="stylesheet" href="css/demos.css">
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
-		<script type='text/javascript' src="js/jquery-1.10.2.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-           
                 /// jQuery UI
                 $("#add").button({
                     text : false,
@@ -86,7 +84,8 @@
                 });
                 $("#shuffle").button();
                 $("#repeat").buttonset();
-                // **** datatable
+                
+                // **** datatable ****
                  //$('#tbl').dataTable();
                 $('#tbl').dataTable({
                     "bProcessing" : true,
@@ -139,7 +138,7 @@
 	</head>
 	<label><a href="insert.html">Add My Order</a></label>
 	<div id="toolbar" class="ui-widget-header ui-corner-all">
-		<button id="add">
+		<button id="add" href="insert.html">
 			add bid
 		</button>
 		<button id="beginning">
