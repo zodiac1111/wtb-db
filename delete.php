@@ -1,15 +1,7 @@
 <?php
-
-$query = "INSERT 
-INTO
-   `wtb`.`wtb` (
-      `enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`
-   ) 
-VALUES
-   ('1', '11399', '', '1','1', '','','http://forums.e-hentai.org/');";
-$query = $_POST["query"];
-//echo "var jstext='$query'"; //输出一句JS语句,生成一个JS变量,并赋颠值为PHP变量 $query 的值
-//echo "var jstext='aa'";
+$wtbid = $_POST["wtbid"];
+$query="DELETE FROM `wtb`.`wtb` WHERE `idwtb`='".wtbid."';";
+//echo "var jstext='$query'";
 echo "var jstext=" . "'$query'";
 $link = mysql_connect("localhost", "root", "123456") or die("Could not connect");
 mysql_select_db("wtb") or die("Could not select database");
