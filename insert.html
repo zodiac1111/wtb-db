@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Add bid</title>
@@ -7,17 +6,35 @@
 			@import "css/demo_page.css";
 			@import "css/demo_table.css";
 		</style>
+		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
+		<link rel="stylesheet" href="css/demos.css">
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
-		<!--[if IE 6]>
-		<script src="js/DD_belatedPNG.js" mce_src="DD_belatedPNG.js"></script>
-		<script type="text/javascript">
-		DD_belatedPNG.fix('.english a,.chinese a,h1 a,.sidebar');
-		</script>
-		<![endif]-->
-		<script type="text/javascript">
+		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.spinner.js"></script>
+		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
+		<style>
+			#toolbar {
+				padding: 4px;
+				display: inline-block;
+			}
+			/* support: IE7 */
+			*+ html #toolbar {
+				display: inline;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-				$('#tbl').dataTable();
+                $(".nb").spinner({min:0});
+				//$("#now_num").spinner({min:0});
+               // $("#want_num").spinner({min:1});
+               // $("#c").spinner({min:0});
+               // $("#hath").spinner({min:0});
+                $('#tbl').dataTable({
+                    "bJQueryUI" : true
+                });
                 $("#submit").click(function() {
                     $.ajax({
                         type : "post",
@@ -27,12 +44,12 @@
                         data : "query=" + gettext(),
                         beforeSend : function(XMLHttpRequest) {
                             //alert("提交");
-							$("#wait").val="waitng";
+                            $("#wait").val = "waitng";
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
                             //alert("return:" + data);
-							$("#wait").val="OK";
+                            $("#wait").val = "OK";
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
                             alert("ERR:" + XMLHttpRequest.responseText);
@@ -60,14 +77,15 @@
 	</head>
 
 	<body>
-			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="80%">
+		<div>
+			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="5%">Enable[yes]</th>
+					<th width="9%">Enable[yes]</th>
 					<th width="18%">Item</th>
 					<th width="16%">PlayID/Name</th>
-					<th width="5%">now num[0]</th>
-					<th width="5%">want num[1]</th>
-					<th width="10%">C[null]</th>
+					<th width="12%">now num[0]</th>
+					<th width="12%">want num[1]</th>
+					<th width="5%">C[null]</th>
 					<th width="5%">Hath[null]</th>
 					<th>Src[bbslink]</th>
 				</thead>
@@ -224,33 +242,35 @@
 
 						</select></td>
 						<td>
-						<input type="text" class="nb" id="playid" value="896192"/>
+						<input style="width:100%" type="text" class="nb" id="playid" value="896192" />
 						</td>
 						<td>
-						<input type="text" class="nb" id="now_num" value="0"/>
+						<input style="width:100%" type="text" class="nb" id="now_num" value="0"/>
 						</td>
 						<td>
-						<input type="text" class="nb" id="want_num" value="1"/>
+						<input style="width:100%" type="text" class="nb" id="want_num" value="1"/>
 						</td>
 						<td>
-						<input type="text" class="nb" id="c"/>
+						<input style="width:100%" type="text" class="nb" id="c"/>
 						</td>
 						<td>
-						<input type="text" class="nb" id="hath"/>
+						<input style="width:100%" type="text" class="nb" id="hath"/>
 						</td>
 						<td>
-						<input type="text" id="src" value="http://forums.e-hentai.org/"/>
+						<input style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/"/>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-		<p align="middle">
-			<input type="button" id="submit" value="Submit"/>
-			<label id="wait"></label>
-		</p>
-		<p align="middle" style="margin: 100px;">
-			<code id="output">[---]</code>
-		</p>
-
+			<p align="middle">
+				<input type="button" id="submit" value="Submit"/>
+				<label id="wait"></label>
+			</p>
+			<p align="middle" style="margin: 100px;">
+				<code id="output">
+					[---]
+				</code>
+			</p>
+		</div>
 	</body>
 </html>
