@@ -1,7 +1,7 @@
 <?php
 //PHP手册中的PHP连接Mysql的实例
 // 连接选择数据库
-$link = mysql_connect("localhost", "root", "123456") or die("Could not connect");
+$link = mysql_connect("127.0.0.1", "root", "123456") or die("Could not connect");
 
 mysql_select_db("wtb") or die("Could not select database");
 // 执行 SQL 查询
