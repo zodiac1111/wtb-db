@@ -34,10 +34,15 @@
                 // $("#want_num").spinner({min:1});
                 // $("#c").spinner({min:0});
                 // $("#hath").spinner({min:0});
-                $("#submit").button({
-                    text : false,
+                $("#home").button({
                     icons : {
-                        primary : "ui-icon-seek-start"
+                        primary : "ui-icon-home"
+                    }.click(function() {
+                    top.location.href = "/index.html";
+                });
+                $("#submit").button({
+                    icons : {
+                        primary : "ui-icon-circle-plus"
                     }
                 }).click(function() {
                     // 点击事件
@@ -49,14 +54,15 @@
                         data : "query=" + gettext(),
                         beforeSend : function(XMLHttpRequest) {
                             //alert("提交");
-                            $("#wait").val = "waitng";
+                            $("#wait")[0].textContent = "waitng";
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
                             //alert("return:" + data);
-                            $("#wait").val = "OK";
+                            $("#wait")[0].textContent = "OK";
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        	$("#wait")[0].textContent = "ERR";
                             alert("ERR:" + XMLHttpRequest.responseText);
                         }
                     });
@@ -269,10 +275,13 @@
 				</tbody>
 			</table>
 			<p align="middle">
+				<button id="home" value="Submit">
+					home
+				</button>
 				<button id="submit" value="Submit">
 					submit
 				</button>
-				<label id="wait"></label>
+				<label id="wait">status</label>
 			</p>
 			<p align="middle" style="margin: 100px;">
 				<code id="output">
