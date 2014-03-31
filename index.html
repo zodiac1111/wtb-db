@@ -25,10 +25,16 @@
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
                 /// jQuery UI
-                $("#add").button({
-                    text : false,
+                $("#home").button({
                     icons : {
-                        primary : "ui-icon-plus"
+                        primary : "ui-icon-home"
+                    }
+				}).click(function() {
+                    top.location.href = "/index.html";
+                });
+                $("#add").button({
+                    icons : {
+                        primary : "ui-icon-circle-plus"
                     }
                 }).click(function() {
                     top.location.href = "/insert.html";
@@ -167,8 +173,11 @@
 	<div>
 		<div align="right">
 		<div id="toolbar" class="ui-widget-header ui-corner-all">
+			<button id="home" value="Submit">
+				Home
+			</button>
 			<button id="add">
-				add bid
+				Insert
 			</button>
 			<button id="beginning">
 				go to beginning
