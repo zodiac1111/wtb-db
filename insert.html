@@ -14,6 +14,11 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.spinner.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.dialog.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.resizable.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.draggable.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.mouse.js"></script>
 		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
 		<style>
 			#toolbar {
@@ -27,22 +32,23 @@
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
+				qitem();
+				qplayer();
                 $(".nb").spinner({
                     min : 0
                 });
-                //$("#now_num").spinner({min:0});
-                // $("#want_num").spinner({min:1});
-                // $("#c").spinner({min:0});
-                // $("#hath").spinner({min:0});
-                $(".add").button({
+  			    $(".btn").button();
+                $("#add_player").button({
 					text : false,
                     icons : {
                         primary : "ui-icon-circle-plus"
                     }
 				}).click(function() {
-					//  增加玩家
-                    ;
+					  $( "#dialog" ).dialog( "open" );
                 });
+				$( "#btnCal" ).click(function() {
+     				 $( "#dialog" ).dialog( "close" );
+   				});
 				$("#home").button({
                     icons : {
                         primary : "ui-icon-home"
@@ -80,7 +86,57 @@
                 $('#tbl').dataTable({
                     "bJQueryUI" : true
                 });
+			  $( "#dialog" ).dialog({
+				 // height: 200,
+				 	 modal: true,
+					autoOpen: false,
+				});
             });
+function qitem(){
+ $.ajax({
+                        type : "post",
+                        url : "qitem.php",
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType : "text",
+                        data : "",
+                        beforeSend : function(XMLHttpRequest) {
+                            //alert("提交");
+                            $("#wait")[0].textContent = "waitng";
+                        },
+                        //成功(先成功,后完成)
+                        success : function(data, textStatus) {
+                            alert("return:" + data);
+                            $("#wait")[0].textContent = "OK";
+						
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        	$("#wait")[0].textContent = "ERR";
+                            alert("ERR:" + XMLHttpRequest.responseText);
+                        }
+                    });
+}
+function qplayer(){
+                      type : "post",
+                        url : "qplayer.php",
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType : "text",
+                        data : "",
+                        beforeSend : function(XMLHttpRequest) {
+                            //alert("提交");
+                            $("#wait")[0].textContent = "waitng";
+                        },
+                        //成功(先成功,后完成)
+                        success : function(data, textStatus) {
+                            alert("return:" + data);
+                            $("#wait")[0].textContent = "OK";
+						
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        	$("#wait")[0].textContent = "ERR";
+                            alert("ERR:" + XMLHttpRequest.responseText);
+                        }
+                    });
+})
             function gettext() {
                 enable = "1";
                 iditem = $("#itemid")[0].value;
@@ -277,7 +333,6 @@
 							<option value ="70025">Fluffle Puff Figurine</option>
 							<option value ="70101">Angel Bunny Figurine</option>
 							<option value ="70102">Gummy Figurine</option>
-
 						</select></td>
 						<td>
 						<input style="width:100%" type="text" class="nb" id="playid" value="896192" />
@@ -306,5 +361,19 @@
 				</code>
 			</p>
 		</div>
+	<div id="dialog" title="Add player" >
+		<div align="middle">
+		<label for="name">Player Name</label></br>
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"></br>
+		<label for="email">Player ID[?]</label></br>
+		<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all"></br>
+		<button id="btnAdd" class="btn">
+			Add
+		</button>
+		<button id="btnCal" class="btn">
+			Cancel
+		</button>
+		</div>
+	</div>
 	</body>
 </html>
