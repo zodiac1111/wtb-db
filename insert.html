@@ -35,6 +35,7 @@
                 // $("#c").spinner({min:0});
                 // $("#hath").spinner({min:0});
                 $(".add").button({
+					text : false,
                     icons : {
                         primary : "ui-icon-circle-plus"
                     }
@@ -98,7 +99,7 @@
 	</head>
 
 	<body>
-		<p align="right">
+		<div align="right">
 			<label id="wait"></label>
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
 				<button id="home" value="Submit">
@@ -107,8 +108,9 @@
 				<button id="submit" value="Submit">
 					submit
 				</button>
-			<div>
-		</p>
+			</div>
+		</div>
+		<p></p>
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
@@ -119,9 +121,9 @@
 							Add Player
 						</button>
 					</th>
-					<th width="12%">now num[0]</th>
-					<th width="12%">want num[1]</th>
-					<th width="5%">C[null]</th>
+					<th width="12%">now Qty.</th>
+					<th width="12%">want Qty.</th>
+					<th width="5%">Credit[null]</th>
 					<th width="5%">Hath[null]</th>
 					<th>Src[bbslink]</th>
 				</thead>
