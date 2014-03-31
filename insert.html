@@ -34,7 +34,15 @@
                 // $("#want_num").spinner({min:1});
                 // $("#c").spinner({min:0});
                 // $("#hath").spinner({min:0});
-                $("#home").button({
+                $(".add").button({
+                    icons : {
+                        primary : "ui-icon-circle-plus"
+                    }
+				}).click(function() {
+					//  增加玩家
+                    ;
+                });
+				$("#home").button({
                     icons : {
                         primary : "ui-icon-home"
                     }
@@ -43,7 +51,7 @@
                 });
                 $("#submit").button({
                     icons : {
-                        primary : "ui-icon-circle-plus"
+                        primary : "ui-icon-check"
                     }
                 }).click(function() {
                     // 点击事件
@@ -106,7 +114,11 @@
 				<thead>
 					<th width="9%">Enable[yes]</th>
 					<th width="18%">Item</th>
-					<th width="16%">PlayID/Name</th>
+					<th width="16%">PlayID/Name
+						<button id="add_player" class="add">
+							Add Player
+						</button>
+					</th>
 					<th width="12%">now num[0]</th>
 					<th width="12%">want num[1]</th>
 					<th width="5%">C[null]</th>
