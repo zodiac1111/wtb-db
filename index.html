@@ -29,7 +29,7 @@
                     icons : {
                         primary : "ui-icon-home"
                     }
-				}).click(function() {
+                }).click(function() {
                     top.location.href = "/index.html";
                 });
                 $("#add").button({
@@ -170,66 +170,67 @@
             });
 		</script>
 	</head>
-	<div>
-		<div align="right">
-		<div id="toolbar" class="ui-widget-header ui-corner-all">
-			<button id="home" value="Submit">
-				Home
-			</button>
-			<button id="add">
-				Insert
-			</button>
-			<button id="beginning">
-				go to beginning
-			</button>
-			<button id="rewind">
-				rewind
-			</button>
-			<button id="play">
-				play
-			</button>
-			<button id="stop">
-				stop
-			</button>
-			<button id="forward">
-				fast forward
-			</button>
-			<button id="end">
-				go to end
-			</button>
-
-			<input type="checkbox" id="shuffle" />
-			<label for="shuffle">Shuffle</label>
-
-			<span id="repeat">
-				<input type="radio" id="repeat0" name="repeat" checked="checked" />
-				<label for="repeat0">No Repeat</label>
-				<input type="radio" id="repeat1" name="repeat" />
-				<label for="repeat1">Once</label>
-				<input type="radio" id="repeatall" name="repeat" />
-				<label for="repeatall">All</label> </span>
-		</div>
+	<body>
 		<div>
-		<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
-			<thead>
-				<tr>
-					<th width="5%">ID</th>
-					<th width="18%">Item name</th>
-					<th width="16%">Player name</th>
-					<th width="10%">Credit</th>
-					<th width="8%">Hath</th>
-					<th width="8%">Quantityt</th>
-					<th>Ref.</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan="7" class="dataTables_empty">Loading data from server</td>
-				</tr>
-			</tbody>
-		</table>
-		<label>json format data : q1.php </label>
-		<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
-		<div>
-			</body>
+			<div align="right">
+				<div id="toolbar" class="ui-widget-header ui-corner-all">
+					<button id="home" value="Submit">
+						Home
+					</button>
+					<button id="add">
+						Insert
+					</button>
+					<button id="beginning">
+						go to beginning
+					</button>
+					<button id="rewind">
+						rewind
+					</button>
+					<button id="play">
+						play
+					</button>
+					<button id="stop">
+						stop
+					</button>
+					<button id="forward">
+						fast forward
+					</button>
+					<button id="end">
+						go to end
+					</button>
+
+					<input type="checkbox" id="shuffle" />
+					<label for="shuffle">Shuffle</label>
+
+					<span id="repeat">
+						<input type="radio" id="repeat0" name="repeat" checked="checked" />
+						<label for="repeat0">No Repeat</label>
+						<input type="radio" id="repeat1" name="repeat" />
+						<label for="repeat1">Once</label>
+						<input type="radio" id="repeatall" name="repeat" />
+						<label for="repeatall">All</label> </span>
+				</div>
+				<div>
+					<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
+						<thead>
+							<tr>
+								<th width="5%">ID</th>
+								<th width="18%">Item name</th>
+								<th width="16%">Player name</th>
+								<th width="10%">Credit</th>
+								<th width="8%">Hath</th>
+								<th width="8%">Quantityt</th>
+								<th>Ref.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="7" class="dataTables_empty">Loading data from server</td>
+							</tr>
+						</tbody>
+					</table>
+					<label>json format data : q1.php </label>
+					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+					<div>
+	</body>
 </html>
