@@ -36,8 +36,12 @@
                 qitem();
                 qplayer();
                 $(".nb").spinner({
-                    min : 0
+                    min : -1
                 });
+                $("#c").spinner({
+                    min : 0,
+					step: 1000,
+                })
                 $(".btn").button();
                 $("#add_player").button({
                     text : false,
