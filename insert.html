@@ -21,6 +21,7 @@
 		<script src="js/ui/jquery.ui.spinner.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
 		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
+		<script type='text/javascript' src="js/external/globalize.js"></script>
 		<style>
 			#toolbar {
 				padding: 4px;
@@ -41,6 +42,11 @@
                 $("#c").spinner({
                     min : 0,
 					step: 1000,
+					numberFormat: "n0"
+                })
+				$("#hath").spinner({
+                    min : -1,
+					numberFormat: "n0"
                 })
                 $(".btn").button();
                 $("#add_player").button({
