@@ -10,15 +10,15 @@
 		<link rel="stylesheet" href="css/demos.css">
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.spinner.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.dialog.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.resizable.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.draggable.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.mouse.js"></script>
+		<script src="js/ui/jquery.ui.core.js"></script>
+		<script src="js/ui/jquery.ui.widget.js"></script>
+		<script src="js/ui/jquery.ui.mouse.js"></script>
+		<script src="js/ui/jquery.ui.draggable.js"></script>
+		<script src="js/ui/jquery.ui.position.js"></script>
+		<script src="js/ui/jquery.ui.resizable.js"></script>
+		<script src="js/ui/jquery.ui.button.js"></script>
+		<script src="js/ui/jquery.ui.dialog.js"></script>
+		<script src="js/ui/jquery.ui.spinner.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
 		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
 		<style>
@@ -47,6 +47,33 @@
                 }).click(function() {
                     $("#dialog").dialog("open");
                 });
+                $("#btnAdd").button({
+                    text : false
+                }).click(function() {
+                      $.ajax({
+		                type : "post",
+		                url : "addplayer.php",
+		                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+		                dataType : "text",
+		                data : "id="+ $("#id")[0].value+"&name="+$("#name")[0].value,
+		                beforeSend : function(XMLHttpRequest) {
+		                    //alert("提交");
+		                    $("#wait")[0].textContent = "waitng";
+		                },
+		                //成功(先成功,后完成)
+		                success : function(data, textStatus) {
+							//alert(data);
+		                    $("#wait")[0].textContent = "OK";
+							$("#dialog").dialog("close");
+							qplayer();
+		                },
+		                error : function(XMLHttpRequest, textStatus, errorThrown) {
+		                    $("#wait")[0].textContent = "ERR";
+		                    alert("ERR:" + XMLHttpRequest.responseText);
+		                }
+		            });
+                });
+
                 $("#btnCal").click(function() {
                     $("#dialog").dialog("close");
                 });
@@ -101,7 +128,6 @@
                     dataType : "json",
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
-                        //alert("提交");
                         $("#wait")[0].textContent = "waitng";
                     },
                     //成功(先成功,后完成)
@@ -112,6 +138,8 @@
 							.append('<option value="'+data[i].iditem+'">'
 								+data[i].item_name+'</option>');
 						}
+						$("#itemid_load").hide();
+						$("#itemid").show();
                     },
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                         $("#wait")[0].textContent = "ERR";
@@ -128,7 +156,6 @@
                     dataType : "json",
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
-                        //alert("提交");
                         $("#wait")[0].textContent = "waitng";
                     },
                     //成功(先成功,后完成)
@@ -139,6 +166,8 @@
 							.append('<option value="'+data[i].idplay+'">'
 								+data[i].play_name+'</option>');
 						}
+						$("#player_load").hide();
+						$("#player").show();
                     },
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                         $("#wait")[0].textContent = "ERR";
@@ -179,7 +208,7 @@
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="9%">Enable[yes]</th>
+					<th width="9%" title="有效">Enable</th>
 					<th width="18%">Item</th>
 					<th width="16%" title="选择您的名称">PlayerName
 					<button id="add_player" class="add">
@@ -194,29 +223,31 @@
 				<tbody>
 					<tr>
 						<td>
-						<input type="checkbox" checked class="chitic enb checked"  />
+						<input type="checkbox" checked class="chitic enb checked"  align="middle"/>
 						</td>
 						<td>
-						<select id="itemid">
+						<label id="itemid_load">Loading Item List</label>
+						<select id="itemid"  align="middle" style="display:none;" >
 						</select></td>
 						<td>
-						<select id="player">
+						<label id="player_load">Loading Item List</label>
+						<select id="player"  align="middle" style="display:none;">
 						</select>
 						</td>
 						<td>
-						<input style="width:100%" type="text" class="nb" id="now_num" value="0"/>
+						<input  align="middle" style="width:100%" type="text" class="nb" id="now_num" value="0"/>
 						</td>
 						<td>
-						<input style="width:100%" type="text" class="nb" id="want_num" value="1"/>
+						<input  align="middle" style="width:100%" type="text" class="nb" id="want_num" value="1"/>
 						</td>
 						<td>
-						<input style="width:100%" type="text" class="nb" id="c"/>
+						<input  align="middle" style="width:100%" type="text" class="nb" id="c"/>
 						</td>
 						<td>
-						<input style="width:100%" type="text" class="nb" id="hath"/>
+						<input  align="middle" style="width:100%" type="text" class="nb" id="hath"/>
 						</td>
 						<td>
-						<input style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/"/>
+						<input  align="middle" style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/"/>
 						</td>
 					</tr>
 				</tbody>
@@ -235,7 +266,7 @@
 				<label for="email">Player ID[?]</label></br>
 				<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all">
 				</br>
-				<button id="btnAdd" class="btn">
+				<button id="btnAdd" class="btn" title="增加至玩家名称列表">
 					Add
 				</button>
 				<button id="btnCal" class="btn">
