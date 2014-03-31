@@ -64,6 +64,9 @@
 		                success : function(data, textStatus) {
 							//alert(data);
 		                    $("#wait")[0].textContent = "OK";
+							$("#player").textContent=""
+							$("#player").hide();
+							$("#player_load").show();
 							$("#dialog").dialog("close");
 							qplayer();
 		                },
@@ -226,11 +229,11 @@
 						<input type="checkbox" checked class="chitic enb checked"  align="middle"/>
 						</td>
 						<td>
-						<label id="itemid_load">Loading Item List</label>
+						<label id="itemid_load">Loading Item List ...</label>
 						<select id="itemid"  align="middle" style="display:none;" >
 						</select></td>
 						<td>
-						<label id="player_load">Loading Item List</label>
+						<label id="player_load">Loading Player List ...</label>
 						<select id="player"  align="middle" style="display:none;">
 						</select>
 						</td>
