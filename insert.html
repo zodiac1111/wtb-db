@@ -193,10 +193,10 @@
                 enable = "1";
                 iditem = $("#itemid").val();
                 idplayer = $("#player").val();
-                num_now = $("#now_num")[0].value;
-                num_want = $("#want_num")[0].value;
-                c = $("#c")[0].value;
-                hath = $("#hath")[0].value;
+                num_now = $("#now_num")[0].value.replace(/[^0-9\.]+/g,"");
+                num_want = $("#want_num")[0].value.replace(/[^0-9\.]+/g,"");
+                c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
+                hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 src = $("#src")[0].value;
 
                 var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '" + num_now + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
