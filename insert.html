@@ -19,6 +19,7 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.draggable.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.mouse.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
 		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
 		<style>
 			#toolbar {
@@ -32,28 +33,28 @@
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-				qitem();
-				qplayer();
+                qitem();
+                qplayer();
                 $(".nb").spinner({
                     min : 0
                 });
-  			    $(".btn").button();
+                $(".btn").button();
                 $("#add_player").button({
-					text : false,
+                    text : false,
                     icons : {
                         primary : "ui-icon-circle-plus"
                     }
-				}).click(function() {
-					  $( "#dialog" ).dialog( "open" );
+                }).click(function() {
+                    $("#dialog").dialog("open");
                 });
-				$( "#btnCal" ).click(function() {
-     				 $( "#dialog" ).dialog( "close" );
-   				});
-				$("#home").button({
+                $("#btnCal").click(function() {
+                    $("#dialog").dialog("close");
+                });
+                $("#home").button({
                     icons : {
                         primary : "ui-icon-home"
                     }
-				}).click(function() {
+                }).click(function() {
                     top.location.href = "/index.html";
                 });
                 $("#submit").button({
@@ -78,7 +79,7 @@
                             $("#wait")[0].textContent = "OK";
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
-                        	$("#wait")[0].textContent = "ERR";
+                            $("#wait")[0].textContent = "ERR";
                             alert("ERR:" + XMLHttpRequest.responseText);
                         }
                     });
@@ -86,61 +87,69 @@
                 $('#tbl').dataTable({
                     "bJQueryUI" : true
                 });
-			  $( "#dialog" ).dialog({
-				 // height: 200,
-				 	 modal: true,
-					autoOpen: false,
-				});
+                $("#dialog").dialog({
+                    // height: 200,
+                    modal : true,
+                    autoOpen : false,
+                });
             });
-function qitem(){
- $.ajax({
-                        type : "post",
-                        url : "qitem.php",
-                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                        dataType : "text",
-                        data : "",
-                        beforeSend : function(XMLHttpRequest) {
-                            //alert("提交");
-                            $("#wait")[0].textContent = "waitng";
-                        },
-                        //成功(先成功,后完成)
-                        success : function(data, textStatus) {
-                            alert("return:" + data);
-                            $("#wait")[0].textContent = "OK";
-						
-                        },
-                        error : function(XMLHttpRequest, textStatus, errorThrown) {
-                        	$("#wait")[0].textContent = "ERR";
-                            alert("ERR:" + XMLHttpRequest.responseText);
-                        }
-                    });
-}
-function qplayer(){
-                      type : "post",
-                        url : "qplayer.php",
-                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                        dataType : "text",
-                        data : "",
-                        beforeSend : function(XMLHttpRequest) {
-                            //alert("提交");
-                            $("#wait")[0].textContent = "waitng";
-                        },
-                        //成功(先成功,后完成)
-                        success : function(data, textStatus) {
-                            alert("return:" + data);
-                            $("#wait")[0].textContent = "OK";
-						
-                        },
-                        error : function(XMLHttpRequest, textStatus, errorThrown) {
-                        	$("#wait")[0].textContent = "ERR";
-                            alert("ERR:" + XMLHttpRequest.responseText);
-                        }
-                    });
-})
+            function qitem() {
+                $.ajax({
+                    type : "post",
+                    url : "qitem.php",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    dataType : "json",
+                    data : "",
+                    beforeSend : function(XMLHttpRequest) {
+                        //alert("提交");
+                        $("#wait")[0].textContent = "waitng";
+                    },
+                    //成功(先成功,后完成)
+                    success : function(data, textStatus) {
+                        $("#wait")[0].textContent = "OK";
+						for (i=0;i<data.length;i++) {
+							$("#itemid")
+							.append('<option value="'+data[i].iditem+'">'
+								+data[i].item_name+'</option>');
+						}
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        $("#wait")[0].textContent = "ERR";
+                        alert("ERR:" + XMLHttpRequest.responseText);
+                    }
+                });
+            }
+
+            function qplayer() {
+                $.ajax({
+                    type : "post",
+                    url : "qplayer.php",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    dataType : "json",
+                    data : "",
+                    beforeSend : function(XMLHttpRequest) {
+                        //alert("提交");
+                        $("#wait")[0].textContent = "waitng";
+                    },
+                    //成功(先成功,后完成)
+                    success : function(data, textStatus) {
+                        $("#wait")[0].textContent = "OK";
+						for (i=0;i<data.length;i++) {
+							$("#player")
+							.append('<option value="'+data[i].idplay+'">'
+								+data[i].play_name+'</option>');
+						}
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        $("#wait")[0].textContent = "ERR";
+                        alert("ERR:" + XMLHttpRequest.responseText);
+                    }
+                });
+            }
             function gettext() {
                 enable = "1";
-                iditem = $("#itemid")[0].value;
-                idplayer = $("#playid")[0].value;
+                iditem = $("#itemid").val();
+                idplayer = $("#player").val();
                 num_now = $("#now_num")[0].value;
                 num_want = $("#want_num")[0].value;
                 c = $("#c")[0].value;
@@ -158,10 +167,10 @@ function qplayer(){
 		<div align="right">
 			<label id="wait"></label>
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
-				<button id="home" value="Submit">
+				<button id="home" value="Submit" title="返回主页">
 					home
 				</button>
-				<button id="submit" value="Submit">
+				<button id="submit" value="Submit"  title="提交修改">
 					submit
 				</button>
 			</div>
@@ -172,15 +181,14 @@ function qplayer(){
 				<thead>
 					<th width="9%">Enable[yes]</th>
 					<th width="18%">Item</th>
-					<th width="16%">PlayID/Name
-						<button id="add_player" class="add">
-							Add Player
-						</button>
-					</th>
-					<th width="12%">now Qty.</th>
-					<th width="12%">want Qty.</th>
-					<th width="5%">Credit[null]</th>
-					<th width="5%">Hath[null]</th>
+					<th width="16%" title="选择您的名称">PlayerName
+					<button id="add_player" class="add">
+						Add Player
+					</button></th>
+					<th width="12%" title="目前拥有的数量(可选)">now Qty.</th>
+					<th width="12%" title="希望购买的数量(最小为1)">want Qty.</th>
+					<th width="5%" title="留空表示不接受Credit为付款方式">Credit</th>
+					<th width="5%" title="留空表示不接受Hath为付款方式">Hath</th>
 					<th>Src[bbslink]</th>
 				</thead>
 				<tbody>
@@ -190,152 +198,10 @@ function qplayer(){
 						</td>
 						<td>
 						<select id="itemid">
-							<option value ="11112">Lesser Health Potion</option>
-							<option value ="11114">Greater Health Potion</option>
-							<option value ="11116">Heroic Health Potion</option>
-							<option value ="11199">Health Elixir</option>
-							<option value ="11212">Lesser Mana Potion</option>
-							<option value ="11214">Greater Mana Potion</option>
-							<option value ="11215">Superior Mana Potion</option>
-							<option value ="11216">Heroic Mana Potion</option>
-							<option value ="11299">Mana Elixir</option>
-							<option value ="11312">Lesser Spirit Potion</option>
-							<option value ="11314">Greater Spirit Potion</option>
-							<option value ="11316">Heroic Spirit Potion</option>
-							<option value ="11399">Spirit Elixir</option>
-							<option value ="11401">Energy Drink</option>
-							<option value ="11501">Last Elixir</option>
-							<option value ="12101">Infusion of Flames</option>
-							<option value ="12201">Infusion of Frost</option>
-							<option value ="12301">Infusion of Lightning</option>
-							<option value ="12401">Infusion of Storms</option>
-							<option value ="12501">Infusion of Divinity</option>
-							<option value ="12601">Infusion of Darkness</option>
-							<option value ="13101">Scroll of Swiftness</option>
-							<option value ="13111">Scroll of Protection</option>
-							<option value ="13199">Scroll of the Avatar</option>
-							<option value ="13201">Scroll of Absorption</option>
-							<option value ="13211">Scroll of Shadows</option>
-							<option value ="13221">Scroll of Life</option>
-							<option value ="13299">Scroll of the Gods</option>
-							<option value ="19101">Soul Stone</option>
-							<option value ="19111">Flower Vase</option>
-							<option value ="19131">Bubble-Gum</option>
-							<option value ="20001">Precursor Artifact</option>
-							<option value ="30017">Holy Hand Grenade of Antioch</option>
-							<option value ="30018">Mithra's Flower</option>
-							<option value ="30019">Dalek Voicebox</option>
-							<option value ="30020">Lock of Blue Hair</option>
-							<option value ="30021">Bunny-Girl Costume</option>
-							<option value ="30022">Hinamatsuri Doll</option>
-							<option value ="30023">Broken Glasses</option>
-							<option value ="30032">Noodly Appendage</option>
-							<option value ="50001">Crystal of Vigor</option>
-							<option value ="50002">Crystal of Finesse</option>
-							<option value ="50003">Crystal of Swiftness</option>
-							<option value ="50004">Crystal of Fortitude</option>
-							<option value ="50005">Crystal of Cunning</option>
-							<option value ="50006">Crystal of Knowledge</option>
-							<option value ="50011">Crystal of Flames</option>
-							<option value ="50012">Crystal of Frost</option>
-							<option value ="50013">Crystal of Lightning</option>
-							<option value ="50014">Crystal of Tempest</option>
-							<option value ="50015">Crystal of Devotion</option>
-							<option value ="50016">Crystal of Corruption</option>
-							<option value ="51001">Monster Chow</option>
-							<option value ="51002">Monster Edibles</option>
-							<option value ="51003">Monster Cuisine</option>
-							<option value ="51011">Happy Pills</option>
-							<option value ="60001">Low-Grade Cloth</option>
-							<option value ="60002">Mid-Grade Cloth</option>
-							<option value ="60003">High-Grade Cloth</option>
-							<option value ="60004">Low-Grade Leather</option>
-							<option value ="60005">Mid-Grade Leather</option>
-							<option value ="60006">High-Grade Leather</option>
-							<option value ="60007">Low-Grade Metals</option>
-							<option value ="60008">Mid-Grade Metals</option>
-							<option value ="60009">High-Grade Metals</option>
-							<option value ="60010">Low-Grade Wood</option>
-							<option value ="60011">Mid-Grade Wood</option>
-							<option value ="60012">High-Grade Wood</option>
-							<option value ="60051">Scrap Cloth</option>
-							<option value ="60052">Scrap Leather</option>
-							<option value ="60053">Scrap Metal</option>
-							<option value ="60054">Scrap Wood</option>
-							<option value ="60101">Crystallized Phazon</option>
-							<option value ="60102">Shade Fragment</option>
-							<option value ="60104">Repurposed Actuator</option>
-							<option value ="60105">Defense Matrix Modulator</option>
-							<option value ="60201">Binding of Slaughter</option>
-							<option value ="60202">Binding of Balance</option>
-							<option value ="60203">Binding of Destruction</option>
-							<option value ="60204">Binding of Focus</option>
-							<option value ="60205">Binding of Protection</option>
-							<option value ="60206">Binding of the Fleet</option>
-							<option value ="60207">Binding of the Barrier</option>
-							<option value ="60208">Binding of the Nimble</option>
-							<option value ="60209">Binding of the Elementalist</option>
-							<option value ="60210">Binding of the Heaven-sent</option>
-							<option value ="60211">Binding of the Demon-fiend</option>
-							<option value ="60212">Binding of the Curse-weaver</option>
-							<option value ="60213">Binding of the Earth-walker</option>
-							<option value ="60215">Binding of Surtr</option>
-							<option value ="60216">Binding of Niflheim</option>
-							<option value ="60217">Binding of Mjolnir</option>
-							<option value ="60218">Binding of Freyr</option>
-							<option value ="60219">Binding of Heimdall</option>
-							<option value ="60220">Binding of Fenrir</option>
-							<option value ="60221">Binding of Dampening</option>
-							<option value ="60222">Binding of Stoneskin</option>
-							<option value ="60223">Binding of Deflection</option>
-							<option value ="60224">Binding of the Fire-eater</option>
-							<option value ="60225">Binding of the Frost-born</option>
-							<option value ="60226">Binding of the Thunder-child</option>
-							<option value ="60227">Binding of the Wind-waker</option>
-							<option value ="60228">Binding of the Thrice-blessed</option>
-							<option value ="60229">Binding of the Spirit-ward</option>
-							<option value ="60230">Binding of the Ox</option>
-							<option value ="60231">Binding of the Raccoon</option>
-							<option value ="60232">Binding of the Cheetah</option>
-							<option value ="60233">Binding of the Turtle</option>
-							<option value ="60234">Binding of the Fox</option>
-							<option value ="60235">Binding of the Owl</option>
-							<option value ="60236">Binding of Warding</option>
-							<option value ="60237">Binding of Negation</option>
-							<option value ="60238">Binding of Isaac</option>
-							<option value ="60239">Binding of Friendship</option>
-							<option value ="61001">Voidseeker Shard</option>
-							<option value ="61101">Aether Shard</option>
-							<option value ="61501">Featherweight Shard</option>
-							<option value ="65001">Amnesia Shard</option>
-							<option value ="70002">Rainbow Dash Figurine</option>
-							<option value ="70003">Applejack Figurine</option>
-							<option value ="70004">Fluttershy Figurine</option>
-							<option value ="70005">Pinkie Pie Figurine</option>
-							<option value ="70006">Rarity Figurine</option>
-							<option value ="70007">Trixie Figurine</option>
-							<option value ="70008">Princess Celestia Figurine</option>
-							<option value ="70009">Princess Luna Figurine</option>
-							<option value ="70010">Apple Bloom Figurine</option>
-							<option value ="70011">Scootaloo Figurine</option>
-							<option value ="70012">Sweetie Belle Figurine</option>
-							<option value ="70013">Big Macintosh Figurine</option>
-							<option value ="70015">Derpy Hooves Figurine</option>
-							<option value ="70016">Lyra Heartstrings Figurine</option>
-							<option value ="70017">Octavia Figurine</option>
-							<option value ="70018">Zecora Figurine</option>
-							<option value ="70019">Cheerilee Figurine</option>
-							<option value ="70020">Vinyl Scratch Figurine</option>
-							<option value ="70021">Daring Do Figurine</option>
-							<option value ="70022">Doctor Whooves Figurine</option>
-							<option value ="70023">Berry Punch Figurine</option>
-							<option value ="70024">Bon-Bon Figurine</option>
-							<option value ="70025">Fluffle Puff Figurine</option>
-							<option value ="70101">Angel Bunny Figurine</option>
-							<option value ="70102">Gummy Figurine</option>
 						</select></td>
 						<td>
-						<input style="width:100%" type="text" class="nb" id="playid" value="896192" />
+						<select id="player">
+						</select>
 						</td>
 						<td>
 						<input style="width:100%" type="text" class="nb" id="now_num" value="0"/>
@@ -361,19 +227,21 @@ function qplayer(){
 				</code>
 			</p>
 		</div>
-	<div id="dialog" title="Add player" >
-		<div align="middle">
-		<label for="name">Player Name</label></br>
-		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"></br>
-		<label for="email">Player ID[?]</label></br>
-		<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all"></br>
-		<button id="btnAdd" class="btn">
-			Add
-		</button>
-		<button id="btnCal" class="btn">
-			Cancel
-		</button>
+		<div id="dialog" title="Add player" >
+			<div align="middle">
+				<label for="name">Player Name</label></br>
+				<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+				</br>
+				<label for="email">Player ID[?]</label></br>
+				<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all">
+				</br>
+				<button id="btnAdd" class="btn">
+					Add
+				</button>
+				<button id="btnCal" class="btn">
+					Cancel
+				</button>
+			</div>
 		</div>
-	</div>
 	</body>
 </html>

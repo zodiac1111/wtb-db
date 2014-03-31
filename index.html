@@ -12,6 +12,9 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
 		<style>
 			#toolbar {
 				padding: 4px;
@@ -177,7 +180,7 @@
 					<button id="home" value="Submit">
 						Home
 					</button>
-					<button id="add">
+					<button id="add" title="新增wtb">
 						Insert
 					</button>
 					<button id="beginning">
@@ -216,18 +219,18 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="5%">ID</th>
-							<th width="18%">Item name</th>
-							<th width="16%">Player name</th>
-							<th width="10%">Credit</th>
-							<th width="8%">Hath</th>
-							<th width="8%">Qty.</th>
+							<th width="5%"  title="wtb编号">ID</th>
+							<th width="18%" title="物品名称">Item name</th>
+							<th width="16%" title="玩家名称">Player name</th>
+							<th width="10%" title="空表示不接受Credit">Credit</th>
+							<th width="8%" title="空表示不接受Hath">Hath</th>
+							<th width="8%" title="数量">Qty.</th>
 							<th>Ref.</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="7" class="dataTables_empty">Loading data from server</td>
+							<td colspan="7" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
 				</table>
