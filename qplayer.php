@@ -1,6 +1,6 @@
 <?php
 
-$query = "SELECT *  FROM  play;";
+$query = "SELECT *  FROM  play ORDER BY play_name;";
 //echo "var jstext=" . "'$query'";
 $link = mysql_connect("127.0.0.1", "root", "123456") or die("Could not connect");
 mysql_select_db("wtb") or die("Could not select database");
