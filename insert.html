@@ -206,8 +206,8 @@
                 c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
                 hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 src = $("#src")[0].value;
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('";
-				 	str += enable + "', '" + iditem + "', '" + idplayer + "','";
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('";
+				 	str += enable + "', '" + "0" + "', '"+ iditem + "', '" + idplayer + "','";
 				 	str += num_want + "', '" + c + "','" + hath + "','" + src + "');";
                 $("#output")[0].textContent = str;
                 return str;
@@ -248,8 +248,8 @@
 						<td  align="middle">
 							<div id="radio">
 								<input type="checkbox" checked class="chitic enb checked"/>
-								<input type="radio" id="wtb" name="radio" /><label for="wtb">WTB</label>
-								<input type="radio" id="wts" name="radio" checked="checked" /><label for="wts">WTS</label>
+								<input type="radio" id="wtb" name="radio" checked="checked"/><label for="wtb">WTB</label>
+								<input type="radio" id="wts" name="radio" /><label for="wts">WTS</label>
 								<input type="radio" id="wtt" name="radio" /><label for="wtt">WTT</label>
 							</div>
 						</td>
