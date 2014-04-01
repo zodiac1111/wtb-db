@@ -118,7 +118,9 @@
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
-                            //alert("return:" + data);
+							if(data!="1"){
+                            	alert("return err:" + data);
+							}
                             $("#wait")[0].textContent = "OK";
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -206,7 +208,7 @@
                 hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 src = $("#src")[0].value;
 
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '"+ "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
                 $("#output")[0].textContent = str;
                 return str;
             }

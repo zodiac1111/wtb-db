@@ -182,7 +182,6 @@
 
             });
             function delete_order(btndel) {
-				//o=$(btndel)
                 $.ajax({
                     type : "post",
                     url : "delete.php",
@@ -195,12 +194,13 @@
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
-                       // $("#wait")[0].textContent = "OK";
-						alert("reset: "+data);
+						// alert("reset: "+data);
+						if(data!="1"){
+							alert("reset err: "+data);
+						}
 						$(btndel.parentElement.parentElement).hide("slow");
                     },
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
-                       // $("#wait")[0].textContent = "ERR";
                         alert("ERR:" + XMLHttpRequest.responseText);
                     }
                 });
