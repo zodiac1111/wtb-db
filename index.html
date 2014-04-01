@@ -166,7 +166,7 @@
                         "mRender" : function(data, type, full) {
 							// unix时间戳转化成为毫秒
 							d=new Date(data*1000);
-                            return d.toISOString() ;
+                            return d.toLocaleString() ;
                         }
                     }, {
 						/// 备注
@@ -239,15 +239,15 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="10%"  title="交易编号">ID</th>
+							<th width="8%"  title="交易编号">ID</th>
 							<th width="15%" title="物品名称">Item name</th>
 							<th width="13%" title="玩家名称">Player name</th>
-							<th width="10%" title="空表示不接受Credit">Credit</th>
-							<th width="8%" title="空表示不接受Hath">Hath</th>
-							<th width="8%" title="数量">Qty.</th>
+							<th width="8%" title="空表示不接受Credit">Credit</th>
+							<th width="7%" title="空表示不接受Hath">Hath</th>
+							<th width="6%" title="数量">Qty.</th>
 							<th width="5%" title="bbs 连接">Ref.</th>
-							<th width="8%" title="交易加入时间">Time</th>
-							<th>note</th>
+							<th width="14%" title="交易加入时间">Time</th>
+							<th title="备注">note</th>
 							<th width="5%" title="管理">Manage</th>
 						</tr>
 					</thead>

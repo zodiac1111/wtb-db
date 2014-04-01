@@ -206,9 +206,11 @@
                 c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
                 hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 src = $("#src")[0].value;
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('";
+				var d = new Date();
+				var st=d.getTime()/1000;///unix时间戳
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`timestamp`,`src`) VALUES ('";
 				 	str += enable + "', '" + "0" + "', '"+ iditem + "', '" + idplayer + "','";
-				 	str += num_want + "', '" + c + "','" + hath + "','" + src + "');";
+				 	str += num_want + "', '" + c + "','" + hath + "','" + st + "','" + src + "');";
                 $("#output")[0].textContent = str;
                 return str;
             }
@@ -231,13 +233,12 @@
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="15%" title="有效"> </th>
+					<th width="15%" title="类别,目前仅支持wtb"> </th>
 					<th width="18%" title="选择求购的物品">Item</th>
 					<th width="16%" title="选择您的名称">PlayerName
 					<button id="add_player" class="add">
 						Add Player
 					</button></th>
-					<th width="10%" title="目前拥有的数量(可选)">now Qty.</th>
 					<th width="10%" title="希望购买的数量(最小为1,留空表示不限)">want Qty.</th>
 					<th width="4%" title="留空表示不接受Credit为付款方式">Credit</th>
 					<th width="4%" title="留空表示不接受Hath为付款方式">Hath</th>
@@ -261,9 +262,6 @@
 							<label id="player_load">Loading Player List ...</label>
 							<select id="player" style="display:none;">
 							</select>
-						</td>
-						<td align="middle">
-							<input style="width:100%" type="text" class="nb" id="now_num" value="0"/>
 						</td>
 						<td align="middle" >
 							<input  style="width:100%" type="text" class="nb" id="want_num" value="1"/>
