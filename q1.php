@@ -49,7 +49,8 @@ $query = "select
     wtb.c,
     wtb.hath,
     wtb.num_want,
-    wtb.src
+    wtb.src,
+	wtb.note
     FROM
     wtb.item,
     wtb.play,

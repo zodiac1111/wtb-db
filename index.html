@@ -127,7 +127,7 @@
                                 primary : "ui-icon-trash"
                             }
                         }).click(function() {
-
+							 delete_order(this);
                         });
                     },
                     // 格式化输出
@@ -183,10 +183,38 @@
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
                             return '<a href="' + data + '">link</a>';
                         }
+                    }, {
+                        "mData" : "note",
+                        "aTargets" : [7],
+                        "mRender" : function(data, type, full) {
+                            return data ;
+                        }
                     }]
                 });
 
             });
+            function delete_order(btndel) {
+                $.ajax({
+                    type : "post",
+                    url : "delete.php",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    dataType : "json",
+                    data : "wtbid="+btndel.parentElement.lastChild.textContent,
+                    beforeSend : function(XMLHttpRequest) {
+                       // $("#wait")[0].textContent = "waitng";
+						parentElement.lastChild.textContent="..."
+                    },
+                    //成功(先成功,后完成)
+                    success : function(data, textStatus) {
+                       // $("#wait")[0].textContent = "OK";
+						parentElement.parentElement.style.display="none"
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                       // $("#wait")[0].textContent = "ERR";
+                        alert("ERR:" + XMLHttpRequest.responseText);
+                    }
+                });
+            }
 		</script>
 	</head>
 	<body>
@@ -242,11 +270,12 @@
 							<th width="8%" title="空表示不接受Hath">Hath</th>
 							<th width="8%" title="数量">Qty.</th>
 							<th>Ref.</th>
+							<th>note</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="7" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
+							<td colspan="8" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
 				</table>
