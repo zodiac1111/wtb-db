@@ -29,15 +29,13 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
+$wtb="1";
 // 过滤交易类别
-$type=" ";
-if($type<>"") {
-	$type += " and ";
-	$type += " ( ";
-	$type += " wtb.type = 1 ";
-	$type += " or wtb.type = 2 ";
-	$type += " or wtb.type = 3 ";
-	$type += " ) ";
+if( $wtb=="1" || $wts == "1" || $wtt == "1") {
+	$type .= " and ";
+	$type .= " ( ";
+	$type .= " wtb.type=1 ";
+	$type .= " ) ";
 }
 
 $search="";
@@ -87,7 +85,7 @@ $counter= "SELECT COUNT(*)  FROM
 	. $search . " ;";
 
 // debugprint
-// echo "\"" . $query . "\"";
+// echo " DEBUG:sql string: \"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed:".$query);
 // json api start
 $rows = array();
@@ -104,6 +102,7 @@ $result = mysql_query($counter) or die("Query failed:".$query);
 list($iTotalRecords) = mysql_fetch_row($result);
 //$iTotalRecords=@mysql_num_rows($result);
 // show json
+$json->sqlstring=$query;
 $json->sEcho=$sEcho;
 $json->iTotalRecords=$iTotalRecords;// 总的记录条数
 $json->iTotalDisplayRecords=$iTotalRecords ;//count($rows); // 显示的记录条数

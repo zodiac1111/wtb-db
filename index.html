@@ -117,7 +117,7 @@
                         }
                     }, {
                         "mData" : "type",
-                        "aTargets" : [10],
+                        "aTargets" : [1],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -125,16 +125,16 @@
                         }
                     },{
                         "mData" : "item_name",
-                        "aTargets" : [1]
+                        "aTargets" : [2]
                     }, {
                         "mData" : "play_name",
-                        "aTargets" : [2],
+                        "aTargets" : [3],
 						"mRender" : function(data, type, full) {
                             return '<a href="http://forums.e-hentai.org/index.php?showuser=' + full.idplay + '">'+data+'</a>';
                         }
                     }, {
                         "mData" : "c",
-                        "aTargets" : [3],
+                        "aTargets" : [4],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "-"
@@ -143,7 +143,7 @@
                         }
                     }, {
                         "mData" : "hath",
-                        "aTargets" : [4],
+                        "aTargets" : [5],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "-"
@@ -153,7 +153,7 @@
                     }, {
                         "mData" : "num_want",
 						"bSortable": false,
-                        "aTargets" : [5],
+                        "aTargets" : [6],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "Unlimited"
@@ -164,7 +164,7 @@
 						///	 bbs连接
                         "mData" : "src",
 						"bSortable": false,
-                        "aTargets" : [6],
+                        "aTargets" : [7],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -174,7 +174,7 @@
 						/// 更新时间
                         "mData" : "timestamp",
 						"bSortable": false,
-                        "aTargets" : [7],
+                        "aTargets" : [8],
                         "mRender" : function(data, type, full) {
 							// unix时间戳转化成为毫秒
 							d=new Date(data*1000);
@@ -184,7 +184,7 @@
 						/// 备注
                         "mData" : "note",
 						"bSortable": false,
-                        "aTargets" : [8],
+                        "aTargets" : [9],
                         "mRender" : function(data, type, full) {
                             return data ;
                         }
@@ -192,7 +192,7 @@
 						/// 管理按钮
 						"mData" : "note",
 						"bSortable": false,
-                        "aTargets" : [9],
+                        "aTargets" : [10],
                         "mRender" : function(data, type, full) {
                             return '<span>'
 								+'	<button class="btnManage">Delete</button>'
@@ -237,12 +237,12 @@
 			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
 					<button id="home" value="Submit">Home</button>
-					<button id="add" title="新增wtb">Insert</button>
-					<input type="checkbox" id="Rev"><label for="Rev">Rev</label>
+					<button id="add" title="新增交易条目">Add</button>
+					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev</label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb"><label for="enb_wtb">WTB</label>
-						<input type="checkbox" id="enb_wts"><label for="enb_wts">WTS</label>
-						<input type="checkbox" id="enb_wtt"><label for="enb_wtt">Rev.</label>
+						<input type="checkbox" id="enb_wtb" title="显示求购信息"><label for="enb_wtb">WTB</label>
+						<input type="checkbox" id="enb_wts" title="显示出售信息"><label for="enb_wts">WTS</label>
+						<input type="checkbox" id="enb_wtt" title="未实现"><label for="enb_wtt">Rev.</label>
 					</span>
 				</div>
 			</div>
@@ -255,13 +255,13 @@
 							<th width="6%"  title="类型">Type</th>
 							<th width="15%" title="物品名称">Item name</th>
 							<th width="13%" title="玩家名称">Player name</th>
-							<th width="8%" title="空表示不接受Credit">Credit</th>
-							<th width="7%" title="空表示不接受Hath">Hath</th>
-							<th width="6%" title="数量">Qty.</th>
+							<th width="8%" title="-表示不接受Credit">Credit</th>
+							<th width="7%" title="-表示不接受Hath">Hath</th>
+							<th width="6%" title="物品数量">Qty.</th>
 							<th width="5%" title="bbs 连接">Ref.</th>
 							<th width="14%" title="交易加入时间">Time</th>
 							<th title="备注">note</th>
-							<th width="5%" title="管理">Manage</th>
+							<th width="5%" title="管理动作">Manage</th>
 						</tr>
 					</thead>
 					<tbody>
