@@ -26,6 +26,22 @@
 				display: inline;
 			}
 			.ui-menu { position: absolute; width: 55px; z-index:999 }
+			.tag {
+				border : 1px solid #a5d24a;
+				padding : 5px;
+				font-family: monospace;
+				/*background : #cde69c;*/
+			}
+			.tag.tgwtb{
+				background : #cde69c;
+			}
+			.tag.tgwts{
+				background : #9CCBE6;
+			}
+			.tag.tgwtt{
+				background : #FFF8AB;
+			}
+			.alignMiddle { text-align: middle; }
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
@@ -57,13 +73,21 @@
                     "sAjaxSource" : "q1.php",
                     // 传递参数进入php
                     "fnServerParams" : function(aoData) {
+						// 选择的交易类型 
                         aoData.push({
-                            "name" : "my_arg",
-                            "value" : "my_value"
-                        });
+                            "name" : "wtb",
+                            "value" : "1"
+                        },{
+                            "name" : "wts",
+                            "value" : "1"
+						},{
+                            "name" : "wtt",
+                            "value" : "1"
+						});
                     },
                     "fnDrawCallback" : function(oSettings) {
-						$("#menu" ).menu();
+						//$(".tag").
+						$("#menu").menu();
                         $(".del").button({
                             text : false,
                             icons : {
@@ -106,6 +130,10 @@
 										.hide()
 										.menu();
                     },
+					"aoColumns" : [   
+						{},   
+						{sClass: "alignMiddle"} 
+					],
                     // 格式化输出
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
@@ -121,7 +149,15 @@
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-                            return data;
+							if(data=="0"){
+								return '<span class="tag tgwtb">wtb</span>';
+							}else if(data=="1"){
+								return '<span class="tag tgwts">wts</span>';
+							}else if(data=="2"){
+								return '<span class="tag tgwtt">wtt</span>';
+							}else{
+								return "E:"+data;
+							}
                         }
                     },{
                         "mData" : "item_name",
@@ -266,7 +302,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="10" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
+							<td colspan="10" class="dataTables_empty" align="middle">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
 				</table>

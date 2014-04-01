@@ -213,7 +213,7 @@
 				var type = $('input[name=radio]:checked').val()
                 var iditem = $("#itemid").val();
                 var idplayer = $("#player").val();
-                var num_want = $("#want_num")[0].value.replace(/[^0-9\.]+/g,"");
+                var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
                 var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
                 var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 var src = $("#src")[0].value;
@@ -222,7 +222,7 @@
 				var st=d.getTime()/1000;///unix时间戳
                 var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
 				 	str += enable + "', '" + type + "', '"+ iditem + "', '" + idplayer + "','";
-				 	str += num_want + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
+				 	str += qty + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
                 $("#output")[0].textContent = str;
                 return str;
             }
@@ -251,7 +251,7 @@
 					<button id="add_player" class="add">
 						Add Player
 					</button></th>
-					<th width="10%" title="希望购买的数量(最小为1,留空表示不限)">want Qty.</th>
+					<th width="10%" title="购买/出售数量(最小为1,留空表示不限)">Qty.</th>
 					<th width="4%" title="留空表示不接受Credit为付款方式">Credit</th>
 					<th width="4%" title="留空表示不接受Hath为付款方式">Hath</th>
 					<th width="18%" title="备注(可选)">note</th>
@@ -277,7 +277,7 @@
 							</select>
 						</td>
 						<td align="middle" >
-							<input  style="width:100%" type="text" class="nb" id="want_num" value="1"/>
+							<input  style="width:100%" type="text" class="nb" id="qty" value="1"/>
 						</td>
 						<td align="middle" >
 							<input style="width:100%" type="text" class="nb" id="c"/>

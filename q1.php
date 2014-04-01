@@ -34,7 +34,7 @@ $wtb="1";
 if( $wtb=="1" || $wts == "1" || $wtt == "1") {
 	$type .= " and ";
 	$type .= " ( ";
-	$type .= " wtb.type=1 ";
+	$type .= " wtb.type=0  or  wtb.type=1  or wtb.type=2 ";
 	$type .= " ) ";
 }
 
