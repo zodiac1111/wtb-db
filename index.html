@@ -116,6 +116,14 @@
                             return "<button class=\"del\">" + "	del this bid" + "</button>" + data;
                         }
                     }, {
+                        "mData" : "type",
+                        "aTargets" : [10],
+                        "mRender" : function(data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+                            return data;
+                        }
+                    },{
                         "mData" : "item_name",
                         "aTargets" : [1]
                     }, {
@@ -244,6 +252,7 @@
 					<thead>
 						<tr>
 							<th width="8%"  title="交易编号">ID</th>
+							<th width="6%"  title="类型">Type</th>
 							<th width="15%" title="物品名称">Item name</th>
 							<th width="13%" title="玩家名称">Player name</th>
 							<th width="8%" title="空表示不接受Credit">Credit</th>

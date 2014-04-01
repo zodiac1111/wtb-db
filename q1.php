@@ -29,6 +29,17 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
+// 过滤交易类别
+$type=" ";
+if($type<>"") {
+	$type += " and ";
+	$type += " ( ";
+	$type += " wtb.type = 1 ";
+	$type += " or wtb.type = 2 ";
+	$type += " or wtb.type = 3 ";
+	$type += " ) ";
+}
+
 $search="";
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
@@ -43,6 +54,7 @@ if($iDisplayStart ==""){
 }
 $query = "select 
     wtb.idwtb,
+	wtb.type,
     item.item_name,
     play.play_name,
     wtb.play.idplay,
@@ -58,7 +70,8 @@ $query = "select
     wtb.wtb
     WHERE
     wtb.wtb.iditem = wtb.item.iditem
-        and wtb.wtb.idplayer = wtb.play.idplay"
+        and wtb.wtb.idplayer = wtb.play.idplay "
+. " " . $type
 . " " . $search
 . " " . $order
 . " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
@@ -70,7 +83,8 @@ $counter= "SELECT COUNT(*)  FROM
     wtb.wtb WHERE
     	wtb.wtb.iditem = wtb.item.iditem
         	and wtb.wtb.idplayer = wtb.play.idplay "
-		 . $search . " ;";
+	. " " . $type
+	. $search . " ;";
 
 // debugprint
 // echo "\"" . $query . "\"";
