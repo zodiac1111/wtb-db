@@ -63,6 +63,14 @@ $query = "select
 . " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
 . " ;";
 
+$counter= "SELECT COUNT(*)  FROM
+    wtb.item,
+    wtb.play,
+    wtb.wtb WHERE
+    	wtb.wtb.iditem = wtb.item.iditem
+        	and wtb.wtb.idplayer = wtb.play.idplay "
+		 . $search . " ;";
+
 // debugprint
 // echo "\"" . $query . "\"";
 $result = mysql_query($query) or die("Query failed:".$query);
@@ -77,10 +85,16 @@ while ($r = mysql_fetch_assoc($result)) {
  $rows[] = $r;
  }
  */
+$result = mysql_query($counter) or die("Query failed:".$query);
+list($iTotalRecords) = mysql_fetch_row($result);
+//$iTotalRecords=@mysql_num_rows($result);
 // show json
-echo "{\"aaData\":";
-echo json_encode($rows);
-echo "}";
+$json->sEcho=$sEcho;
+$json->iTotalRecords=$iTotalRecords;// 总的记录条数
+$json->iTotalDisplayRecords=$iTotalRecords ;//count($rows); // 显示的记录条数
+$json->aaData=$rows;
+
+echo json_encode($json);
 
 // json api end
 // 释放资源
