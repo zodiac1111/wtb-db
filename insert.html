@@ -115,6 +115,7 @@
                         beforeSend : function(XMLHttpRequest) {
                             //alert("提交");
                             $("#wait")[0].textContent = "waitng";
+							$("#submit").prop("disabled", true);
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
@@ -126,7 +127,10 @@
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
                             $("#wait")[0].textContent = "ERR";
                             alert("ERR:" + XMLHttpRequest.responseText);
-                        }
+                        },
+						complete:function(XHR, TS){
+							$("#submit").prop("disabled", fasle);
+						}
                     });
                 });
                 $('#tbl').dataTable({
@@ -152,6 +156,7 @@
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
                         $("#wait")[0].textContent = "waitng";
+						$("#submit").prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
@@ -167,7 +172,10 @@
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                         $("#wait")[0].textContent = "ERR";
                         alert("ERR:" + XMLHttpRequest.responseText);
-                    }
+                    },
+					complete:function(XHR, TS){
+						$("#submit").prop("disabled", fasle);
+					}
                 });
             }
 
@@ -180,6 +188,7 @@
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
                         $("#wait")[0].textContent = "waitng";
+						$("#submit").prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
@@ -195,7 +204,10 @@
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                         $("#wait")[0].textContent = "ERR";
                         alert("ERR:" + XMLHttpRequest.responseText);
-                    }
+                    },
+					complete:function(XHR, TS){
+						$("#submit").prop("disabled", fasle);
+					}
                 });
             }
             function gettext() {
