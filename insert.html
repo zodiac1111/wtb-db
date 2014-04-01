@@ -210,6 +210,7 @@
             }
             function gettext() {
                 var enable = "1";
+				var type = $('input[name=radio]:checked').val()
                 var iditem = $("#itemid").val();
                 var idplayer = $("#player").val();
                 var num_want = $("#want_num")[0].value.replace(/[^0-9\.]+/g,"");
@@ -220,7 +221,7 @@
 				var d = new Date();
 				var st=d.getTime()/1000;///unix时间戳
                 var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
-				 	str += enable + "', '" + "0" + "', '"+ iditem + "', '" + idplayer + "','";
+				 	str += enable + "', '" + type + "', '"+ iditem + "', '" + idplayer + "','";
 				 	str += num_want + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
                 $("#output")[0].textContent = str;
                 return str;
@@ -261,9 +262,9 @@
 						<td  align="middle">
 							<div id="radio">
 								<input type="checkbox" checked class="chitic enb checked"/>
-								<input type="radio" id="wtb" name="radio" checked="checked"/><label for="wtb">WTB</label>
-								<input type="radio" id="wts" name="radio" /><label for="wts">WTS</label>
-								<input type="radio" id="wtt" name="radio" /><label for="wtt">WTT</label>
+								<input type="radio" id="wtb" name="radio" checked="checked" value="0"/><label for="wtb">WTB</label>
+								<input type="radio" id="wts" name="radio" value="1" /><label for="wts">WTS</label>
+								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt">WTT</label>
 							</div>
 						</td>
 						<td align="middle">
