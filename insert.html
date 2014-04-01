@@ -86,7 +86,9 @@
 		                error : function(XMLHttpRequest, textStatus, errorThrown) {
 		                    $("#wait")[0].textContent = "ERR";
 		                    alert("ERR:" + XMLHttpRequest.responseText);
-		                }
+		                },
+						complete:function(XHR, TS){
+						}
 		            });
                 });
 
@@ -129,7 +131,7 @@
                             alert("ERR:" + XMLHttpRequest.responseText);
                         },
 						complete:function(XHR, TS){
-							$("#submit").prop("disabled", fasle);
+							$("#submit").prop("disabled", false);
 						}
                     });
                 });
@@ -156,7 +158,6 @@
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
                         $("#wait")[0].textContent = "waitng";
-						$("#submit").prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
@@ -174,7 +175,6 @@
                         alert("ERR:" + XMLHttpRequest.responseText);
                     },
 					complete:function(XHR, TS){
-						$("#submit").prop("disabled", fasle);
 					}
                 });
             }
@@ -188,7 +188,6 @@
                     data : "",
                     beforeSend : function(XMLHttpRequest) {
                         $("#wait")[0].textContent = "waitng";
-						$("#submit").prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
@@ -206,23 +205,23 @@
                         alert("ERR:" + XMLHttpRequest.responseText);
                     },
 					complete:function(XHR, TS){
-						$("#submit").prop("disabled", fasle);
 					}
                 });
             }
             function gettext() {
-                enable = "1";
-                iditem = $("#itemid").val();
-                idplayer = $("#player").val();
-                num_want = $("#want_num")[0].value.replace(/[^0-9\.]+/g,"");
-                c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
-                hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
-                src = $("#src")[0].value;
+                var enable = "1";
+                var iditem = $("#itemid").val();
+                var idplayer = $("#player").val();
+                var num_want = $("#want_num")[0].value.replace(/[^0-9\.]+/g,"");
+                var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
+                var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
+                var src = $("#src")[0].value;
+				var note= $("#note")[0].value;
 				var d = new Date();
 				var st=d.getTime()/1000;///unix时间戳
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`timestamp`,`src`) VALUES ('";
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
 				 	str += enable + "', '" + "0" + "', '"+ iditem + "', '" + idplayer + "','";
-				 	str += num_want + "', '" + c + "','" + hath + "','" + st + "','" + src + "');";
+				 	str += num_want + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
                 $("#output")[0].textContent = str;
                 return str;
             }
@@ -233,10 +232,10 @@
 		<div align="">
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
 				<button id="home" value="Submit" title="返回主页">
-					home
+					Home
 				</button>
 				<button id="submit" value="Submit"  title="提交修改">
-					submit
+					Submit
 				</button>
 			</div>
 			<label id="wait"></label>
@@ -254,7 +253,7 @@
 					<th width="10%" title="希望购买的数量(最小为1,留空表示不限)">want Qty.</th>
 					<th width="4%" title="留空表示不接受Credit为付款方式">Credit</th>
 					<th width="4%" title="留空表示不接受Hath为付款方式">Hath</th>
-					<th width="18%" title="备注">note</th>
+					<th width="18%" title="备注(可选)">note</th>
 					<th>BBS Link</th>
 				</thead>
 				<tbody>
@@ -285,8 +284,11 @@
 						<td align="middle">
 						<input style="width:100%" type="text" class="nb" id="hath"/>
 						</td>
+						<td align="middle">
+						<input style="width:100%" type="text" id="note" placeholder="(可选)输入一些备注信息"/>
+						</td>
 						<td align="middle" >
-						<input style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/index.php?showtopic=xxxxxx"/>
+						<input style="width:100%" type="text" id="src" placeholder="bbs连接,例如: http://forums.e-hentai.org/index.php?showtopic=xxxxxx"/>
 						</td>
 					</tr>
 				</tbody>
