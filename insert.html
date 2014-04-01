@@ -37,6 +37,7 @@
             $(document).ready(function() {
                 qitem();
                 qplayer();
+				$("#type" ).buttonset();
                 $(".nb").spinner({
 					min : 0,
                     numberFormat: "n0"
@@ -228,7 +229,7 @@
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="5%" title="有效"> </th>
+					<th width="15%" title="有效"> </th>
 					<th width="18%" title="选择求购的物品">Item</th>
 					<th width="16%" title="选择您的名称">PlayerName
 					<button id="add_player" class="add">
@@ -244,6 +245,11 @@
 					<tr>
 						<td>
 						<input type="checkbox" checked class="chitic enb checked"  align="middle"/>
+						<span id="type">
+							<input type="radio" id="enb_wtb" checked="checked"><label for="enb_wtb">WTB</label>
+							<input type="radio" id="enb_wts"><label for="enb_wts">WTS</label>
+							<input type="radio" id="enb_wtt"><label for="enb_wtt">Rev.</label>
+						</span>
 						</td>
 						<td>
 						<label id="itemid_load">Loading Item List ...</label>
