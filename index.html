@@ -144,21 +144,37 @@
                         "aTargets" : [1]
                     }, {
                         "mData" : "play_name",
-                        "aTargets" : [2]
+                        "aTargets" : [2],
+						"mRender" : function(data, type, full) {
+                            return '<a href="http://forums.e-hentai.org/index.php?showuser=' + full.idplay + '">'+data+'</a>';
+                        }
                     }, {
                         "mData" : "c",
                         "aTargets" : [3],
                         "mRender" : function(data, type, full) {
-                            // 'full' is the row's data object, and 'data' is this column's data
-                            // e.g. 'full[0]' is the comic id, and 'data' is the comic title
+							if(data=="0" || data=="" || data==null ){
+								return "-"
+							}
                             return parseInt(data).toLocaleString();
                         }
                     }, {
                         "mData" : "hath",
-                        "aTargets" : [4]
+                        "aTargets" : [4],
+                        "mRender" : function(data, type, full) {
+							if(data=="0" || data=="" || data==null ){
+								return "-"
+							}
+                            return parseInt(data).toLocaleString();
+                        }
                     }, {
                         "mData" : "num_want",
-                        "aTargets" : [5]
+                        "aTargets" : [5],
+                        "mRender" : function(data, type, full) {
+							if(data=="0" || data=="" || data==null ){
+								return "Unlimited"
+							}
+							return data
+                        }
                     }, {
                         "mData" : "src",
                         "aTargets" : [6],
@@ -207,11 +223,11 @@
 
 					<span id="repeat">
 						<input type="radio" id="repeat0" name="repeat" checked="checked" />
-						<label for="repeat0">No Repeat</label>
+						<label for="repeat0">WTB</label>
 						<input type="radio" id="repeat1" name="repeat" />
-						<label for="repeat1">Once</label>
+						<label for="repeat1">WTS</label>
 						<input type="radio" id="repeatall" name="repeat" />
-						<label for="repeatall">All</label> </span>
+						<label for="repeatall">rev.</label> </span>
 				</div>
 			</div>
 			<p></p>
