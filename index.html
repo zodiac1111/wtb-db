@@ -194,20 +194,22 @@
 
             });
             function delete_order(btndel) {
+				//o=$(btndel)
                 $.ajax({
                     type : "post",
                     url : "delete.php",
                     contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                    dataType : "json",
+                    dataType : "text",
                     data : "wtbid="+btndel.parentElement.lastChild.textContent,
                     beforeSend : function(XMLHttpRequest) {
                        // $("#wait")[0].textContent = "waitng";
-						parentElement.lastChild.textContent="..."
+						btndel.parentElement.lastChild.textContent="..."
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
                        // $("#wait")[0].textContent = "OK";
-						parentElement.parentElement.style.display="none"
+						alert("reset: "+data);
+						$(btndel.parentElement.parentElement).hide("slow");
                     },
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                        // $("#wait")[0].textContent = "ERR";
