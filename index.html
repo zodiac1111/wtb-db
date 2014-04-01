@@ -15,6 +15,7 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.menu.js"></script>
 		<style>
 			#toolbar {
 				padding: 4px;
@@ -61,6 +62,7 @@
                         });
                     },
                     "fnDrawCallback" : function(oSettings) {
+						$("#menu" ).menu();
                         $(".del").button({
                             text : false,
                             icons : {
@@ -69,6 +71,35 @@
                         }).click(function() {
 							 delete_order(this);
                         });
+                        $( ".btnManage" )
+							.button({
+									text: false,
+									icons: {
+										primary: "ui-icon-trash"
+									}
+							})
+							.click(function() {
+								alert( "TODO:Delete This Record" );
+							})
+							.next()
+								.button({
+									text: false,
+									icons: {
+										primary: "ui-icon-triangle-1-s"
+									}
+								})
+								.click(function() {
+									var menu = $( this ).parent().next().show();
+									//$(document).one( "click", function() {
+									//	menu.hide();
+									//});
+									return false;
+								})
+								.parent()
+									.buttonset()
+									.next()
+										.hide()
+										.menu();
                     },
                     // 格式化输出
                     "aoColumnDefs" : [{
@@ -132,6 +163,19 @@
                         "mRender" : function(data, type, full) {
                             return data ;
                         }
+                    }, {
+						"mData" : "note",
+						"bSortable": false,
+                        "aTargets" : [8],
+                        "mRender" : function(data, type, full) {
+                            return '<span>'
+								+'	<button class="btnManage">Delete</button>'
+								+'	<button class="select">Set</button>'
+								+'</span>'
+								+'<ul id="menu">'
+								+'	<li><a href="#"><span class="ui-icon ui-icon-pencil"></span>Edit</a></li>'
+								+'</ul>';
+                        }
                     }]
                 });
 
@@ -189,11 +233,12 @@
 							<th width="8%" title="数量">Qty.</th>
 							<th width="5%" title="bbs 连接">Ref.</th>
 							<th>note</th>
+							<th width="5%" title="管理">Manage</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="8" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
+							<td colspan="9" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
 				</table>
