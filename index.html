@@ -25,6 +25,7 @@
 			*+ html #toolbar {
 				display: inline;
 			}
+			.ui-menu { position: absolute; width: 55px; z-index:999 }
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
@@ -90,9 +91,9 @@
 								})
 								.click(function() {
 									var menu = $( this ).parent().next().show();
-									//$(document).one( "click", function() {
-									//	menu.hide();
-									//});
+									$(document).one( "click", function() {
+											menu.hide();
+									});
 									return false;
 								})
 								.parent()
