@@ -42,76 +42,15 @@
                 }).click(function() {
                     top.location.href = "/insert.html";
                 });
-                $("#beginning").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-seek-start"
-                    }
-                });
-                $("#rewind").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-seek-prev"
-                    }
-                });
-                $("#play").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-play"
-                    }
-                }).click(function() {
-                    var options;
-                    if ($(this).text() === "play") {
-                        options = {
-                            label : "pause",
-                            icons : {
-                                primary : "ui-icon-pause"
-                            }
-                        };
-                    } else {
-                        options = {
-                            label : "play",
-                            icons : {
-                                primary : "ui-icon-play"
-                            }
-                        };
-                    }
-                    $(this).button("option", options);
-                });
-                $("#stop").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-stop"
-                    }
-                }).click(function() {
-                    $("#play").button("option", {
-                        label : "play",
-                        icons : {
-                            primary : "ui-icon-play"
-                        }
-                    });
-                });
-                $("#forward").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-seek-next"
-                    }
-                });
-                $("#end").button({
-                    text : false,
-                    icons : {
-                        primary : "ui-icon-seek-end"
-                    }
-                });
                 $("#shuffle").button();
-                $("#repeat").buttonset();
+				$("#type" ).buttonset();
                 // **** datatable ****
                 //$('#tbl').dataTable();
                 $('#tbl').dataTable({
                     "bJQueryUI" : true,
                     "bProcessing" : true,
                     "bServerSide" : true,
-					"sScrollY": 480,
+					"sScrollY": 350,
                     // 数据源
                     "sAjaxSource" : "q1.php",
                     // 传递参数进入php
@@ -222,43 +161,16 @@
 	</head>
 	<body>
 		<div>
-			<div align="right">
+			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
-					<button id="home" value="Submit">
-						Home
-					</button>
-					<button id="add" title="新增wtb">
-						Insert
-					</button>
-					<button id="beginning">
-						go to beginning
-					</button>
-					<button id="rewind">
-						rewind
-					</button>
-					<button id="play">
-						play
-					</button>
-					<button id="stop">
-						stop
-					</button>
-					<button id="forward">
-						fast forward
-					</button>
-					<button id="end">
-						go to end
-					</button>
-
-					<input type="checkbox" id="shuffle" />
-					<label for="shuffle">Shuffle</label>
-
-					<span id="repeat">
-						<input type="radio" id="repeat0" name="repeat" checked="checked" />
-						<label for="repeat0">WTB</label>
-						<input type="radio" id="repeat1" name="repeat" />
-						<label for="repeat1">WTS</label>
-						<input type="radio" id="repeatall" name="repeat" />
-						<label for="repeatall">rev.</label> </span>
+					<button id="home" value="Submit">Home</button>
+					<button id="add" title="新增wtb">Insert</button>
+					<input type="checkbox" id="shuffle"><label for="shuffle">Shuffle</label>
+					<span id="type">
+						<input type="checkbox" id="check1"><label for="check1">WTB</label>
+						<input type="checkbox" id="check2"><label for="check2">WTS</label>
+						<input type="checkbox" id="check3"><label for="check3">Rev.</label>
+					</span>
 				</div>
 			</div>
 			<p></p>
@@ -266,13 +178,13 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="5%"  title="wtb编号">ID</th>
+							<th width="6%"  title="wtb编号">ID</th>
 							<th width="18%" title="物品名称">Item name</th>
 							<th width="16%" title="玩家名称">Player name</th>
 							<th width="10%" title="空表示不接受Credit">Credit</th>
 							<th width="8%" title="空表示不接受Hath">Hath</th>
 							<th width="8%" title="数量">Qty.</th>
-							<th>Ref.</th>
+							<th width="5%" title="bbs 连接">Ref.</th>
 							<th>note</th>
 						</tr>
 					</thead>
@@ -283,9 +195,10 @@
 					</tbody>
 				</table>
 				<p></p>
-
-				<label>v0.1.2 </label>
-				<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+				<div align="right">
+					<label>v0.1.3 </label>
+					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+				</div>
 			</div>
 		</div>
 	</body>

@@ -126,7 +126,11 @@
                     });
                 });
                 $('#tbl').dataTable({
-                    "bJQueryUI" : true
+                    "bJQueryUI" : true,
+					"bInfo":false,
+					"bFilter":false,
+					"bSort": false,
+					"bPaginate": false
                 });
                 $("#dialog").dialog({
                     // height: 200,
@@ -208,8 +212,7 @@
 	</head>
 
 	<body>
-		<div align="right">
-			<label id="wait"></label>
+		<div align="">
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
 				<button id="home" value="Submit" title="返回主页">
 					home
@@ -218,6 +221,7 @@
 					submit
 				</button>
 			</div>
+			<label id="wait"></label>
 		</div>
 		<p></p>
 		<div>
