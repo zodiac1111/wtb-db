@@ -149,6 +149,7 @@
 							return data
                         }
                     }, {
+						///	 bbs连接
                         "mData" : "src",
 						"bSortable": false,
                         "aTargets" : [6],
@@ -158,16 +159,28 @@
                             return '<a href="' + data + '">link</a>';
                         }
                     }, {
-                        "mData" : "note",
+						/// 更新时间
+                        "mData" : "timestamp",
 						"bSortable": false,
                         "aTargets" : [7],
+                        "mRender" : function(data, type, full) {
+							// unix时间戳转化成为毫秒
+							d=new Date(data*1000);
+                            return d.toISOString() ;
+                        }
+                    }, {
+						/// 备注
+                        "mData" : "note",
+						"bSortable": false,
+                        "aTargets" : [8],
                         "mRender" : function(data, type, full) {
                             return data ;
                         }
                     }, {
+						/// 管理按钮
 						"mData" : "note",
 						"bSortable": false,
-                        "aTargets" : [8],
+                        "aTargets" : [9],
                         "mRender" : function(data, type, full) {
                             return '<span>'
 								+'	<button class="btnManage">Delete</button>'
@@ -233,13 +246,14 @@
 							<th width="8%" title="空表示不接受Hath">Hath</th>
 							<th width="8%" title="数量">Qty.</th>
 							<th width="5%" title="bbs 连接">Ref.</th>
+							<th width="8%" title="交易加入时间">Time</th>
 							<th>note</th>
 							<th width="5%" title="管理">Manage</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="9" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
+							<td colspan="10" class="dataTables_empty">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
 				</table>

@@ -50,7 +50,8 @@ $query = "select
     wtb.hath,
     wtb.num_want,
     wtb.src,
-	wtb.note
+	wtb.note,
+	wtb.timestamp
     FROM
     wtb.item,
     wtb.play,
