@@ -37,7 +37,7 @@
             $(document).ready(function() {
                 qitem();
                 qplayer();
-				$("#type" ).buttonset();
+				$( "#radio" ).buttonset();
                 $(".nb").spinner({
 					min : 0,
                     numberFormat: "n0"
@@ -206,7 +206,7 @@
                 hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 src = $("#src")[0].value;
 
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`, `num_now`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '" + num_now + "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`src`) VALUES ('" + enable + "', '" + iditem + "', '" + idplayer + "', '"+ "','" + num_want + "', '" + c + "','" + hath + "','" + src + "');"
                 $("#output")[0].textContent = str;
                 return str;
             }
@@ -243,37 +243,37 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>
-						<input type="checkbox" checked class="chitic enb checked"  align="middle"/>
-						<span id="type">
-							<input type="radio" id="enb_wtb" checked="checked"><label for="enb_wtb">WTB</label>
-							<input type="radio" id="enb_wts"><label for="enb_wts">WTS</label>
-							<input type="radio" id="enb_wtt"><label for="enb_wtt">Rev.</label>
-						</span>
+						<td  align="middle">
+							<div id="radio">
+								<input type="checkbox" checked class="chitic enb checked"/>
+								<input type="radio" id="wtb" name="radio" /><label for="wtb">WTB</label>
+								<input type="radio" id="wts" name="radio" checked="checked" /><label for="wts">WTS</label>
+								<input type="radio" id="wtt" name="radio" /><label for="wtt">WTT</label>
+							</div>
 						</td>
-						<td>
-						<label id="itemid_load">Loading Item List ...</label>
-						<select id="itemid"  align="middle" style="display:none;" >
-						</select></td>
-						<td>
-						<label id="player_load">Loading Player List ...</label>
-						<select id="player"  align="middle" style="display:none;">
-						</select>
+						<td align="middle">
+							<label id="itemid_load">Loading Item List ...</label>
+							<select id="itemid" style="display:none;" >
+							</select></td>
+						<td  align="middle">
+							<label id="player_load">Loading Player List ...</label>
+							<select id="player" style="display:none;">
+							</select>
 						</td>
-						<td>
-						<input  align="middle" style="width:100%" type="text" class="nb" id="now_num" value="0"/>
+						<td align="middle">
+							<input style="width:100%" type="text" class="nb" id="now_num" value="0"/>
 						</td>
-						<td>
-						<input  align="middle" style="width:100%" type="text" class="nb" id="want_num" value="1"/>
+						<td align="middle" >
+							<input  style="width:100%" type="text" class="nb" id="want_num" value="1"/>
 						</td>
-						<td>
-						<input  align="middle" style="width:100%" type="text" class="nb" id="c"/>
+						<td align="middle" >
+							<input style="width:100%" type="text" class="nb" id="c"/>
 						</td>
-						<td>
-						<input  align="middle" style="width:100%" type="text" class="nb" id="hath"/>
+						<td align="middle">
+						<input style="width:100%" type="text" class="nb" id="hath"/>
 						</td>
-						<td>
-						<input  align="middle" style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/index.php?showtopic=xxxxxx"/>
+						<td align="middle" >
+						<input style="width:100%" type="text" id="src" value="http://forums.e-hentai.org/index.php?showtopic=xxxxxx"/>
 						</td>
 					</tr>
 				</tbody>
