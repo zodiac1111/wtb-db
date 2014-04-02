@@ -63,6 +63,13 @@
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
                 /// jQuery UI
+                $("#reload").button({
+                    icons : {
+                        primary : "ui-icon-refresh"
+                    }
+                }).click(function() {
+                    $("#tbl").dataTable().fnDraw(false);
+                });
                 $("#home").button({
                     icons : {
                         primary : "ui-icon-home"
@@ -289,7 +296,8 @@
 						if(data!="1"){
 							alert("reset err: "+data);
 						}
-						$(tr).hide("slow");
+						$(tr).hide("slow"); // 移除行
+						$("#tbl").dataTable().fnDraw(false); ///刷新表格
                     },
                     error : function(XMLHttpRequest, textStatus, errorThrown) {
                         alert("ERR:" + XMLHttpRequest.responseText);
@@ -306,10 +314,11 @@
 					<button id="add" title="新增交易条目">Add</button>
 					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev</label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb" title="显示求购信息"><label for="enb_wtb">WTB</label>
-						<input type="checkbox" id="enb_wts" title="显示出售信息"><label for="enb_wts">WTS</label>
-						<input type="checkbox" id="enb_wtt" title="未实现"><label for="enb_wtt">Rev.</label>
+						<input type="checkbox" id="enb_wtb" title="显示求购信息" checked><label for="enb_wtb">WTB</label>
+						<input type="checkbox" id="enb_wts" title="显示出售信息" checked><label for="enb_wts">WTS</label>
+						<input type="checkbox" id="enb_wtt" title="未实现""><label for="enb_wtt">Rev.</label>
 					</span>
+					<button id="reload" value="reload">Reload</button>
 				</div>
 				<span id="wait"></span>
 			</div>

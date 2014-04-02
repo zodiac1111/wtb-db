@@ -58,25 +58,25 @@ if($iDisplayLength ==""){
 if($iDisplayStart ==""){
 	$iDisplayStart="0";
 }
-$query = "select 
-    wtb.idwtb,
-	wtb.type,
-    item.item_name,
-    play.play_name,
-    wtb.play.idplay,
-    wtb.c,
-    wtb.hath,
-    wtb.num_want,
-    wtb.src,
-	wtb.note,
-	wtb.timestamp
-    FROM
-    wtb.item,
-    wtb.play,
-    wtb.wtb
-    WHERE
-    wtb.wtb.iditem = wtb.item.iditem
-        and wtb.wtb.idplayer = wtb.play.idplay "
+$query = "select "
+    ."wtb.idwtb,"
+	."wtb.type, "
+    ."item.item_name, "
+    ."play.play_name, "
+    ."wtb.play.idplay, "
+    ."wtb.c, "
+    ."wtb.hath, "
+    ."wtb.num_want, "
+    ."wtb.src, "
+	."wtb.note, "
+	."wtb.timestamp "
+    ."FROM "
+    ."wtb.item, "
+    ."wtb.play, "
+    ."wtb.wtb "
+    ."WHERE "
+    ."wtb.wtb.iditem = wtb.item.iditem "
+    ."    and wtb.wtb.idplayer = wtb.play.idplay "
 . " " . $type
 . " " . $search
 . " " . $order
@@ -111,6 +111,7 @@ list($iTotalRecords) = mysql_fetch_row($result);
 //$iTotalRecords=@mysql_num_rows($result);
 // show json
 $json->sqlstring=$query;
+$json->arg="wtb:" . $wtb . " wts:" . $wts . " wtt:" . $wtt;
 $json->sEcho=$sEcho;
 $json->iTotalRecords=$iTotalRecords;// 总的记录条数
 $json->iTotalDisplayRecords=$iTotalRecords ;//count($rows); // 显示的记录条数
