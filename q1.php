@@ -10,20 +10,28 @@ mysql_select_db("wtb") or die("Could not select database");
 parse_str($_SERVER['QUERY_STRING']);
 //echo $_SERVER['QUERY_STRING'];
 //echo $my_arg;
+
+// 排序部分
+// $iSortCol_0 第一个排序字段 (暂时就排序一个字段)
+// $sSortDir_0 升序还是降序 asc /dsc
+
 $order = "";
 if ($iSortCol_0 == "0") {
 	$order .= " ORDER BY wtb.idwtb ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "1") {
-	$order .= " ORDER BY item.item_name ";
+	$order .= " ORDER BY wtb.type ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "2") {
-	$order .= " ORDER BY play.play_name ";
+	$order .= " ORDER BY item.item_name ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "3") {
-	$order .= " ORDER BY wtb.c ";
+	$order .= " ORDER BY play.play_name ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "4") {
+	$order .= " ORDER BY wtb.c ";
+	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "5") {
 	$order .= " ORDER BY wtb.hath ";
 	$order .= $sSortDir_0;
 } else {;

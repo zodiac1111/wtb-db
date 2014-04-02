@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Trade Center</title>
 		<style type="text/css" title="currentStyle">
 			@import "css/demo_page.css";
@@ -130,14 +131,11 @@
 										.hide()
 										.menu();
                     },
-					"aoColumns" : [   
-						{},   
-						{sClass: "alignMiddle"} 
-					],
                     // 格式化输出
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
                         "aTargets" : [0],
+						"asSorting": [ "asc" ],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -146,6 +144,7 @@
                     }, {
                         "mData" : "type",
                         "aTargets" : [1],
+						//"bSortable": false,
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -297,7 +296,7 @@
 							<th width="5%" title="bbs 连接">Ref.</th>
 							<th width="14%" title="交易加入时间">Time</th>
 							<th title="备注">note</th>
-							<th width="5%" title="管理动作">Manage</th>
+							<th width="70px" title="管理动作">Manage</th>
 						</tr>
 					</thead>
 					<tbody>
