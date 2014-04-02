@@ -89,8 +89,8 @@
                 });
 				// 拍卖:未实现
                 $("#auction").button({
-                    icons : {
-                        primary : "ui-icon-circle-plus"
+					 icons : {
+                        primary : "ui-icon-person"
                     }
                 }).click(function() {
 					;
@@ -106,7 +106,9 @@
 						icons: {
 							primary: "ui-icon-triangle-1-s"
 						}
-					});
+					})
+				$(".btnl18n").parent().buttonset(); // 组合按钮
+
                 $("#Rev").button();
 				// 类别选项,wtb/wts/wtt
 				$("#type" ).buttonset().click(function(){
