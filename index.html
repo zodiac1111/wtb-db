@@ -100,13 +100,13 @@
 						// 选择的交易类型 
                         aoData.push({
                             "name" : "wtb",
-                            "value" : "1"
+                            "value" : $("#enb_wtb")[0].checked?"1":"0"
                         },{
                             "name" : "wts",
-                            "value" : "1"
+                            "value" : $("#enb_wts")[0].checked?"1":"0"
 						},{
                             "name" : "wtt",
-                            "value" : "1"
+                            "value" : $("#enb_wtt")[0].checked?"1":"0"
 						});
                     },
                     "fnDrawCallback" : function(oSettings) {
