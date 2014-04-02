@@ -1,12 +1,7 @@
 <?php
-//PHP手册中的PHP连接Mysql的实例
-// 连接选择数据库
-$link = mysql_connect("127.0.0.1", "root", "123456") or die("Could not connect");
+include "conf.php";
+/// 解析前端传递过来的参数
 
-mysql_select_db("wtb") or die("Could not select database");
-// 执行 SQL 查询
-
-// pasre the query string ,get sort etc.
 parse_str($_SERVER['QUERY_STRING']);
 //echo $_SERVER['QUERY_STRING'];
 //echo $my_arg;
@@ -14,7 +9,6 @@ parse_str($_SERVER['QUERY_STRING']);
 // 排序部分
 // $iSortCol_0 第一个排序字段 (暂时就排序一个字段)
 // $sSortDir_0 升序还是降序 asc /dsc
-
 $order = "";
 if ($iSortCol_0 == "0") {
 	$order .= " ORDER BY wtb.idwtb ";
@@ -37,7 +31,7 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
-// 过滤交易类别 ,wtb=1 wts=2 wtt=3
+// 子功能:过滤交易类别 ,wtb=1 wts=2 wtt=3
 $typeA=($wtb=="1")? " wtb.type=0 ":"0";
 $typeB=($wts=="1")? " wtb.type=1 ":"0";
 $typeC=($wtt=="1")? " wtb.type=2 ":"0";
@@ -52,6 +46,7 @@ $type .= " ( ";
 $type .= $typeA . " or " . $typeB . " or ".$typeC;
 $type .= " ) ";
 
+// 搜索子功能
 $search="";
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
@@ -98,8 +93,12 @@ $counter= "SELECT COUNT(*)  FROM
 	. " " . $type
 	. $search . " ;";
 
-// debugprint
-// echo " DEBUG:sql string: \"" . $query . "\"";
+//PHP手册中的PHP连接Mysql的实例
+// 连接选择数据库
+$link = mysql_connect("127.0.0.1", "root", "123456") or die("Could not connect");
+
+mysql_select_db("wtb") or die("Could not select database");
+// 执行 SQL 查询
 $result = mysql_query($query) or die("Query failed:".$query);
 // json api start
 $rows = array();
@@ -112,6 +111,7 @@ while ($r = mysql_fetch_assoc($result)) {
  $rows[] = $r;
  }
  */
+// 执行 SQL 查询(2) 得到总数量
 $result = mysql_query($counter) or die("Query failed:".$query);
 list($iTotalRecords) = mysql_fetch_row($result);
 //$iTotalRecords=@mysql_num_rows($result);
