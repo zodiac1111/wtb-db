@@ -43,7 +43,18 @@
 				background : #FFF8AB;
 			}
 			.alignMiddle { text-align: middle; }
-			.load {background-image: url("images/Flip_Flop.gif");}
+			.load {
+				background-image: url("images/Flip_Flop.gif");
+				background-repeat: no-repeat;
+				background-attachment:fixed;
+				background-position:center;
+			}
+			.loadbar {
+				background-image: url("images/loadbar.gif");
+				background-repeat: no-repeat;
+				background-attachment:fixed;
+				background-position:center;
+			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
@@ -249,7 +260,8 @@
                         // $("#wait")[0].textContent = "waitng";
 						// btndel.parentElement.lastChild.textContent="..."
 						//  tr.style.background="#616161";
-						$(tr).addClass("load");
+						$(tr).addClass("loadbar");
+						$(tr).prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
