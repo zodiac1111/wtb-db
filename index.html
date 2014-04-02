@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
 		<link rel="stylesheet" href="css/demos.css">
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
+		<script type='text/javascript' src="js/i18next-1.7.2.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
@@ -84,6 +85,14 @@
                 }).click(function() {
                     top.location.href = "/insert.html";
                 });
+				// 语言选线
+				$(".btnl18n").button();
+				$(".set").button({
+					text: false,
+					icons: {
+						primary: "ui-icon-triangle-1-s"
+					}
+				})
                 $("#Rev").button();
 				// 类别选项,wtb/wts/wtt
 				$("#type" ).buttonset().click(function(){
@@ -317,11 +326,15 @@
 					<button id="add" title="新增交易条目">Add</button>
 					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev</label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb" title="求购订单" checked><label for="enb_wtb">WTB</label>
-						<input type="checkbox" id="enb_wts" title="出售订单" checked><label for="enb_wts">WTS</label>
-						<input type="checkbox" id="enb_wtt" title="交换订单(未实现)""><label for="enb_wtt">Rev.</label>
+						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="求购订单">WTB</label>
+						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="出售订单">WTS</label>
+						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="交换订单(未实现)">Rev.</label>
 					</span>
-					<button id="reload" value="reload">Reload</button>
+					<button id="reload" value="reload" title="刷新">Reload</button>
+					<span>
+						<button class="btnl18n">Language</button>
+						<button class="set">Set</button>
+					</span>
 				</div>
 				<span id="wait"></span>
 			</div>
@@ -334,8 +347,8 @@
 							<th width="6%"  title="类型">Type</th>
 							<th width="15%" title="物品名称">Item/Equip</th>
 							<th width="13%" title="玩家名称">Player</th>
-							<th width="8%" title="-表示不接受Credit">Credit</th>
-							<th width="7%" title="-表示不接受Hath">Hath</th>
+							<th width="8%" title="-表示不接受">Credit</th>
+							<th width="7%" title="-表示不接受">Hath</th>
 							<th width="6%" title="物品数量">Qty.</th>
 							<th width="5%" title="bbs 连接">Ref.</th>
 							<th width="14%" title="交易加入时间">Time</th>
