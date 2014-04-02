@@ -38,9 +38,15 @@ if ($iSortCol_0 == "0") {
 }
 
 // 过滤交易类别 ,wtb=1 wts=2 wtt=3
-$typeA=($wtb=="1")? " wtb.type=0 ":"true";
-$typeB=($wts=="1")? " wtt.type=1 ":"true";
-$typeC=($wtt=="1")? " wts.type=2 ":"true";
+$typeA=($wtb=="1")? " wtb.type=0 ":"0";
+$typeB=($wts=="1")? " wtb.type=1 ":"0";
+$typeC=($wtt=="1")? " wtb.type=2 ":"0";
+// 如果没有选择任何类别,则选择所有类别.
+if($wtb=="0" && $wts=="0" && $wtt=="0"){
+	$typeA= " wtb.type=0 ";
+	$typeB= " wtb.type=1 ";
+	$typeC= " wtb.type=2 ";
+}
 $type .= " and ";
 $type .= " ( ";
 $type .= $typeA . " or " . $typeB . " or ".$typeC;
@@ -75,8 +81,8 @@ $query = "select "
     ."wtb.play, "
     ."wtb.wtb "
     ."WHERE "
-    ."wtb.wtb.iditem = wtb.item.iditem "
-    ."    and wtb.wtb.idplayer = wtb.play.idplay "
+    ."wtb.iditem = item.iditem "
+    ."    and wtb.idplayer = play.idplay "
 . " " . $type
 . " " . $search
 . " " . $order
@@ -87,8 +93,8 @@ $counter= "SELECT COUNT(*)  FROM
     wtb.item,
     wtb.play,
     wtb.wtb WHERE
-    	wtb.wtb.iditem = wtb.item.iditem
-        	and wtb.wtb.idplayer = wtb.play.idplay "
+    	wtb.iditem = item.iditem
+        	and wtb.idplayer = play.idplay "
 	. " " . $type
 	. $search . " ;";
 
