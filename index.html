@@ -85,7 +85,10 @@
                     top.location.href = "/insert.html";
                 });
                 $("#Rev").button();
-				$("#type" ).buttonset();
+				// 类别选项,wtb/wts/wtt
+				$("#type" ).buttonset().click(function(){
+					$("#tbl").dataTable().fnDraw(false); ///刷新表格
+				});
                 // **** datatable ****
                 //$('#tbl').dataTable();
                 $('#tbl').dataTable({
@@ -314,9 +317,9 @@
 					<button id="add" title="新增交易条目">Add</button>
 					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev</label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb" title="显示求购信息" checked><label for="enb_wtb">WTB</label>
-						<input type="checkbox" id="enb_wts" title="显示出售信息" checked><label for="enb_wts">WTS</label>
-						<input type="checkbox" id="enb_wtt" title="未实现""><label for="enb_wtt">Rev.</label>
+						<input type="checkbox" id="enb_wtb" title="求购订单" checked><label for="enb_wtb">WTB</label>
+						<input type="checkbox" id="enb_wts" title="出售订单" checked><label for="enb_wts">WTS</label>
+						<input type="checkbox" id="enb_wtt" title="交换订单(未实现)""><label for="enb_wtt">Rev.</label>
 					</span>
 					<button id="reload" value="reload">Reload</button>
 				</div>
