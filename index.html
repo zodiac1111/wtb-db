@@ -121,9 +121,21 @@
 									}
 								})
 								.click(function() {
-									var menu = $( this ).parent().next().show();
+									var menu = $( this ).parent().next();
+									// 鼠标离开菜单,菜单隐藏
+									menu.mouseleave(function(){
+								  		$(this).hide();
+										return false;
+									})
+									// 点击按钮,菜单循环隐藏和显示
+									if(menu[0].style.display=="none"){
+										menu.show();
+									}else{
+										menu.hide();
+									}
+									// 点击其他元素,菜单隐藏
 									$(document).one( "click", function() {
-											menu.hide();
+										menu.hide();
 									});
 									return false;
 								})
