@@ -48,12 +48,13 @@
 				background-repeat: no-repeat;
 				background-attachment:fixed;
 				background-position:center;
+				//background-repeat: repeat-y;
 			}
 			.loadbar {
 				background-image: url("images/loadbar.gif");
+				background-position: center,center;
 				background-repeat: no-repeat;
-				background-attachment:fixed;
-				background-position:center;
+				background-attachment: scroll;
 			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
@@ -261,7 +262,7 @@
 						// btndel.parentElement.lastChild.textContent="..."
 						//  tr.style.background="#616161";
 						$(tr).addClass("loadbar");
-						$(tr).prop("disabled", true);
+						//$(tr).prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
