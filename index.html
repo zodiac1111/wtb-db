@@ -114,9 +114,9 @@
 				$("#type" ).buttonset().click(function(){
 					$("#tbl").dataTable().fnDraw(false); ///刷新表格
 				});
-                // **** datatable ****
-                //$('#tbl').dataTable();
+                // **** 主要:一整个表格 ****
                 $('#tbl').dataTable({
+					"sPaginationType": "full_numbers", //直接显示页码
                     "bJQueryUI" : true,
                     "bProcessing" : true,
                     "bServerSide" : true,
@@ -381,7 +381,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label>Trade Center v0.1.4 </br></label>
+					<label>Trade Center v0.1.5 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 			</div>
