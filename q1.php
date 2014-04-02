@@ -31,6 +31,7 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
+
 // 子功能:过滤交易类别 ,wtb=1 wts=2 wtt=3
 $typeA=($wtb=="1")? " wtb.type=0 ":"0";
 $typeB=($wts=="1")? " wtb.type=1 ":"0";
@@ -47,11 +48,22 @@ $type .= $typeA . " or " . $typeB . " or ".$typeC;
 $type .= " ) ";
 
 // 搜索子功能
-$search="";
+$search_all="1";
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
-	$search .= "and (item_name LIKE \"%" . $sSearch . "%\" or play_name LIKE \"%" . $sSearch . "%\")";
+	$search_all .= " item_name LIKE \"%" . $sSearch . "%\" or play_name LIKE \"%" . $sSearch . "%\" ";
 }
+
+$search_item="1"; //分类搜索 --物品
+if($sSearch_2<>""){
+	$search_player=" item_name LIKE \"%" . $sSearch_2 . "%\" ";
+}
+$search_player="1"; //分类搜索 --玩家
+if($sSearch_3<>""){
+	$search_player=" play_name LIKE \"%" . $sSearch_3 . "%\" ";
+}
+// 组合所有搜索条件
+$search= " and ( ". $search_all ." and " . $search_item . " and " .  $search_player .")";
 
 if($iDisplayLength ==""){
 	$iDisplayLength ="10";
@@ -117,6 +129,7 @@ list($iTotalRecords) = mysql_fetch_row($result);
 //$iTotalRecords=@mysql_num_rows($result);
 // show json
 $json->sqlstring=$query;
+$json->search=$search;
 $json->arg="wtb:" . $wtb . " wts:" . $wts . " wtt:" . $wtt;
 $json->sEcho=$sEcho;
 $json->iTotalRecords=$iTotalRecords;// 总的记录条数
