@@ -37,14 +37,14 @@ if ($iSortCol_0 == "0") {
 } else {;
 }
 
-$wtb="1";
-// 过滤交易类别
-if( $wtb=="1" || $wts == "1" || $wtt == "1") {
-	$type .= " and ";
-	$type .= " ( ";
-	$type .= " wtb.type=0  or  wtb.type=1  or wtb.type=2 ";
-	$type .= " ) ";
-}
+// 过滤交易类别 ,wtb=1 wts=2 wtt=3
+$typeA=($wtb=="1")? " wtb.type=0 ":"true";
+$typeB=($wts=="1")? " wtt.type=1 ":"true";
+$typeC=($wtt=="1")? " wts.type=2 ":"true";
+$type .= " and ";
+$type .= " ( ";
+$type .= $typeA . " or " . $typeB . " or ".$typeC;
+$type .= " ) ";
 
 $search="";
 if ($sSearch<>"") {
