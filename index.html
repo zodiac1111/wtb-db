@@ -14,6 +14,7 @@
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
 		<script type='text/javascript' src="js/i18next-1.7.2.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
+		<script type='text/javascript' src="js/jquery.dataTables.columnFilter.js" ></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
@@ -192,6 +193,15 @@
 										.menu();
                     },
 					"aaSorting": [[ 0, "desc" ]], //默认按第一列降序排列
+					"fnServerData": function( sUrl, aoData, fnCallback ) {
+						$.ajax( {
+						    "url": sUrl,
+						    "data": aoData,
+						    "success": fnCallback,
+						    "dataType": "jsonp",
+						    "cache": false
+						} );
+					},
                     // 列定义
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
@@ -299,7 +309,15 @@
 								+'</ul>';
                         }
                     }]
-                });
+                }).columnFilter({
+					aoColumns: [ 
+							{ type: "select", values: [ 'Gecko', 'Trident "New"', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
+							 { type: "text" },
+							 { type: "text" },
+							 { type: "text" }
+				]
+
+		});
 
             });
 			// 删除订单,tr 删除的行 , id 订单号
