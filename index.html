@@ -96,7 +96,11 @@
 					;
                 });
 				// 语言选项 l18n未实现,次级优先级
-				$(".btnl18n").button().next()
+				$(".btnl18n").button({
+					icons: {
+						primary: "ui-icon-flag"
+					}
+				}).next()
 					.button({
 						text: false,
 						icons: {
