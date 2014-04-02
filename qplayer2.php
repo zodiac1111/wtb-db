@@ -1,13 +1,11 @@
 <?php
 include "conf.php";
 
-/// @note 查找字符串,根据物品名称提供自动补全功能
+/// @note 查找字符串,根据玩家名称提供自动补全功能
 parse_str($_SERVER['QUERY_STRING']);
-/// q 为前端传入的玩家名字
-//$query = "SELECT * FROM play WHERE play.play_name LIKE  \"%" . $q . "%\" ;";
+/// term 为前端传入的玩家名字
+$query = "SELECT * FROM play WHERE play.play_name LIKE  \"%" . $term . "%\" ;";
 
-$query = "SELECT * FROM  play ORDER BY play_name;";
-//echo "var jstext=" . "'$query'";
 $link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not connect");
 mysql_select_db("wtb") or die("Could not select database");
 $result = mysql_query($query) or die("Query failed");
