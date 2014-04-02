@@ -193,6 +193,7 @@
 										.menu();
                     },
 					"aaSorting": [[ 0, "desc" ]], //默认按第一列降序排列
+/*
 					"fnServerData": function( sUrl, aoData, fnCallback ) {
 						$.ajax( {
 						    "url": sUrl,
@@ -201,7 +202,7 @@
 						    "dataType": "jsonp",
 						    "cache": false
 						} );
-					},
+					}, */
                     // 列定义
                     "aoColumnDefs" : [{
                         "mData" : "idwtb",
@@ -311,10 +312,10 @@
                     }]
                 }).columnFilter({
 					aoColumns: [ 
-							{ type: "select", values: [ 'Gecko', 'Trident "New"', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
+							{ type: "text" },
 							 { type: "text" },
 							 { type: "text" },
-							 { type: "text" }
+							 { type: "text" },null,null,null,null,null,null,null
 				]
 
 		});
@@ -396,6 +397,21 @@
 							<td colspan="10" class="dataTables_empty" align="middle">Loading data from server 正在从服务器加载数据 ...</td>
 						</tr>
 					</tbody>
+					<tfoot>
+						<tr>
+							<th>ID</th>
+							<th>Type</th>
+							<th>Item/Equip</th>
+							<th>Player</th>
+							<th>Credit</th>
+							<th>Hath</th>
+							<th>Qty.</th>
+							<th>Ref.</th>
+							<th>Time</th>
+							<th>note</th>
+							<th>Manage</th>
+						</tr>
+					</tfoot>
 				</table>
 				<p></p>
 				<div align="right">
