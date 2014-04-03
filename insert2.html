@@ -49,29 +49,35 @@
             $(document).ready(function() {
                 qitem();
 				$( "#player" ).autocomplete({
-				source: function( request, response ) {
-					$.ajax({
-					  url: "qplayer2.php",
-					  dataType: "jsonp",
-					  data: {
-						term: request.term
-					  },
-					  success: function( data ) {
-						response( $.map( data.geonames, function( item ) {
-						  return {
-							label: item.play_name,
-							value: item.idplay
+					minLength: 3,
+					source: function( request, response ) {
+						$.ajax({
+						  url: "qplayer2.php",
+						  dataType: "jsonp",
+						  data: {
+							term: request.term
+						  },
+						  success: function( data ) {
+							response( $.map( data.adata, function( item ) {
+							  return {
+								label: item.play_name,
+								value: item.idplay
+							  }
+							}));
 						  }
-						}));
-					  }
-					});
-				  },
-				  minLength: 3,
-				  select: function( event, ui ) {
-					log( ui.item ?
-					  "Selected: " + ui.item.value + " aka " + ui.item.id :
-					  "Nothing selected, input was " + this.value );
-				  }
+						});
+					},
+					select: function( event, ui ) {
+						log( ui.item ?
+						  "Selected: " + ui.item.value + " aka " + ui.item.id :
+						  "Nothing selected, input was " + this.value );
+					},
+					open: function() {
+						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+					},
+					close: function() {
+						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					}
 				});
 				$( "#radio" ).buttonset();
                 $(".nb").spinner({
