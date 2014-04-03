@@ -22,22 +22,24 @@ $rows = array();
 while ($r = mysql_fetch_assoc($result)) {
 	$rows[] = $r;
 }
-// 有则更新
-if ($rows.length>0){
-	$idwtb=$rows[0].idwtb;
-	$query = "UPDATE 
-	   `wtb`  SET 
-		  `type`='".type."',`iditem`='".iditem."', `idplayer`='".idplayer."', `num_want`='".qty."', `c`='".c."', `hath`='".hath."',`note`='".note."',`src`='".src."'
-	WHERE `idwtb`='".$idwtb."';";
+
 // 没有则插入
-}else{
+if (empty($row)){
 	$query = "INSERT 
 	INTO
 	   `wtb` (
 		  `type`,`iditem`, `idplayer`, `num_want`, `c`, `hath`,`note`,`src`
 	   ) 
 	VALUES
-	   ('".type."', '".iditem."', '".idplayer."', '".qty."','".c."', '".hath."','".note."','".src."');";
+	   ('".$type."', '".$iditem."', '".$idplayer."', '".$qty."','".$c."', '".$hath."','".$note."','".$src."');";
+// 有则更新
+}else{
+	$e=array_shift($rows);
+	$idwtb=$e->idwtb;
+	$query = "UPDATE 
+	   `wtb`  SET 
+		  `type`='".$type."',`iditem`='".$iditem."', `idplayer`='".$idplayer."', `num_want`='".$qty."', `c`='".$c."', `hath`='".$hath."',`note`='".$note."',`src`='".$src."'
+	WHERE `idwtb`='".$idwtb."';";
 }
 //echo "var jstext='$query'"; //输出一句JS语句,生成一个JS变量,并赋颠值为PHP变量 $query 的值
 //echo "var jstext='aa'";
@@ -45,6 +47,9 @@ if ($rows.length>0){
 
 $result = mysql_query($query) or die("Query failed");
 //echo "var reset=" . $result;
+$json->array=implode(",", $row); 
+$json->count=count($row);
+$json->idwtb=$idwtb;
 $json->ret="1";
 $json->l=$rows.length;
 $json->select=$select;
