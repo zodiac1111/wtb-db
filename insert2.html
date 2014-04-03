@@ -54,10 +54,7 @@
 					  url: "qplayer2.php",
 					  dataType: "jsonp",
 					  data: {
-						featureClass: "P",
-						style: "full",
-						maxRows: 12,
-						name_startsWith: request.term
+						term: request.term
 					  },
 					  success: function( data ) {
 						response( $.map( data.geonames, function( item ) {
