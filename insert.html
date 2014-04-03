@@ -255,10 +255,12 @@
 
 			// @todo 移除,插入sql 字符串
             function gettext() {
+				// 获得各种相的值
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val()
                 var iditem = $("#item_id")[0].textContent;
                 var idplayer = $("#player_id")[0].textContent;
+				// 支持k/m单位
                 var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
 				if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
 					qty=qty*1000;
@@ -306,9 +308,9 @@
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="15%" title="类别,目前仅支持wtb"> </th>
-					<th width="18%" title="选择求购的物品">Item</th>
-					<th width="14%" title="选择您的名称">Player
+					<th width="15%" title="类别"> </th>
+					<th width="14%" title="物品">Item</th>
+					<th width="12%" title="玩家">Player
 					<button id="add_player" class="add">
 						Add Player
 					</button></th>
