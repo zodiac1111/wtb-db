@@ -53,7 +53,7 @@
 					source: function( request, response ) {
 						$.ajax({
 						  url: "qplayer2.php",
-						  dataType: "jsonp",
+						  dataType: "json",
 						  data: {
 							term: request.term
 						  },
@@ -68,7 +68,7 @@
 						});
 					},
 					select: function( event, ui ) {
-						log( ui.item ?
+						console.log( ui.item ?
 						  "Selected: " + ui.item.value + " aka " + ui.item.id :
 						  "Nothing selected, input was " + this.value );
 					},

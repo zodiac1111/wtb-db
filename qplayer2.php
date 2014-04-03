@@ -16,7 +16,7 @@ while ($r = mysql_fetch_assoc($result)) {
 	$rows[] = $r;
 }
 $json->adata=$rows;
-$json->q=$_SERVER['QUERY_STRING'];
+//$json->q=$_SERVER['QUERY_STRING'];
 echo json_encode($json);
 // 释放资源
 mysql_free_result($result);
