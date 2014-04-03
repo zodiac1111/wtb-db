@@ -68,7 +68,9 @@
 						  }
 						});
 					},
+					// 点击选择时触发
 					select: function( event, ui ) {
+						$("#player_id").value=ui.item.id;
 						console.log( ui.item ?
 						  "Selected: " + ui.item.value + " aka " + ui.item.id :
 						  "Nothing selected, input was " + this.value );
@@ -120,9 +122,6 @@
 		                success : function(data, textStatus) {
 							//alert(data);
 		                    $("#wait")[0].textContent = "OK";
-							$("#player")[0].textContent="";
-							$("#player").hide();
-							$("#player_load").show();
 							$("#dialog").dialog("close");
 							qplayer();
 		                },
@@ -287,7 +286,7 @@
 							<select id="itemid" style="display:none;" >
 							</select></td>
 						<td  align="middle">
-							<label id="player_load">Loading Player List ...</label>
+							<label id="player_id"  style="display:none;" ></label>
 							<input id="player">
 						</td>
 						<td align="middle" >
