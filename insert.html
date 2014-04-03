@@ -63,6 +63,7 @@
 							success: function( data ) {
 								//没有找到此物品
 								if (data.adata.length == 0) {
+									$("#item_id")[0].textContent="";
 									$("#item").autocomplete("close");
 								}
 								// 找到了,显示出来
@@ -103,6 +104,7 @@
 							success: function( data ) {
 								//没有找到此用户
 								if (data.adata.length == 0) {
+									$("#player_id")[0].textContent="";
 									$("#player").autocomplete("close");
 									// 是否让用户确认添加?待定
 									//if (confirm('未找到该用户,是否添加?\nNot found this player.Add a new one?')) {
@@ -206,6 +208,10 @@
                     }
                 }).click(function() {
                     // 点击事件
+					if($("#item_id")[0].value=="" || $("#player_id")[0].value=="" ){
+						alert('item /player is void!\n物品或玩家不能为空');
+						return false;				
+					}
                     $.ajax({
                         type : "post",
                         url : "insert.php",
