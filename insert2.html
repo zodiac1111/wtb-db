@@ -1,0 +1,331 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Add</title>
+		<style type="text/css" title="currentStyle">
+			@import "css/demo_page.css";
+			@import "css/demo_table.css";
+			@import "css/demos.css";
+			@import "css/jquery.dataTables.css";
+			@import "css/jquery.dataTables_themeroller.css";
+			@import "css/themes/base/jquery.ui.all.css";
+		</style>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
+		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
+		<script src="js/ui/jquery.ui.core.js"></script>
+		<script src="js/ui/jquery.ui.widget.js"></script>
+		<script src="js/ui/jquery.ui.mouse.js"></script>
+		<script src="js/ui/jquery.ui.draggable.js"></script>
+		<script src="js/ui/jquery.ui.position.js"></script>
+		<script src="js/ui/jquery.ui.resizable.js"></script>
+		<script src="js/ui/jquery.ui.button.js"></script>
+		<script src="js/ui/jquery.ui.dialog.js"></script>
+		<script src="js/ui/jquery.ui.spinner.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
+		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
+		<script type='text/javascript' src="js/external/globalize.js"></script>
+		<style>
+			#toolbar {
+				padding: 4px;
+				display: inline-block;
+			}
+			/* support: IE7 */
+			*+ html #toolbar {
+				display: inline;
+			}
+		</style>
+
+		<script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+                qitem();
+                qplayer();
+				$( "#radio" ).buttonset();
+                $(".nb").spinner({
+					min : 0,
+                    numberFormat: "n0"
+                });
+                $("#c").spinner({
+                    min : 0,
+					step: 1000,
+					numberFormat: "n0"
+                })
+				$("#hath").spinner({
+                    min : -1,
+					numberFormat: "n0"
+                })
+                $(".btn").button();
+                $("#add_player").button({
+                    text : false,
+                    icons : {
+                        primary : "ui-icon-circle-plus"
+                    }
+                }).click(function() {
+                    $("#dialog").dialog("open");
+                });
+                $("#btnAdd").button({
+                    text : false
+                }).click(function() {
+                      $.ajax({
+		                type : "post",
+		                url : "addplayer.php",
+		                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+		                dataType : "text",
+		                data : "id="+ $("#id")[0].value+"&name="+$("#name")[0].value,
+		                beforeSend : function(XMLHttpRequest) {
+		                    //alert("提交");
+		                    $("#wait")[0].textContent = "waitng";
+		                },
+		                //成功(先成功,后完成)
+		                success : function(data, textStatus) {
+							//alert(data);
+		                    $("#wait")[0].textContent = "OK";
+							$("#player")[0].textContent="";
+							$("#player").hide();
+							$("#player_load").show();
+							$("#dialog").dialog("close");
+							qplayer();
+		                },
+		                error : function(XMLHttpRequest, textStatus, errorThrown) {
+		                    $("#wait")[0].textContent = "ERR";
+		                    alert("ERR:" + XMLHttpRequest.responseText);
+		                },
+						complete:function(XHR, TS){
+						}
+		            });
+                });
+				// 取消添加用户
+                $("#btnCal").click(function() {
+                    $("#dialog").dialog("close");
+                });
+                $("#home").button({
+                    icons : {
+                        primary : "ui-icon-home"
+                    }
+                }).click(function() {
+                    top.location.href = "/index.html";
+                });
+				// 添加交易条目
+                $("#submit").button({
+                    icons : {
+                        primary : "ui-icon-check"
+                    }
+                }).click(function() {
+                    // 点击事件
+                    $.ajax({
+                        type : "post",
+                        url : "insert.php",
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType : "text",
+                        data : "query=" + gettext(),
+                        beforeSend : function(XMLHttpRequest) {
+                            //alert("提交");
+                            $("#wait")[0].textContent = "waitng";
+							$("#submit").prop("disabled", true);
+                        },
+                        //成功(先成功,后完成)
+                        success : function(data, textStatus) {
+							if(data!="1"){
+                            	alert("return err:" + data);
+							}
+                            $("#wait")[0].textContent = "OK";
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            $("#wait")[0].textContent = "ERR";
+                            alert("ERR:" + XMLHttpRequest.responseText);
+                        },
+						complete:function(XHR, TS){
+							$("#submit").prop("disabled", false);
+						}
+                    });
+                });
+                $('#tbl').dataTable({
+                    "bJQueryUI" : true,
+					"bInfo":false,
+					"bFilter":false,
+					"bSort": false,
+					"bPaginate": false
+                });
+                $("#dialog").dialog({
+                    // height: 200,
+                    modal : true,
+                    autoOpen : false,
+                });
+            });
+
+            function qitem() {
+                $.ajax({
+                    type : "post",
+                    url : "qitem.php",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    dataType : "json",
+                    data : "",
+                    beforeSend : function(XMLHttpRequest) {
+                        $("#wait")[0].textContent = "waitng";
+                    },
+                    //成功(先成功,后完成)
+                    success : function(data, textStatus) {
+                        $("#wait")[0].textContent = "OK";
+						for (i=0;i<data.length;i++) {
+							$("#itemid")
+							.append('<option value="'+data[i].iditem+'">'
+								+data[i].item_name+'</option>');
+						}
+						$("#itemid_load").hide();
+						$("#itemid").show();
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        $("#wait")[0].textContent = "ERR";
+                        alert("ERR:" + XMLHttpRequest.responseText);
+                    },
+					complete:function(XHR, TS){
+					}
+                });
+            }
+
+            function qplayer() {
+                $.ajax({
+                    type : "post",
+                    url : "qplayer2.php",
+                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    dataType : "json",
+                    data : "",
+                    beforeSend : function(XMLHttpRequest) {
+                        $("#wait")[0].textContent = "waitng";
+                    },
+                    //成功(先成功,后完成)
+                    success : function(data, textStatus) {
+                        $("#wait")[0].textContent = "OK";
+						for (i=0;i<data.length;i++) {
+							$("#player")
+							.append('<option value="'+data[i].idplay+'">'
+								+data[i].play_name+'</option>');
+						}
+						$("#player_load").hide();
+						$("#player").show();
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        $("#wait")[0].textContent = "ERR";
+                        alert("ERR:" + XMLHttpRequest.responseText);
+                    },
+					complete:function(XHR, TS){
+					}
+                });
+            }
+            function gettext() {
+                var enable = "1";
+				var type = $('input[name=radio]:checked').val()
+                var iditem = $("#itemid").val();
+                var idplayer = $("#player").val();
+                var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
+                var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
+                var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
+                var src = $("#src")[0].value;
+				var note= $("#note")[0].value;
+				var d = new Date();
+				var st=d.getTime()/1000;///unix时间戳
+                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
+				 	str += enable + "', '" + type + "', '"+ iditem + "', '" + idplayer + "','";
+				 	str += qty + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
+                $("#output")[0].textContent = str;
+                return str;
+            }
+		</script>
+	</head>
+
+	<body>
+		<div align="">
+			<div id="toolbar" class="ui-widget-header ui-corner-all">
+				<button id="home" value="Submit" title="返回主页">
+					Home
+				</button>
+				<button id="submit" value="Submit"  title="提交修改">
+					Submit
+				</button>
+			</div>
+			<span id="wait"></span>
+		</div>
+		<p></p>
+		<div>
+			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
+				<thead>
+					<th width="15%" title="类别,目前仅支持wtb"> </th>
+					<th width="18%" title="选择求购的物品">Item</th>
+					<th width="14%" title="选择您的名称">Player
+					<button id="add_player" class="add">
+						Add Player
+					</button></th>
+					<th width="10%" title="购买/出售数量(最小为1,留空表示不限)">Qty.</th>
+					<th width="8%" title="留空表示不接受Credit为付款方式">Credit</th>
+					<th width="4%" title="留空表示不接受Hath为付款方式">Hath</th>
+					<th width="18%" title="备注(可选)">note</th>
+					<th>BBS Link</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td  align="middle">
+							<div id="radio">
+								<input type="checkbox" checked class="chitic enb checked"/>
+								<input type="radio" id="wtb" name="radio" checked="checked" value="0"/><label for="wtb">WTB</label>
+								<input type="radio" id="wts" name="radio" value="1" /><label for="wts">WTS</label>
+								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt">WTT</label>
+							</div>
+						</td>
+						<td align="middle">
+							<label id="itemid_load">Loading Item List ...</label>
+							<select id="itemid" style="display:none;" >
+							</select></td>
+						<td  align="middle">
+							<label id="player_load">Loading Player List ...</label>
+							<select id="player" style="display:none;">
+							</select>
+						</td>
+						<td align="middle" >
+							<input  style="width:100%" type="text" class="nb" id="qty" value="1"/>
+						</td>
+						<td align="middle" >
+							<input style="width:100%" type="text" class="nb" id="c"/>
+						</td>
+						<td align="middle">
+						<input style="width:100%" type="text" class="nb" id="hath"/>
+						</td>
+						<td align="middle">
+						<input style="width:100%" type="text" id="note" placeholder="(可选)输入一些备注信息"/>
+						</td>
+						<td align="middle" >
+						<input style="width:100%" type="text" id="src" placeholder="bbs连接,例如: http://forums.e-hentai.org/index.php?showtopic=xxxxxx"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p align="middle" style="margin: 100px;">
+				<code id="output">
+					[---]
+				</code>
+			</p>
+		</div>
+		<div id="dialog" title="Add player" >
+			<div align="middle">
+				<label for="name">Player Name</label></br>
+				<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+				</br>
+				<label for="email" title="This link find your ID">Player ID[?]</label></br>
+				<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all">
+				</br>
+				<button id="btnAdd" class="btn" title="增加至玩家名称列表">
+					Add
+				</button>
+				<button id="btnCal" class="btn">
+					Cancel
+				</button>
+			</div>
+			<label>1. This Link </label><a href="http://forums.e-hentai.org/index.php">e-hentai.org</a></br>
+			<label>2. Check "Logged in as: [YOUR USER NAME]"</label></br>
+			<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at the upper left corner</label></br>
+			<label>3. ID is index.php?showuser=XXXXXXXX </label></br>
+		</div>
+	</body>
+</html>
