@@ -48,24 +48,32 @@
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
                 qitem();
+				// 自动完成
 				$( "#player" ).autocomplete({
-					minLength: 2,
+					autoFocus: true , //自动聚焦到第一个
+					minLength: 2, // 最小触发长度
+					// 数据源
 					source: function( request, response ) {
 						$.ajax({
-						  url: "qplayer2.php",
-						  dataType: "json",
-						  data: {
-							term: request.term
-						  },
-						  success: function( data ) {
-							response( $.map( data.adata, function( item ) {
-							  return {
-								id: item.idplay, // 这个呢?
-								label: item.play_name, //显示在弹出层
-								value: item.play_name //点击填写到文本框
-							  }
-							}));
-						  }
+							url: "qplayer2.php",
+							dataType: "json",
+							data: {
+								term: request.term
+							},
+							// 绑定数据
+							success: function( data ) {
+								if (data.length == 0) {
+									alert('No entries found!');
+									$("#player").autocomplete("close");
+								}
+								response($.map(data.adata, function( item ) {
+									return {
+										id: item.idplay, // 这个呢?
+										label: item.play_name, //显示在弹出层
+										value: item.play_name //点击填写到文本框
+									}
+								}));
+							}
 						});
 					},
 					// 点击选择时触发
