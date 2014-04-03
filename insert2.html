@@ -65,7 +65,7 @@
 								//没有找到此用户
 								if (data.adata.length == 0) {
 									$("#player").autocomplete("close");
-									if (confirm('未找到该用户,是否添加? Add a new play?')) {
+									if (confirm('未找到该用户,是否添加?\nNot found this player.Add a new one?')) {
 										// 弹出添加用户
 										$("#dialog").dialog("open");
 									}
@@ -115,10 +115,15 @@
                 }).click(function() {
                     $("#dialog").dialog("open");
                 });
+				// 增加用户ajax.
                 $("#btnAdd").button({
                     text : false
                 }).click(function() {
-                      $.ajax({
+					if($("#id")[0].value=="" || $("#name")[0].value=="" ){
+						alert('idplay/name is void!\n名字或id不能为空');
+						return false;				
+					}
+                    $.ajax({
 		                type : "post",
 		                url : "addplayer.php",
 		                contentType : "application/x-www-form-urlencoded; charset=utf-8",
