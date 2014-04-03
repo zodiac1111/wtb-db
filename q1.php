@@ -48,10 +48,10 @@ $type .= $typeA . " or " . $typeB . " or ".$typeC;
 $type .= " ) ";
 
 // 搜索子功能
-$search_all="1 or "; //物品和玩家一起搜索
+$search_all="1"; //物品和玩家一起搜索
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
-	$search_all .= " item_name LIKE \"%" . $sSearch . "%\" or play_name LIKE \"%" . $sSearch . "%\" ";
+	$search_all = " ( item_name LIKE \"%" . $sSearch . "%\" or play_name LIKE \"%" . $sSearch . "%\" ) ";
 }
 
 $search_item="1"; //分类搜索 --物品
