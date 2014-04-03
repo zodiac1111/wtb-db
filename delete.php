@@ -5,7 +5,7 @@ $query="DELETE FROM `wtb`.`wtb` WHERE `idwtb`='".$wtbid."';";
 //echo "var jstext='$query'";
 //echo "var jstext=" . "'$query'";
 $link = mysql_connect($mysql_host,$mysql_user, $mysql_pwd) or die("Could not connect");
-mysql_select_db("wtb") or die("Could not select database");
+mysql_select_db("$mysql_db) or die("Could not select database");
 $result = mysql_query($query) or die("Query failed");
 //echo "query=".$query ." ; reset=" . $result;
 echo $result;

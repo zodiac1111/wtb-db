@@ -47,8 +47,47 @@
 
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                qitem();
-				// 自动完成
+				// 自动完成 --物品名称
+				$( "#item" ).autocomplete({
+					autoFocus: true , //自动聚焦到第一个
+					minLength: 3, // 最小触发长度
+					// 数据源
+					source: function( request, response ) {
+						$.ajax({
+							url: "qitem.php",
+							dataType: "json",
+							data: {
+								term: request.term
+							},
+							// 绑定数据
+							success: function( data ) {
+								//没有找到此物品
+								if (data.adata.length == 0) {
+									$("#item").autocomplete("close");
+								}
+								// 找到了,显示出来
+								response($.map(data.adata, function( item ) {
+									return {
+										id: item.iditem, // 这个呢?
+										label: item.item_name, //显示在弹出层
+										value: item.item_name //点击填写到文本框
+									}
+								}));
+							}
+						});
+					},
+					// 点击选择时触发
+					select: function( event, ui ) {
+						$("#item_id")[0].textContent=ui.item.id;
+					},
+					open: function() {
+						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+					},
+					close: function() {
+						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					}
+				});
+				// 自动完成 -- 玩家名称
 				$( "#player" ).autocomplete({
 					autoFocus: true , //自动聚焦到第一个
 					minLength: 2, // 最小触发长度
@@ -207,41 +246,12 @@
                     autoOpen : false,
                 });
             });
-			// 查询物品
-            function qitem() {
-                $.ajax({
-                    type : "post",
-                    url : "qitem.php",
-                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                    dataType : "json",
-                    data : "",
-                    beforeSend : function(XMLHttpRequest) {
-                        $("#wait")[0].textContent = "waitng";
-                    },
-                    //成功(先成功,后完成)
-                    success : function(data, textStatus) {
-                        $("#wait")[0].textContent = "OK";
-						for (i=0;i<data.length;i++) {
-							$("#itemid")
-							.append('<option value="'+data[i].iditem+'">'
-								+data[i].item_name+'</option>');
-						}
-						$("#itemid_load").hide();
-						$("#itemid").show();
-                    },
-                    error : function(XMLHttpRequest, textStatus, errorThrown) {
-                        $("#wait")[0].textContent = "ERR";
-                        alert("ERR:" + XMLHttpRequest.responseText);
-                    },
-					complete:function(XHR, TS){
-					}
-                });
-            }
+
 			// @todo 移除,插入sql 字符串
             function gettext() {
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val()
-                var iditem = $("#itemid").val();
+                var iditem = $("#item_id")[0].textContent;
                 var idplayer = $("#player_id")[0].textContent;
                 var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
                 var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
@@ -298,12 +308,12 @@
 							</div>
 						</td>
 						<td align="middle">
-							<label id="itemid_load">Loading Item List ...</label>
-							<select id="itemid" style="display:none;" >
-							</select></td>
+							<label id="item_id"  style="display:none;" ></label>
+							<input id="item" placeholder="自动完成" >
+							</input></td>
 						<td  align="middle">
 							<label id="player_id"  style="display:none;" ></label>
-							<input id="player" placeholder="可自动完成">
+							<input id="player" placeholder="自动完成">
 						</td>
 						<td align="middle" >
 							<input  style="width:100%" type="text" class="nb" id="qty" value="1"/>
@@ -329,6 +339,7 @@
 				</code>
 			</p>
 		</div>
+		<!--  弹出对话框  -->
 		<div id="dialog" title="Add player" >
 			<div align="middle">
 				<label for="name">Player Name</label></br>
