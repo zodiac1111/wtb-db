@@ -62,9 +62,15 @@
 							},
 							// 绑定数据
 							success: function( data ) {
+								//没有找到此用户
 								if (data.adata.length == 0) {
 									$("#player").autocomplete("close");
+									if (confirm('未找到该用户,是否添加? Add a new play?')) {
+										// 弹出添加用户
+										$("#dialog").dialog("open");
+									}
 								}
+								// 找到了,显示出来
 								response($.map(data.adata, function( item ) {
 									return {
 										id: item.idplay, // 这个呢?
