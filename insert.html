@@ -82,6 +82,10 @@
 					select: function( event, ui ) {
 						$("#item_id")[0].textContent=ui.item.id;
 					},
+					focus: function (event, ui) {
+						$("#item_id")[0].textContent=ui.item.id;
+						return true;
+                    },
 					open: function() {
 						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
 					},
@@ -134,7 +138,7 @@
 					focus: function (event, ui) {
 						$("#player_id")[0].textContent=ui.item.id;
 						return true;
-                    }
+                    },
 					open: function() {
 						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
 					},
