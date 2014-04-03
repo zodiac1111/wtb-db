@@ -275,8 +275,8 @@
 				// 获得各种相的值
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val()
-                var iditem = $("#item_id")[0].textContent;
-                var idplayer = $("#player_id")[0].textContent;
+                var iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+                var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
 				// 支持k/m单位
                 var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
 				if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
