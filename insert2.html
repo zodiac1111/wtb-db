@@ -62,8 +62,7 @@
 							},
 							// 绑定数据
 							success: function( data ) {
-								if (data.length == 0) {
-									alert('No entries found!');
+								if (data.adata.length == 0) {
 									$("#player").autocomplete("close");
 								}
 								response($.map(data.adata, function( item ) {
@@ -79,9 +78,6 @@
 					// 点击选择时触发
 					select: function( event, ui ) {
 						$("#player_id")[0].textContent=ui.item.id;
-						console.log( ui.item ?
-						  "Selected: " + ui.item.value + " aka " + ui.item.id :
-						  "Nothing selected, input was " + this.value );
 					},
 					open: function() {
 						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
