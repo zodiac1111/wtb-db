@@ -60,6 +60,7 @@
 						  success: function( data ) {
 							response( $.map( data.adata, function( item ) {
 							  return {
+								id: item.idplay,
 								label: item.play_name,
 								value: item.idplay
 							  }
