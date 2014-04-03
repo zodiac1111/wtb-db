@@ -29,8 +29,8 @@ if (empty($rows)){
 	." ('".$type."', '".$iditem."', '".$idplayer."', '".$qty."','".$c."', '".$hath."','".$note."','".$src."','".$timestamp."');";
 // 有则更新
 }else{
-	$e=array_shift($rows);
-	$idwtb=$e->idwtb;
+	//  索引关联数组
+	$idwtb=$rows["idwtb"];
 	$query = "UPDATE `wtb` SET "
 		." `type`='".$type."',`iditem`='".$iditem."', `idplayer`='".$idplayer."', `num_want`='".$qty."', `c`='".$c."', `hath`='".$hath."',`note`='".$note."',`src`='".$src."',`timestamp`='".$timestamp."' "
 	." WHERE `idwtb`='".$idwtb."';";
@@ -41,7 +41,7 @@ if (empty($rows)){
 
 $result = mysql_query($query) or die("Query failed");
 //echo "var reset=" . $result;
-$json->array=implode(",", $rows); 
+//$json->array=var_dump($rows); 
 $json->count=count($rows);
 $json->isempty=empty($rows);
 $json->idwtb=$idwtb;
