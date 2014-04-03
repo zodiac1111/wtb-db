@@ -233,8 +233,8 @@
                         type : "post",
                         url : "insert.php",
                         contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                        dataType : "text",
-                        data : "query=" + gettext(),
+                        dataType : "json",
+                        data : gettext(),
                         beforeSend : function(XMLHttpRequest) {
                             //alert("提交");
                             $("#wait")[0].textContent = "waitng";
@@ -242,7 +242,7 @@
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
-							if(data!="1"){
+							if(data.ret!="1"){
                             	alert("return err:" + data);
 							}
                             $("#wait")[0].textContent = "OK";
@@ -298,12 +298,19 @@
 				}
                 var src = $("#src")[0].value;
 				var note= $("#note")[0].value;
-				var d = new Date();
-				var st=d.getTime()/1000;///unix时间戳
-                var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
-				 	str += enable + "', '" + type + "', '"+ iditem + "', '" + idplayer + "','";
-				 	str += qty + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
-                $("#output")[0].textContent = str;
+				// var d = new Date();
+				// var st=d.getTime()/1000;///unix时间戳
+            	// var str = "INSERT INTO `wtb`.`wtb` (`enable`,`type`,`iditem`, `idplayer`,`num_want`, `c`, `hath`,`note`,`timestamp`,`src`) VALUES ('";
+				// 	str += enable + "', '" + type + "', '"+ iditem + "', '" + idplayer + "','";
+				// 	str += qty + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
+            	//  $("#output")[0].textContent = str;
+				// 构造数据库字段
+				str="";				
+				str+="type="+type;
+				str+="&iditem="+iditem+"&idplayer="+idplayer;
+				str+="&bitem="+"1";
+				str+="&qty="+qty+"&c="+c+"&hath="+hath;
+				str+="&note="+note+"&src="+src;
                 return str;
             }
 		</script>
@@ -362,7 +369,7 @@
 							<input style="width:100%" type="text" class="nb" id="c" title="eg. 31 14c</br> 0.1k 59k 2.6K </br>5.3m 5M " placeholder="eg. 1.5k"/>
 						</td>
 						<td align="middle">
-						<input style="width:100%" type="text" class="nb" id="hath" title="eg. 31 14c 0.1k 59k 2.6K 5.3m 5M "/>
+						<input style="width:100%" type="text" class="nb" id="hath" title="eg. 31 14c 0.1k 59k 2.6K 5.3m 5M " placeholder="eg. 5"/>
 						</td>
 						<td align="middle">
 						<input style="width:100%" type="text" id="note"  title="备注信息" placeholder="(可选)输入一些备注信息"/>
