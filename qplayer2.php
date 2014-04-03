@@ -1,7 +1,7 @@
 <?php
 include "conf.php";
 
-/// @note 查找字符串,根据玩家名称提供自动补全功能
+/// @note 查找字符串,根据玩家名称提供自动补全功能 ,get方式 从QUERY_STRING中查找
 parse_str($_SERVER['QUERY_STRING']);
 /// term 为前端传入的玩家名字
 $query = "SELECT * FROM play WHERE play.play_name LIKE  \"%" . $term . "%\" ;";
@@ -15,8 +15,9 @@ $rows = array();
 while ($r = mysql_fetch_assoc($result)) {
 	$rows[] = $r;
 }
-
-echo json_encode($rows);
+$json->adata=$rows;
+$json->q=$_SERVER['QUERY_STRING'];
+echo json_encode($json);
 // 释放资源
 mysql_free_result($result);
 // 断开连接
