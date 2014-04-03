@@ -49,6 +49,7 @@
             $(document).ready(function() {
 				// 自动完成 --物品名称
 				$( "#item" ).autocomplete({
+					selectFirst: true,
 					autoFocus: true , //自动聚焦到第一个
 					minLength: 3, // 最小触发长度
 					// 数据源
@@ -90,6 +91,7 @@
 				});
 				// 自动完成 -- 玩家名称
 				$( "#player" ).autocomplete({
+					selectFirst: true,
 					autoFocus: true , //自动聚焦到第一个
 					minLength: 2, // 最小触发长度
 					// 数据源
@@ -110,6 +112,7 @@
 									//if (confirm('未找到该用户,是否添加?\nNot found this player.Add a new one?')) {
 										// 弹出添加用户
 										$("#dialog").dialog("open");
+										$("#name")[0].value=$("#player")[0].value;
 									//}
 								}
 								// 找到了,显示出来
@@ -180,7 +183,6 @@
 							//alert(data);
 		                    $("#wait")[0].textContent = "OK";
 							$("#dialog").dialog("close");
-							qplayer();
 		                },
 		                error : function(XMLHttpRequest, textStatus, errorThrown) {
 		                    $("#wait")[0].textContent = "ERR";
