@@ -113,6 +113,7 @@
 										// 弹出添加用户
 										$("#dialog").dialog("open");
 										$("#name")[0].value=$("#player")[0].value;
+										$("#id")[0].value="";
 									//}
 								}
 								// 找到了,显示出来
@@ -130,6 +131,10 @@
 					select: function( event, ui ) {
 						$("#player_id")[0].textContent=ui.item.id;
 					},
+					focus: function (event, ui) {
+						$("#player_id")[0].textContent=ui.item.id;
+						return true;
+                    }
 					open: function() {
 						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
 					},
