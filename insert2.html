@@ -49,7 +49,26 @@
             $(document).ready(function() {
                 qitem();
 				$( "#player" ).autocomplete({
-				  source: "qplayer2.php",
+				source: function( request, response ) {
+					$.ajax({
+					  url: "qplayer2.php",
+					  dataType: "jsonp",
+					  data: {
+						featureClass: "P",
+						style: "full",
+						maxRows: 12,
+						name_startsWith: request.term
+					  },
+					  success: function( data ) {
+						response( $.map( data.geonames, function( item ) {
+						  return {
+							label: item.play_name,
+							value: item.idplay
+						  }
+						}));
+					  }
+					});
+				  },
 				  minLength: 3,
 				  select: function( event, ui ) {
 					log( ui.item ?
