@@ -143,11 +143,11 @@
                     min : 0,
 					step: 1000,
 					numberFormat: "n0"
-                })
+                });
 				$("#hath").spinner({
                     min : -1,
 					numberFormat: "n0"
-                })
+                });
                 $(".btn").button();
                 $("#add_player").button({
                     text : false,
@@ -260,7 +260,17 @@
                 var iditem = $("#item_id")[0].textContent;
                 var idplayer = $("#player_id")[0].textContent;
                 var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
+				if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
+					qty=qty*1000;
+				}else if($("#qty")[0].value.toLowerCase().indexOf("m") >= 0){
+					qty=qty*1000*1000;
+				}
                 var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
+				if($("#c")[0].value.toLowerCase().indexOf("k") >= 0){
+					c=c*1000;
+				}else if($("#c")[0].value.toLowerCase().indexOf("m") >= 0){
+					c=c*1000*1000;
+				}
                 var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
                 var src = $("#src")[0].value;
 				var note= $("#note")[0].value;
