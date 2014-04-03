@@ -49,7 +49,7 @@
             $(document).ready(function() {
                 qitem();
 				$( "#player" ).autocomplete({
-					minLength: 3,
+					minLength: 2,
 					source: function( request, response ) {
 						$.ajax({
 						  url: "qplayer2.php",
@@ -70,7 +70,7 @@
 					},
 					// 点击选择时触发
 					select: function( event, ui ) {
-						$("#player_id").value=ui.item.id;
+						$("#player_id")[0].textContent=ui.item.id;
 						console.log( ui.item ?
 						  "Selected: " + ui.item.value + " aka " + ui.item.id :
 						  "Nothing selected, input was " + this.value );
@@ -226,7 +226,7 @@
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val()
                 var iditem = $("#itemid").val();
-                var idplayer = $("#player").val();
+                var idplayer = $("#player_id")[0].textContent;
                 var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
                 var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
                 var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
@@ -287,7 +287,7 @@
 							</select></td>
 						<td  align="middle">
 							<label id="player_id"  style="display:none;" ></label>
-							<input id="player">
+							<input id="player" placeholder="可自动完成">
 						</td>
 						<td align="middle" >
 							<input  style="width:100%" type="text" class="nb" id="qty" value="1"/>
