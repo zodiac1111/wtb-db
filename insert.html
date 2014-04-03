@@ -242,7 +242,7 @@
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
-							if(data.ret!="1"){
+							if(data.result){
                             	alert("return err:" + data);
 							}
                             $("#wait")[0].textContent = "OK";
