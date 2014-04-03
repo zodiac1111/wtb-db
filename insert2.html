@@ -60,9 +60,9 @@
 						  success: function( data ) {
 							response( $.map( data.adata, function( item ) {
 							  return {
-								id: item.idplay,
-								label: item.play_name,
-								value: item.idplay
+								id: item.idplay, // 这个呢?
+								label: item.play_name, //显示在弹出层
+								value: item.play_name //点击填写到文本框
 							  }
 							}));
 						  }
