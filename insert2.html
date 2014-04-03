@@ -37,12 +37,24 @@
 			*+ html #toolbar {
 				display: inline;
 			}
+			/* 自动完成等待图标 */
+			.ui-autocomplete-loading {
+				background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+			}
 		</style>
 
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
                 qitem();
-                qplayer();
+				$( "#player" ).autocomplete({
+				  source: "qplayer2.php",
+				  minLength: 3,
+				  select: function( event, ui ) {
+					log( ui.item ?
+					  "Selected: " + ui.item.value + " aka " + ui.item.id :
+					  "Nothing selected, input was " + this.value );
+				  }
+				});
 				$( "#radio" ).buttonset();
                 $(".nb").spinner({
 					min : 0,
@@ -155,7 +167,7 @@
                     autoOpen : false,
                 });
             });
-
+			// 查询物品
             function qitem() {
                 $.ajax({
                     type : "post",
@@ -185,36 +197,7 @@
 					}
                 });
             }
-
-            function qplayer() {
-                $.ajax({
-                    type : "post",
-                    url : "qplayer2.php",
-                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                    dataType : "json",
-                    data : "",
-                    beforeSend : function(XMLHttpRequest) {
-                        $("#wait")[0].textContent = "waitng";
-                    },
-                    //成功(先成功,后完成)
-                    success : function(data, textStatus) {
-                        $("#wait")[0].textContent = "OK";
-						for (i=0;i<data.length;i++) {
-							$("#player")
-							.append('<option value="'+data[i].idplay+'">'
-								+data[i].play_name+'</option>');
-						}
-						$("#player_load").hide();
-						$("#player").show();
-                    },
-                    error : function(XMLHttpRequest, textStatus, errorThrown) {
-                        $("#wait")[0].textContent = "ERR";
-                        alert("ERR:" + XMLHttpRequest.responseText);
-                    },
-					complete:function(XHR, TS){
-					}
-                });
-            }
+			// @todo 移除,插入sql 字符串
             function gettext() {
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val()
@@ -280,8 +263,7 @@
 							</select></td>
 						<td  align="middle">
 							<label id="player_load">Loading Player List ...</label>
-							<select id="player" style="display:none;">
-							</select>
+							<input id="player">
 						</td>
 						<td align="middle" >
 							<input  style="width:100%" type="text" class="nb" id="qty" value="1"/>
