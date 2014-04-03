@@ -186,14 +186,20 @@
 		                beforeSend : function(XMLHttpRequest) {
 		                    //alert("提交");
 		                    $("#wait")[0].textContent = "waitng";
+							$("#player")[0].value="";
+							$("#player_id")[0].textContent="";
 		                },
 		                //成功(先成功,后完成)
 		                success : function(data, textStatus) {
 							//alert(data);
+							$("#player")[0].value=$("#name")[0].value;
+							$("#player_id")[0].textContent=$("#id")[0].value;
 		                    $("#wait")[0].textContent = "OK";
 							$("#dialog").dialog("close");
 		                },
 		                error : function(XMLHttpRequest, textStatus, errorThrown) {
+							$("#player")[0].value="";
+							$("#player_id")[0].textContent="";
 		                    $("#wait")[0].textContent = "ERR";
 		                    alert("ERR:" + XMLHttpRequest.responseText);
 		                },
