@@ -239,13 +239,19 @@
                             //alert("提交");
                             $("#wait")[0].textContent = "waitng";
 							$("#submit").prop("disabled", true);
+							$("#wait2").html("<img src='images/ui-anim_basic_16x16.gif'></img>");
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
-							if(data.result){
+							if(data.result!=true){
                             	alert("return err:" + data);
+								$("#wait")[0].textContent = "Server Err";
 							}
-                            $("#wait")[0].textContent = "OK";
+							if(data.isempty){
+								$("#wait")[0].textContent = "Insert OK";
+							}else{
+								$("#wait")[0].textContent = "Update OK";
+							}
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {
                             $("#wait")[0].textContent = "ERR";
@@ -253,6 +259,7 @@
                         },
 						complete:function(XHR, TS){
 							$("#submit").prop("disabled", false);
+							$("#wait2").empty();;
 						}
                     });
                 });
@@ -326,6 +333,7 @@
 					Submit
 				</button>
 			</div>
+			<span id="wait2"></span>
 			<span id="wait"></span>
 		</div>
 		<p></p>
@@ -333,7 +341,7 @@
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
 					<th width="15%" title="类别"> </th>
-					<th width="14%" title="物品">Item</th>
+					<th width="14%" title="物品">Item/Equip</th>
 					<th width="12%" title="玩家">Player
 					<button id="add_player" class="add">
 						Add Player
