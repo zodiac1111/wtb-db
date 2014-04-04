@@ -371,7 +371,7 @@
 					</span>
 					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
 					<span>
-						<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("Language");?></button>
+						<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("English");?></button>
 						<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
 					</span>
 				</div>

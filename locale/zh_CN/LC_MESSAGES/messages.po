@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 13:42+0800\n"
-"PO-Revision-Date: 2014-04-04 13:43+0800\n"
+"POT-Creation-Date: 2014-04-04 13:48+0800\n"
+"PO-Revision-Date: 2014-04-04 13:48+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -115,8 +115,8 @@ msgid "Reload"
 msgstr "刷新"
 
 #: index.php:374
-msgid "Language"
-msgstr "语言"
+msgid "English"
+msgstr "中文"
 
 #: index.php:385
 msgid "id"
@@ -221,3 +221,6 @@ msgstr "新增一个玩家到玩家列表"
 #: insert.php:412
 msgid "Cancel"
 msgstr "取消"
+
+#~ msgid "Language"
+#~ msgstr "语言"
