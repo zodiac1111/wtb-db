@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Trade Center</title>
+		<title><?php echo _("Trade Center");?></title>
 		<style type="text/css" title="currentStyle">
 			@import "css/demo_page.css";
 			@import "css/demo_table.css";
@@ -91,7 +91,7 @@
                         primary : "ui-icon-circle-plus"
                     }
                 }).click(function() {
-                    top.location.href = "/insert.html";
+                    top.location.href = "/insert.php";
                 });
 				// 拍卖:未实现
                 $("#auction").button({
@@ -370,14 +370,14 @@
 					<button id="auction" value="auction" title="<?php echo _("Unimplemented");?>"><?php echo _("Auction");?></button>
 					<input type="checkbox" id="Rev" title="<?php echo _("rev");?>"><label for="Rev"><?php echo _("Rev.");?></label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="求购订单"><?php echo _("WTB");?></label>
-						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="出售订单"><?php echo _("WTS");?></label>
-						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?.</label>
+						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="<?php echo _("want to buy");?>"><?php echo _("WTB");?></label>
+						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="<?php echo _("want to sell");?>"><?php echo _("WTS");?></label>
+						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
 					</span>
-					<button id="reload" value="reload" title="刷新"><?php echo _("Reload");?></button>
+					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
 					<span>
-						<button class="btnl18n" title="未实现"><?php echo _("Language");?></button>
-						<button class="set" title="未实现"><?php echo _("Set");?></button>
+						<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("Language");?></button>
+						<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
 					</span>
 				</div>
 				<span id="wait"></span>
@@ -387,44 +387,44 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="6%"  title="序号">ID</th>
-							<th width="6%"  title="类型">Type</th>
-							<th width="13%" title="物品/装备">Item/Equip</th>
-							<th width="11%" title="玩家">Player</th>
-							<th width="8%" title="-表示不接受">Credit</th>
-							<th width="7%" title="-表示不接受">Hath</th>
-							<th width="6%" title="物品数量">Qty.</th>
-							<th width="5%" title="bbs 连接">Ref.</th>
-							<th width="14%" title="交易加入时间">Time</th>
-							<th title="备注">note</th>
-							<th width="70px" title="管理动作">Manage</th>
+							<th width="6%"  title="<?php echo _("id");?>"><?php echo _("ID");?></th>
+							<th width="6%"  title="<?php echo _("type");?>"><?php echo _("Type");?></th>
+							<th width="13%" title="<?php echo _("item or equipment");?>"><?php echo _("Item/Equip");?></th>
+							<th width="11%" title="<?php echo _("palyer name");?>"><?php echo _("Player");?></th>
+							<th width="8%" title="<?php echo _("- means not accepted");?>"><?php echo _("Credit");?></th>
+							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>
+							<th width="6%" title="<?php echo _("Quantity of items");?>"><?php echo _("Qty.");?></th>
+							<th width="5%" title="bbs 连接"><?php echo _("Ref.");?></th>
+							<th width="14%" title="交易加入时间"><?php echo _("Time");?></th>
+							<th title="备注"><?php echo _("Note");?></th>
+							<th width="70px" title="管理动作"><?php echo _("Manage");?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="10" class="dataTables_empty" align="middle">Loading data from server...</td>
+							<td colspan="10" class="dataTables_empty" align="middle"><?php echo _("Loading data from server...");?></td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
 							<!-- 页脚不指定宽度反而能对齐了 -->
-							<th>ID</th>
-							<th>Type</th>
-							<th>Item/Equip</th>
-							<th>Player</th>
-							<th>Credit</th>
-							<th>Hath</th>
-							<th>Qty.</th>
-							<th>Ref.</th>
-							<th>Time</th>
-							<th>note</th>
-							<th>Manage</th>
+							<th><?php echo _("ID");?></th>
+							<th><?php echo _("Type");?></th>
+							<th><?php echo _("Item/Equip");?></th>
+							<th><?php echo _("Player");?></th>
+							<th><?php echo _("Credit");?></th>
+							<th><?php echo _("Hath");?></th>
+							<th><?php echo _("Qty.");?></th>
+							<th><?php echo _("Ref.");?></th>
+							<th><?php echo _("Time");?></th>
+							<th><?php echo _("Note");?></th>
+							<th><?php echo _("Manage");?></th>
 						</tr>
 					</tfoot>
 				</table>
 				<p></p>
 				<div align="right">
-					<label>Trade Center v0.1.6 </br></label>
+					<label><?php echo _("Trade Center");?> v0.1.6 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 			</div>

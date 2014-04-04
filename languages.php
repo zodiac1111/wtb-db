@@ -13,5 +13,8 @@ putenv("LC_ALL=$locale");
 setlocale(LC_ALL, $locale);
 bindtextdomain("messages", "./locale");
 textdomain("messages");
-
+/*
+function _($argument) {
+    return echo \_($argument); // this would be the non-overloaded _()
+}*/
 ?>
