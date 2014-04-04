@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 15:09+0800\n"
+"POT-Creation-Date: 2014-04-04 15:25+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:6 index.php:464
+#: index.php:6 index.php:463
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:134 index.php:219 index.php:399 index.php:404 index.php:409
-#: index.php:410
-msgid "Unimplemented"
+#: index.php:93 index.php:162
+msgid "en_US"
 msgstr ""
 
-#: index.php:162
-msgid "en_US"
+#: index.php:134 index.php:219 index.php:398 index.php:403 index.php:408
+#: index.php:409
+msgid "Unimplemented"
 msgstr ""
 
 #: index.php:261
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: index.php:344 index.php:410
+#: index.php:344 index.php:409
 msgid "Set"
 msgstr ""
 
@@ -62,140 +62,140 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: index.php:393
-msgid "helloworld"
-msgstr ""
-
-#: index.php:397 insert.php:332
+#: index.php:396 insert.php:332
 msgid "Home"
 msgstr ""
 
-#: index.php:398 insert.php:6
+#: index.php:397 insert.php:6
 msgid "New order"
 msgstr ""
 
-#: index.php:398 insert.php:409
+#: index.php:397 insert.php:409
 msgid "Add"
 msgstr ""
 
-#: index.php:399
+#: index.php:398
 msgid "Auction"
 msgstr ""
 
-#: index.php:400
+#: index.php:399
 msgid "rev"
 msgstr ""
 
-#: index.php:400
+#: index.php:399
 msgid "Rev."
 msgstr ""
 
-#: index.php:402
+#: index.php:401
 msgid "want to buy"
 msgstr ""
 
-#: index.php:402 insert.php:362
+#: index.php:401 insert.php:362
 msgid "WTB"
 msgstr ""
 
-#: index.php:403
+#: index.php:402
 msgid "want to sell"
 msgstr ""
 
-#: index.php:403 insert.php:363
+#: index.php:402 insert.php:363
 msgid "WTS"
 msgstr ""
 
-#: index.php:404 insert.php:364
+#: index.php:403 insert.php:364
 msgid "WTT"
 msgstr ""
 
-#: index.php:406
+#: index.php:405
 msgid "reload the order"
 msgstr ""
 
-#: index.php:406
+#: index.php:405
 msgid "Reload"
 msgstr ""
 
-#: index.php:409
+#: index.php:408
 msgid "English"
 msgstr ""
 
-#: index.php:427
+#: index.php:426
 msgid "id"
 msgstr ""
 
-#: index.php:427 index.php:448
+#: index.php:426 index.php:447
 msgid "ID"
 msgstr ""
 
-#: index.php:428
+#: index.php:427
 msgid "type"
 msgstr ""
 
-#: index.php:428 index.php:449 insert.php:345
+#: index.php:427 index.php:448 insert.php:345
 msgid "Type"
 msgstr ""
 
-#: index.php:429
+#: index.php:428
 msgid "item or equipment"
 msgstr ""
 
-#: index.php:429 index.php:450 insert.php:346
+#: index.php:428 index.php:449 insert.php:346
 msgid "Item/Equip"
 msgstr ""
 
-#: index.php:430
+#: index.php:429
 msgid "palyer name"
 msgstr ""
 
-#: index.php:430 index.php:451 insert.php:347
+#: index.php:429 index.php:450 insert.php:347
 msgid "Player"
 msgstr ""
 
-#: index.php:431 index.php:432
+#: index.php:430 index.php:431
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:431 index.php:452 insert.php:352
+#: index.php:430 index.php:451 insert.php:352
 msgid "Credit"
 msgstr ""
 
-#: index.php:432 index.php:453 insert.php:353
+#: index.php:431 index.php:452 insert.php:353
 msgid "Hath"
 msgstr ""
 
-#: index.php:433
+#: index.php:432
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:433 index.php:454
+#: index.php:432 index.php:453
 msgid "Qty."
 msgstr ""
 
-#: index.php:434 index.php:455
+#: index.php:433 index.php:454
 msgid "Ref."
 msgstr ""
 
-#: index.php:435 index.php:456
+#: index.php:434 index.php:455
 msgid "Time"
 msgstr ""
 
-#: index.php:436 index.php:457 insert.php:354
+#: index.php:435 index.php:456 insert.php:354
 msgid "Note"
 msgstr ""
 
-#: index.php:437
+#: index.php:436
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:437 index.php:458
+#: index.php:436 index.php:457
 msgid "Manage"
 msgstr ""
 
-#: index.php:442
+#: index.php:441
 msgid "Loading data from server..."
+msgstr ""
+
+#: index.php:467
+msgid "helloworld"
 msgstr ""
 
 #: insert.php:331

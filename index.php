@@ -90,7 +90,7 @@
                         primary : "ui-icon-circle-plus"
                     }
                 }).click(function() {
-                    top.location.href = "/insert.php";
+                    top.location.href = "/insert.php?lang=<?php echo _("en_US");?>";
                 });
 				// 拍卖:未实现
                 $("#auction").button({
@@ -390,7 +390,6 @@
 		</script>
 	</head>
 	<body>
-		<h1><?php echo _("helloworld"); echo "locale=".$locale;?></h1>
 		<div>
 			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
@@ -463,6 +462,10 @@
 				<div align="right">
 					<label><?php echo _("HV Trade Center");?> v0.1.9 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+				</div>
+				<div align="left">
+					<label><?php echo _("helloworld");?></label></br>
+ 					<label><?php echo "locale=".$locale;?></label>
 				</div>
 			</div>
 		</div>

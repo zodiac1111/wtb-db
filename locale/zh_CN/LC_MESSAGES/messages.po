@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 15:09+0800\n"
-"PO-Revision-Date: 2014-04-04 15:10+0800\n"
+"POT-Creation-Date: 2014-04-04 15:25+0800\n"
+"PO-Revision-Date: 2014-04-04 15:29+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -18,18 +18,18 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:464
+#: index.php:6 index.php:463
 msgid "HV Trade Center"
 msgstr "HV 交易中心"
 
-#: index.php:134 index.php:219 index.php:399 index.php:404 index.php:409
-#: index.php:410
-msgid "Unimplemented"
-msgstr "未实现"
-
-#: index.php:162
+#: index.php:93 index.php:162
 msgid "en_US"
 msgstr "zh_CN"
+
+#: index.php:134 index.php:219 index.php:398 index.php:403 index.php:408
+#: index.php:409
+msgid "Unimplemented"
+msgstr "未实现"
 
 #: index.php:261
 msgid "wtb"
@@ -55,7 +55,7 @@ msgstr "链接"
 msgid "Delete"
 msgstr "删除"
 
-#: index.php:344 index.php:410
+#: index.php:344 index.php:409
 msgid "Set"
 msgstr "设置"
 
@@ -63,141 +63,141 @@ msgstr "设置"
 msgid "Edit"
 msgstr "编辑"
 
-#: index.php:393
-msgid "helloworld"
-msgstr "你好,世界."
-
-#: index.php:397 insert.php:332
+#: index.php:396 insert.php:332
 msgid "Home"
 msgstr "首页"
 
-#: index.php:398 insert.php:6
+#: index.php:397 insert.php:6
 msgid "New order"
 msgstr "添加一条记录"
 
-#: index.php:398 insert.php:409
+#: index.php:397 insert.php:409
 msgid "Add"
 msgstr "新增"
 
-#: index.php:399
+#: index.php:398
 msgid "Auction"
 msgstr "拍卖"
 
-#: index.php:400
+#: index.php:399
 msgid "rev"
 msgstr "保留,未实现"
 
-#: index.php:400
+#: index.php:399
 msgid "Rev."
 msgstr "保留"
 
-#: index.php:402
+#: index.php:401
 msgid "want to buy"
 msgstr "收购信息"
 
-#: index.php:402 insert.php:362
+#: index.php:401 insert.php:362
 msgid "WTB"
 msgstr "收购"
 
-#: index.php:403
+#: index.php:402
 msgid "want to sell"
 msgstr "出售信息"
 
-#: index.php:403 insert.php:363
+#: index.php:402 insert.php:363
 msgid "WTS"
 msgstr "出售"
 
-#: index.php:404 insert.php:364
+#: index.php:403 insert.php:364
 msgid "WTT"
 msgstr "交换"
 
-#: index.php:406
+#: index.php:405
 msgid "reload the order"
 msgstr "重新载入数据"
 
-#: index.php:406
+#: index.php:405
 msgid "Reload"
 msgstr "刷新"
 
-#: index.php:409
+#: index.php:408
 msgid "English"
 msgstr "中文"
 
-#: index.php:427
+#: index.php:426
 msgid "id"
 msgstr "序号"
 
-#: index.php:427 index.php:448
+#: index.php:426 index.php:447
 msgid "ID"
 msgstr "序号"
 
-#: index.php:428
+#: index.php:427
 msgid "type"
 msgstr "类型"
 
-#: index.php:428 index.php:449 insert.php:345
+#: index.php:427 index.php:448 insert.php:345
 msgid "Type"
 msgstr "类型"
 
-#: index.php:429
+#: index.php:428
 msgid "item or equipment"
 msgstr "物品或者装备"
 
-#: index.php:429 index.php:450 insert.php:346
+#: index.php:428 index.php:449 insert.php:346
 msgid "Item/Equip"
 msgstr "物品/装备"
 
-#: index.php:430
+#: index.php:429
 msgid "palyer name"
 msgstr "玩家名称"
 
-#: index.php:430 index.php:451 insert.php:347
+#: index.php:429 index.php:450 insert.php:347
 msgid "Player"
 msgstr "玩家"
 
-#: index.php:431 index.php:432
+#: index.php:430 index.php:431
 msgid "- means not accepted"
 msgstr "- 表示不接收"
 
-#: index.php:431 index.php:452 insert.php:352
+#: index.php:430 index.php:451 insert.php:352
 msgid "Credit"
 msgstr "Credit"
 
-#: index.php:432 index.php:453 insert.php:353
+#: index.php:431 index.php:452 insert.php:353
 msgid "Hath"
 msgstr "Hath"
 
-#: index.php:433
+#: index.php:432
 msgid "Quantity of items"
 msgstr "物品的数量"
 
-#: index.php:433 index.php:454
+#: index.php:432 index.php:453
 msgid "Qty."
 msgstr "数量"
 
-#: index.php:434 index.php:455
+#: index.php:433 index.php:454
 msgid "Ref."
 msgstr "参考"
 
-#: index.php:435 index.php:456
+#: index.php:434 index.php:455
 msgid "Time"
 msgstr "时间"
 
-#: index.php:436 index.php:457 insert.php:354
+#: index.php:435 index.php:456 insert.php:354
 msgid "Note"
 msgstr "备注"
 
-#: index.php:437
+#: index.php:436
 msgid "Manage Operation"
 msgstr "管理动作"
 
-#: index.php:437 index.php:458
+#: index.php:436 index.php:457
 msgid "Manage"
 msgstr "管理"
 
-#: index.php:442
+#: index.php:441
 msgid "Loading data from server..."
 msgstr "正在加载数据"
+
+#: index.php:467
+msgid "helloworld"
+msgstr "你好,世界."
 
 #: insert.php:331
 msgid "Return to home"
