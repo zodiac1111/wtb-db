@@ -328,11 +328,11 @@
 	<body>
 		<div align="">
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
-				<button id="home" value="Submit" title="返回主页">
-					Home
+				<button id="home" value="Submit" title="<?php echo _("返回主页");?>">
+					<?php echo _("Home");?>
 				</button>
-				<button id="submit" value="Submit"  title="提交修改">
-					Submit
+				<button id="submit" value="Submit"  title="<?php echo _("提交修改");?>">
+					<?php echo _("Submit");?>
 				</button>
 			</div>
 			<span id="wait2"></span>

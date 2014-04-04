@@ -12,6 +12,7 @@ if (isset($_POST["locale"])) {
 putenv("LC_ALL=$locale");
 setlocale(LC_ALL, $locale);
 bindtextdomain("messages", "./locale");
+bind_textdomain_codeset($domain ,  'UTF-8' );  //设置mo文件的编码为UTF-8   
 textdomain("messages");
 /*
 function _($argument) {
