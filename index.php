@@ -35,6 +35,7 @@
 				display: inline;
 			}
 			.ui-menu { position: absolute; width: 55px; z-index:999 }
+			#lang.ui-menu { position: absolute; width: 60px; z-index:999 }
 			.tag {
 				border : 1px solid #a5d24a;
 				padding : 5px;
@@ -110,8 +111,38 @@
 						icons: {
 							primary: "ui-icon-triangle-1-s"
 						}
+					}).click(function() {
+						var menu = $( this ).parent().next();
+						// 鼠标离开菜单,菜单隐藏
+						menu.mouseleave(function(){
+					  		$(this).hide();
+							return false;
+						})
+						// 点击按钮,菜单循环隐藏和显示
+						if(menu[0].style.display=="none"){
+							menu.show();
+						}else{
+							menu.hide();
+						}
+						// 点击其他元素,菜单隐藏
+						$(document).one( "click", function() {
+							menu.hide();
+						});
+						// 菜单点击
+						menu.click(function(){
+							alert("<?php echo _("Unimplemented");?>"+this);
+						});
+						return false;
 					})
-				$(".btnl18n").parent().buttonset(); // 组合按钮
+					.mouseleave(function(){ ///离开下拉箭头按钮
+					  	//$(this).parent().next().hide();
+						return false;
+					})
+					.parent()
+						.buttonset()
+						.next()
+							.hide()
+							.menu();
 
                 $("#Rev").button();
 				// 类别选项,wtb/wts/wtt
@@ -181,7 +212,7 @@
 									$(document).one( "click", function() {
 										menu.hide();
 									});
-									// 菜单点击
+									// 菜单项点击
 									menu.click(function(){
 										alert("<?php echo _("Unimplemented");?>"+this);
 									});
@@ -371,9 +402,17 @@
 						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
 					</span>
 					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
-					<span>
-						<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("English");?></button>
-						<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
+					<span>					
+						<span>
+							<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("English");?></button>
+							<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
+						</span>
+						<ul id="lang">
+								<li id="lang_en_US"><a href="?lang=en_US">English</a></li>
+								<li id="lang_ja_JP"><a href="?lang=ja_JP">日本語</a></li>
+								<li id="lang_zh_CN"><a href="?lang=zh_CN">中文</a></li>
+								<li id="lang_zh_TW"><a href="?lang=zh_TW">漢語</a></li>
+						</ul>
 					</span>
 				</div>
 				<span id="wait"></span>
@@ -420,7 +459,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label><?php echo _("HV Trade Center");?> v0.1.8 </br></label>
+					<label><?php echo _("HV Trade Center");?> v0.1.9 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 			</div>

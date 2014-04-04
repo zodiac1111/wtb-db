@@ -373,7 +373,7 @@
 							<input id="player" title="支持自动补全" placeholder="<?php echo _("eg.");?> SomeOne">
 						</td>
 						<td align="middle" >
-							<input  style="width:100%" type="text" class="nb" id="qty" value="1" title="eg. 31 14c 0.1k 59k 2.6K 5.3m 5M "/>
+							<input  style="width:100%" type="text" class="nb" id="qty" value="1" title="<?php echo _("eg.");?> 31 14c 0.1k 59k 2.6K 5.3m 5M "/>
 						</td>
 						<td align="middle" >
 							<input style="width:100%" type="text" class="nb" id="c" title="<?php echo _("eg.");?> 31 14c 0.1k 59k 2.6K 5.3m 5M " placeholder="<?php echo _("eg.");?> 1.5k"/>

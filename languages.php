@@ -1,13 +1,17 @@
 <?php
-session_start();
- 
-if (isset($_POST["locale"])) {
-  $locale = $_POST["locale"];
+//session_start();
+
+// 解析出 $lang 变量
+parse_str($_SERVER['QUERY_STRING']);
+
+
+if (isset($lang)) {
+	$locale = $lang;
 } else if (isset($_SESSION["locale"])) {
-  $locale  = $_SESSION["locale"];
+	$locale  = $_SESSION["locale"];
 } else {
-  $locale = "zh_CN";
-  //$locale = "en_US";
+	//$locale = "zh_CN";
+	$locale = "en_US";
 } 
 $domain="messages"; //绑定名字域??
 putenv("LC_ALL=$locale");
