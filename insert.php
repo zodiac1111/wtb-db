@@ -397,7 +397,7 @@
 			</p>
 		</div>
 		<!--  弹出对话框  -->
-		<div id="dialog" title="Add player" >
+		<div id="dialog" title="<?php echo _("Add player");?>" >
 			<div align="middle">
 				<label for="name"><?php echo _("Player Name");?></label></br>
 				<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">

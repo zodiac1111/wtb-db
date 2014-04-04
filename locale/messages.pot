@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 15:25+0800\n"
+"POT-Creation-Date: 2014-04-04 15:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,6 +220,10 @@ msgstr ""
 
 #: insert.php:388
 msgid "bbs link"
+msgstr ""
+
+#: insert.php:400
+msgid "Add player"
 msgstr ""
 
 #: insert.php:402
