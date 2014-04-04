@@ -361,6 +361,7 @@
 		</script>
 	</head>
 	<body>
+		<h1><? echo _("helloworld") ?></h1>
 		<div>
 			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
@@ -386,7 +387,7 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="6%"  title="<?php echo _("id");?>">ID</th>
+							<th width="6%"  title="序号">ID</th>
 							<th width="6%"  title="类型">Type</th>
 							<th width="13%" title="物品/装备">Item/Equip</th>
 							<th width="11%" title="玩家">Player</th>

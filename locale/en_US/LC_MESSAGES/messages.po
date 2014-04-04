@@ -4,8 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-04-04 08:52+0800\n"
-"PO-Revision-Date: 2014-04-04 08:53+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-04 09:40+0800\n"
+"PO-Revision-Date: 2014-04-04 10:26+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,7 +16,10 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 
-#: index.php:12
-#, php-format
-msgid "Hello"
+#: index.php:389
+msgid "id"
+msgstr ""
+
+#: index.php:389
+msgid "ID"
 msgstr ""
