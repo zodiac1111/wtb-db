@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 15:38+0800\n"
-"PO-Revision-Date: 2014-04-04 15:38+0800\n"
+"POT-Creation-Date: 2014-04-04 16:05+0800\n"
+"PO-Revision-Date: 2014-04-04 16:05+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:93 index.php:162 insert.php:221
+#: index.php:85 index.php:93 index.php:162 insert.php:221
 msgid "en_US"
 msgstr "ja_JP"
 
@@ -196,7 +196,7 @@ msgid "Loading data from server..."
 msgstr ""
 
 #: index.php:467
-msgid "helloworld"
+msgid "Hello, world!"
 msgstr ""
 
 #: insert.php:331

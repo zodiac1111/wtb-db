@@ -82,7 +82,7 @@
                         primary : "ui-icon-home"
                     }
                 }).click(function() {
-                    top.location.href = "/index.html";
+                    top.location.href = "/index.php?lang=<?php echo _("en_US");?>";
                 });
 				/// 新增交易
                 $("#add").button({
@@ -464,8 +464,8 @@
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 				<div align="left">
-					<label><?php echo _("helloworld");?></label></br>
- 					<label><?php echo "locale=".$locale;?></label>
+					<label><?php echo _("Hello, world!");?></label>
+ 					<label><?php echo "from locale=".$locale;?></label>
 				</div>
 			</div>
 		</div>
