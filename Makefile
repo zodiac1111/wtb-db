@@ -4,4 +4,4 @@ pot:
 
 #上传到服务器
 upload:
-	rsync -v -P -e ssh '/home/zodiac1111/tmp/wtb-db/' root@vps2:/var/www/ -r --exclude=".*" --exclude="*.mo"
+	rsync -v -P -e ssh '/home/zodiac1111/tmp/wtb-db/' root@vps2:/var/www/ -r --exclude=".*"
