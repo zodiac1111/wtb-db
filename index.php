@@ -182,7 +182,7 @@
 									});
 									// 菜单点击
 									menu.click(function(){
-										alert("未实现"+this);
+										alert("<?php echo _("Unimplemented");?>"+this);
 									});
 									return false;
 								})
@@ -267,7 +267,7 @@
                         "aTargets" : [6],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
-								return "Unlimited"
+								return "<?php echo _("Unlimited");?>"
 							}
 							 return parseInt(data).toLocaleString();
                         }
@@ -419,7 +419,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label><?php echo _("HV Trade Center");?> v0.1.6 </br></label>
+					<label><?php echo _("HV Trade Center");?> v0.1.8 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 			</div>
