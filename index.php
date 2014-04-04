@@ -361,12 +361,12 @@
 		</script>
 	</head>
 	<body>
-		<h1><? echo _("helloworld") ?></h1>
+		<h1><?php _("helloworld"); echo "locale=".$locale ; ?></h1>
 		<div>
 			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
 					<button id="home" value="Submit">Home</button>
-					<button id="add" title="新增交易条目">Add</button>
+					<button id="add" title=<?php echo _("New order"); ?>Add</button>
 					<button id="auction" value="auction" title="未实现">Auction</button>
 					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev.</label>
 					<span id="type">
