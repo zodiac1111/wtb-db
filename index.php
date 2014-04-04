@@ -461,7 +461,7 @@
 				<p></p>
 				<div align="right">
 					<label><?php echo _("HV Trade Center");?> v0.1.9 </br></label>
-					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
+					<label><?php echo _("Source Code");?>:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 				<div align="left">
 					<label><?php echo _("Hello, world!");?></label>

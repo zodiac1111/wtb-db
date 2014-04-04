@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 16:05+0800\n"
-"PO-Revision-Date: 2014-04-04 16:13+0800\n"
+"POT-Creation-Date: 2014-04-04 17:16+0800\n"
+"PO-Revision-Date: 2014-04-04 17:16+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -194,6 +194,10 @@ msgstr "管理"
 #: index.php:441
 msgid "Loading data from server..."
 msgstr "正在加载数据"
+
+#: index.php:464
+msgid "Source Code"
+msgstr "源代码"
 
 #: index.php:467
 msgid "Hello, world!"

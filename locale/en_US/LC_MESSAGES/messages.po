@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 16:05+0800\n"
-"PO-Revision-Date: 2014-04-04 16:12+0800\n"
+"POT-Creation-Date: 2014-04-04 17:16+0800\n"
+"PO-Revision-Date: 2014-04-04 17:19+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -193,6 +193,10 @@ msgstr ""
 
 #: index.php:441
 msgid "Loading data from server..."
+msgstr ""
+
+#: index.php:464
+msgid "Source Code"
 msgstr ""
 
 #: index.php:467
