@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 13:10+0800\n"
-"PO-Revision-Date: 2014-04-04 13:19+0800\n"
+"POT-Creation-Date: 2014-04-04 13:40+0800\n"
+"PO-Revision-Date: 2014-04-04 13:40+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -18,147 +18,175 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:427
-msgid "Trade Center"
-msgstr "交易中心"
+#: index.php:6 index.php:424
+msgid "HV Trade Center"
+msgstr "HV 交易中心"
 
-#: index.php:364
-msgid "helloworld"
-msgstr "你好,世界."
+#: index.php:229
+msgid "wtb"
+msgstr "收购"
 
-#: index.php:368
-msgid "Home"
-msgstr "首页"
-
-#: index.php:369 insert.php:6
-msgid "New order"
-msgstr "添加一条记录"
-
-#: index.php:369 insert.php:409
-msgid "Add"
-msgstr "新增"
-
-#: index.php:370 index.php:375 index.php:379 index.php:380
-msgid "Unimplemented"
-msgstr "未实现"
-
-#: index.php:370
-msgid "Auction"
-msgstr "拍卖"
-
-#: index.php:371
-msgid "rev"
-msgstr "保留,未实现"
-
-#: index.php:371
-msgid "Rev."
-msgstr "保留"
-
-#: index.php:373
-msgid "want to buy"
-msgstr "求购信息"
-
-#: index.php:373 insert.php:362
-msgid "WTB"
-msgstr "求购"
-
-#: index.php:374
-msgid "want to sell"
-msgstr "出售信息"
-
-#: index.php:374 insert.php:363
-msgid "WTS"
+#: index.php:231
+msgid "wts"
 msgstr "出售"
 
-#: index.php:375 insert.php:364
-msgid "WTT"
+#: index.php:233
+msgid "wtt"
 msgstr "交换"
 
-#: index.php:377
-msgid "reload the order"
-msgstr "重新载入数据"
+#: index.php:284
+msgid "link"
+msgstr "链接"
 
-#: index.php:377
-msgid "Reload"
-msgstr "刷新"
+#: index.php:311
+msgid "Delete"
+msgstr "删除"
 
-#: index.php:379
-msgid "Language"
-msgstr "语言"
-
-#: index.php:380
+#: index.php:312 index.php:377
 msgid "Set"
 msgstr "设置"
 
-#: index.php:390
+#: index.php:315
+msgid "Edit"
+msgstr "编辑"
+
+#: index.php:361
+msgid "helloworld"
+msgstr "你好,世界."
+
+#: index.php:365
+msgid "Home"
+msgstr "首页"
+
+#: index.php:366 insert.php:6
+msgid "New order"
+msgstr "添加一条记录"
+
+#: index.php:366 insert.php:409
+msgid "Add"
+msgstr "新增"
+
+#: index.php:367 index.php:372 index.php:376 index.php:377
+msgid "Unimplemented"
+msgstr "未实现"
+
+#: index.php:367
+msgid "Auction"
+msgstr "拍卖"
+
+#: index.php:368
+msgid "rev"
+msgstr "保留,未实现"
+
+#: index.php:368
+msgid "Rev."
+msgstr "保留"
+
+#: index.php:370
+msgid "want to buy"
+msgstr "收购信息"
+
+#: index.php:370 insert.php:362
+msgid "WTB"
+msgstr "收购"
+
+#: index.php:371
+msgid "want to sell"
+msgstr "出售信息"
+
+#: index.php:371 insert.php:363
+msgid "WTS"
+msgstr "出售"
+
+#: index.php:372 insert.php:364
+msgid "WTT"
+msgstr "交换"
+
+#: index.php:374
+msgid "reload the order"
+msgstr "重新载入数据"
+
+#: index.php:374
+msgid "Reload"
+msgstr "刷新"
+
+#: index.php:376
+msgid "Language"
+msgstr "语言"
+
+#: index.php:387
 msgid "id"
 msgstr "序号"
 
-#: index.php:390 index.php:411
+#: index.php:387 index.php:408
 msgid "ID"
 msgstr "序号"
 
-#: index.php:391
+#: index.php:388
 msgid "type"
 msgstr "类型"
 
-#: index.php:391 index.php:412 insert.php:345
+#: index.php:388 index.php:409 insert.php:345
 msgid "Type"
 msgstr "类型"
 
-#: index.php:392
+#: index.php:389
 msgid "item or equipment"
 msgstr "物品或者装备"
 
-#: index.php:392 index.php:413 insert.php:346
+#: index.php:389 index.php:410 insert.php:346
 msgid "Item/Equip"
 msgstr "物品/装备"
 
-#: index.php:393
+#: index.php:390
 msgid "palyer name"
 msgstr "玩家名称"
 
-#: index.php:393 index.php:414 insert.php:347
+#: index.php:390 index.php:411 insert.php:347
 msgid "Player"
 msgstr "玩家"
 
-#: index.php:394 index.php:395
+#: index.php:391 index.php:392
 msgid "- means not accepted"
 msgstr "- 表示不接收"
 
-#: index.php:394 index.php:415 insert.php:352
+#: index.php:391 index.php:412 insert.php:352
 msgid "Credit"
 msgstr "Credit"
 
-#: index.php:395 index.php:416 insert.php:353
+#: index.php:392 index.php:413 insert.php:353
 msgid "Hath"
 msgstr "Hath"
 
-#: index.php:396
+#: index.php:393
 msgid "Quantity of items"
 msgstr "物品的数量"
 
-#: index.php:396 index.php:417
+#: index.php:393 index.php:414
 msgid "Qty."
 msgstr "数量"
 
-#: index.php:397 index.php:418
+#: index.php:394 index.php:415
 msgid "Ref."
 msgstr "参考"
 
-#: index.php:398 index.php:419
+#: index.php:395 index.php:416
 msgid "Time"
 msgstr "时间"
 
-#: index.php:399 index.php:420 insert.php:354
+#: index.php:396 index.php:417 insert.php:354
 msgid "Note"
 msgstr "备注"
 
-#: index.php:400 index.php:421
+#: index.php:397
+msgid "Manage Operation"
+msgstr "管理动作"
+
+#: index.php:397 index.php:418
 msgid "Manage"
 msgstr "管理"
 
-#: index.php:405
+#: index.php:402
 msgid "Loading data from server..."
 msgstr "正在加载数据"
 

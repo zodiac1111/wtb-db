@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php echo _("Trade Center");?></title>
+		<title><?php echo _("HV Trade Center");?></title>
 		<style type="text/css" title="currentStyle">
 			@import "css/demo_page.css";
 			@import "css/demo_table.css";
@@ -26,8 +26,6 @@
 		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.menu.js"></script>
 		<style>
-
-
 			#toolbar {
 				padding: 4px;
 				display: inline-block;
@@ -226,11 +224,11 @@
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
 							if(data=="0"){
-								return '<span class="tag tgwtb">wtb</span>';
+								return '<span class="tag tgwtb"><?php echo _("wtb");?></span>';
 							}else if(data=="1"){
-								return '<span class="tag tgwts">wts</span>';
+								return '<span class="tag tgwts"><?php echo _("wts");?></span>';
 							}else if(data=="2"){
-								return '<span class="tag tgwtt">wtt</span>';
+								return '<span class="tag tgwtt"><?php echo _("wtt");?></span>';
 							}else{
 								return "E:"+data;
 							}
@@ -281,7 +279,7 @@
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
-                            return '<a href="' + data + '">link</a>';
+                            return '<a href="' + data + '"><?php echo _("link");?></a>';
                         }
                     }, {
 						/// 更新时间
@@ -308,11 +306,11 @@
                         "aTargets" : [10],
                         "mRender" : function(data, type, full) {
                             return '<span>'
-								+'	<button class="btnManage">Delete</button>'
-								+'	<button class="select">Set</button>'
+								+'	<button class="btnManage"><?php echo _("Delete");?></button>'
+								+'	<button class="select"><?php echo _("Set");?></button>'
 								+'</span>'
 								+'<ul id="menu">'
-								+'	<li><a href="#"><span class="ui-icon ui-icon-pencil"></span>Edit</a></li>'
+								+'	<li><a href="#"><span class="ui-icon ui-icon-pencil"></span><?php echo _("Edit");?></a></li>'
 								+'</ul>';
                         }
                     }]
@@ -337,10 +335,7 @@
                     dataType : "text",
                     data : "wtbid="+id,
                     beforeSend : function(XMLHttpRequest) {
-						// alert( "TODO:Delete This Record" );
                         // $("#wait")[0].textContent = "waitng";
-						// btndel.parentElement.lastChild.textContent="..."
-						//  tr.style.background="#616161";
 						$(tr).addClass("loadbar");
 						//$(tr).prop("disabled", true);
                     },
@@ -396,8 +391,8 @@
 							<th width="6%" title="<?php echo _("Quantity of items");?>"><?php echo _("Qty.");?></th>
 							<th width="5%" title="bbs 连接"><?php echo _("Ref.");?></th>
 							<th width="14%" title="交易加入时间"><?php echo _("Time");?></th>
-							<th title="备注"><?php echo _("Note");?></th>
-							<th width="70px" title="管理动作"><?php echo _("Manage");?></th>
+							<th title="<?php echo _("Note");?>"><?php echo _("Note");?></th>
+							<th width="70px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -424,7 +419,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label><?php echo _("Trade Center");?> v0.1.6 </br></label>
+					<label><?php echo _("HV Trade Center");?> v0.1.6 </br></label>
 					<label>source code:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 			</div>
