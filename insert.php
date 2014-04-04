@@ -218,7 +218,7 @@
                         primary : "ui-icon-home"
                     }
                 }).click(function() {
-                    top.location.href = "/index.php";
+                    top.location.href = "/index.php?lang=<?php echo _("en_US");?>";
                 });
 				// 添加交易条目
                 $("#submit").button({

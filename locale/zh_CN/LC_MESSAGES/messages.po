@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 15:34+0800\n"
-"PO-Revision-Date: 2014-04-04 15:35+0800\n"
+"POT-Creation-Date: 2014-04-04 15:38+0800\n"
+"PO-Revision-Date: 2014-04-04 15:38+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "HV Trade Center"
 msgstr "HV 交易中心"
 
-#: index.php:93 index.php:162
+#: index.php:93 index.php:162 insert.php:221
 msgid "en_US"
 msgstr "zh_CN"
 
