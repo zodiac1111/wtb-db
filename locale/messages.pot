@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 14:20+0800\n"
+"POT-Creation-Date: 2014-04-04 15:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,183 +17,184 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:6 index.php:432
+#: index.php:6 index.php:464
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:132
-msgid "dataTables.en.txt"
-msgstr ""
-
-#: index.php:189 index.php:369 index.php:374 index.php:378 index.php:379
+#: index.php:134 index.php:219 index.php:399 index.php:404 index.php:409
+#: index.php:410
 msgid "Unimplemented"
 msgstr ""
 
-#: index.php:231
+#: index.php:162
+msgid "en_US"
+msgstr ""
+
+#: index.php:261
 msgid "wtb"
 msgstr ""
 
-#: index.php:233
+#: index.php:263
 msgid "wts"
 msgstr ""
 
-#: index.php:235
+#: index.php:265
 msgid "wtt"
 msgstr ""
 
-#: index.php:274
+#: index.php:304
 msgid "Unlimited"
 msgstr ""
 
-#: index.php:286
+#: index.php:316
 msgid "link"
 msgstr ""
 
-#: index.php:313
+#: index.php:343
 msgid "Delete"
 msgstr ""
 
-#: index.php:314 index.php:379
+#: index.php:344 index.php:410
 msgid "Set"
 msgstr ""
 
-#: index.php:317
+#: index.php:347
 msgid "Edit"
 msgstr ""
 
-#: index.php:363
+#: index.php:393
 msgid "helloworld"
 msgstr ""
 
-#: index.php:367 insert.php:332
+#: index.php:397 insert.php:332
 msgid "Home"
 msgstr ""
 
-#: index.php:368 insert.php:6
+#: index.php:398 insert.php:6
 msgid "New order"
 msgstr ""
 
-#: index.php:368 insert.php:409
+#: index.php:398 insert.php:409
 msgid "Add"
 msgstr ""
 
-#: index.php:369
+#: index.php:399
 msgid "Auction"
 msgstr ""
 
-#: index.php:370
+#: index.php:400
 msgid "rev"
 msgstr ""
 
-#: index.php:370
+#: index.php:400
 msgid "Rev."
 msgstr ""
 
-#: index.php:372
+#: index.php:402
 msgid "want to buy"
 msgstr ""
 
-#: index.php:372 insert.php:362
+#: index.php:402 insert.php:362
 msgid "WTB"
 msgstr ""
 
-#: index.php:373
+#: index.php:403
 msgid "want to sell"
 msgstr ""
 
-#: index.php:373 insert.php:363
+#: index.php:403 insert.php:363
 msgid "WTS"
 msgstr ""
 
-#: index.php:374 insert.php:364
+#: index.php:404 insert.php:364
 msgid "WTT"
 msgstr ""
 
-#: index.php:376
+#: index.php:406
 msgid "reload the order"
 msgstr ""
 
-#: index.php:376
+#: index.php:406
 msgid "Reload"
 msgstr ""
 
-#: index.php:378
+#: index.php:409
 msgid "English"
 msgstr ""
 
-#: index.php:395
+#: index.php:427
 msgid "id"
 msgstr ""
 
-#: index.php:395 index.php:416
+#: index.php:427 index.php:448
 msgid "ID"
 msgstr ""
 
-#: index.php:396
+#: index.php:428
 msgid "type"
 msgstr ""
 
-#: index.php:396 index.php:417 insert.php:345
+#: index.php:428 index.php:449 insert.php:345
 msgid "Type"
 msgstr ""
 
-#: index.php:397
+#: index.php:429
 msgid "item or equipment"
 msgstr ""
 
-#: index.php:397 index.php:418 insert.php:346
+#: index.php:429 index.php:450 insert.php:346
 msgid "Item/Equip"
 msgstr ""
 
-#: index.php:398
+#: index.php:430
 msgid "palyer name"
 msgstr ""
 
-#: index.php:398 index.php:419 insert.php:347
+#: index.php:430 index.php:451 insert.php:347
 msgid "Player"
 msgstr ""
 
-#: index.php:399 index.php:400
+#: index.php:431 index.php:432
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:399 index.php:420 insert.php:352
+#: index.php:431 index.php:452 insert.php:352
 msgid "Credit"
 msgstr ""
 
-#: index.php:400 index.php:421 insert.php:353
+#: index.php:432 index.php:453 insert.php:353
 msgid "Hath"
 msgstr ""
 
-#: index.php:401
+#: index.php:433
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:401 index.php:422
+#: index.php:433 index.php:454
 msgid "Qty."
 msgstr ""
 
-#: index.php:402 index.php:423
+#: index.php:434 index.php:455
 msgid "Ref."
 msgstr ""
 
-#: index.php:403 index.php:424
+#: index.php:435 index.php:456
 msgid "Time"
 msgstr ""
 
-#: index.php:404 index.php:425 insert.php:354
+#: index.php:436 index.php:457 insert.php:354
 msgid "Note"
 msgstr ""
 
-#: index.php:405
+#: index.php:437
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:405 index.php:426
+#: index.php:437 index.php:458
 msgid "Manage"
 msgstr ""
 
-#: index.php:410
+#: index.php:442
 msgid "Loading data from server..."
 msgstr ""
 

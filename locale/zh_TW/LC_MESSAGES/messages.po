@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-04 15:09+0800\n"
-"PO-Revision-Date: 2014-04-04 15:10+0800\n"
+"PO-Revision-Date: 2014-04-04 15:17+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
-"Language: zh_CN\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,15 +25,15 @@ msgstr "HV 交易中心"
 #: index.php:134 index.php:219 index.php:399 index.php:404 index.php:409
 #: index.php:410
 msgid "Unimplemented"
-msgstr "未实现"
+msgstr "未實現"
 
 #: index.php:162
 msgid "en_US"
-msgstr "zh_CN"
+msgstr "zh_TW"
 
 #: index.php:261
 msgid "wtb"
-msgstr "收购"
+msgstr "收購"
 
 #: index.php:263
 msgid "wts"
@@ -41,7 +41,7 @@ msgstr "出售"
 
 #: index.php:265
 msgid "wtt"
-msgstr "交换"
+msgstr "交換"
 
 #: index.php:304
 msgid "Unlimited"
@@ -49,31 +49,31 @@ msgstr "不限"
 
 #: index.php:316
 msgid "link"
-msgstr "链接"
+msgstr "連結"
 
 #: index.php:343
 msgid "Delete"
-msgstr "删除"
+msgstr "刪除"
 
 #: index.php:344 index.php:410
 msgid "Set"
-msgstr "设置"
+msgstr "設置"
 
 #: index.php:347
 msgid "Edit"
-msgstr "编辑"
+msgstr "編輯"
 
 #: index.php:393
 msgid "helloworld"
-msgstr "你好,世界."
+msgstr "你好,世界"
 
 #: index.php:397 insert.php:332
 msgid "Home"
-msgstr "首页"
+msgstr "首頁"
 
 #: index.php:398 insert.php:6
 msgid "New order"
-msgstr "添加一条记录"
+msgstr "添加一條記錄"
 
 #: index.php:398 insert.php:409
 msgid "Add"
@@ -81,11 +81,11 @@ msgstr "新增"
 
 #: index.php:399
 msgid "Auction"
-msgstr "拍卖"
+msgstr "拍賣"
 
 #: index.php:400
 msgid "rev"
-msgstr "保留,未实现"
+msgstr "保留,未實現"
 
 #: index.php:400
 msgid "Rev."
@@ -93,11 +93,11 @@ msgstr "保留"
 
 #: index.php:402
 msgid "want to buy"
-msgstr "收购信息"
+msgstr "收收購信息"
 
 #: index.php:402 insert.php:362
 msgid "WTB"
-msgstr "收购"
+msgstr "收購"
 
 #: index.php:403
 msgid "want to sell"
@@ -109,7 +109,7 @@ msgstr "出售"
 
 #: index.php:404 insert.php:364
 msgid "WTT"
-msgstr "交换"
+msgstr "交換"
 
 #: index.php:406
 msgid "reload the order"
@@ -121,35 +121,35 @@ msgstr "刷新"
 
 #: index.php:409
 msgid "English"
-msgstr "中文"
+msgstr "漢語"
 
 #: index.php:427
 msgid "id"
-msgstr "序号"
+msgstr "序號"
 
 #: index.php:427 index.php:448
 msgid "ID"
-msgstr "序号"
+msgstr "序號"
 
 #: index.php:428
 msgid "type"
-msgstr "类型"
+msgstr "類型"
 
 #: index.php:428 index.php:449 insert.php:345
 msgid "Type"
-msgstr "类型"
+msgstr "類型"
 
 #: index.php:429
 msgid "item or equipment"
-msgstr "物品或者装备"
+msgstr "物品或者裝備"
 
 #: index.php:429 index.php:450 insert.php:346
 msgid "Item/Equip"
-msgstr "物品/装备"
+msgstr "物品/裝備"
 
 #: index.php:430
 msgid "palyer name"
-msgstr "玩家名称"
+msgstr "玩家名稱"
 
 #: index.php:430 index.php:451 insert.php:347
 msgid "Player"
@@ -169,27 +169,27 @@ msgstr "Hath"
 
 #: index.php:433
 msgid "Quantity of items"
-msgstr "物品的数量"
+msgstr "物品的數量"
 
 #: index.php:433 index.php:454
 msgid "Qty."
-msgstr "数量"
+msgstr "數量"
 
 #: index.php:434 index.php:455
 msgid "Ref."
-msgstr "参考"
+msgstr "參考"
 
 #: index.php:435 index.php:456
 msgid "Time"
-msgstr "时间"
+msgstr "時間"
 
 #: index.php:436 index.php:457 insert.php:354
 msgid "Note"
-msgstr "备注"
+msgstr "備註"
 
 #: index.php:437
 msgid "Manage Operation"
-msgstr "管理动作"
+msgstr "管理動作"
 
 #: index.php:437 index.php:458
 msgid "Manage"
@@ -197,11 +197,11 @@ msgstr "管理"
 
 #: index.php:442
 msgid "Loading data from server..."
-msgstr "正在加载数据"
+msgstr "正在載入資料"
 
 #: insert.php:331
 msgid "Return to home"
-msgstr "返回首页"
+msgstr "返回首頁"
 
 #: insert.php:334
 msgid "submit the order"
@@ -233,7 +233,7 @@ msgstr "玩家ID[?]"
 
 #: insert.php:408
 msgid "Add a new player name to player list"
-msgstr "新增一个玩家到玩家列表"
+msgstr "新增一個玩家到玩家列表"
 
 #: insert.php:412
 msgid "Cancel"

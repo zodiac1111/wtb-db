@@ -130,7 +130,9 @@
 						});
 						// 菜单点击
 						menu.click(function(){
-							alert("<?php echo _("Unimplemented");?>"+this);
+							// 选择不同语言,这里通过连接传递 ?lang=zh_CN 这样的变量实现
+							// alert("<?php echo _("Unimplemented");?>"+this);
+							// 有些语言实现了,有些没有实现
 						});
 						return false;
 					})
@@ -157,7 +159,7 @@
                     "bServerSide" : true,
 					"sScrollY": 350,
 					"iDisplayLength": 25, //默认显示的条目数量
-					"oLanguage": {"sUrl": "<?php echo _("dataTables.en.txt");?>"},
+					"oLanguage": {"sUrl": "dataTables.<?php echo _("en_US");?>.txt"}, // datatable的翻译语言选项
                     // 数据源
                     "sAjaxSource" : "q1.php",
                     // 传递参数进入php
