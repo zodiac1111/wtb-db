@@ -328,10 +328,10 @@
 	<body>
 		<div align="">
 			<div id="toolbar" class="ui-widget-header ui-corner-all">
-				<button id="home" value="Submit" title="<?php echo _("返回主页");?>">
+				<button id="home" value="Submit" title="<?php echo _("Return to home");?>">
 					<?php echo _("Home");?>
 				</button>
-				<button id="submit" value="Submit"  title="<?php echo _("提交修改");?>">
+				<button id="submit" value="Submit"  title="<?php echo _("submit the order");?>">
 					<?php echo _("Submit");?>
 				</button>
 			</div>
