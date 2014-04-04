@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 13:58+0800\n"
+"POT-Creation-Date: 2014-04-04 14:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgid "HV Trade Center"
 msgstr ""
 
 #: index.php:129
-msgid "dataTables.german.txt"
+msgid "dataTables.en.txt"
 msgstr ""
 
 #: index.php:186 index.php:366 index.php:371 index.php:375 index.php:376

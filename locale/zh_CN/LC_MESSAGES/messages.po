@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 13:58+0800\n"
-"PO-Revision-Date: 2014-04-04 13:59+0800\n"
+"POT-Creation-Date: 2014-04-04 14:07+0800\n"
+"PO-Revision-Date: 2014-04-04 14:07+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -23,8 +23,8 @@ msgid "HV Trade Center"
 msgstr "HV 交易中心"
 
 #: index.php:129
-msgid "dataTables.german.txt"
-msgstr ""
+msgid "dataTables.en.txt"
+msgstr "dataTables.zh_CN.txt"
 
 #: index.php:186 index.php:366 index.php:371 index.php:375 index.php:376
 msgid "Unimplemented"
