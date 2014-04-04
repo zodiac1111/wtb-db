@@ -361,23 +361,23 @@
 		</script>
 	</head>
 	<body>
-		<h1><?php echo _("helloworld"); echo "locale=".$locale ; ?></h1>
+		<h1><?php echo _("helloworld"); echo "locale=".$locale;?></h1>
 		<div>
 			<div align="">
 				<div id="toolbar" class="ui-widget-header ui-corner-all">
-					<button id="home" value="Submit">Home</button>
-					<button id="add" title="<?php echo _("New order");?>"><? echo _("Add")?></button>
-					<button id="auction" value="auction" title="未实现">Auction</button>
-					<input type="checkbox" id="Rev" title="保留"><label for="Rev">Rev.</label>
+					<button id="home" value="Submit"><?php echo _("Home");?></button>
+					<button id="add" title="<?php echo _("New order");?>"><?php echo _("Add");?></button>
+					<button id="auction" value="auction" title="<?php echo _("Unimplemented");?>"><?php echo _("Auction");?></button>
+					<input type="checkbox" id="Rev" title="<?php echo _("rev");?>"><label for="Rev"><?php echo _("Rev.");?></label>
 					<span id="type">
-						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="求购订单">WTB</label>
-						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="出售订单">WTS</label>
-						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="交换订单(未实现)">Rev.</label>
+						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="求购订单"><?php echo _("WTB");?></label>
+						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="出售订单"><?php echo _("WTS");?></label>
+						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?.</label>
 					</span>
-					<button id="reload" value="reload" title="刷新">Reload</button>
+					<button id="reload" value="reload" title="刷新"><?php echo _("Reload");?></button>
 					<span>
-						<button class="btnl18n" title="未实现">Language</button>
-						<button class="set" title="未实现">Set</button>
+						<button class="btnl18n" title="未实现"><?php echo _("Language");?></button>
+						<button class="set" title="未实现"><?php echo _("Set");?></button>
 					</span>
 				</div>
 				<span id="wait"></span>

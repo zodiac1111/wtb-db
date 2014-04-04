@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:20+0800\n"
+"POT-Creation-Date: 2014-04-04 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,10 +21,22 @@ msgstr ""
 msgid "helloworld"
 msgstr ""
 
+#: index.php:368
+msgid "Home"
+msgstr ""
+
 #: index.php:369
 msgid "New order"
 msgstr ""
 
 #: index.php:369
 msgid "Add"
+msgstr ""
+
+#: index.php:370
+msgid "Unimplemented"
+msgstr ""
+
+#: index.php:370
+msgid "Auction"
 msgstr ""
