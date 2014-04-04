@@ -35,7 +35,7 @@
 				display: inline;
 			}
 			.ui-menu { position: absolute; width: 55px; z-index:999 }
-			#lang.ui-menu { position: absolute; width: 60px; z-index:999 }
+			#lang.ui-menu { position: absolute; width: 80px; z-index:999 }
 			.tag {
 				border : 1px solid #a5d24a;
 				padding : 5px;
@@ -100,8 +100,8 @@
                 }).click(function() {
 					;
                 });
-				// 语言选项 l18n未实现,次级优先级
-				$(".btnl18n").button({
+				// 语言选项 l18n 初步实现
+				$("#btnl18n").button({
 					icons: {
 						primary: "ui-icon-flag"
 					}
@@ -144,8 +144,13 @@
 						.buttonset()
 						.next()
 							.hide()
-							.menu();
-
+							.menu()
+							.position({ // 菜单出现在合适的位置,真丑陋
+								of:$("#lang").prev().children().last(),
+								my:"right bottom",
+								at:"right top",
+								co:"flipfit flipfit"
+							});
                 $("#Rev").button();
 				// 类别选项,wtb/wts/wtt
 				$("#type" ).buttonset().click(function(){
@@ -403,18 +408,16 @@
 						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
 					</span>
 					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
-					<span>					
-						<span>
-							<button class="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("English");?></button>
-							<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
-						</span>
-						<ul id="lang">
-								<li id="lang_en_US"><a href="?lang=en_US">English</a></li>
-								<li id="lang_ja_JP"><a href="?lang=ja_JP">日本語</a></li>
-								<li id="lang_zh_CN"><a href="?lang=zh_CN">中文</a></li>
-								<li id="lang_zh_TW"><a href="?lang=zh_TW">漢語</a></li>
-						</ul>
+					<span>
+						<button id="btnl18n" title="<?php echo _("Unimplemented");?>"><?php echo _("English");?></button>
+						<button class="set" title="<?php echo _("Unimplemented");?>"><?php echo _("Set");?></button>
 					</span>
+					<ul id="lang">
+							<li id="lang_en_US"><a href="?lang=en_US">English</a></li>
+							<li id="lang_ja_JP"><a href="?lang=ja_JP">日本語</a></li>
+							<li id="lang_zh_CN"><a href="?lang=zh_CN">中文</a></li>
+							<li id="lang_zh_TW"><a href="?lang=zh_TW">漢語</a></li>
+					</ul>
 				</div>
 				<span id="wait"></span>
 			</div>
@@ -463,7 +466,7 @@
 					<label><?php echo _("HV Trade Center");?> v0.1.9 </br></label>
 					<label><?php echo _("Source Code");?>:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
-				<div align="left">
+				<div align="right">
 					<label><?php echo _("Hello, world!");?></label>
  					<label><?php echo "from locale=".$locale;?></label>
 				</div>

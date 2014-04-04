@@ -342,16 +342,16 @@
 		<div>
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
-					<th width="15%" title="类别"><?php echo _("Type");?></th>
-					<th width="14%" title="物品"><?php echo _("Item/Equip");?></th>
-					<th width="12%" title="玩家"><?php echo _("Player");?>
+					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
+					<th width="14%" title="<?php echo _("Item or Equip");?>"><?php echo _("Item/Equip");?></th>
+					<th width="12%" title="<?php echo _("Player name");?>"><?php echo _("Player");?>
 					<button id="add_player" class="add">
 						<?php echo _("Add Player");?>
 					</button></th>
-					<th width="10%" title="购买/出售数量(最小为1,留空表示不限)">Qty.</th>
-					<th width="8%" title="留空表示不接受Credit为付款方式"><?php echo _("Credit");?></th>
-					<th width="4%" title="留空表示不接受Hath为付款方式"><?php echo _("Hath");?></th>
-					<th width="18%" title="备注(可选)"><?php echo _("Note");?></th>
+					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
+					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
+					<th width="4%" title="<?php echo _("Leave blank Hath not accepted as a payment method");?>"><?php echo _("Hath");?></th>
+					<th width="18%" title="<?php echo _("Note(Optional)");?>"><?php echo _("Note");?></th>
 					<th>BBS Link</th>
 				</thead>
 				<tbody>
@@ -397,7 +397,7 @@
 			</p>
 		</div>
 		<!--  弹出对话框  -->
-		<div id="dialog" title="<?php echo _("Add player");?>" >
+		<div id="dialog" title="<?php echo _("Add player");?>">
 			<div align="middle">
 				<label for="name"><?php echo _("Player Name");?></label></br>
 				<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
