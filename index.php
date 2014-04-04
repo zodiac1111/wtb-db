@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php include_once 'languages.php'; ?>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 		<title>Trade Center</title>
 		<style type="text/css" title="currentStyle">
 			@import "css/demo_page.css";
@@ -386,7 +386,7 @@
 				<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 					<thead>
 						<tr>
-							<th width="6%"  title="交易编号">ID</th>
+							<th width="6%"  title="<?php echo _("id");?>">ID</th>
 							<th width="6%"  title="类型">Type</th>
 							<th width="13%" title="物品/装备">Item/Equip</th>
 							<th width="11%" title="玩家">Player</th>

@@ -1,4 +1,0 @@
-select wtb.item.item_name,wtb.play.play_name,wtb.c,wtb.hath,wtb.num_want,wtb.src
-	from wtb.item,wtb.play,wtb.wtb 
-		where wtb.wtb.iditem = wtb.item.iditem 
-			and wtb.wtb.idplayer = wtb.play.idplay;
