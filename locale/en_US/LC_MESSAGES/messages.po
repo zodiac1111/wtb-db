@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-05 10:09+0800\n"
+"POT-Creation-Date: 2014-04-05 10:18+0800\n"
 "PO-Revision-Date: 2014-04-04 17:19+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -52,23 +52,19 @@ msgid "link"
 msgstr ""
 
 #: index.php:340
-#, php-format
-msgid "%s seconds ago"
+msgid " seconds ago"
 msgstr ""
 
 #: index.php:342
-#, php-format
-msgid "%s mintues ago"
+msgid " mintues ago"
 msgstr ""
 
 #: index.php:344
-#, php-format
-msgid "%s hours ago"
+msgid " hours ago"
 msgstr ""
 
 #: index.php:346
-#, php-format
-msgid "%s day ago"
+msgid " day ago"
 msgstr ""
 
 #: index.php:367

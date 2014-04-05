@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-05 10:09+0800\n"
-"PO-Revision-Date: 2014-04-05 10:10+0800\n"
+"POT-Creation-Date: 2014-04-05 10:18+0800\n"
+"PO-Revision-Date: 2014-04-05 10:19+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -52,24 +52,20 @@ msgid "link"
 msgstr "链接"
 
 #: index.php:340
-#, php-format
-msgid "%s seconds ago"
-msgstr "%s 秒前"
+msgid " seconds ago"
+msgstr " 秒前"
 
 #: index.php:342
-#, php-format
-msgid "%s mintues ago"
-msgstr "%s 分钟前"
+msgid " mintues ago"
+msgstr " 分钟前"
 
 #: index.php:344
-#, php-format
-msgid "%s hours ago"
-msgstr "%s 小时前"
+msgid " hours ago"
+msgstr " 小时前"
 
 #: index.php:346
-#, php-format
-msgid "%s day ago"
-msgstr "%s 天前"
+msgid " day ago"
+msgstr " 天前"
 
 #: index.php:367
 msgid "Delete"

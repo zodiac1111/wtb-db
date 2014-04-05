@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-05 10:09+0800\n"
+"POT-Creation-Date: 2014-04-05 10:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,23 +51,19 @@ msgid "link"
 msgstr ""
 
 #: index.php:340
-#, php-format
-msgid "%s seconds ago"
+msgid " seconds ago"
 msgstr ""
 
 #: index.php:342
-#, php-format
-msgid "%s mintues ago"
+msgid " mintues ago"
 msgstr ""
 
 #: index.php:344
-#, php-format
-msgid "%s hours ago"
+msgid " hours ago"
 msgstr ""
 
 #: index.php:346
-#, php-format
-msgid "%s day ago"
+msgid " day ago"
 msgstr ""
 
 #: index.php:367

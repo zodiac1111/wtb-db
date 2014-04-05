@@ -337,13 +337,13 @@
 							var elapse_day=parseInt(elapse_minute/24);
 							// 显示成为 X<秒|分钟|小时|天>前
 							if(elapse_second<=60){
-								show_string="<?php printf(_("%s seconds ago"),elapse_second);?>";
+								show_string=elapse_second+"<?php echo _(" seconds ago");?>";
 							}else if(elapse_minute<=60){
-								show_string="<?php printf(_("%s mintues ago"),elapse_minute);?>";
+								show_string=elapse_minute+"<?php echo _(" mintues ago");?>";
 							}else if(elapse_hour<=24){
-								show_string="<?php printf(_("%s hours ago"),elapse_hour);?>";
+								show_string=elapse_hour+"<?php echo _(" hours ago");?>";
 							}else if(elapse_day<=3){
-								show_string="<?php printf(_("%s day ago"),elapse_day);?>";
+								show_string=elapse_day+"<?php echo _(" day ago");?>";
 							}else{
 								show_string=d.toLocaleString() ;
 							}
