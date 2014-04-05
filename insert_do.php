@@ -4,6 +4,7 @@ $link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not co
 mysql_select_db($mysql_db) or die("Could not select database");
 
 $type 	= $_POST["type"];
+$obj	= $_POST["obj"];
 $iditem	= $_POST["iditem"];
 $idplayer = $_POST["idplayer"];
 $qty 	= $_POST["qty"];

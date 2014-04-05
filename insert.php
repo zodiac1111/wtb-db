@@ -157,14 +157,14 @@
 				$( "#radio" ).buttonset();
 				$( "#radio_itemtype" ).buttonset();
 				$("#t_item").button({
-					
+					//
 					}).click(function() {
-                    alert("点击物品");
+						$('#tbl').dataTable().fnSetColumnVis( 3,true );
                 });
                 $("#t_equip").button({
-					
+					//
 					}).click(function() {
-                    alert("点击装备");
+						$('#tbl').dataTable().fnSetColumnVis( 3,false );
                 });
                 $(".nb").spinner({
 					min : 0,
@@ -181,7 +181,6 @@
                 });
                 $(".btn").button();
                 $("#add_player").button({
-                    text : false,
                     icons : {
                         primary : "ui-icon-circle-plus"
                     }
@@ -300,7 +299,8 @@
             function gettext() {
 				// 获得各种相的值
                 var enable = "1";
-				var type = $('input[name=radio]:checked').val()
+				var type = $('input[name=radio]:checked').val();
+				var obj = $('input[name=radio_itemtype]:checked').val(); //类型:物品还是装备
                 var iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
                 var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
 				// 支持k/m单位
@@ -348,6 +348,13 @@
 				<button id="home" value="Submit" title="<?php echo _("Return to home");?>">
 					<?php echo _("Home");?>
 				</button>
+				<span id="radio_itemtype">
+					<input type="radio" name="radio_itemtype" id="t_item"  value="0" checked="checked" /><label for="t_item"><?php echo _("Item");?></label>
+					<input type="radio" name="radio_itemtype" id="t_equip" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
+				</span>
+				<button id="add_player" class="add">
+					<?php echo _("Add Player");?>
+				</button>
 				<button id="submit" value="Submit"  title="<?php echo _("submit the order");?>">
 					<?php echo _("Submit");?>
 				</button>
@@ -360,16 +367,8 @@
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
-					<th width="14%" title="<?php echo _("Item or Equip");?>">
-							<div id="radio_itemtype">
-								<input type="radio" id="t_item" name="radio" checked="checked" value="0"/><label for="t_item"><?php echo _("Item");?></label>
-								<input type="radio" id="t_equip" name="radio" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
-							</div>
-					</th>
-					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?>
-					<button id="add_player" class="add">
-						<?php echo _("Add Player");?>
-					</button></th>
+					<th width="14%" title="<?php echo _("Item or Equip");?>"><?php echo _("Item/Equip");?></th>
+					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?></th>
 					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
 					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
 					<th width="7%" title="<?php echo _("Leave blank Hath not accepted as a payment method");?>"><?php echo _("Hath");?></th>
@@ -380,7 +379,7 @@
 					<tr>
 						<td  align="middle">
 							<div id="radio">
-								<input type="radio" id="wtb" name="radio" checked="checked" value="0"/><label for="wtb"><?php echo _("WTB");?></label>
+								<input type="radio" id="wtb" name="radio" value="0" checked="checked" /><label for="wtb"><?php echo _("WTB");?></label>
 								<input type="radio" id="wts" name="radio" value="1" /><label for="wts"><?php echo _("WTS");?></label>
 								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt"><?php echo _("WTT");?></label>
 							</div>
