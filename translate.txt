@@ -1,1 +1,3 @@
 <?php echo _("");?>
+<?php printf(_(""));?>
+<?php printf(_("%s"),v);?>
