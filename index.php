@@ -221,7 +221,7 @@
 									});
 									// 菜单项点击
 									menu.click(function(){
-										alert("<?php echo _("Unimplemented");?>"+this);
+										//alert("<?php echo _("Unimplemented");?>"+this);
 									});
 									return false;
 								})
@@ -323,7 +323,7 @@
                     }, {
 						/// 更新时间
                         "mData" : "timestamp",
-						"bSortable": false,
+						"bSortable": true,
                         "aTargets" : [8],
                         "mRender" : function(data, type, full) {
 							// unix时间戳转化成为毫秒

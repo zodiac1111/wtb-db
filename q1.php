@@ -7,8 +7,11 @@ parse_str($_SERVER['QUERY_STRING']);
 //echo $my_arg;
 
 // 排序部分
-// $iSortCol_0 第一个排序字段 (暂时就排序一个字段)
+// $iSortCol_0 第一个排序字段 (暂时就排序一个字段) 
 // $sSortDir_0 升序还是降序 asc /dsc
+// 
+// $iSortCol_1 是第二个排序字段(暂时没做)
+// $sSortDir_1 升序还是降序 asc /dsc (依次类推)
 $order = "";
 if ($iSortCol_0 == "0") {
 	$order .= " ORDER BY wtb.idwtb ";
@@ -27,6 +30,9 @@ if ($iSortCol_0 == "0") {
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "5") {
 	$order .= " ORDER BY wtb.hath ";
+	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "8") {
+	$order .= " ORDER BY wtb.time ";
 	$order .= $sSortDir_0;
 } else {;
 }
