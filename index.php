@@ -448,14 +448,14 @@
 					<thead>
 						<tr>
 							<th width="6%"  title="<?php echo _("id");?>"><?php echo _("ID");?></th>
-							<th width="6%"  title="<?php echo _("type");?>"><?php echo _("Type");?></th>
+							<th width="5%"  title="<?php echo _("type");?>"><?php echo _("Type");?></th>
 							<th width="13%" title="<?php echo _("item or equipment");?>"><?php echo _("Item/Equip");?></th>
 							<th width="11%" title="<?php echo _("palyer name");?>"><?php echo _("Player");?></th>
 							<th width="8%" title="<?php echo _("- means not accepted");?>"><?php echo _("Credit");?></th>
 							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>
 							<th width="6%" title="<?php echo _("Quantity of items");?>"><?php echo _("Qty.");?></th>
 							<th width="5%" title="<?php echo _("BBS link");?>"><?php echo _("Ref.");?></th>
-							<th width="10%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
+							<th width="7%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
 							<th title="<?php echo _("Note");?>"><?php echo _("Note");?></th>
 							<th width="70px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
 						</tr>
