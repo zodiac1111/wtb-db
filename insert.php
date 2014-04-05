@@ -155,6 +155,17 @@
 					}
 				});
 				$( "#radio" ).buttonset();
+				$( "#radio_itemtype" ).buttonset();
+				$("#t_item").button({
+					
+					}).click(function() {
+                    alert("点击物品");
+                });
+                $("#t_equip").button({
+					
+					}).click(function() {
+                    alert("点击装备");
+                });
                 $(".nb").spinner({
 					min : 0,
                     numberFormat: "n0"
@@ -349,7 +360,12 @@
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
-					<th width="14%" title="<?php echo _("Item or Equip");?>"><?php echo _("Item/Equip");?></th>
+					<th width="14%" title="<?php echo _("Item or Equip");?>">
+							<div id="radio_itemtype">
+								<input type="radio" id="t_item" name="radio" checked="checked" value="0"/><label for="t_item"><?php echo _("Item");?></label>
+								<input type="radio" id="t_equip" name="radio" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
+							</div>
+					</th>
 					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?>
 					<button id="add_player" class="add">
 						<?php echo _("Add Player");?>
@@ -364,7 +380,6 @@
 					<tr>
 						<td  align="middle">
 							<div id="radio">
-								<input type="checkbox" checked class="chitic enb checked"/>
 								<input type="radio" id="wtb" name="radio" checked="checked" value="0"/><label for="wtb"><?php echo _("WTB");?></label>
 								<input type="radio" id="wts" name="radio" value="1" /><label for="wts"><?php echo _("WTS");?></label>
 								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt"><?php echo _("WTT");?></label>
