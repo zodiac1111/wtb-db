@@ -235,7 +235,7 @@
 										.hide()
 										.menu();
                     },
-					"aaSorting": [[ 0, "desc" ]], //默认按第一列降序排列
+					"aaSorting": [[ 8, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
 /*
 					"fnServerData": function( sUrl, aoData, fnCallback ) {
 						$.ajax( {
@@ -247,7 +247,7 @@
 						} );
 					}, */
                     // 列定义
-                    "aoColumnDefs" : [{
+                    "aoColumnDefs" : [{  //序号
                         "mData" : "idwtb",
                         "aTargets" : [0],
                         "mRender" : function(data, type, full) {
@@ -256,7 +256,7 @@
                             return  data;
                         }
                     }, {
-                        "mData" : "type",
+                        "mData" : "type",  //交易类型
                         "aTargets" : [1],
 						"bSortable": false,
                         "mRender" : function(data, type, full) {
@@ -273,7 +273,7 @@
 							}
                         }
                     },{
-                        "mData" : "item_name",
+                        "mData" : "item_name", //物品名称
                         "aTargets" : [2],
 						"bSearchable": true
                     }, {
@@ -327,8 +327,26 @@
                         "aTargets" : [8],
                         "mRender" : function(data, type, full) {
 							// unix时间戳转化成为毫秒
-							d=new Date(data*1000);
-                            return d.toLocaleString() ;
+							var show_string="";
+							var d=new Date(data*1000);
+							var tnow= new Date();
+							var elapse_second=parseInt((tnow-d)/1000); // 相差的秒数
+							var elapse_minute=parseInt(elapse_second/60);
+							var elapse_hour=parseInt(elapse_minute/60);
+							var elapse_day=parseInt(elapse_minute/24);
+							// 显示成为 X<秒|分钟|小时|天>前
+							if(elapse_second<=60){
+								show_string="<?php echo _("%s seconds ago",elapse_second);?>";
+							}else if(elapse_minute<=60){
+								show_string="<?php echo _("%s mintues ago",elapse_minute);?>";
+							}else if(elapse_hour<=24){
+								show_string="<?php echo _("%s hours ago",elapse_hour);?>";
+							}else if(elapse_day<=3){
+								show_string="<?php echo _("%s day ago",elapse_day);?>";
+							}else{
+								show_string=d.toLocaleString() ;
+							}
+                            return '<span title="show_string">'+d.toLocaleString()+'</span>';
                         }
                     }, {
 						/// 备注

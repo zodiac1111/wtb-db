@@ -32,7 +32,7 @@ if ($iSortCol_0 == "0") {
 	$order .= " ORDER BY wtb.hath ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "8") {
-	$order .= " ORDER BY wtb.time ";
+	$order .= " ORDER BY wtb.timestamp ";
 	$order .= $sSortDir_0;
 } else {;
 }
@@ -71,6 +71,7 @@ if($sSearch_3<>""){
 // 组合所有搜索条件
 $search= " and ( ". $search_all ." and " . $search_item . " and " .  $search_player .")";
 
+// 限制条目数量
 if($iDisplayLength ==""){
 	$iDisplayLength ="10";
 }
@@ -102,6 +103,7 @@ $query = "select "
 . " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
 . " ;";
 
+// 得到符合的条目总数量,用于显示出"总共X条,第X到X条"
 $counter= "SELECT COUNT(*)  FROM
     wtb.item,
     wtb.play,
@@ -118,9 +120,9 @@ $link = mysql_connect($mysql_host,$mysql_user, $mysql_pwd) or die("Could not con
 mysql_select_db("wtb") or die("Could not select database");
 // 执行 SQL 查询
 $result = mysql_query($query) or die("Query failed:".$query);
+
 // json api start
 $rows = array();
-
 while ($r = mysql_fetch_assoc($result)) {
 	$rows[] = $r;
 }
@@ -133,7 +135,9 @@ while ($r = mysql_fetch_assoc($result)) {
 $result = mysql_query($counter) or die("Query failed:".$query);
 list($iTotalRecords) = mysql_fetch_row($result);
 //$iTotalRecords=@mysql_num_rows($result);
-// show json
+
+// make json
+// 返回json,得到一些调试信息,不是必须的
 $json->sqlstring=$query;
 $json->search=$search;
 $json->arg="wtb:" . $wtb . " wts:" . $wts . " wtt:" . $wtt;
@@ -142,9 +146,9 @@ $json->iTotalRecords=$iTotalRecords;// 总的记录条数
 $json->iTotalDisplayRecords=$iTotalRecords ;//count($rows); // 显示的记录条数
 $json->aaData=$rows;
 
+// show json
 echo json_encode($json);
 
-// json api end
 // 释放资源
 mysql_free_result($result);
 // 断开连接
