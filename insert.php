@@ -176,7 +176,7 @@
                     text : false
                 }).click(function() {
 					if($("#id")[0].value=="" || $("#name")[0].value=="" ){
-						alert('idplay/name is void!\n名字或id不能为空');
+						alert('<?php echo _("Name or PlayID is void!");?>');
 						return false;				
 					}
                     $.ajax({
@@ -187,7 +187,7 @@
 		                data : "id="+ $("#id")[0].value+"&name="+$("#name")[0].value,
 		                beforeSend : function(XMLHttpRequest) {
 		                    //alert("提交");
-		                    $("#wait")[0].textContent = "waitng";
+		                    $("#wait")[0].textContent = "<?php echo _("Pending");?>";
 							$("#player")[0].value="";
 							$("#player_id")[0].textContent="";
 		                },
@@ -228,7 +228,7 @@
                 }).click(function() {
                     // 点击事件
 					if($("#item_id")[0].textContent=="" || $("#player_id")[0].textContent=="" ){
-						alert('item /player is void!\n物品或玩家不能为空');
+						alert('<?php echo _("item/player is void!");?>');
 						return false;				
 					}
                     $.ajax({
@@ -239,20 +239,20 @@
                         data : gettext(),
                         beforeSend : function(XMLHttpRequest) {
                             //alert("提交");
-                            $("#wait")[0].textContent = "waitng";
+                            $("#wait2").html("<img src='images/ui-anim_basic_16x16.gif'></img>");
+                            $("#wait")[0].textContent = "<?php echo _("Pending");?>";
 							$("#submit").prop("disabled", true);
-							$("#wait2").html("<img src='images/ui-anim_basic_16x16.gif'></img>");
                         },
                         //成功(先成功,后完成)
                         success : function(data, textStatus) {
 							if(data.result!=true){
                             	alert("return err:" + data);
-								$("#wait")[0].textContent = "Server Err";
+								$("#wait")[0].textContent = "<?php echo _("Server Err");?>";
 							}
 							if(data.isempty){
-								$("#wait")[0].textContent = "Insert OK";
+								$("#wait")[0].textContent = "<?php echo _("Insert OK");?>";
 							}else{
-								$("#wait")[0].textContent = "Update OK";
+								$("#wait")[0].textContent = "<?php echo _("Update OK");?>";
 							}
                         },
                         error : function(XMLHttpRequest, textStatus, errorThrown) {

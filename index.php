@@ -15,7 +15,6 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
-		<script type='text/javascript' src="js/i18next-1.7.2.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
 		<script type='text/javascript' src="js/jquery.dataTables.columnFilter.js" ></script>
 		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
@@ -334,7 +333,8 @@
 							var elapse_second=parseInt((tnow-d)/1000); // 相差的秒数
 							var elapse_minute=parseInt(elapse_second/60);
 							var elapse_hour=parseInt(elapse_minute/60);
-							var elapse_day=parseInt(elapse_minute/24);
+							var elapse_day=parseInt(elapse_hour/24);
+							var elapse_week=parseInt(elapse_day/7);
 							// 显示成为 X<秒|分钟|小时|天>前
 							if(elapse_second<=60){
 								show_string=elapse_second+"<?php echo _(" seconds ago");?>";
@@ -342,12 +342,14 @@
 								show_string=elapse_minute+"<?php echo _(" mintues ago");?>";
 							}else if(elapse_hour<=24){
 								show_string=elapse_hour+"<?php echo _(" hours ago");?>";
-							}else if(elapse_day<=3){
-								show_string=elapse_day+"<?php echo _(" day ago");?>";
+							}else if(elapse_day<=7){
+								show_string=elapse_day+"<?php echo _(" days ago");?>";
+							}else if(elapse_week<=4){
+								show_string=elapse_day+"<?php echo _(" weeks ago");?>";
 							}else{
 								show_string=d.toLocaleString() ;
 							}
-                            return '<span title="show_string">'+d.toLocaleString()+'</span>';
+                            return '<span title="'+d.toLocaleString()+'">'+show_string+'</span>';
                         }
                     }, {
 						/// 备注
@@ -452,8 +454,8 @@
 							<th width="8%" title="<?php echo _("- means not accepted");?>"><?php echo _("Credit");?></th>
 							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>
 							<th width="6%" title="<?php echo _("Quantity of items");?>"><?php echo _("Qty.");?></th>
-							<th width="5%" title="bbs 连接"><?php echo _("Ref.");?></th>
-							<th width="14%" title="交易加入时间"><?php echo _("Time");?></th>
+							<th width="5%" title="<?php echo _("BBS link");?>"><?php echo _("Ref.");?></th>
+							<th width="10%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
 							<th title="<?php echo _("Note");?>"><?php echo _("Note");?></th>
 							<th width="70px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
 						</tr>
