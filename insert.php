@@ -100,46 +100,95 @@
 				});
 				// 装备连接检查.初步通过则交给后端查询
 				$( "#equip" ).change(function(){
-					$(this).addClass("ui-autocomplete-loading");
-					$("#equip_name").text("<?php echo _("Check link...");?>");
+					$("#equip").addClass("ui-autocomplete-loading");
+					$("#equip_name").val("<?php echo _("Check link...");?>");
 					//$(this).css("background-color","#FFFFCC");
 					var match=$(this).val()
 						.match(/^(((http:\/\/)*hentaiverse.org\/pages\/showequip.php)*\?)*eid=[0-9]{1,16}\&key=[0-9a-zA-Z]{1,16}/);
 					if(match==null){
-						$("#equip_name").text("<?php echo _("Invalid link");?>");
-						$(this).removeClass("ui-autocomplete-loading");
+						$("#equip_name").val("<?php echo _("Invalid link");?>");
+						$("#equip").removeClass("ui-autocomplete-loading");
 						return false
 					}
 					// 找到了合法有效的链接.
 					var token=$(this).val().match(/eid=([0-9]{1,16})\&key=([0-9a-zA-Z]{1,16})/);
 					var eid=token[1];
 					var key=token[2];
+					var equip_name="";
 					// 给后端
 					$.ajax({
 		                type : "post",
 		                url : "qequip.php",
 		                contentType : "application/x-www-form-urlencoded; charset=utf-8",
 		                dataType : "json",
-		                data : "eid="+ eid+"&key="+key,
+		                data : "eid="+ eid+"&key="+key+"&equid_name",
 		                beforeSend : function(XMLHttpRequest) {
 		                    //alert("提交");
-		                   $("#equip_name").text("<?php echo _("Search in Database");?>");
+		                   $("#equip_name").val("<?php echo _("Searching in Database...");?>");
 		                },
 		                //成功(先成功,后完成)
 		                success : function(data, textStatus) {
 							//alert(data);
-							$("#equip_name").text(data.equip_name);
+							if(data.equip_name!=""){
+								$("#equip_name").val(data.equip_name);
+							}else{
+								$("#equip_name").val("");
+								$("#equip_name").attr("placeholder","<?php echo _("Plz Input EquipName manual");?>");
+								
+							}
+							return true;
 		                },
 		                error : function(XMLHttpRequest, textStatus, errorThrown) {
-		                    alert("ERR:" + XMLHttpRequest.responseText);
+		                    alert("ERR:" + XMLHttpRequest.responseText+errorThrown);
+		                    return false;
 		                },
 						complete:function(XHR, TS){
-							$(this).removeClass("ui-autocomplete-loading");
+							$("#equip").removeClass("ui-autocomplete-loading");
 						}
-		            });
-					
+		            });	
 				});
-				// 自动完成 -- 玩家名称
+				 // 使能装备名称改变时提交插入数据库
+			$( "#equip_name" ).change(function(){
+				if($("#equip_name").val()==""){
+					return false;
+				}
+				$("#equip_name").addClass("ui-autocomplete-loading");
+				var match=$("#equip").val()
+					.match(/^(((http:\/\/)*hentaiverse.org\/pages\/showequip.php)*\?)*eid=[0-9]{1,16}\&key=[0-9a-zA-Z]{1,16}/);
+				if(match==null){
+					$("#equip").val("<?php echo _("Invalid link");?>");
+					$("#equip_name").removeClass("ui-autocomplete-loading");
+					return false;
+				}
+				// 找到了合法有效的链接.
+				var token=$("#equip").val().match(/eid=([0-9]{1,16})\&key=([0-9a-zA-Z]{1,16})/);
+				var eid=token[1];
+				var key=token[2];
+				var equip_name=$("#equip_name").val();
+				$.ajax({
+					type : "post",
+					url : "aequip.php",
+					contentType : "application/x-www-form-urlencoded; charset=utf-8",
+					dataType : "json",
+					data : "eid="+eid+"&key="+key+"&equip_name="+equip_name,
+					beforeSend : function(XMLHttpRequest) {
+						//alert("提交");
+						$("#equip_name").addClass("ui-autocomplete-loading");
+					},
+					//成功(先成功,后完成)
+					success : function(data, textStatus) {
+						$("#equip_name").removeClass("ui-autocomplete-loading");
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						$("#equip_name").removeClass("ui-autocomplete-loading");
+						alert("ERR:" + XMLHttpRequest.responseText);
+					},
+					complete:function(XHR, TS){
+						$("#equip_name").removeClass("ui-autocomplete-loading");
+					}
+				});
+			});
+				// 自动完成  玩家名称
 				$( "#player" ).autocomplete({
 					selectFirst: true,
 					autoFocus: true , //自动聚焦到第一个
@@ -199,15 +248,18 @@
 					//
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 2,false ); //装备列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 3,false ); //装备名称列隐藏
 						$('#tbl').dataTable().fnSetColumnVis( 1,true ); //物品列显示
-						$('#tbl').dataTable().fnSetColumnVis( 4,true ); //数量列显示
+						$('#tbl').dataTable().fnSetColumnVis( 5,true ); //数量列显示
                 });
                 $("#t_equip").button({
 					//
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 1,false ); // 物品列隐藏
-						$('#tbl').dataTable().fnSetColumnVis( 4,false ); //数量列隐藏
-						$('#tbl').dataTable().fnSetColumnVis( 2,true ); //装别列显示
+						$('#tbl').dataTable().fnSetColumnVis( 5,false ); //数量列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 2,true ); //装备列显示
+						$('#tbl').dataTable().fnSetColumnVis( 3,true ); //装备名称列显示
+						$("#wts").click(); //一般物品都是来卖的.自动点击一下
                 });
                 $(".nb").spinner({
 					min : 0,
@@ -351,7 +403,6 @@
                     autoOpen : false,
                 });
             });
-
 			// @todo 移除,插入sql 字符串
             function gettext() {
 				// 获得各种相的值
@@ -439,8 +490,10 @@
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
 					<!-- V装备和物品列同时只显示两者之一 -->
 					<th width="14%" title="<?php echo _("Item");?>"><?php echo _("Item");?></th>
-					<th width="14%" title="<?php echo _("Equip link");?>"><?php echo _("Equip");?></th>
+					<th width="20%" title="<?php echo _("Equip link");?>"><?php echo _("Equip");?></th>
+					<th width="20%" title="<?php echo _("Equip Name");?>"><?php echo _("Equip Name");?></th>
 					<!-- ^装备和物品列同时只显示两者之一 -->
+					
 					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?></th>
 					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
 					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
@@ -462,11 +515,13 @@
 							<input id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
 							</input></td>
 						<td align="middle">
-							<label id="equip_id" style="display:;" ></label>
-							<label id="equip_key" style="display:;" ></label>
-							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>">
-							</br><label id="equip_name"><?php echo _("[Equip Name]");?></label>
-							</input></td>
+							<label id="equip_id" style="display:none;" ></label>
+							<label id="equip_key" style="display:none;" ></label>
+							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>"/>
+						</td>
+						<td align="middle">
+							<input id="equip_name" title="<?php echo _("eq. ");?>Average Axe of the Vampire" value="<?php echo _("[Equip Name]");?>"/>
+						</td>
 						<td  align="middle">
 							<label id="player_id" style="display:none;" ></label>
 							<input id="player" title="支持自动补全" placeholder="<?php echo _("eg.");?> SomeOne">
