@@ -6,6 +6,7 @@ mysql_select_db($mysql_db) or die("Could not select database:".$link);
 $type 	= $_POST["type"];
 $obj	= $_POST["obj"]; /// 交易的对象:物品或者装备
 $iditem	= $_POST["iditem"];
+$idequip= $_POST["idequip"];
 $idplayer = $_POST["idplayer"];
 $qty 	= $_POST["qty"];
 $c	 	= $_POST["c"];
@@ -14,10 +15,15 @@ $note 	= $_POST["note"];
 $src	= $_POST["src"];
 $timestamp=time();
 
+/// 插入的是装备
+if($obj=="1")
+
+
+// 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
 $select = "select * from `order` where `type`='".$type
 		."' and `iditem`='" .$iditem ."' and `idplayer`='".$idplayer."';";
 
-// 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
+
 $result = mysql_query($select) or die("Query failed:".$select);
 //$json->result1=$result;
 $rows = mysql_fetch_assoc($result);

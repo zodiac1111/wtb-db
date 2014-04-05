@@ -159,12 +159,16 @@
 				$("#t_item").button({
 					//
 					}).click(function() {
-						$('#tbl').dataTable().fnSetColumnVis( 3,true );
+						$('#tbl').dataTable().fnSetColumnVis( 2,false ); //装备列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 1,true ); //物品列显示
+						$('#tbl').dataTable().fnSetColumnVis( 4,true ); //数量列显示
                 });
                 $("#t_equip").button({
 					//
 					}).click(function() {
-						$('#tbl').dataTable().fnSetColumnVis( 3,false );
+						$('#tbl').dataTable().fnSetColumnVis( 1,false ); // 物品列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 4,false ); //数量列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 2,true ); //装别列显示
                 });
                 $(".nb").spinner({
 					min : 0,
@@ -374,7 +378,10 @@
 			<table id="tbl" cellpadding="0" cellspacing="0" border="1" class="display" width="100%">
 				<thead>
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
-					<th width="14%" title="<?php echo _("Item or Equip");?>"><?php echo _("Item/Equip");?></th>
+					<!-- V装备和物品列同时只显示两者之一 -->
+					<th width="14%" title="<?php echo _("Item");?>"><?php echo _("Item");?></th>
+					<th width="14%" title="<?php echo _("Equip link");?>"><?php echo _("Equip");?></th>
+					<!-- ^装备和物品列同时只显示两者之一 -->
 					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?></th>
 					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
 					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
@@ -394,6 +401,10 @@
 						<td align="middle">
 							<label id="item_id"  style="display:none;" ></label>
 							<input id="item"  title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
+							</input></td>
+						<td align="middle">
+							<label id="equip_id"  style="display:none;" ></label>
+							<input id="equip"  title="支持自动补全" placeholder="<?php echo _("equip link");?>" >
 							</input></td>
 						<td  align="middle">
 							<label id="player_id"  style="display:none;" ></label>
