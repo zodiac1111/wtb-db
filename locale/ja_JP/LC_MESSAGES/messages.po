@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 17:16+0800\n"
-"PO-Revision-Date: 2014-04-04 17:18+0800\n"
+"POT-Creation-Date: 2014-04-05 09:25+0800\n"
+"PO-Revision-Date: 2014-04-05 09:28+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -18,188 +18,208 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:463
+#: index.php:6 index.php:484
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:85 index.php:93 index.php:162 insert.php:221
+#: index.php:85 index.php:93 index.php:167 insert.php:221
 msgid "en_US"
 msgstr "ja_JP"
 
-#: index.php:134 index.php:219 index.php:398 index.php:403 index.php:408
-#: index.php:409
+#: index.php:134 index.php:224 index.php:421 index.php:426 index.php:430
+#: index.php:431
 msgid "Unimplemented"
 msgstr ""
 
-#: index.php:261
+#: index.php:266
 msgid "wtb"
 msgstr ""
 
-#: index.php:263
+#: index.php:268
 msgid "wts"
 msgstr ""
 
-#: index.php:265
+#: index.php:270
 msgid "wtt"
 msgstr ""
 
-#: index.php:304
+#: index.php:309
 msgid "Unlimited"
 msgstr ""
 
-#: index.php:316
+#: index.php:321
 msgid "link"
 msgstr ""
 
+#: index.php:339
+#, php-format
+msgid "%s seconds ago"
+msgstr ""
+
+#: index.php:341
+#, php-format
+msgid "%s mintues ago"
+msgstr ""
+
 #: index.php:343
+#, php-format
+msgid "%s hours ago"
+msgstr ""
+
+#: index.php:345
+#, php-format
+msgid "%s day ago"
+msgstr ""
+
+#: index.php:366
 msgid "Delete"
 msgstr ""
 
-#: index.php:344 index.php:409
+#: index.php:367 index.php:431
 msgid "Set"
 msgstr ""
 
-#: index.php:347
+#: index.php:370
 msgid "Edit"
 msgstr ""
 
-#: index.php:396 insert.php:332
+#: index.php:419 insert.php:332
 msgid "Home"
 msgstr ""
 
-#: index.php:397 insert.php:6
+#: index.php:420 insert.php:6
 msgid "New order"
 msgstr ""
 
-#: index.php:397 insert.php:409
+#: index.php:420 insert.php:409
 msgid "Add"
 msgstr ""
 
-#: index.php:398
+#: index.php:421
 msgid "Auction"
 msgstr ""
 
-#: index.php:399
+#: index.php:422
 msgid "rev"
 msgstr ""
 
-#: index.php:399
+#: index.php:422
 msgid "Rev."
 msgstr ""
 
-#: index.php:401
+#: index.php:424
 msgid "want to buy"
 msgstr ""
 
-#: index.php:401 insert.php:362
+#: index.php:424 insert.php:362
 msgid "WTB"
 msgstr ""
 
-#: index.php:402
+#: index.php:425
 msgid "want to sell"
 msgstr ""
 
-#: index.php:402 insert.php:363
+#: index.php:425 insert.php:363
 msgid "WTS"
 msgstr ""
 
-#: index.php:403 insert.php:364
+#: index.php:426 insert.php:364
 msgid "WTT"
 msgstr ""
 
-#: index.php:405
+#: index.php:428
 msgid "reload the order"
 msgstr ""
 
-#: index.php:405
+#: index.php:428
 msgid "Reload"
 msgstr ""
 
-#: index.php:408
+#: index.php:430
 msgid "English"
 msgstr "日本語"
 
-#: index.php:426
+#: index.php:447
 msgid "id"
 msgstr ""
 
-#: index.php:426 index.php:447
+#: index.php:447 index.php:468
 msgid "ID"
 msgstr ""
 
-#: index.php:427
+#: index.php:448
 msgid "type"
 msgstr ""
 
-#: index.php:427 index.php:448 insert.php:345
+#: index.php:448 index.php:469 insert.php:345
 msgid "Type"
 msgstr ""
 
-#: index.php:428
+#: index.php:449
 msgid "item or equipment"
 msgstr ""
 
-#: index.php:428 index.php:449 insert.php:346
+#: index.php:449 index.php:470 insert.php:346
 msgid "Item/Equip"
 msgstr ""
 
-#: index.php:429
+#: index.php:450
 msgid "palyer name"
 msgstr ""
 
-#: index.php:429 index.php:450 insert.php:347
+#: index.php:450 index.php:471 insert.php:347
 msgid "Player"
 msgstr ""
 
-#: index.php:430 index.php:431
+#: index.php:451 index.php:452
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:430 index.php:451 insert.php:352
+#: index.php:451 index.php:472 insert.php:352
 msgid "Credit"
 msgstr ""
 
-#: index.php:431 index.php:452 insert.php:353
+#: index.php:452 index.php:473 insert.php:353
 msgid "Hath"
 msgstr ""
 
-#: index.php:432
+#: index.php:453
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:432 index.php:453
+#: index.php:453 index.php:474 insert.php:351
 msgid "Qty."
 msgstr ""
 
-#: index.php:433 index.php:454
+#: index.php:454 index.php:475
 msgid "Ref."
 msgstr ""
 
-#: index.php:434 index.php:455
+#: index.php:455 index.php:476
 msgid "Time"
 msgstr ""
 
-#: index.php:435 index.php:456 insert.php:354
+#: index.php:456 index.php:477 insert.php:354
 msgid "Note"
 msgstr ""
 
-#: index.php:436
+#: index.php:457
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:436 index.php:457
+#: index.php:457 index.php:478
 msgid "Manage"
 msgstr ""
 
-#: index.php:441
+#: index.php:462
 msgid "Loading data from server..."
 msgstr ""
 
-#: index.php:464
+#: index.php:485
 msgid "Source Code"
 msgstr ""
 
-#: index.php:467
+#: index.php:488
 msgid "Hello, world!"
 msgstr ""
 
@@ -215,8 +235,36 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
+#: insert.php:345
+msgid "type of order"
+msgstr ""
+
+#: insert.php:346
+msgid "Item or Equip"
+msgstr ""
+
+#: insert.php:347
+msgid "Player name"
+msgstr ""
+
 #: insert.php:349
 msgid "Add Player"
+msgstr ""
+
+#: insert.php:351
+msgid "Buy/sell quantity (minimum 1, leave blank limitation)"
+msgstr ""
+
+#: insert.php:352
+msgid "Leave blank not accept payment by Credit"
+msgstr ""
+
+#: insert.php:353
+msgid "Leave blank Hath not accepted as a payment method"
+msgstr ""
+
+#: insert.php:354
+msgid "Note(Optional)"
 msgstr ""
 
 #: insert.php:369 insert.php:373 insert.php:376 insert.php:379 insert.php:382
