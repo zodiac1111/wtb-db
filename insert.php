@@ -98,6 +98,55 @@
 						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 					}
 				});
+				// 装备自动完成,获取名字,
+				$( "#equip" ).autocomplete({
+					selectFirst: true,
+					autoFocus: true , //自动聚焦到第一个
+					minLength: 20, // 最小触发长度
+					// 数据源
+					source: function( request, response ) {
+						$.ajax({
+							url: "qequip.php",
+							dataType: "json",
+							data: {
+								term: request.term
+							},
+							// 获取结果
+							success: function( data ) {
+								//没有找到此装备,插入数据库
+								if (data.adata.length == 0) {
+									$("#equip_id")[0].textContent="";
+									$("#equip").autocomplete("close");
+								}
+								// 找到了,显示出来
+								response($.map(data.adata, function( item ) {
+									return {
+										id: item.idequip, // 这个呢?
+										label: item.equip_name, //显示在弹出层
+										value: item.equip_name //点击填写到文本框
+									}
+								}));
+							}
+						});
+					},
+					// 点击选择时触发
+					select: function( event, ui ) {
+						$("#equip_id")[0].textContent=ui.item.id;
+						$("#equip").removeClass("ui-autocomplete-loading");
+						return true;
+					},
+					focus: function (event, ui) {
+						$("#equip_id")[0].textContent=ui.item.id;
+						$("#equip").removeClass("ui-autocomplete-loading");
+						return true;
+                    },
+					open: function() {
+						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+					},
+					close: function() {
+						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					}
+				});
 				// 自动完成 -- 玩家名称
 				$( "#player" ).autocomplete({
 					selectFirst: true,
@@ -189,11 +238,6 @@
                 }).click(function() {
                     $("#dialog").dialog("open");
                 });
-                // 按钮集合
-                $( "#radio" ).buttonset();
-				$( "#radio_itemtype" ).buttonset();
-				$("#wtb").click(); //自动选择指定按钮(默认值)
-				$("#t_item").click();
 				// 增加用户ajax.
                 $("#btnAdd").button({
                     text : false
@@ -250,9 +294,18 @@
                     }
                 }).click(function() {
                     // 点击事件
-					if($("#item_id")[0].textContent=="" || $("#player_id")[0].textContent=="" ){
-						alert('<?php echo _("item/player is void!");?>');
+					if($("#player_id")[0].textContent=="" ){
+						alert('<?php echo _("Player name is void!");?>');
 						return false;				
+					}
+					var obj = $('input[name=radio_itemtype]:checked').val(); 
+					if(obj=="0" && $("#item_id")[0].textContent==""){
+						alert('<?php echo _("Item is void!");?>');
+						return false;		
+					}
+					if(obj=="1" && $("#equip_id")[0].textContent==""){
+						alert('<?php echo _("Equipment is void!");?>');
+						return false;		
 					}
                     $.ajax({
                         type : "post",
@@ -293,12 +346,13 @@
 					"bInfo":false,
 					"bFilter":false,
 					"bSort": false,
-					"bPaginate": false,
-					"aoColumnDefs": [{ 
-						"aTargets": [2],
-						"bVisible": false
-					}]
+					"bPaginate": false
                 });
+                // 按钮集合
+                $( "#radio" ).buttonset();
+				$( "#radio_itemtype" ).buttonset();
+				$("#wtb").click(); //自动选择指定按钮(默认值)
+				$("#t_item").click();
                 $("#dialog").dialog({
                     // height: 200,
                     modal : true,
@@ -416,7 +470,7 @@
 						<td align="middle">
 							<label id="equip_id" style="display:none;" ></label>
 							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>">
-							</br><label id="equip_name"></label>
+							</br><label id="equip_name"><?php echo _("[Equip Name]");?></label>
 							</input></td>
 						<td  align="middle">
 							<label id="player_id" style="display:none;" ></label>
