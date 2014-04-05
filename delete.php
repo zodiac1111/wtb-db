@@ -1,7 +1,7 @@
 <?php
 include "conf.php";
 $wtbid = $_POST["wtbid"];
-$query="DELETE FROM `wtb`.`wtb` WHERE `idwtb`='".$wtbid."';";
+$query="DELETE FROM `wtb`.`order` WHERE `idwtb`='".$wtbid."';";
 //echo "var jstext='$query'";
 //echo "var jstext=" . "'$query'";
 $link = mysql_connect($mysql_host,$mysql_user, $mysql_pwd) or die("Could not connect");

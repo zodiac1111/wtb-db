@@ -98,54 +98,46 @@
 						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 					}
 				});
-				// 装备自动完成,获取名字,
-				$( "#equip" ).autocomplete({
-					selectFirst: true,
-					autoFocus: true , //自动聚焦到第一个
-					minLength: 20, // 最小触发长度
-					// 数据源
-					source: function( request, response ) {
-						$.ajax({
-							url: "qequip.php",
-							dataType: "json",
-							data: {
-								term: request.term
-							},
-							// 获取结果
-							success: function( data ) {
-								//没有找到此装备,插入数据库
-								if (data.adata.length == 0) {
-									$("#equip_id")[0].textContent="";
-									$("#equip").autocomplete("close");
-								}
-								// 找到了,显示出来
-								response($.map(data.adata, function( item ) {
-									return {
-										id: item.idequip, // 这个呢?
-										label: item.equip_name, //显示在弹出层
-										value: item.equip_name //点击填写到文本框
-									}
-								}));
-							}
-						});
-					},
-					// 点击选择时触发
-					select: function( event, ui ) {
-						$("#equip_id")[0].textContent=ui.item.id;
-						$("#equip").removeClass("ui-autocomplete-loading");
-						return true;
-					},
-					focus: function (event, ui) {
-						$("#equip_id")[0].textContent=ui.item.id;
-						$("#equip").removeClass("ui-autocomplete-loading");
-						return true;
-                    },
-					open: function() {
-						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-					},
-					close: function() {
-						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+				// 装备连接检查.初步通过则交给后端查询
+				$( "#equip" ).change(function(){
+					$(this).addClass("ui-autocomplete-loading");
+					$("#equip_name").text("<?php echo _("Check link...");?>");
+					//$(this).css("background-color","#FFFFCC");
+					var match=$(this).val()
+						.match(/^(((http:\/\/)*hentaiverse.org\/pages\/showequip.php)*\?)*eid=[0-9]{1,16}\&key=[0-9a-zA-Z]{1,16}/);
+					if(match==null){
+						$("#equip_name").text("<?php echo _("Invalid link");?>");
+						$(this).removeClass("ui-autocomplete-loading");
+						return false
 					}
+					// 找到了合法有效的链接.
+					var token=$(this).val().match(/eid=([0-9]{1,16})\&key=([0-9a-zA-Z]{1,16})/);
+					var eid=token[1];
+					var key=token[2];
+					// 给后端
+					$.ajax({
+		                type : "post",
+		                url : "qequip.php",
+		                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+		                dataType : "json",
+		                data : "eid="+ eid+"&key="+key,
+		                beforeSend : function(XMLHttpRequest) {
+		                    //alert("提交");
+		                   $("#equip_name").text("<?php echo _("Search in Database");?>");
+		                },
+		                //成功(先成功,后完成)
+		                success : function(data, textStatus) {
+							//alert(data);
+							$("#equip_name").text(data.equip_name);
+		                },
+		                error : function(XMLHttpRequest, textStatus, errorThrown) {
+		                    alert("ERR:" + XMLHttpRequest.responseText);
+		                },
+						complete:function(XHR, TS){
+							$(this).removeClass("ui-autocomplete-loading");
+						}
+		            });
+					
 				});
 				// 自动完成 -- 玩家名称
 				$( "#player" ).autocomplete({
@@ -368,6 +360,7 @@
 				var obj = $('input[name=radio_itemtype]:checked').val(); //类型:物品还是装备 物品0,装备1,其他待定
 				var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
 				var idequip=0
+				var equip_key=0
 				var iditem=0
 				var qty=1
 				// 按照东西类型分类
@@ -380,7 +373,8 @@
 						qty=qty*1000*1000;
 					}
 				}else{
-					iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+					idequip = $("#equid_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+					equip_key = $("#equid_key")[0].textContent.replace(/[^0-9a-zA-Z\.]+/g,"");
 				}
 				
 				// 支持k/m单位
@@ -468,7 +462,8 @@
 							<input id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
 							</input></td>
 						<td align="middle">
-							<label id="equip_id" style="display:none;" ></label>
+							<label id="equip_id" style="display:;" ></label>
+							<label id="equip_key" style="display:;" ></label>
 							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>">
 							</br><label id="equip_name"><?php echo _("[Equip Name]");?></label>
 							</input></td>

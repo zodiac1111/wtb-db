@@ -57,16 +57,16 @@ $type .= " ) ";
 $search_all="1"; //物品和玩家一起搜索
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
-	$search_all = " ( item_name LIKE \"%" . $sSearch . "%\" or play_name LIKE \"%" . $sSearch . "%\" ) ";
+	$search_all = " ( `item_name` LIKE \"%" . $sSearch . "%\" or `play_name` LIKE \"%" . $sSearch . "%\" ) ";
 }
 
 $search_item="1"; //分类搜索 --物品
 if($sSearch_2<>""){
-	$search_item=" item_name LIKE \"%" . $sSearch_2 . "%\" ";
+	$search_item=" `item_name` LIKE \"%" . $sSearch_2 . "%\" ";
 }
 $search_player="1"; //分类搜索 --玩家
 if($sSearch_3<>""){
-	$search_player=" play_name LIKE \"%" . $sSearch_3 . "%\" ";
+	$search_player=" `play_name` LIKE \"%" . $sSearch_3 . "%\" ";
 }
 // 组合所有搜索条件
 $search= " and ( ". $search_all ." and " . $search_item . " and " .  $search_player .")";
@@ -83,7 +83,7 @@ $query = "select "
 	."`order`.`type`, "
     ."`item`.`item_name`, "
     ."`play`.`play_name`, "
-    ."`order`.`play.idplay`, "
+    ."`play`.`idplay`, "
     ."`order`.`c`, "
     ."`order`.`hath`, "
     ."`order`.`qty`, "
@@ -95,8 +95,8 @@ $query = "select "
     ."`play`, "
     ."`order` "
     ."WHERE "
-    ."`order.iditem` = `item.iditem` "
-    ."    and `order.idplayer` = `play.idplay` "
+    ."`order`.`iditem` = `item`.`iditem` "
+    ."    and `order`.`idplayer` = `play`.`idplay` "
 . " " . $type
 . " " . $search
 . " " . $order

@@ -301,7 +301,7 @@
                             return parseFloat(data).toLocaleString();
                         }
                     }, {
-                        "mData" : "num_want",
+                        "mData" : "qty",
 						"bSortable": false,
                         "aTargets" : [6],
                         "mRender" : function(data, type, full) {
