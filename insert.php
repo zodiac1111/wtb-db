@@ -300,16 +300,22 @@
 				// 获得各种相的值
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val();
-				var obj = $('input[name=radio_itemtype]:checked').val(); //类型:物品还是装备
+				var obj = $('input[name=radio_itemtype]:checked').val(); //类型:物品还是装备 物品0,装备1,其他待定
                 var iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
                 var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
-				// 支持k/m单位
-                var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
-				if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
-					qty=qty*1000;
-				}else if($("#qty")[0].value.toLowerCase().indexOf("m") >= 0){
-					qty=qty*1000*1000;
+				
+				if(obj=="0"){ //只有是道具的时候数量才有意义,装备就让数量固定
+					var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
+					if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
+						qty=qty*1000;
+					}else if($("#qty")[0].value.toLowerCase().indexOf("m") >= 0){
+						qty=qty*1000*1000;
+					}
+				}else{
+					var qty=1;
 				}
+				
+				// 支持k/m单位
                 var c = $("#c")[0].value.replace(/[^0-9\.]+/g,"");
 				if($("#c")[0].value.toLowerCase().indexOf("k") >= 0){
 					c=c*1000;
@@ -331,7 +337,8 @@
 				// 	str += qty + "', '" + c + "','" + hath + "','" + note + "','" + st + "','" + src + "');";
             	//  $("#output")[0].textContent = str;
 				// 构造数据库字段
-				str="";				
+				str="";	
+				str+="obj="+obj;			
 				str+="type="+type;
 				str+="&iditem="+iditem+"&idplayer="+idplayer;
 				str+="&bitem="+"1";

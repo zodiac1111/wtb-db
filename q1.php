@@ -14,39 +14,39 @@ parse_str($_SERVER['QUERY_STRING']);
 // $sSortDir_1 升序还是降序 asc /dsc (依次类推)
 $order = "";
 if ($iSortCol_0 == "0") {
-	$order .= " ORDER BY wtb.idwtb ";
+	$order .= " ORDER BY `order.idwtb` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "1") {
-	$order .= " ORDER BY wtb.type ";
+	$order .= " ORDER BY `order.type` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "2") {
-	$order .= " ORDER BY item.item_name ";
+	$order .= " ORDER BY `item.item_name` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "3") {
-	$order .= " ORDER BY play.play_name ";
+	$order .= " ORDER BY `play.play_name` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "4") {
-	$order .= " ORDER BY wtb.c ";
+	$order .= " ORDER BY `order.c` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "5") {
-	$order .= " ORDER BY wtb.hath ";
+	$order .= " ORDER BY `order.hath` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "8") {
-	$order .= " ORDER BY wtb.timestamp ";
+	$order .= " ORDER BY `order.timestamp` ";
 	$order .= $sSortDir_0;
 } else {;
 }
 
 
 // 子功能:过滤交易类别 ,wtb=1 wts=2 wtt=3
-$typeA=($wtb=="1")? " wtb.type=0 ":"0";
-$typeB=($wts=="1")? " wtb.type=1 ":"0";
-$typeC=($wtt=="1")? " wtb.type=2 ":"0";
+$typeA=($wtb=="1")? " `order.type`=0 ":"0";
+$typeB=($wts=="1")? " `order.type`=1 ":"0";
+$typeC=($wtt=="1")? " `order.type`=2 ":"0";
 // 如果没有选择任何类别,则选择所有类别.
 if($wtb=="0" && $wts=="0" && $wtt=="0"){
-	$typeA= " wtb.type=0 ";
-	$typeB= " wtb.type=1 ";
-	$typeC= " wtb.type=2 ";
+	$typeA= " `order.type`=0 ";
+	$typeB= " `order.type`=1 ";
+	$typeC= " `order.type`=2 ";
 }
 $type .= " and ";
 $type .= " ( ";
@@ -79,24 +79,24 @@ if($iDisplayStart ==""){
 	$iDisplayStart="0";
 }
 $query = "select "
-    ."wtb.idwtb,"
-	."wtb.type, "
-    ."item.item_name, "
-    ."play.play_name, "
-    ."wtb.play.idplay, "
-    ."wtb.c, "
-    ."wtb.hath, "
-    ."wtb.num_want, "
-    ."wtb.src, "
-	."wtb.note, "
-	."wtb.timestamp "
+    ."`order.idwtb`,"
+	."`order.type`, "
+    ."`item.item_name`, "
+    ."`play.play_name`, "
+    ."`order.play.idplay`, "
+    ."`order.c`, "
+    ."`order.hath`, "
+    ."`order.qty`, "
+    ."`order.src`, "
+	."`order.note`, "
+	."`order.timestamp` "
     ."FROM "
-    ."wtb.item, "
-    ."wtb.play, "
-    ."wtb.wtb "
+    ."`wtb.item`, "
+    ."`wtb.play`, "
+    ."`wtb.order` "
     ."WHERE "
-    ."wtb.iditem = item.iditem "
-    ."    and wtb.idplayer = play.idplay "
+    ."`order.iditem` = `item.iditem` "
+    ."    and `order.idplayer` = `play.idplay` "
 . " " . $type
 . " " . $search
 . " " . $order
@@ -105,19 +105,19 @@ $query = "select "
 
 // 得到符合的条目总数量,用于显示出"总共X条,第X到X条"
 $counter= "SELECT COUNT(*)  FROM
-    wtb.item,
-    wtb.play,
-    wtb.wtb WHERE
-    	wtb.iditem = item.iditem
-        	and wtb.idplayer = play.idplay "
+    `wtb.item`,
+    `wtb.play`,
+    `wtb.order` WHERE
+    	`order.iditem` = `item.iditem`
+        	and `order.idplayer` = `play.idplay` "
 	. " " . $type
 	. $search . " ;";
 
 //PHP手册中的PHP连接Mysql的实例
 // 连接选择数据库
-$link = mysql_connect($mysql_host,$mysql_user, $mysql_pwd) or die("Could not connect");
+$link = mysql_connect($mysql_host,$mysql_user, $mysql_pwd) or die("Could not connect:".$link);
 
-mysql_select_db("wtb") or die("Could not select database");
+mysql_select_db($mysql_db) or die("Could not select database");
 // 执行 SQL 查询
 $result = mysql_query($query) or die("Query failed:".$query);
 
