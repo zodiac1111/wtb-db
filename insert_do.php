@@ -4,10 +4,10 @@ $link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not co
 mysql_select_db($mysql_db) or die("Could not select database:".$link);
 
 $type 	= $_POST["type"];
+$idplayer = $_POST["idplayer"];
 $obj	= $_POST["obj"]; /// 交易的对象:物品或者装备
 $iditem	= $_POST["iditem"];
 $idequip= $_POST["idequip"];
-$idplayer = $_POST["idplayer"];
 $qty 	= $_POST["qty"];
 $c	 	= $_POST["c"];
 $hath 	= $_POST["hath"];
@@ -16,7 +16,11 @@ $src	= $_POST["src"];
 $timestamp=time();
 
 /// 插入的是装备
-if($obj=="1")
+if($obj=="1"){
+	;
+}else{
+	;
+}
 
 
 // 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
@@ -31,15 +35,20 @@ $rows = mysql_fetch_assoc($result);
 // 没有则插入
 if (empty($rows)){
 	$query = "INSERT INTO `order` ( "
-		  ." `type`,`iditem`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
+		  ." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
 	." VALUES "
-	." ('".$type."', '".$iditem."', '".$idplayer."', '".$qty."','".$c."', '".$hath."','".$note."','".$src."','".$timestamp."');";
+	." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
+	.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
 // 有则更新
 }else{
 	//  索引关联数组
 	$idwtb=$rows["idwtb"];
 	$query = "UPDATE `order` SET "
-		." `type`='".$type."',`iditem`='".$iditem."', `idplayer`='".$idplayer."', `qty`='".$qty."', `c`='".$c."', `hath`='".$hath."',`note`='".$note."',`src`='".$src."',`timestamp`='".$timestamp."' "
+		." `type`='".$type."',`obj`='".$obj
+		."',`iditem`='".$iditem."',`idequip`='".$idequip
+		."',`idplayer`='".$idplayer."', `qty`='".$qty
+		."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
+		."',`src`='".$src."',`timestamp`='".$timestamp."' "
 	." WHERE `idwtb`='".$idwtb."';";
 }
 //echo "var jstext='$query'"; //输出一句JS语句,生成一个JS变量,并赋颠值为PHP变量 $query 的值

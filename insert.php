@@ -154,8 +154,6 @@
 						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 					}
 				});
-				$( "#radio" ).buttonset();
-				$( "#radio_itemtype" ).buttonset();
 				$("#t_item").button({
 					//
 					}).click(function() {
@@ -191,6 +189,11 @@
                 }).click(function() {
                     $("#dialog").dialog("open");
                 });
+                // 按钮集合
+                $( "#radio" ).buttonset();
+				$( "#radio_itemtype" ).buttonset();
+				$("#wtb").click(); //自动选择指定按钮(默认值)
+				$("#t_item").click();
 				// 增加用户ajax.
                 $("#btnAdd").button({
                     text : false
@@ -290,7 +293,11 @@
 					"bInfo":false,
 					"bFilter":false,
 					"bSort": false,
-					"bPaginate": false
+					"bPaginate": false,
+					"aoColumnDefs": [{ 
+						"aTargets": [2],
+						"bVisible": false
+					}]
                 });
                 $("#dialog").dialog({
                     // height: 200,
@@ -305,18 +312,21 @@
                 var enable = "1";
 				var type = $('input[name=radio]:checked').val();
 				var obj = $('input[name=radio_itemtype]:checked').val(); //类型:物品还是装备 物品0,装备1,其他待定
-                var iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
-                var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
-				
+				var idplayer = $("#player_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+				var idequip=0
+				var iditem=0
+				var qty=1
+				// 按照东西类型分类
 				if(obj=="0"){ //只有是道具的时候数量才有意义,装备就让数量固定
-					var qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
+					iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+					qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
 					if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
 						qty=qty*1000;
 					}else if($("#qty")[0].value.toLowerCase().indexOf("m") >= 0){
 						qty=qty*1000*1000;
 					}
 				}else{
-					var qty=1;
+					iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
 				}
 				
 				// 支持k/m单位
@@ -342,10 +352,11 @@
             	//  $("#output")[0].textContent = str;
 				// 构造数据库字段
 				str="";	
-				str+="obj="+obj;			
 				str+="type="+type;
-				str+="&iditem="+iditem+"&idplayer="+idplayer;
-				str+="&bitem="+"1";
+				str+="&idplayer="+idplayer;
+				str+="&obj="+obj;		
+				str+="&idequip="+idequip;
+				str+="&iditem="+iditem;
 				str+="&qty="+qty+"&c="+c+"&hath="+hath;
 				str+="&note="+note+"&src="+src;
                 return str;
@@ -360,7 +371,7 @@
 					<?php echo _("Home");?>
 				</button>
 				<span id="radio_itemtype">
-					<input type="radio" name="radio_itemtype" id="t_item"  value="0" checked="checked" /><label for="t_item"><?php echo _("Item");?></label>
+					<input type="radio" name="radio_itemtype" id="t_item"  value="0" /><label for="t_item"><?php echo _("Item");?></label>
 					<input type="radio" name="radio_itemtype" id="t_equip" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
 				</span>
 				<button id="add_player" class="add">
@@ -393,21 +404,22 @@
 					<tr>
 						<td  align="middle">
 							<div id="radio">
-								<input type="radio" id="wtb" name="radio" value="0" checked="checked" /><label for="wtb"><?php echo _("WTB");?></label>
+								<input type="radio" id="wtb" name="radio" value="0" /><label for="wtb"><?php echo _("WTB");?></label>
 								<input type="radio" id="wts" name="radio" value="1" /><label for="wts"><?php echo _("WTS");?></label>
 								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt"><?php echo _("WTT");?></label>
 							</div>
 						</td>
 						<td align="middle">
-							<label id="item_id"  style="display:none;" ></label>
-							<input id="item"  title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
+							<label id="item_id" style="display:none;" ></label>
+							<input id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
 							</input></td>
 						<td align="middle">
-							<label id="equip_id"  style="display:none;" ></label>
-							<input id="equip"  title="支持自动补全" placeholder="<?php echo _("equip link");?>" >
+							<label id="equip_id" style="display:none;" ></label>
+							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>">
+							</br><label id="equip_name"></label>
 							</input></td>
 						<td  align="middle">
-							<label id="player_id"  style="display:none;" ></label>
+							<label id="player_id" style="display:none;" ></label>
 							<input id="player" title="支持自动补全" placeholder="<?php echo _("eg.");?> SomeOne">
 						</td>
 						<td align="middle" >
