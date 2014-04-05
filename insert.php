@@ -83,9 +83,12 @@
 					// 点击选择时触发
 					select: function( event, ui ) {
 						$("#item_id")[0].textContent=ui.item.id;
+						$("#item").removeClass("ui-autocomplete-loading");
+						return true;
 					},
 					focus: function (event, ui) {
 						$("#item_id")[0].textContent=ui.item.id;
+						$("#item").removeClass("ui-autocomplete-loading");
 						return true;
                     },
 					open: function() {
@@ -136,9 +139,12 @@
 					// 点击选择时触发
 					select: function( event, ui ) {
 						$("#player_id")[0].textContent=ui.item.id;
+						$("#player").removeClass("ui-autocomplete-loading");
+						return true;
 					},
 					focus: function (event, ui) {
 						$("#player_id")[0].textContent=ui.item.id;
+						$("#player").removeClass("ui-autocomplete-loading");
 						return true;
                     },
 					open: function() {
@@ -344,14 +350,14 @@
 				<thead>
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
 					<th width="14%" title="<?php echo _("Item or Equip");?>"><?php echo _("Item/Equip");?></th>
-					<th width="12%" title="<?php echo _("Player name");?>"><?php echo _("Player");?>
+					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?>
 					<button id="add_player" class="add">
 						<?php echo _("Add Player");?>
 					</button></th>
 					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
 					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
-					<th width="4%" title="<?php echo _("Leave blank Hath not accepted as a payment method");?>"><?php echo _("Hath");?></th>
-					<th width="18%" title="<?php echo _("Note(Optional)");?>"><?php echo _("Note");?></th>
+					<th width="7%" title="<?php echo _("Leave blank Hath not accepted as a payment method");?>"><?php echo _("Hath");?></th>
+					<th width="10%" title="<?php echo _("Note(Optional)");?>"><?php echo _("Note");?></th>
 					<th>BBS Link</th>
 				</thead>
 				<tbody>

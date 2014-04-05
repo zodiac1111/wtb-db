@@ -337,15 +337,15 @@
 							var elapse_week=parseInt(elapse_day/7);
 							// 显示成为 X<秒|分钟|小时|天>前
 							if(elapse_second<=60){
-								show_string=elapse_second+"<?php echo _(" seconds ago");?>";
+								show_string=elapse_second+"<?php echo _(" second(s) ago");?>";
 							}else if(elapse_minute<=60){
-								show_string=elapse_minute+"<?php echo _(" mintues ago");?>";
+								show_string=elapse_minute+"<?php echo _(" mintue(s) ago");?>";
 							}else if(elapse_hour<=24){
-								show_string=elapse_hour+"<?php echo _(" hours ago");?>";
+								show_string=elapse_hour+"<?php echo _(" hour(s) ago");?>";
 							}else if(elapse_day<=7){
-								show_string=elapse_day+"<?php echo _(" days ago");?>";
+								show_string=elapse_day+"<?php echo _(" day(s) ago");?>";
 							}else if(elapse_week<=4){
-								show_string=elapse_day+"<?php echo _(" weeks ago");?>";
+								show_string=elapse_day+"<?php echo _(" week(s) ago");?>";
 							}else{
 								show_string=d.toLocaleString() ;
 							}
@@ -455,7 +455,7 @@
 							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>
 							<th width="6%" title="<?php echo _("Quantity of items");?>"><?php echo _("Qty.");?></th>
 							<th width="5%" title="<?php echo _("BBS link");?>"><?php echo _("Ref.");?></th>
-							<th width="7%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
+							<th width="10%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
 							<th title="<?php echo _("Note");?>"><?php echo _("Note");?></th>
 							<th width="70px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
 						</tr>
