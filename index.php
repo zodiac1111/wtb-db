@@ -164,7 +164,8 @@
                     "bServerSide" : true,
 					"sScrollY": 350,
 					"iDisplayLength": 25, //默认显示的条目数量
-					"oLanguage": {"sUrl": "dataTables.<?php echo _("en_US");?>.txt"}, // datatable的翻译语言选项
+					// datatable的翻译语言选项
+					"oLanguage": {"sUrl": "dataTables_i18n/dataTables.<?php echo _("en_US");?>.txt"}, 
                     // 数据源
                     "sAjaxSource" : "q1.php",
                     // 传递参数进入php

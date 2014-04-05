@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-05 09:25+0800\n"
-"PO-Revision-Date: 2014-04-05 09:28+0800\n"
+"PO-Revision-Date: 2014-04-05 09:59+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -54,22 +54,22 @@ msgstr "連結"
 #: index.php:339
 #, php-format
 msgid "%s seconds ago"
-msgstr ""
+msgstr "%s 秒前"
 
 #: index.php:341
 #, php-format
 msgid "%s mintues ago"
-msgstr ""
+msgstr "%s 分鐘前"
 
 #: index.php:343
 #, php-format
 msgid "%s hours ago"
-msgstr ""
+msgstr "%s 小時前"
 
 #: index.php:345
 #, php-format
 msgid "%s day ago"
-msgstr ""
+msgstr "%s 天前"
 
 #: index.php:366
 msgid "Delete"
@@ -236,17 +236,14 @@ msgid "Submit"
 msgstr "提交"
 
 #: insert.php:345
-#, fuzzy
 msgid "type of order"
-msgstr "添加一條記錄"
+msgstr "记录没类型"
 
 #: insert.php:346
-#, fuzzy
 msgid "Item or Equip"
-msgstr "物品/裝備"
+msgstr "物品或者裝備"
 
 #: insert.php:347
-#, fuzzy
 msgid "Player name"
 msgstr "玩家名称"
 
