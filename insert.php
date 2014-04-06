@@ -494,7 +494,11 @@
 					"bSort": false,
 					"bPaginate": false
                 });
-
+				$('body').keydown(function(event){    
+					if(event.keyCode==13){
+					   $('#submit').trigger('click');
+					}
+				});
 				$("#wtb").click(); //自动选择指定按钮(默认值)
 				$("#t_item").click();
                 $("#dialog").dialog({
@@ -576,14 +580,11 @@
 				<button id="add_player" class="add">
 					<?php echo _("Add Player");?>
 				</button>
-				<button id="submit" value="Submit"  title="<?php echo _("submit the order");?>">
-					<?php echo _("Submit");?>
+				<button id="export" value="Export"  title="<?php echo _("Export the database");?>">
+					<?php echo _("Export");?>
 				</button>
 				<button id="help" value="Help"  title="<?php echo _("How to add a new order");?>">
 					<?php echo _("Help");?>
-				</button>
-				<button id="export" value="Export"  title="<?php echo _("Export the database");?>">
-					<?php echo _("Export");?>
 				</button>
 			</div>
 			<span id="wait2"></span>
@@ -651,9 +652,9 @@
 				</tbody>
 			</table>
 			<p align="middle" style="margin: 100px;">
-				<code id="output">
-					[---]
-				</code>
+				<button id="submit" value="Submit"  title="<?php echo _("submit the order");?>">
+					<?php echo _("Submit");?>
+				</button>
 			</p>
 		</div>
 		<!--  弹出对话框  -->

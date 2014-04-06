@@ -540,7 +540,7 @@
 							<th width="5%" title="<?php echo _("BBS link");?>"><?php echo _("Ref.");?></th>
 							<th width="10%" title="<?php echo _("Last Update time");?>"><?php echo _("Time");?></th>
 							<th title="<?php echo _("Note");?>"><?php echo _("Note");?></th>
-							<th width="70px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
+							<th width="80px" title="<?php echo _("Manage Operation");?>"><?php echo _("Manage");?></th>
 						</tr>
 					</thead>
 					<tbody>
