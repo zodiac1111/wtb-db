@@ -571,7 +571,7 @@
 						</td>
 						<td align="middle">
 							<label id="item_id" style="display:none;" ></label>
-							<input style="width:100%" id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy,Crystal Pack" >
+							<input style="width:100%" id="item" title="<?php echo _("eg.");?> Energy,Crystal Pack,Figurine,Binding,Potion,Scroll,High-Grade" placeholder="<?php echo _("eg.");?> Energy,Crystal Pack" >
 							</input></td>
 						<td align="middle">
 							<label id="equip_id" style="display:none;" ></label>
