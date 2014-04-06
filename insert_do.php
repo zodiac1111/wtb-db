@@ -15,17 +15,21 @@ $note 	= $_POST["note"];
 $src	= $_POST["src"];
 $timestamp=time();
 
-/// 插入的是装备
-if($obj=="1"){
-	;
-}else{
-	;
+/// 对象类别
+if($obj=="0"){  //物品
+	// 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
+	$select = "select * from `order` where `type`='".$type
+		."' and `obj`='" .$obj 
+		."' and `iditem`='" .$iditem ."' and `idplayer`='".$idplayer."';";
+}else if($obj=="1"){ //装备
+	// 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
+	$select = "select * from `order` where `type`='".$type
+		."' and `obj`='" .$obj 
+		."' and `idequip`='" .$idequip ."' and `idplayer`='".$idplayer."';";
 }
 
 
-// 先查询一下有没有同一玩家,同一类型(买卖),同一物品 的记录. 有则更新.没有则插入
-$select = "select * from `order` where `type`='".$type
-		."' and `iditem`='" .$iditem ."' and `idplayer`='".$idplayer."';";
+
 
 
 $result = mysql_query($select) or die("Query failed:".$select);
@@ -34,26 +38,42 @@ $rows = mysql_fetch_assoc($result);
 
 // 没有则插入
 if (empty($rows)){
-	$query = "INSERT INTO `order` ( "
-		  ." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
-	." VALUES "
-	." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
-	.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
+	if($obj=="0"){  //物品
+		$query = "INSERT INTO `order` ( "
+			." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
+			." VALUES "
+			." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
+			.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
+	}else if($obj=="1"){ //装备
+		$query = "INSERT INTO `order` ( "
+			." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
+			." VALUES "
+			." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
+			.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
+	}
 // 有则更新
 }else{
 	//  索引关联数组
 	$idwtb=$rows["idwtb"];
-	$query = "UPDATE `order` SET "
-		." `type`='".$type."',`obj`='".$obj
-		."',`iditem`='".$iditem."',`idequip`='".$idequip
-		."',`idplayer`='".$idplayer."', `qty`='".$qty
-		."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
-		."',`src`='".$src."',`timestamp`='".$timestamp."' "
-	." WHERE `idwtb`='".$idwtb."';";
+	if($obj=="0"){  //物品
+		$query = "UPDATE `order` SET "
+			." `type`='".$type."',`obj`='".$obj
+			."',`iditem`='".$iditem."',`idequip`='".$idequip
+			."',`idplayer`='".$idplayer."', `qty`='".$qty
+			."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
+			."',`src`='".$src."',`timestamp`='".$timestamp."' "
+			." WHERE `idwtb`='".$idwtb."';";
+	}else if($obj=="1"){ //装备
+		$query = "UPDATE `order` SET "
+			." `type`='".$type."',`obj`='".$obj
+			."',`iditem`='".$iditem."',`idequip`='".$idequip
+			."',`idplayer`='".$idplayer."', `qty`='".$qty
+			."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
+			."',`src`='".$src."',`timestamp`='".$timestamp."' "
+			." WHERE `idwtb`='".$idwtb."';";
+	}
 }
-//echo "var jstext='$query'"; //输出一句JS语句,生成一个JS变量,并赋颠值为PHP变量 $query 的值
-//echo "var jstext='aa'";
-//echo "var jstext=" . "'$query'";
+
 
 $result = mysql_query($query) or die("Query failed:".$query);
 //echo "var reset=" . $result;

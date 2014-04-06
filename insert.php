@@ -131,7 +131,9 @@
 							//alert(data);
 							if(data.equip_name!=""){
 								$("#equip_name").val(data.equip_name);
+								$("#equip_id")[0].textContent=eid;
 							}else{
+								$("#equip_id")[0].textContent="";
 								$("#equip_name").val("");
 								$("#equip_name").attr("placeholder","<?php echo _("Plz Input EquipName manual");?>");
 								
@@ -140,6 +142,7 @@
 		                },
 		                error : function(XMLHttpRequest, textStatus, errorThrown) {
 		                    alert("ERR:" + XMLHttpRequest.responseText+errorThrown);
+		                    $("#player_id")[0].textContent="";
 		                    return false;
 		                },
 						complete:function(XHR, TS){
@@ -178,9 +181,11 @@
 					//成功(先成功,后完成)
 					success : function(data, textStatus) {
 						$("#equip_name").removeClass("ui-autocomplete-loading");
+						$("#equip_id")[0].textContent=eid;
 					},
 					error : function(XMLHttpRequest, textStatus, errorThrown) {
 						$("#equip_name").removeClass("ui-autocomplete-loading");
+						$("#equip_id")[0].textContent="";
 						alert("ERR:" + XMLHttpRequest.responseText);
 					},
 					complete:function(XHR, TS){
@@ -424,8 +429,8 @@
 						qty=qty*1000*1000;
 					}
 				}else{
-					idequip = $("#equid_id")[0].textContent.replace(/[^0-9\.]+/g,"");
-					equip_key = $("#equid_key")[0].textContent.replace(/[^0-9a-zA-Z\.]+/g,"");
+					idequip = $("#equip_id")[0].textContent.replace(/[^0-9\.]+/g,"");
+					equip_key = $("#equip_key")[0].textContent.replace(/[^0-9a-zA-Z\.]+/g,"");
 				}
 				
 				// 支持k/m单位
@@ -490,8 +495,8 @@
 					<th width="15%" title="<?php echo _("type of order");?>"><?php echo _("Type");?></th>
 					<!-- V装备和物品列同时只显示两者之一 -->
 					<th width="14%" title="<?php echo _("Item");?>"><?php echo _("Item");?></th>
-					<th width="20%" title="<?php echo _("Equip link");?>"><?php echo _("Equip");?></th>
-					<th width="20%" title="<?php echo _("Equip Name");?>"><?php echo _("Equip Name");?></th>
+					<th width="18%" title="<?php echo _("Equip link");?>"><?php echo _("Equip");?></th>
+					<th width="25%" title="<?php echo _("Equip Name");?>"><?php echo _("Equip Name");?></th>
 					<!-- ^装备和物品列同时只显示两者之一 -->
 					
 					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?></th>
@@ -504,7 +509,7 @@
 				<tbody>
 					<tr>
 						<td  align="middle">
-							<div id="radio">
+							<div id="radio" style="width:100%" >
 								<input type="radio" id="wtb" name="radio" value="0" /><label for="wtb"><?php echo _("WTB");?></label>
 								<input type="radio" id="wts" name="radio" value="1" /><label for="wts"><?php echo _("WTS");?></label>
 								<input type="radio" id="wtt" name="radio" value="2" /><label for="wtt"><?php echo _("WTT");?></label>
@@ -512,19 +517,19 @@
 						</td>
 						<td align="middle">
 							<label id="item_id" style="display:none;" ></label>
-							<input id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
+							<input style="width:100%" id="item" title="支持自动补全" placeholder="<?php echo _("eg.");?> Energy" >
 							</input></td>
 						<td align="middle">
 							<label id="equip_id" style="display:none;" ></label>
 							<label id="equip_key" style="display:none;" ></label>
-							<input id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>"/>
+							<input style="width:100%" id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>"/>
 						</td>
 						<td align="middle">
-							<input id="equip_name" title="<?php echo _("eq. ");?>Average Axe of the Vampire" value="<?php echo _("[Equip Name]");?>"/>
+							<input style="width:100%" id="equip_name" title="<?php echo _("eq. ");?>Average Axe of the Vampire" value="<?php echo _("[Equip Name]");?>"/>
 						</td>
 						<td  align="middle">
 							<label id="player_id" style="display:none;" ></label>
-							<input id="player" title="支持自动补全" placeholder="<?php echo _("eg.");?> SomeOne">
+							<input style="width:100%" id="player" title="支持自动补全" placeholder="<?php echo _("eg.");?> SomeOne">
 						</td>
 						<td align="middle" >
 							<input  style="width:100%" type="text" class="nb" id="qty" value="1" title="<?php echo _("eg.");?> 31 14c 0.1k 59k 2.6K 5.3m 5M "/>
@@ -536,10 +541,10 @@
 						<input style="width:100%" type="text" class="nb" id="hath" title="<?php echo _("eg.");?> 31 14c 0.1k 59k 2.6K 5.3m 5M " placeholder="<?php echo _("eg.");?> 5"/>
 						</td>
 						<td align="middle">
-						<input style="width:100%" type="text" id="note"  title="备注信息" placeholder="(可选)输入一些备注信息"/>
+						<input style="width:100%" type="text" id="note"  title="<?php echo _("eg. Only players level 250 or less");?>" placeholder="<?php echo _("Note");?>"/>
 						</td>
 						<td align="middle" >
-						<input style="width:100%" type="text" id="src" title="BBS连接 例如: http://forums.e-hentai.org/index.php?showtopic=xxxxxx" placeholder="<?php echo _("bbs link");?>"/>
+						<input style="width:100%" type="text" id="src" title="<?php echo _("BBS link eg.");?> http://forums.e-hentai.org/index.php?showtopic=xxxxxx" placeholder="<?php echo _("bbs link");?>"/>
 						</td>
 					</tr>
 				</tbody>

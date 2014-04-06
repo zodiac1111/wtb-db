@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-05 14:58+0800\n"
+"POT-Creation-Date: 2014-04-06 12:26+0800\n"
 "PO-Revision-Date: 2014-04-05 09:28+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:84 index.php:92 index.php:167 insert.php:237
+#: index.php:84 index.php:92 index.php:167 insert.php:337
 msgid "en_US"
 msgstr "ja_JP"
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: index.php:422 insert.php:349
+#: index.php:422 insert.php:475
 msgid "Home"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "New order"
 msgstr ""
 
-#: index.php:423 insert.php:429
+#: index.php:423 insert.php:568
 msgid "Add"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "want to buy"
 msgstr ""
 
-#: index.php:427 insert.php:382
+#: index.php:427 insert.php:513
 msgid "WTB"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "want to sell"
 msgstr ""
 
-#: index.php:428 insert.php:383
+#: index.php:428 insert.php:514
 msgid "WTS"
 msgstr ""
 
-#: index.php:429 insert.php:384
+#: index.php:429 insert.php:515
 msgid "WTT"
 msgstr ""
 
@@ -151,7 +151,7 @@ msgstr ""
 msgid "type"
 msgstr ""
 
-#: index.php:451 index.php:472 insert.php:369
+#: index.php:451 index.php:472 insert.php:495
 msgid "Type"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "item or equipment"
 msgstr ""
 
-#: index.php:452 index.php:473 insert.php:370
+#: index.php:452 index.php:473
 msgid "Item/Equip"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "palyer name"
 msgstr ""
 
-#: index.php:453 index.php:474 insert.php:371
+#: index.php:453 index.php:474 insert.php:502
 msgid "Player"
 msgstr ""
 
@@ -175,11 +175,11 @@ msgstr ""
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:454 index.php:475 insert.php:373
+#: index.php:454 index.php:475 insert.php:504
 msgid "Credit"
 msgstr ""
 
-#: index.php:455 index.php:476 insert.php:374
+#: index.php:455 index.php:476 insert.php:505
 msgid "Hath"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:456 index.php:477 insert.php:372
+#: index.php:456 index.php:477 insert.php:503
 msgid "Qty."
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: index.php:459 index.php:480 insert.php:375
+#: index.php:459 index.php:480 insert.php:506 insert.php:544
 msgid "Note"
 msgstr ""
 
@@ -231,107 +231,155 @@ msgstr ""
 msgid "Hello, world!"
 msgstr ""
 
-#: insert.php:195
+#: insert.php:104
+msgid "Check link..."
+msgstr ""
+
+#: insert.php:109 insert.php:162
+msgid "Invalid link"
+msgstr ""
+
+#: insert.php:127
+msgid "Searching in Database..."
+msgstr ""
+
+#: insert.php:138
+msgid "Plz Input EquipName manual"
+msgstr ""
+
+#: insert.php:295
 msgid "Name or PlayID is void!"
 msgstr ""
 
-#: insert.php:206 insert.php:259
+#: insert.php:306 insert.php:368
 msgid "Pending"
 msgstr ""
 
-#: insert.php:247
-msgid "item/player is void!"
-msgstr ""
-
-#: insert.php:266
-msgid "Server Err"
-msgstr ""
-
-#: insert.php:269
-msgid "Insert OK"
-msgstr ""
-
-#: insert.php:271
-msgid "Update OK"
-msgstr ""
-
-#: insert.php:348
-msgid "Return to home"
+#: insert.php:347
+msgid "Player name is void!"
 msgstr ""
 
 #: insert.php:352
-msgid "Item"
-msgstr ""
-
-#: insert.php:353
-msgid "Equip"
+msgid "Item is void!"
 msgstr ""
 
 #: insert.php:356
-msgid "Add Player"
-msgstr ""
-
-#: insert.php:358
-msgid "submit the order"
-msgstr ""
-
-#: insert.php:359
-msgid "Submit"
-msgstr ""
-
-#: insert.php:369
-msgid "type of order"
-msgstr ""
-
-#: insert.php:370
-msgid "Item or Equip"
-msgstr ""
-
-#: insert.php:371
-msgid "Player name"
-msgstr ""
-
-#: insert.php:372
-msgid "Buy/sell quantity (minimum 1, leave blank limitation)"
-msgstr ""
-
-#: insert.php:373
-msgid "Leave blank not accept payment by Credit"
-msgstr ""
-
-#: insert.php:374
-msgid "Leave blank Hath not accepted as a payment method"
+msgid "Equipment is void!"
 msgstr ""
 
 #: insert.php:375
+msgid "Server Err"
+msgstr ""
+
+#: insert.php:378
+msgid "Insert OK"
+msgstr ""
+
+#: insert.php:380
+msgid "Update OK"
+msgstr ""
+
+#: insert.php:474
+msgid "Return to home"
+msgstr ""
+
+#: insert.php:478 insert.php:497
+msgid "Item"
+msgstr ""
+
+#: insert.php:479 insert.php:498
+msgid "Equip"
+msgstr ""
+
+#: insert.php:482
+msgid "Add Player"
+msgstr ""
+
+#: insert.php:484
+msgid "submit the order"
+msgstr ""
+
+#: insert.php:485
+msgid "Submit"
+msgstr ""
+
+#: insert.php:495
+msgid "type of order"
+msgstr ""
+
+#: insert.php:498
+msgid "Equip link"
+msgstr ""
+
+#: insert.php:499
+msgid "Equip Name"
+msgstr ""
+
+#: insert.php:502
+msgid "Player name"
+msgstr ""
+
+#: insert.php:503
+msgid "Buy/sell quantity (minimum 1, leave blank limitation)"
+msgstr ""
+
+#: insert.php:504
+msgid "Leave blank not accept payment by Credit"
+msgstr ""
+
+#: insert.php:505
+msgid "Leave blank Hath not accepted as a payment method"
+msgstr ""
+
+#: insert.php:506
 msgid "Note(Optional)"
 msgstr ""
 
-#: insert.php:389 insert.php:393 insert.php:396 insert.php:399 insert.php:402
+#: insert.php:520 insert.php:532 insert.php:535 insert.php:538 insert.php:541
 msgid "eg."
 msgstr ""
 
-#: insert.php:408
+#: insert.php:525 insert.php:528
+msgid "eq. "
+msgstr ""
+
+#: insert.php:525
+msgid "equip link"
+msgstr ""
+
+#: insert.php:528
+msgid "[Equip Name]"
+msgstr ""
+
+#: insert.php:544
+msgid "eg. Only players level 250 or less"
+msgstr ""
+
+#: insert.php:547
+msgid "BBS link eg."
+msgstr ""
+
+#: insert.php:547
 msgid "bbs link"
 msgstr ""
 
-#: insert.php:420
+#: insert.php:559
 msgid "Add player"
 msgstr ""
 
-#: insert.php:422
+#: insert.php:561
 msgid "Player Name"
 msgstr ""
 
-#: insert.php:425
+#: insert.php:564
 msgid "Player ID[?]"
 msgstr ""
 
-#: insert.php:428
+#: insert.php:567
 msgid "Add a new player name to player list"
 msgstr ""
 
-#: insert.php:432
+#: insert.php:571
 msgid "Cancel"
 msgstr ""
 
