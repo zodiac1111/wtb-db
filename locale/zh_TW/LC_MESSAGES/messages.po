@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 21:06+0800\n"
+"POT-Creation-Date: 2014-04-06 22:18+0800\n"
 "PO-Revision-Date: 2014-04-05 14:01+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:527
+#: index.php:6 index.php:526
 msgid "HV Trade Center"
 msgstr "HV 交易中心"
 
@@ -26,8 +26,8 @@ msgstr "HV 交易中心"
 msgid "en_US"
 msgstr "zh_TW"
 
-#: index.php:134 index.php:243 index.php:459 index.php:463 index.php:471
-#: index.php:472
+#: index.php:134 index.php:243 index.php:458 index.php:462 index.php:470
+#: index.php:471
 msgid "Unimplemented"
 msgstr "未實現"
 
@@ -75,7 +75,7 @@ msgstr " 周前"
 msgid "Delete"
 msgstr "刪除"
 
-#: index.php:406 index.php:472
+#: index.php:406 index.php:471
 msgid "Set"
 msgstr "設置"
 
@@ -83,148 +83,148 @@ msgstr "設置"
 msgid "Edit"
 msgstr "編輯"
 
-#: index.php:457 insert.php:483
+#: index.php:456 insert.php:523
 msgid "Home"
 msgstr "首頁"
 
-#: index.php:458 insert.php:6
+#: index.php:457 insert.php:6
 msgid "New order"
 msgstr "添加一條記錄"
 
-#: index.php:458 insert.php:579
+#: index.php:457 insert.php:622
 msgid "Add"
 msgstr "新增"
 
-#: index.php:459
+#: index.php:458
 msgid "Auction"
 msgstr "拍賣"
 
-#: index.php:461
+#: index.php:460
 msgid "want to buy"
 msgstr "收收購信息"
 
-#: index.php:461 insert.php:524
+#: index.php:460 insert.php:567
 msgid "WTB"
 msgstr "收購"
 
-#: index.php:462
+#: index.php:461
 msgid "want to sell"
 msgstr "出售信息"
 
-#: index.php:462 insert.php:525
+#: index.php:461 insert.php:568
 msgid "WTS"
 msgstr "出售"
 
-#: index.php:463 insert.php:526
+#: index.php:462 insert.php:569
 msgid "WTT"
 msgstr "交換"
 
-#: index.php:466 index.php:490 index.php:512 insert.php:486 insert.php:508
+#: index.php:465 index.php:489 index.php:511 insert.php:526 insert.php:551
 msgid "Item"
 msgstr ""
 
-#: index.php:467 index.php:491 index.php:513 insert.php:487 insert.php:509
+#: index.php:466 index.php:490 index.php:512 insert.php:527 insert.php:552
 #, fuzzy
 msgid "Equip"
 msgstr "物品/裝備"
 
-#: index.php:469
+#: index.php:468
 msgid "reload the order"
 msgstr "重新载入数据"
 
-#: index.php:469
+#: index.php:468
 msgid "Reload"
 msgstr "刷新"
 
-#: index.php:471
+#: index.php:470
 msgid "English"
 msgstr "漢語"
 
-#: index.php:488
+#: index.php:487
 msgid "id"
 msgstr "序號"
 
-#: index.php:488 index.php:510
+#: index.php:487 index.php:509
 msgid "ID"
 msgstr "序號"
 
-#: index.php:489
+#: index.php:488
 msgid "type"
 msgstr "類型"
 
-#: index.php:489 index.php:511 insert.php:506
+#: index.php:488 index.php:510 insert.php:549
 msgid "Type"
 msgstr "類型"
 
-#: index.php:490
+#: index.php:489
 msgid "item"
 msgstr ""
 
-#: index.php:492
+#: index.php:491
 msgid "palyer name"
 msgstr "玩家名稱"
 
-#: index.php:492 index.php:514 insert.php:513
+#: index.php:491 index.php:513 insert.php:556
 msgid "Player"
 msgstr "玩家"
 
-#: index.php:493 index.php:494
+#: index.php:492 index.php:493
 msgid "- means not accepted"
 msgstr "- 表示不接收"
 
-#: index.php:493 index.php:515 insert.php:515
+#: index.php:492 index.php:514 insert.php:558
 msgid "Credit"
 msgstr "Credit"
 
-#: index.php:494 index.php:516 insert.php:516
+#: index.php:493 index.php:515 insert.php:559
 msgid "Hath"
 msgstr "Hath"
 
-#: index.php:495
+#: index.php:494
 msgid "Quantity of items"
 msgstr "物品的數量"
 
-#: index.php:495 index.php:517 insert.php:514
+#: index.php:494 index.php:516 insert.php:557
 msgid "Qty."
 msgstr "數量"
 
-#: index.php:496
+#: index.php:495
 msgid "BBS link"
 msgstr "電子公告板連結"
 
-#: index.php:496 index.php:518
+#: index.php:495 index.php:517
 msgid "Ref."
 msgstr "參考"
 
-#: index.php:497
+#: index.php:496
 msgid "Last Update time"
 msgstr "最後更新時間"
 
-#: index.php:497 index.php:519
+#: index.php:496 index.php:518
 msgid "Time"
 msgstr "時間"
 
-#: index.php:498 index.php:520 insert.php:517 insert.php:555
+#: index.php:497 index.php:519 insert.php:560 insert.php:598
 msgid "Note"
 msgstr "備註"
 
-#: index.php:499
+#: index.php:498
 msgid "Manage Operation"
 msgstr "管理動作"
 
-#: index.php:499 index.php:521
+#: index.php:498 index.php:520
 msgid "Manage"
 msgstr "管理"
 
-#: index.php:504
+#: index.php:503
 msgid "Loading data from server..."
 msgstr "正在載入資料"
 
-#: index.php:528
+#: index.php:527
 msgid "Source Code"
 msgstr "原始碼"
 
-#: index.php:531
+#: index.php:530
 msgid "Hello, world!"
 msgstr "你好,世界."
 
@@ -248,141 +248,153 @@ msgstr ""
 msgid "Name or PlayID is void!"
 msgstr "玩家名稱或玩家ID爲空!"
 
-#: insert.php:306 insert.php:376
+#: insert.php:306 insert.php:363 insert.php:416
 msgid "Pending"
 msgstr "請稍等"
 
-#: insert.php:355
+#: insert.php:369
+msgid "OK"
+msgstr ""
+
+#: insert.php:395
 #, fuzzy
 msgid "Player name is void!"
 msgstr "玩家名称"
 
-#: insert.php:360
+#: insert.php:400
 #, fuzzy
 msgid "Item is void!"
 msgstr "物品或者玩家爲空"
 
-#: insert.php:364
+#: insert.php:404
 #, fuzzy
 msgid "Equipment is void!"
 msgstr "物品或者玩家爲空"
 
-#: insert.php:383
+#: insert.php:423
 msgid "Server Err"
 msgstr "服務器錯誤"
 
-#: insert.php:386
+#: insert.php:426
 msgid "Insert OK"
 msgstr "新增成功"
 
-#: insert.php:388
+#: insert.php:428
 msgid "Update OK"
 msgstr "更新成功"
 
-#: insert.php:482
+#: insert.php:522
 msgid "Return to home"
 msgstr "返回首頁"
 
-#: insert.php:490
+#: insert.php:530
 msgid "Add Player"
 msgstr "新增玩家"
 
-#: insert.php:492
+#: insert.php:532
 msgid "submit the order"
 msgstr "提交这条记录"
 
-#: insert.php:493
+#: insert.php:533
 msgid "Submit"
 msgstr "提交"
 
-#: insert.php:495
+#: insert.php:535
 msgid "How to add a new order"
 msgstr ""
 
-#: insert.php:496
+#: insert.php:536
 msgid "Help"
 msgstr ""
 
-#: insert.php:506
+#: insert.php:538
+msgid "Export the database"
+msgstr ""
+
+#: insert.php:539
+msgid "Export"
+msgstr ""
+
+#: insert.php:549
 msgid "type of order"
 msgstr "记录没类型"
 
-#: insert.php:509
+#: insert.php:552
 #, fuzzy
 msgid "Equip link"
 msgstr "物品/裝備"
 
-#: insert.php:510
+#: insert.php:553
 #, fuzzy
 msgid "Equip Name"
 msgstr "物品/裝備"
 
-#: insert.php:513
+#: insert.php:556
 msgid "Player name"
 msgstr "玩家名称"
 
-#: insert.php:514
+#: insert.php:557
 msgid "Buy/sell quantity (minimum 1, leave blank limitation)"
 msgstr "出售/收購的數量,留空表示不限制"
 
-#: insert.php:515
+#: insert.php:558
 msgid "Leave blank not accept payment by Credit"
 msgstr "留空表示不就接受Credit作爲支付方式"
 
-#: insert.php:516
+#: insert.php:559
 msgid "Leave blank Hath not accepted as a payment method"
 msgstr "留空表示不接受Hath作爲支付方式"
 
-#: insert.php:517
+#: insert.php:560
 msgid "Note(Optional)"
 msgstr "備註(可選)"
 
-#: insert.php:531 insert.php:543 insert.php:546 insert.php:549 insert.php:552
+#: insert.php:574 insert.php:586 insert.php:589 insert.php:592 insert.php:595
 msgid "eg."
 msgstr "如:"
 
-#: insert.php:536 insert.php:539
+#: insert.php:579 insert.php:582
 msgid "eq. "
 msgstr ""
 
-#: insert.php:536
+#: insert.php:579
 msgid "equip link"
 msgstr ""
 
-#: insert.php:539
+#: insert.php:582
 msgid "[Equip Name]"
 msgstr ""
 
-#: insert.php:555
+#: insert.php:598
 msgid "eg. Only players level 250 or less"
 msgstr ""
 
-#: insert.php:558
+#: insert.php:601
 #, fuzzy
 msgid "BBS link eg."
 msgstr "電子公告板連結"
 
-#: insert.php:558
+#: insert.php:601
 msgid "bbs link"
 msgstr "bbs链接"
 
-#: insert.php:570
+#: insert.php:613
 msgid "Add player"
 msgstr "新增玩家"
 
-#: insert.php:572
+#: insert.php:615
 msgid "Player Name"
 msgstr "玩家名称"
 
-#: insert.php:575
+#: insert.php:618
 msgid "Player ID[?]"
 msgstr "玩家ID[?]"
 
-#: insert.php:578
+#: insert.php:621
 msgid "Add a new player name to player list"
 msgstr "新增一個玩家到玩家列表"
 
-#: insert.php:582
+#: insert.php:625
 msgid "Cancel"
 msgstr "取消"
 
