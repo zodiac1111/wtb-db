@@ -82,6 +82,7 @@
                     }
                 }).click(function() {
                     top.location.href = "/index.php?lang=<?php echo _("en_US");?>";
+                   
                 });
 				/// 新增交易
                 $("#add").button({
@@ -89,7 +90,7 @@
                         primary : "ui-icon-circle-plus"
                     }
                 }).click(function() {
-                    top.location.href = "/insert.php?lang=<?php echo _("en_US");?>";
+					window.open("/insert.php?lang=<?php echo _("en_US");?>"); //添窗口在另外一个窗口打开
                 });
 				// 拍卖:未实现
                 $("#auction").button({
