@@ -41,7 +41,7 @@ if ($iSortCol_0 == "0") {
 }
 
 
-// 子功能:过滤交易类别 ,wtb=1 wts=2 wtt=3
+// 子功能:过滤交易类别(order表) ,wtb=1 wts=2 wtt=3
 $typeA=($wtb=="1")? " `order`.`type`=0 ":"0";
 $typeB=($wts=="1")? " `order`.`type`=1 ":"0";
 $typeC=($wtt=="1")? " `order`.`type`=2 ":"0";
@@ -57,7 +57,7 @@ $type .= $typeA . " or " . $typeB . " or ".$typeC;
 $type .= " ) ";
 
 // 搜索子功能
-$search_all="1"; //物品和玩家一起搜索
+$search_all="1"; //物品和玩家一起搜索(没什么用)
 if ($sSearch<>"") {
 	//$search .= "and item.item_name LIKE \"%" . $sSearch . "%\"";
 	$search_all = " ( `item_name` LIKE \"%" . $sSearch . "%\" or `play_name` LIKE \"%" . $sSearch . "%\" ) ";
@@ -84,6 +84,7 @@ if($iDisplayStart ==""){
 $query = "select "
     ."`order`.`idwtb`,"
 	."`order`.`type`, "
+	."`order`.`obj`, "
     ."`item`.`item_name`, "
     ."`play`.`play_name`, "
     ."`play`.`idplay`, "

@@ -270,7 +270,9 @@
                         "aTargets" : [2],
 						"bSearchable": true
 					},{
-                        "mData" : "equip_name", //装备名称
+                        "mData": function ( source, type, val ) {
+							return source.item_name;
+						},
                         "aTargets" : [3],
 						"bSearchable": true
                     }, {
