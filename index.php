@@ -11,6 +11,7 @@
 			@import "css/jquery.dataTables.css";
 			@import "css/jquery.dataTables_themeroller.css";
 			@import "css/themes/base/jquery.ui.all.css";
+			@import "css/myicon.css";
 		</style>
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -63,18 +64,6 @@
 				background-position: center,center;
 				background-repeat: repeat;
 				background-attachment: scroll;
-			}
-			.ui-button .ui-icon-auction {
-				background-image: url("images/auction.png");
-				background-position: 0 0;
-				width: 16px;
-				height: 16px; 
-			}
-			.ui-button.ui-state-hover .ui-icon-auction {
-				background-image: url("images/auction.png");
-				background-position: 100% 0;
-				width: 16px;
-				height: 16px; 
 			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
@@ -172,12 +161,18 @@
 					$("#tbl").dataTable().fnDraw(false); ///刷新表格
 				});
 				$("#t_item").button({
+					icons: {
+						primary: "ui-icon-item"
+					}
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 3,false ); //装备名称列隐藏
 						$('#tbl').dataTable().fnSetColumnVis( 2,true ); //物品列显示
 						$('#tbl').dataTable().fnSetColumnVis( 7,true ); //数量列显示
                 });
                 $("#t_equip").button({
+					icons: {
+						primary: "ui-icon-equip"
+					}
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 2,false ); // 物品列隐藏
 						$('#tbl').dataTable().fnSetColumnVis( 7,false ); //数量列隐藏

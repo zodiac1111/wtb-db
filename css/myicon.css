@@ -1,0 +1,37 @@
+/* 自定义的一些图标 */
+.ui-button .ui-icon-auction {
+	background-image: url("images/auction.png");
+	background-position: 0 0;
+	width: 16px;
+	height: 16px; 
+}
+.ui-button.ui-state-hover .ui-icon-auction {
+	background-image: url("images/auction.png");
+	background-position: -16px 0;
+	width: 16px;
+	height: 16px; 
+}
+.ui-button .ui-icon-item {
+	background-image: url("images/myicon.png");
+	background-position: 0 0;
+	width: 16px;
+	height: 16px; 
+}
+.ui-button.ui-state-hover .ui-icon-item {
+	background-image: url("images/myicon.png");
+	background-position: 100% 0;
+	width: 16px;
+	height: 16px; 
+}
+.ui-button .ui-icon-equip {
+	background-image: url("images/myicon.png");
+	background-position: 0px -16px;
+	width: 16px;
+	height: 16px; 
+}
+.ui-button.ui-state-hover .ui-icon-equip {
+	background-image: url("images/myicon.png");
+	background-position: -16px -16px;
+	width: 16px;
+	height: 16px; 
+}

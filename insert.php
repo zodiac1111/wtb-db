@@ -45,6 +45,44 @@
 			.ui-autocomplete-loading {
 				background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
 			}
+			/* 自定义的一些图标 */
+			.ui-button .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: 0 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: -16px 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button .ui-icon-item {
+				background-image: url("images/myicon.png");
+				background-position: 0 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-item {
+				background-image: url("images/myicon.png");
+				background-position: 100% 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button .ui-icon-equip {
+				background-image: url("images/myicon.png");
+				background-position: 0px -16px;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-equip {
+				background-image: url("images/myicon.png");
+				background-position: -16px -16px;
+				width: 16px;
+				height: 16px; 
+			}
+
 		</style>
 
 		<script type="text/javascript" charset="utf-8">
@@ -249,8 +287,13 @@
 						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 					}
 				});
+				// 按钮集合
+                $( "#radio" ).buttonset();
+				$( "#radio_itemtype" ).buttonset();
 				$("#t_item").button({
-					//
+					icons: {
+						primary: "ui-icon-item"
+					}
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 2,false ); //装备列隐藏
 						$('#tbl').dataTable().fnSetColumnVis( 3,false ); //装备名称列隐藏
@@ -258,7 +301,9 @@
 						$('#tbl').dataTable().fnSetColumnVis( 5,true ); //数量列显示
                 });
                 $("#t_equip").button({
-					//
+					icons: {
+						primary: "ui-icon-equip"
+					}
 					}).click(function() {
 						$('#tbl').dataTable().fnSetColumnVis( 1,false ); // 物品列隐藏
 						$('#tbl').dataTable().fnSetColumnVis( 5,false ); //数量列隐藏
@@ -445,9 +490,7 @@
 					"bSort": false,
 					"bPaginate": false
                 });
-                // 按钮集合
-                $( "#radio" ).buttonset();
-				$( "#radio_itemtype" ).buttonset();
+
 				$("#wtb").click(); //自动选择指定按钮(默认值)
 				$("#t_item").click();
                 $("#dialog").dialog({
