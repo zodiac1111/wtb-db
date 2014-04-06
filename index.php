@@ -11,7 +11,6 @@
 			@import "css/jquery.dataTables.css";
 			@import "css/jquery.dataTables_themeroller.css";
 			@import "css/themes/base/jquery.ui.all.css";
-			@import "css/myicon.css";
 		</style>
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -64,6 +63,43 @@
 				background-position: center,center;
 				background-repeat: repeat;
 				background-attachment: scroll;
+			}
+			/* 自定义的一些图标 */
+			.ui-button .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: 0 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: -16px 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button .ui-icon-item {
+				background-image: url("images/myicon.png");
+				background-position: 0 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-item {
+				background-image: url("images/myicon.png");
+				background-position: 100% 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button .ui-icon-equip {
+				background-image: url("images/myicon.png");
+				background-position: 0px -16px;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-equip {
+				background-image: url("images/myicon.png");
+				background-position: -16px -16px;
+				width: 16px;
+				height: 16px; 
 			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
