@@ -344,6 +344,46 @@
                 }).click(function() {
                     alert("还没写  = =");
                 });
+                // 导出数据库
+                $("#export").button({
+                    icons : {
+                        primary : "ui-icon-extlink"
+                    }
+                }).click(function() {
+					$.ajax({
+						async: false,
+                        type : "get",
+                        url : "export.php",
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType : "json",
+                        data : "",
+                        beforeSend : function(XMLHttpRequest) {
+                            //alert("提交");
+                            $("#wait2").html("<img src='images/ui-anim_basic_16x16.gif'></img>");
+                            $("#wait")[0].textContent = "<?php echo _("Pending");?>";
+							$("#export").prop("disabled", true);
+                        },
+                        //成功(先成功,后完成)
+                        success : function(data, textStatus) {
+							//alert("return :" + data);
+							$("#wait")[0].textContent = "<?php echo _("OK");?>";
+							if(data.ret=="0"){
+								top.location.href = "/db.gz";
+							}else{
+								alert("return :" + data);
+							}
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            $("#wait")[0].textContent = "ERR";
+                            alert("ERR:" + XMLHttpRequest.responseText);
+                        },
+						complete:function(XHR, TS){
+							$("#export").prop("disabled", false);
+							$("#wait2").empty();;
+						}
+                    });
+                    
+                });
 				// 添加交易条目
                 $("#submit").button({
                     icons : {
@@ -494,6 +534,9 @@
 				</button>
 				<button id="help" value="Help"  title="<?php echo _("How to add a new order");?>">
 					<?php echo _("Help");?>
+				</button>
+				<button id="export" value="Export"  title="<?php echo _("Export the database");?>">
+					<?php echo _("Export");?>
 				</button>
 			</div>
 			<span id="wait2"></span>
