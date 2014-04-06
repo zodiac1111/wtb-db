@@ -271,7 +271,13 @@
 						"bSearchable": true
 					},{
                         "mData": function ( source, type, val ) {
-							return source.item_name;
+							if(source.obj=="0"){
+								return "物品";
+							}else if(source.obj=="1"){
+								return "道具";
+							}else{
+								return "未知类型"+source.obj;
+							}
 						},
                         "aTargets" : [3],
 						"bSearchable": true
