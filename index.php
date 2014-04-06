@@ -137,57 +137,6 @@
                 }).click(function() {
 					;
                 });
-				// 语言选项 l18n 初步实现
-				$("#btnl18n").button({
-					icons: {
-						primary: "ui-icon-flag"
-					}
-				}).next()
-					.button({
-						text: false,
-						icons: {
-							primary: "ui-icon-triangle-1-s"
-						}
-					}).click(function() {
-						var menu = $( this ).parent().next();
-						// 鼠标离开菜单,菜单隐藏
-						menu.mouseleave(function(){
-					  		$(this).hide();
-							return false;
-						})
-						// 点击按钮,菜单循环隐藏和显示
-						if(menu[0].style.display=="none"){
-							menu.show();
-						}else{
-							menu.hide();
-						}
-						// 点击其他元素,菜单隐藏
-						$(document).one( "click", function() {
-							menu.hide();
-						});
-						// 菜单点击
-						menu.click(function(){
-							// 选择不同语言,这里通过连接传递 ?lang=zh_CN 这样的变量实现
-							// alert("<?php echo _("Unimplemented");?>"+this);
-							// 有些语言实现了,有些没有实现
-						});
-						return false;
-					})
-					.mouseleave(function(){ ///离开下拉箭头按钮
-					  	//$(this).parent().next().hide();
-						return false;
-					})
-					.parent()
-						.buttonset()
-						.next()
-							.hide()
-							.menu()
-							.position({ // 菜单出现在合适的位置,真丑陋
-								of:$("#lang").prev().children().last(),
-								my:"right bottom",
-								at:"right top",
-								co:"flipfit flipfit"
-							});
 				// 类别选项,wtb/wts/wtt
 				$("#type" ).buttonset().click(function(){
 					$("#tbl").dataTable().fnDraw(false); ///刷新表格
@@ -245,7 +194,6 @@
                     },
                     "fnDrawCallback" : function(oSettings) {
 						//$(".tag").
-						$("#menu").menu();
                         $( ".btnManage" )
 							.button({
 									text: false,
@@ -269,35 +217,50 @@
 								.click(function() {
 									var menu = $( this ).parent().next();
 									// 鼠标离开菜单,菜单隐藏
-									menu.mouseleave(function(){
-								  		$(this).hide();
-										return false;
-									})
+									//menu.mouseleave(function(){
+								  	//	$(this).hide();
+									//	return false;
+									//})
 									// 点击按钮,菜单循环隐藏和显示
 									if(menu[0].style.display=="none"){
-										menu.show();
+										menu.show().position({ // 菜单出现在合适的位置,真丑陋
+											of:$(this),
+											my:"right top",
+											at:"right bottom",
+											co:"flipfit flipfit"
+										});
 									}else{
 										menu.hide();
+										return true;
 									}
 									// 点击其他元素,菜单隐藏
 									$(document).one( "click", function() {
 										menu.hide();
+										return false;
 									});
 									// 菜单项点击
 									menu.click(function(){
-										//alert("<?php echo _("Unimplemented");?>"+this);
+										alert("<?php echo _("Unimplemented");?>"+this);
 									});
 									return false;
 								})
 								.mouseleave(function(){
 								  	//$(this).parent().next().hide();
-									return false;
+								  	return false;
 								})
 								.parent()
 									.buttonset()
 									.next()
-										.hide()
-										.menu();
+										.hide().menu();
+			/*
+							$(".menu").menu()
+							.position({ // 菜单出现在合适的位置,真丑陋
+								of:$(this).parent(),
+								my:"right bottom",
+								at:"right top",
+								co:"flipfit flipfit"
+							});
+							*/
                     },
 					"aaSorting": [[ 9, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
                     // 各个列定义
@@ -450,7 +413,7 @@
 								+'	<button class="btnManage"><?php echo _("Delete");?></button>'
 								+'	<button class="select"><?php echo _("Set");?></button>'
 								+'</span>'
-								+'<ul id="menu">'
+								+'<ul class="menu">'
 								+'	<li><a href="#"><span class="ui-icon ui-icon-pencil"></span><?php echo _("Edit");?></a></li>'
 								+'</ul>';
                         }
@@ -465,6 +428,57 @@
 				});
 				/// 全部定义完后执行一些动作
 				// $("#t_item").click();
+				// 语言选项 l18n 初步实现
+				$("#btnl18n").button({
+					icons: {
+						primary: "ui-icon-flag"
+					}
+				}).next()
+					.button({
+						text: false,
+						icons: {
+							primary: "ui-icon-triangle-1-s"
+						}
+					}).click(function() {
+						var menu = $( this ).parent().next();
+						// 鼠标离开菜单,菜单隐藏
+						menu.mouseleave(function(){
+					  		$(this).hide();
+							return false;
+						})
+						// 点击按钮,菜单循环隐藏和显示
+						if(menu[0].style.display=="none"){
+							menu.show();
+						}else{
+							menu.hide();
+						}
+						// 点击其他元素,菜单隐藏
+						$(document).one( "click", function() {
+							menu.hide();
+						});
+						// 菜单点击
+						menu.click(function(){
+							// 选择不同语言,这里通过连接传递 ?lang=zh_CN 这样的变量实现
+							// alert("<?php echo _("Unimplemented");?>"+this);
+							// 有些语言实现了,有些没有实现
+						});
+						return false;
+					})
+					.mouseleave(function(){ ///离开下拉箭头按钮
+					  	//$(this).parent().next().hide();
+						return false;
+					})
+					.parent()
+						.buttonset()
+						.next()
+							.hide()
+							.menu()
+							.position({ // 菜单出现在合适的位置,真丑陋
+								of:$("#lang").prev().children().last(),
+								my:"right bottom",
+								at:"right top",
+								co:"flipfit flipfit"
+							});
             });
 			// 删除订单,tr 删除的行 , id 订单号
             function delete_order(tr,id) {
