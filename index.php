@@ -430,9 +430,8 @@
                     dataType : "text",
                     data : "wtbid="+id,
                     beforeSend : function(XMLHttpRequest) {
-                        // $("#wait")[0].textContent = "waitng";
-						$(tr).addClass("loadbar");
-						//$(tr).prop("disabled", true);
+						$(tr).children().addClass("loadbar");
+						$(tr).children().prop("disabled", true);
                     },
                     //成功(先成功,后完成)
                     success : function(data, textStatus) {
