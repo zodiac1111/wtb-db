@@ -158,6 +158,18 @@
 				$( "#radio_itemtype" ).buttonset().click(function(){
 					$("#tbl").dataTable().fnDraw(false); ///刷新表格
 				});
+				$("#t_item").button({
+					}).click(function() {
+						$('#tbl').dataTable().fnSetColumnVis( 3,false ); //装备名称列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 2,true ); //物品列显示
+						$('#tbl').dataTable().fnSetColumnVis( 7,true ); //数量列显示
+                });
+                $("#t_equip").button({
+					}).click(function() {
+						$('#tbl').dataTable().fnSetColumnVis( 2,false ); // 物品列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 7,false ); //数量列隐藏
+						$('#tbl').dataTable().fnSetColumnVis( 3,true ); //装备名称列显示
+                });
                 // **** 主要:一整个表格 ****
                 $('#tbl').dataTable({
 					"sPaginationType": "full_numbers", //直接显示页码
@@ -269,7 +281,7 @@
                         "mData" : "item_name", //物品名称
                         "aTargets" : [2],
 						"bSearchable": true
-					},{
+					},{ // 装备列
                         "mData": function ( source, type, val ) {
 							if(source.obj=="0"){
 								return "物品";
@@ -280,6 +292,7 @@
 							}
 						},
                         "aTargets" : [3],
+                        "bVisible": false,
 						"bSearchable": true
                     }, {
                         "mData" : "play_name",
@@ -388,8 +401,7 @@
 					]	
 				});
 				/// 全部定义完后执行一些动作
-				
-				$("#t_item").click();
+				// $("#t_item").click();
             });
 			// 删除订单,tr 删除的行 , id 订单号
             function delete_order(tr,id) {
@@ -430,10 +442,10 @@
 					<span id="type">
 						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="<?php echo _("want to buy");?>"><?php echo _("WTB");?></label>
 						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="<?php echo _("want to sell");?>"><?php echo _("WTS");?></label>
-						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
+						<input type="checkbox" id="enb_wtt"><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
 					</span>
 					<span id="radio_itemtype">
-						<input type="radio" name="radio_itemtype" id="t_item"  value="0" /><label for="t_item"><?php echo _("Item");?></label>
+						<input type="radio" name="radio_itemtype" id="t_item"  value="0" checked /><label for="t_item"><?php echo _("Item");?></label>
 						<input type="radio" name="radio_itemtype" id="t_equip" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
 					</span>
 					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
