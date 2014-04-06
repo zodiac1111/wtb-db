@@ -281,20 +281,34 @@
 							}
                         }
                     },{
-                        "mData" : "item_name", //物品列
-                        "aTargets" : [2],
+						"aTargets" : [2],
+                        "mData" : function ( source, type, val ) {
+							if(source.obj=="0"){
+								return source.item_name;
+							}else if(source.obj=="1"){
+								return "装备[不应该显示]";
+							}else{
+								return "未知类型"+source.obj;
+							}
+						}, //物品列
 						"bSearchable": true
 					},{ // 装备列
+						"aTargets" : [3],
                         "mData": function ( source, type, val ) {
 							if(source.obj=="0"){
-								return "物品";
+								return "物品[不应该显示]";
 							}else if(source.obj=="1"){
-								return "道具";
+								var WWidth = 400;
+								var WHeight = 550;
+								var WLeft = Math.ceil((window.screen.width - WWidth) / 2);
+								var WTop = Math.ceil((window.screen.height - WHeight) / 2);
+								var features = 'width=' + WWidth + 'px,' + 'height=' + WHeight + 'px,' + 'left=' + WLeft + 'px,' + 'top=' + WTop + 'px,' + 'fullscreen=0, toolbar=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0';
+								var elink="http://hentaiverse.org/pages/showequip.php?eid="+source.idequip+"&key="+source.ekey;
+								return '<a href="'+elink+'" target="_blank">'+source.equip_name+'</a>';
 							}else{
 								return "未知类型"+source.obj;
 							}
 						},
-                        "aTargets" : [3],
                         "bVisible": false,
 						"bSearchable": true
                     }, {
@@ -473,7 +487,7 @@
 							<th width="6%"  title="<?php echo _("id");?>"><?php echo _("ID");?></th>
 							<th width="5%"  title="<?php echo _("type");?>"><?php echo _("Type");?></th>
 							<th width="13%" title="<?php echo _("item");?>"><?php echo _("Item");?></th>
-							<th width="13%" title="<?php echo _("Equip");?>"><?php echo _("Equip");?></th>
+							<th width="20%" title="<?php echo _("Equip");?>"><?php echo _("Equip");?></th>
 							<th width="11%" title="<?php echo _("palyer name");?>"><?php echo _("Player");?></th>
 							<th width="8%" title="<?php echo _("- means not accepted");?>"><?php echo _("Credit");?></th>
 							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>

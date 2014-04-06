@@ -34,7 +34,7 @@ if ($iSortCol_0 == "0") {
 } elseif ($iSortCol_0 == "6") {
 	$order .= " ORDER BY `order`.`hath` ";
 	$order .= $sSortDir_0;
-} elseif ($iSortCol_0 == "7") {
+} elseif ($iSortCol_0 == "9") {
 	$order .= " ORDER BY `order`.`timestamp` ";
 	$order .= $sSortDir_0;
 } else {;
@@ -64,15 +64,26 @@ if ($sSearch<>"") {
 }
 
 $search_item="1"; //分类搜索 --物品
-if($sSearch_2<>""){
-	$search_item=" `item_name` LIKE \"%" . $sSearch_2 . "%\" ";
-}
+$search_equip="1"; //分类搜索 --装备
 $search_player="1"; //分类搜索 --玩家
-if($sSearch_3<>""){
-	$search_player=" `play_name` LIKE \"%" . $sSearch_3 . "%\" ";
+
+if($obj=="0"){
+	if($sSearch_2<>""){
+		$search_item=" `item_name` LIKE \"%" . $sSearch_2 . "%\" ";
+	}
+}else if($obj=="1"){
+	if($sSearch_4<>""){
+		$search_equip=" `equip_name` LIKE \"%" . $sSearch_4 . "%\" ";
+	}
+}else{
+	//未知的obj选项
 }
+if($sSearch_5<>""){
+	$search_player=" `play_name` LIKE \"%" . $sSearch_5 . "%\" ";
+}
+
 // 组合所有搜索条件
-$search= " and ( ". $search_all ." and " . $search_item . " and " .  $search_player .")";
+$search= " and ( ". $search_all ." and " . $search_item . " and " . $search_equip . " and ".  $search_player .")";
 
 // 限制条目数量
 if($iDisplayLength ==""){
@@ -126,6 +137,7 @@ if($obj=="0"){
 		."`equip`.`equip_name`, "
 		."`equip`.`idequip`, "
 		."`equip`.`ekey`, "
+		."`play`.`play_name`, "
 		."`play`.`idplay`, "
 		."`order`.`c`, "
 		."`order`.`hath`, "

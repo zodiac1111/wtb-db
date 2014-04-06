@@ -9,8 +9,6 @@ mysql_select_db($mysql_db) or die("Could not select database");
 $result = mysql_query($query) or die("Query failed".$query);
 //echo "query=".$query ." ; reset=" . $result;
 echo $result;
-// 释放资源
-mysql_free_result($result);
 // 断开连接
 mysql_close($link);
 ?>
