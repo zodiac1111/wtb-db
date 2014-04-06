@@ -87,6 +87,10 @@
 
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
+				// 使tip支持html字符串,比如换行
+				//$("[title]").each(function(){
+				//	$(this).tooltip({ content: $(this).attr("title")});
+				//});
 				// 自动完成 --物品名称
 				$( "#item" ).autocomplete({
 					selectFirst: true,
@@ -619,7 +623,7 @@
 						<td align="middle">
 							<label id="equip_id" style="display:none;" ></label>
 							<label id="equip_key" style="display:none;" ></label>
-							<input style="width:100%" id="equip" title="<?php echo _("eq. ");?>http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>"/>
+							<input style="width:100%" id="equip" title="<?php echo _("eq. ");?> eid=43120719&key=4d3a81dca0,http://hentaiverse.org/pages/showequip.php?eid=43120719&key=4d3a81dca0" placeholder="<?php echo _("equip link");?>"/>
 						</td>
 						<td align="middle">
 							<input style="width:100%" id="equip_name" title="<?php echo _("eq. ");?>Average Axe of the Vampire" value="<?php echo _("[Equip Name]");?>"/>
