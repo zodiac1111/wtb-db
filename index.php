@@ -64,6 +64,18 @@
 				background-repeat: repeat;
 				background-attachment: scroll;
 			}
+			.ui-button .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: 0 0;
+				width: 16px;
+				height: 16px; 
+			}
+			.ui-button.ui-state-hover .ui-icon-auction {
+				background-image: url("images/auction.png");
+				background-position: 100% 0;
+				width: 16px;
+				height: 16px; 
+			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
@@ -95,8 +107,8 @@
 				// 拍卖:未实现
                 $("#auction").button({
 					 icons : {
-                        primary : "ui-icon-person"
-                    }
+						 primary : "ui-icon-auction"
+					}
                 }).click(function() {
 					;
                 });
