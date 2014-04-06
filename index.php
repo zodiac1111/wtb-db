@@ -61,7 +61,7 @@
 			.loadbar {
 				background-image: url("images/loadbar.gif");
 				background-position: center,center;
-				background-repeat: no-repeat;
+				background-repeat: repeat;
 				background-attachment: scroll;
 			}
 		</style>

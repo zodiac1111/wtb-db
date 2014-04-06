@@ -336,6 +336,14 @@
                 }).click(function() {
                     top.location.href = "/index.php?lang=<?php echo _("en_US");?>";
                 });
+                // 帮助手册(TODO = =)
+                $("#help").button({
+                    icons : {
+                        primary : "ui-icon-help"
+                    }
+                }).click(function() {
+                    alert("还没写  = =");
+                });
 				// 添加交易条目
                 $("#submit").button({
                     icons : {
@@ -483,6 +491,9 @@
 				</button>
 				<button id="submit" value="Submit"  title="<?php echo _("submit the order");?>">
 					<?php echo _("Submit");?>
+				</button>
+				<button id="help" value="Help"  title="<?php echo _("How to add a new order");?>">
+					<?php echo _("Help");?>
 				</button>
 			</div>
 			<span id="wait2"></span>
