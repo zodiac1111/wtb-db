@@ -287,9 +287,9 @@
 							if(source.obj=="0"){
 								return source.item_name;
 							}else if(source.obj=="1"){
-								return "装备[不应该显示]";
+								return "--";
 							}else{
-								return "未知类型"+source.obj;
+								return "脑洞"+source.obj;
 							}
 						}, //物品列
 						"bSearchable": true
@@ -297,7 +297,7 @@
 						"aTargets" : [3],
                         "mData": function ( source, type, val ) {
 							if(source.obj=="0"){
-								return "物品[不应该显示]";
+								return "--";
 							}else if(source.obj=="1"){
 								var WWidth = 400;
 								var WHeight = 550;
@@ -307,7 +307,7 @@
 								var elink="http://hentaiverse.org/pages/showequip.php?eid="+source.idequip+"&key="+source.ekey;
 								return '<a href="'+elink+'" target="_blank">'+source.equip_name+'</a>';
 							}else{
-								return "未知类型"+source.obj;
+								return "咕~~(╯﹏╰)b"+source.obj;
 							}
 						},
                         "bVisible": false,
