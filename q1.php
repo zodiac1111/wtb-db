@@ -23,15 +23,18 @@ if ($iSortCol_0 == "0") {
 	$order .= " ORDER BY `item`.`item_name` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "3") {
-	$order .= " ORDER BY `play`.`play_name` ";
+	$order .= " ORDER BY `equip`.`equip_name` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "4") {
-	$order .= " ORDER BY `order`.`c` ";
+	$order .= " ORDER BY `play`.`play_name` ";
 	$order .= $sSortDir_0;
 } elseif ($iSortCol_0 == "5") {
+	$order .= " ORDER BY `order`.`c` ";
+	$order .= $sSortDir_0;
+} elseif ($iSortCol_0 == "6") {
 	$order .= " ORDER BY `order`.`hath` ";
 	$order .= $sSortDir_0;
-} elseif ($iSortCol_0 == "8") {
+} elseif ($iSortCol_0 == "7") {
 	$order .= " ORDER BY `order`.`timestamp` ";
 	$order .= $sSortDir_0;
 } else {;

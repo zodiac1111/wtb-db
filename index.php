@@ -150,9 +150,12 @@
 								at:"right top",
 								co:"flipfit flipfit"
 							});
-                $("#Rev").button();
 				// 类别选项,wtb/wts/wtt
 				$("#type" ).buttonset().click(function(){
+					$("#tbl").dataTable().fnDraw(false); ///刷新表格
+				});
+				// 物品/装备
+				$( "#radio_itemtype" ).buttonset().click(function(){
 					$("#tbl").dataTable().fnDraw(false); ///刷新表格
 				});
                 // **** 主要:一整个表格 ****
@@ -235,17 +238,7 @@
 										.hide()
 										.menu();
                     },
-					"aaSorting": [[ 8, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
-/*
-					"fnServerData": function( sUrl, aoData, fnCallback ) {
-						$.ajax( {
-						    "url": sUrl,
-						    "data": aoData,
-						    "success": fnCallback,
-						    "dataType": "jsonp",
-						    "cache": false
-						} );
-					}, */
+					"aaSorting": [[ 9, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
                     // 列定义
                     "aoColumnDefs" : [{  //序号
                         "mData" : "idwtb",
@@ -276,15 +269,19 @@
                         "mData" : "item_name", //物品名称
                         "aTargets" : [2],
 						"bSearchable": true
+					},{
+                        "mData" : "equip_name", //装备名称
+                        "aTargets" : [3],
+						"bSearchable": true
                     }, {
                         "mData" : "play_name",
-                        "aTargets" : [3],
+                        "aTargets" : [4],
 						"mRender" : function(data, type, full) {
                             return '<a href="http://forums.e-hentai.org/index.php?showuser=' + full.idplay + '">'+data+'</a>';
                         }
                     }, {
                         "mData" : "c",
-                        "aTargets" : [4],
+                        "aTargets" : [5],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "-"
@@ -293,7 +290,7 @@
                         }
                     }, {
                         "mData" : "hath",
-                        "aTargets" : [5],
+                        "aTargets" : [6],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "-"
@@ -303,7 +300,7 @@
                     }, {
                         "mData" : "qty",
 						"bSortable": false,
-                        "aTargets" : [6],
+                        "aTargets" : [7],
                         "mRender" : function(data, type, full) {
 							if(data=="0" || data=="" || data==null ){
 								return "<?php echo _("Unlimited");?>"
@@ -314,7 +311,7 @@
 						///	 bbs连接
                         "mData" : "src",
 						"bSortable": false,
-                        "aTargets" : [7],
+                        "aTargets" : [8],
                         "mRender" : function(data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full[0]' is the comic id, and 'data' is the comic title
@@ -324,7 +321,7 @@
 						/// 更新时间
                         "mData" : "timestamp",
 						"bSortable": true,
-                        "aTargets" : [8],
+                        "aTargets" : [9],
                         "mRender" : function(data, type, full) {
 							// unix时间戳转化成为毫秒
 							var show_string="";
@@ -355,7 +352,7 @@
 						/// 备注
                         "mData" : "note",
 						"bSortable": false,
-                        "aTargets" : [9],
+                        "aTargets" : [10],
                         "mRender" : function(data, type, full) {
                             return data ;
                         }
@@ -363,7 +360,7 @@
 						/// 管理按钮
 						"mData" : "note",
 						"bSortable": false,
-                        "aTargets" : [10],
+                        "aTargets" : [11],
                         "mRender" : function(data, type, full) {
                             return '<span>'
 								+'	<button class="btnManage"><?php echo _("Delete");?></button>'
@@ -377,14 +374,14 @@
                 }).columnFilter({
 					"iFilteringDelay":500,
 					"aoColumns": [ 
-							null,
-							null,
-							 { type: "text" },
-							 { type: "text" },null,null,null,null,null,null,null
-				]
-
-		});
-
+							null,null,
+							{ type: "text" },{ type: "text" },{ type: "text"},
+							null,null,null,null,null,null,null
+					]	
+				});
+				/// 全部定义完后执行一些动作
+				
+				$("#t_item").click();
             });
 			// 删除订单,tr 删除的行 , id 订单号
             function delete_order(tr,id) {
@@ -422,11 +419,14 @@
 					<button id="home" value="Submit"><?php echo _("Home");?></button>
 					<button id="add" title="<?php echo _("New order");?>"><?php echo _("Add");?></button>
 					<button id="auction" value="auction" title="<?php echo _("Unimplemented");?>"><?php echo _("Auction");?></button>
-					<input type="checkbox" id="Rev" title="<?php echo _("rev");?>"><label for="Rev"><?php echo _("Rev.");?></label>
 					<span id="type">
 						<input type="checkbox" id="enb_wtb" checked><label for="enb_wtb" title="<?php echo _("want to buy");?>"><?php echo _("WTB");?></label>
 						<input type="checkbox" id="enb_wts" checked><label for="enb_wts" title="<?php echo _("want to sell");?>"><?php echo _("WTS");?></label>
 						<input type="checkbox" id="enb_wtt" "><label for="enb_wtt" title="<?php echo _("Unimplemented");?>"><?php echo _("WTT");?></label>
+					</span>
+					<span id="radio_itemtype">
+						<input type="radio" name="radio_itemtype" id="t_item"  value="0" /><label for="t_item"><?php echo _("Item");?></label>
+						<input type="radio" name="radio_itemtype" id="t_equip" value="1" /><label for="t_equip"><?php echo _("Equip");?></label>
 					</span>
 					<button id="reload" value="reload" title="<?php echo _("reload the order");?>"><?php echo _("Reload");?></button>
 					<span>
