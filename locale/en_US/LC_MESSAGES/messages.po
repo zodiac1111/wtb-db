@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 22:18+0800\n"
+"POT-Creation-Date: 2014-04-06 23:47+0800\n"
 "PO-Revision-Date: 2014-04-04 17:19+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -18,212 +18,216 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:526
+#: index.php:6 index.php:540
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:84 index.php:93 index.php:183 insert.php:337
+#: index.php:96 index.php:105 index.php:195 insert.php:337
 msgid "en_US"
 msgstr ""
 
-#: index.php:134 index.php:243 index.php:458 index.php:462 index.php:470
-#: index.php:471
+#: index.php:146 index.php:257 index.php:472 index.php:476 index.php:484
+#: index.php:485
 msgid "Unimplemented"
 msgstr ""
 
-#: index.php:275
+#: index.php:226
+msgid "Sure you want to delete?"
+msgstr ""
+
+#: index.php:289
 msgid "wtb"
 msgstr ""
 
-#: index.php:277
+#: index.php:291
 msgid "wts"
 msgstr ""
 
-#: index.php:279
+#: index.php:293
 msgid "wtt"
 msgstr ""
 
-#: index.php:345
+#: index.php:359
 msgid "Unlimited"
 msgstr ""
 
-#: index.php:357
+#: index.php:371
 msgid "link"
 msgstr ""
 
-#: index.php:376
+#: index.php:390
 msgid " second(s) ago"
 msgstr ""
 
-#: index.php:378
+#: index.php:392
 msgid " mintue(s) ago"
 msgstr ""
 
-#: index.php:380
+#: index.php:394
 msgid " hour(s) ago"
 msgstr ""
 
-#: index.php:382
+#: index.php:396
 msgid " day(s) ago"
 msgstr ""
 
-#: index.php:384
+#: index.php:398
 msgid " week(s) ago"
 msgstr ""
 
-#: index.php:405
+#: index.php:419
 msgid "Delete"
 msgstr ""
 
-#: index.php:406 index.php:471
+#: index.php:420 index.php:485
 msgid "Set"
 msgstr ""
 
-#: index.php:409
+#: index.php:423
 msgid "Edit"
 msgstr ""
 
-#: index.php:456 insert.php:523
+#: index.php:470 insert.php:523
 msgid "Home"
 msgstr ""
 
-#: index.php:457 insert.php:6
+#: index.php:471 insert.php:6
 msgid "New order"
 msgstr ""
 
-#: index.php:457 insert.php:622
+#: index.php:471 insert.php:622
 msgid "Add"
 msgstr ""
 
-#: index.php:458
+#: index.php:472
 msgid "Auction"
 msgstr ""
 
-#: index.php:460
+#: index.php:474
 msgid "want to buy"
 msgstr ""
 
-#: index.php:460 insert.php:567
+#: index.php:474 insert.php:567
 msgid "WTB"
 msgstr ""
 
-#: index.php:461
+#: index.php:475
 msgid "want to sell"
 msgstr ""
 
-#: index.php:461 insert.php:568
+#: index.php:475 insert.php:568
 msgid "WTS"
 msgstr ""
 
-#: index.php:462 insert.php:569
+#: index.php:476 insert.php:569
 msgid "WTT"
 msgstr ""
 
-#: index.php:465 index.php:489 index.php:511 insert.php:526 insert.php:551
+#: index.php:479 index.php:503 index.php:525 insert.php:526 insert.php:551
 msgid "Item"
 msgstr ""
 
-#: index.php:466 index.php:490 index.php:512 insert.php:527 insert.php:552
+#: index.php:480 index.php:504 index.php:526 insert.php:527 insert.php:552
 msgid "Equip"
 msgstr ""
 
-#: index.php:468
+#: index.php:482
 msgid "reload the order"
 msgstr ""
 
-#: index.php:468
+#: index.php:482
 msgid "Reload"
 msgstr ""
 
-#: index.php:470
+#: index.php:484
 msgid "English"
 msgstr ""
 
-#: index.php:487
+#: index.php:501
 msgid "id"
 msgstr ""
 
-#: index.php:487 index.php:509
+#: index.php:501 index.php:523
 msgid "ID"
 msgstr ""
 
-#: index.php:488
+#: index.php:502
 msgid "type"
 msgstr ""
 
-#: index.php:488 index.php:510 insert.php:549
+#: index.php:502 index.php:524 insert.php:549
 msgid "Type"
 msgstr ""
 
-#: index.php:489
+#: index.php:503
 msgid "item"
 msgstr ""
 
-#: index.php:491
+#: index.php:505
 msgid "palyer name"
 msgstr ""
 
-#: index.php:491 index.php:513 insert.php:556
+#: index.php:505 index.php:527 insert.php:556
 msgid "Player"
 msgstr ""
 
-#: index.php:492 index.php:493
+#: index.php:506 index.php:507
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:492 index.php:514 insert.php:558
+#: index.php:506 index.php:528 insert.php:558
 msgid "Credit"
 msgstr ""
 
-#: index.php:493 index.php:515 insert.php:559
+#: index.php:507 index.php:529 insert.php:559
 msgid "Hath"
 msgstr ""
 
-#: index.php:494
+#: index.php:508
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:494 index.php:516 insert.php:557
+#: index.php:508 index.php:530 insert.php:557
 msgid "Qty."
 msgstr ""
 
-#: index.php:495
+#: index.php:509
 msgid "BBS link"
 msgstr ""
 
-#: index.php:495 index.php:517
+#: index.php:509 index.php:531
 msgid "Ref."
 msgstr ""
 
-#: index.php:496
+#: index.php:510
 msgid "Last Update time"
 msgstr ""
 
-#: index.php:496 index.php:518
+#: index.php:510 index.php:532
 msgid "Time"
 msgstr ""
 
-#: index.php:497 index.php:519 insert.php:560 insert.php:598
+#: index.php:511 index.php:533 insert.php:560 insert.php:598
 msgid "Note"
 msgstr ""
 
-#: index.php:498
+#: index.php:512
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:498 index.php:520
+#: index.php:512 index.php:534
 msgid "Manage"
 msgstr ""
 
-#: index.php:503
+#: index.php:517
 msgid "Loading data from server..."
 msgstr ""
 
-#: index.php:527
+#: index.php:541
 msgid "Source Code"
 msgstr ""
 
-#: index.php:530
+#: index.php:544
 msgid "Hello, world!"
 msgstr ""
 

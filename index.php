@@ -223,8 +223,10 @@
 									}
 							})
 							.click(function() {
-								delete_order(this.parentElement.parentElement.parentElement
-								,this.parentElement.parentElement.parentElement.firstChild.lastChild.textContent);
+								if (confirm('<?php echo _("Sure you want to delete?");?>')) {
+									delete_order(this.parentElement.parentElement.parentElement
+									,this.parentElement.parentElement.parentElement.firstChild.lastChild.textContent);
+								}
 							})
 							.next()
 								.button({
