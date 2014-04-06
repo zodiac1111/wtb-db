@@ -32,5 +32,5 @@ $json->sql=$query;
 
 echo json_encode($json);
 //mysql_free_result($result);
-//mysql_close($link);
+mysql_close($link);
 ?>
