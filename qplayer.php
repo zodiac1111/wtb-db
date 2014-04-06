@@ -15,6 +15,7 @@ $rows = array();
 while ($r = mysql_fetch_assoc($result)) {
 	$rows[] = $r;
 }
+$json=new stdClass();
 $json->adata=$rows;
 $json->q=$_SERVER['QUERY_STRING'];
 

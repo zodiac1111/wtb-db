@@ -13,6 +13,7 @@ $result = mysql_query($query) or die("Query failed:[".$query."],err=".mysql_erro
 
 //查找有没有这个装备
 $r = mysql_fetch_assoc($result);
+$json=new stdClass();
 //空,没有
 if (empty($r)){
 	$json->equip_name="";

@@ -182,7 +182,7 @@
 					"oLanguage": {"sUrl": "dataTables_i18n/dataTables.<?php echo _("en_US");?>.txt"}, 
                     // 数据源
                     "sAjaxSource" : "q1.php",
-                    // 传递参数进入php
+                    // 传递参数进入php(后端),后端需要根据此判断返回什么数据
                     "fnServerParams" : function(aoData) {
 						// 选择的交易类型 
                         aoData.push({
@@ -194,6 +194,9 @@
 						},{
                             "name" : "wtt",
                             "value" : $("#enb_wtt")[0].checked?"1":"0"
+						},{
+                            "name" : "obj", //后端知道是查找item还是装备equip
+                            "value" : $('input[name=radio_itemtype]:checked').val()
 						});
                     },
                     "fnDrawCallback" : function(oSettings) {
@@ -251,7 +254,7 @@
 										.menu();
                     },
 					"aaSorting": [[ 9, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
-                    // 列定义
+                    // 各个列定义
                     "aoColumnDefs" : [{  //序号
                         "mData" : "idwtb",
                         "aTargets" : [0],
@@ -278,7 +281,7 @@
 							}
                         }
                     },{
-                        "mData" : "item_name", //物品名称
+                        "mData" : "item_name", //物品列
                         "aTargets" : [2],
 						"bSearchable": true
 					},{ // 装备列

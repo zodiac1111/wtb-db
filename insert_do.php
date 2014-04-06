@@ -1,7 +1,7 @@
 <?php
 include "conf.php";
-$link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not connect");
-mysql_select_db($mysql_db) or die("Could not select database:".$link);
+$link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not connect".mysql_error());
+mysql_select_db($mysql_db) or die("Could not select database:".$link.mysql_error());
 
 $type 	= $_POST["type"];
 $idplayer = $_POST["idplayer"];
@@ -32,7 +32,7 @@ if($obj=="0"){  //物品
 
 
 
-$result = mysql_query($select) or die("Query failed:".$select);
+$result = mysql_query($select) or die("Query failed:".$select.mysql_error());
 //$json->result1=$result;
 $rows = mysql_fetch_assoc($result);
 
@@ -40,15 +40,15 @@ $rows = mysql_fetch_assoc($result);
 if (empty($rows)){
 	if($obj=="0"){  //物品
 		$query = "INSERT INTO `order` ( "
-			." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
+			." `type`,`obj`,`iditem`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
 			." VALUES "
-			." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
+			." ('".$type."','".$obj."','".$iditem."','".$idplayer."','"
 			.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
 	}else if($obj=="1"){ //装备
 		$query = "INSERT INTO `order` ( "
-			." `type`,`obj`,`iditem`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
+			." `type`,`obj`,`idequip`, `idplayer`, `qty`, `c`, `hath`,`note`,`src`,`timestamp`) " 
 			." VALUES "
-			." ('".$type."','".$obj."','".$iditem."','".$idequip."','".$idplayer."','"
+			." ('".$type."','".$obj."','".$idequip."','".$idplayer."','"
 			.$qty."','".$c."','".$hath."','".$note."','".$src."','".$timestamp."');";
 	}
 // 有则更新
@@ -58,7 +58,7 @@ if (empty($rows)){
 	if($obj=="0"){  //物品
 		$query = "UPDATE `order` SET "
 			." `type`='".$type."',`obj`='".$obj
-			."',`iditem`='".$iditem."',`idequip`='".$idequip
+			."',`iditem`='".$iditem
 			."',`idplayer`='".$idplayer."', `qty`='".$qty
 			."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
 			."',`src`='".$src."',`timestamp`='".$timestamp."' "
@@ -66,7 +66,7 @@ if (empty($rows)){
 	}else if($obj=="1"){ //装备
 		$query = "UPDATE `order` SET "
 			." `type`='".$type."',`obj`='".$obj
-			."',`iditem`='".$iditem."',`idequip`='".$idequip
+			."',`idequip`='".$idequip
 			."',`idplayer`='".$idplayer."', `qty`='".$qty
 			."',`c`='".$c."', `hath`='".$hath."',`note`='".$note
 			."',`src`='".$src."',`timestamp`='".$timestamp."' "
@@ -75,9 +75,10 @@ if (empty($rows)){
 }
 
 
-$result = mysql_query($query) or die("Query failed:".$query);
+$result = mysql_query($query) or die("Query failed:".$query .mysql_error());
 //echo "var reset=" . $result;
 //$json->array=var_dump($rows);
+$json=new stdClass();
 $json->obj=$obj; 
 $json->count=count($rows);
 $json->isempty=empty($rows);
@@ -91,7 +92,7 @@ $json->rows=$rows;
 echo json_encode($json);
 
 // 释放资源
-mysql_free_result($result);
+// mysql_free_result($result);
 // 断开连接
 mysql_close($link);
 ?>

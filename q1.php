@@ -81,41 +81,82 @@ if($iDisplayLength ==""){
 if($iDisplayStart ==""){
 	$iDisplayStart="0";
 }
-$query = "select "
-    ."`order`.`idwtb`,"
-	."`order`.`type`, "
-	."`order`.`obj`, "
-    ."`item`.`item_name`, "
-    ."`play`.`play_name`, "
-    ."`play`.`idplay`, "
-    ."`order`.`c`, "
-    ."`order`.`hath`, "
-    ."`order`.`qty`, "
-    ."`order`.`src`, "
-	."`order`.`note`, "
-	."`order`.`timestamp` "
-    ."FROM "
-    ."`item`, "
-    ."`play`, "
-    ."`order` "
-    ."WHERE "
-    ."`order`.`iditem` = `item`.`iditem` "
-    ."    and `order`.`idplayer` = `play`.`idplay` "
-. " " . $type
-. " " . $search
-. " " . $order
-. " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
-. " ;";
 
-// 得到符合的条目总数量,用于显示出"总共X条,第X到X条"
-$counter= "SELECT COUNT(*)  FROM
-    `item`,
-    `play`,
-    `order` WHERE
-    	`order`.`iditem` = `item`.`iditem`
-        	and `order`.`idplayer` = `play`.`idplay` "
-	. " " . $type
-	. $search . " ;";
+$query="没有sql语句";
+if($obj=="0"){
+	// 构造查询sql
+	$query = "select "
+		."`order`.`idwtb`,"
+		."`order`.`type`, "
+		."`order`.`obj`, "
+		."`item`.`item_name`, "
+		."`play`.`play_name`, "
+		."`play`.`idplay`, "
+		."`order`.`c`, "
+		."`order`.`hath`, "
+		."`order`.`qty`, " 
+		."`order`.`src`, "
+		."`order`.`note`, "
+		."`order`.`timestamp` "
+		."FROM "
+		."`item`, "
+		."`play`, "
+		."`order` "
+		."WHERE "
+		."`order`.`iditem` = `item`.`iditem` "
+		."    and `order`.`idplayer` = `play`.`idplay` "
+		. " " . $type
+		. " " . $search
+		. " " . $order
+		. " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
+		. " ;";
+	// 得到符合的条目总数量,用于显示出"总共X条,第X到X条"
+	$counter= "SELECT COUNT(*) FROM"
+		."`item`,"
+		."`play`,"
+		."`order` WHERE"
+		."`order`.`iditem` = `item`.`iditem`"
+		."	and `order`.`idplayer` = `play`.`idplay` "
+		. " " . $type. $search . " ;";
+}else if($obj=="1"){
+	$query = "select "
+		."`order`.`idwtb`,"
+		."`order`.`type`, "
+		."`order`.`obj`, "
+		."`equip`.`equip_name`, "
+		."`equip`.`idequip`, "
+		."`equip`.`ekey`, "
+		."`play`.`idplay`, "
+		."`order`.`c`, "
+		."`order`.`hath`, "
+		."`order`.`qty`, " //对于装备,数量被忽略,所以不过滤也是可以的
+		."`order`.`src`, "
+		."`order`.`note`, "
+		."`order`.`timestamp` "
+		."FROM "
+		."`equip`, "
+		."`play`, "
+		."`order` "
+		."WHERE "
+		."`order`.`idequip` = `equip`.`idequip` "
+		."    and `order`.`idplayer` = `play`.`idplay` "
+		. " " . $type
+		. " " . $search
+		. " " . $order
+		. " LIMIT " . $iDisplayStart . "," . $iDisplayLength 
+		. " ;";
+	// 得到符合的条目总数量,用于显示出"总共X条,第X到X条"
+	$counter= "SELECT COUNT(*) FROM"
+		."`equip`,"
+		."`play`,"
+		."`order` WHERE"
+		."`order`.`idequip` = `equip`.`idequip`"
+		."	and `order`.`idplayer` = `play`.`idplay` "
+		. " " . $type . $search . " ;";
+}else{
+	// 其他情形
+}
+
 
 //PHP手册中的PHP连接Mysql的实例
 // 连接选择数据库
@@ -142,9 +183,11 @@ list($iTotalRecords) = mysql_fetch_row($result);
 
 // make json
 // 返回json,得到一些调试信息,不是必须的
+$json=new stdClass();
 $json->sqlstring=$query;
 $json->search=$search;
 $json->arg="wtb:" . $wtb . " wts:" . $wts . " wtt:" . $wtt;
+$json->obj=$obj;
 $json->sEcho=$sEcho;
 $json->iTotalRecords=$iTotalRecords;// 总的记录条数
 $json->iTotalDisplayRecords=$iTotalRecords ;//count($rows); // 显示的记录条数

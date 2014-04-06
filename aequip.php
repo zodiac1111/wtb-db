@@ -22,6 +22,7 @@ if (empty($r)){
 	$query ="UPDATE `wtb`.`equip` SET `equip_name`='".$equip_name."' WHERE `idequip`='".$eid."';";
 }
 $result = mysql_query($query) or die("Query failed:[".$query."],err=".mysql_error());
+$json=new stdClass();
 $json->equip_name=$equip_name;
 //$json->link=$equiplink;
 $json->eid=$eid;
@@ -32,5 +33,5 @@ $json->sql=$query;
 
 echo json_encode($json);
 //mysql_free_result($result);
-//mysql_close($link);
+mysql_close($link);
 ?>
