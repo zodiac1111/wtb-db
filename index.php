@@ -488,7 +488,7 @@
 							<th width="6%"  title="<?php echo _("id");?>"><?php echo _("ID");?></th>
 							<th width="5%"  title="<?php echo _("type");?>"><?php echo _("Type");?></th>
 							<th width="13%" title="<?php echo _("item");?>"><?php echo _("Item");?></th>
-							<th width="20%" title="<?php echo _("Equip");?>"><?php echo _("Equip");?></th>
+							<th width="25%" title="<?php echo _("Equip");?>"><?php echo _("Equip");?></th>
 							<th width="11%" title="<?php echo _("palyer name");?>"><?php echo _("Player");?></th>
 							<th width="8%" title="<?php echo _("- means not accepted");?>"><?php echo _("Credit");?></th>
 							<th width="7%" title="<?php echo _("- means not accepted");?>"><?php echo _("Hath");?></th>
@@ -524,7 +524,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label><?php echo _("HV Trade Center");?> v0.1.10 </br></label>
+					<label><?php echo _("HV Trade Center");?> v0.1.11 </br></label>
 					<label><?php echo _("Source Code");?>:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 				<div align="right">
