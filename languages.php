@@ -15,7 +15,7 @@ if (isset($lang)) {
 } 
 $domain="messages"; //绑定名字域??
 putenv("LC_ALL=$locale");
-setlocale(LC_ALL, $locale);
+setlocale(LC_ALL, $locale.".UTF-8");
 bindtextdomain($domain, "./locale");
 bind_textdomain_codeset($domain ,  'UTF-8' );  //设置mo文件的编码为UTF-8   
 textdomain($domain);
