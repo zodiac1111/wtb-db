@@ -194,73 +194,25 @@
                     },
                     "fnDrawCallback" : function(oSettings) {
 						//$(".tag").
-                        $( ".btnManage" )
-							.button({
-									text: false,
-									icons: {
-										primary: "ui-icon-trash"
-									}
-							})
-							.click(function() {
-								if (confirm('<?php echo _("Sure you want to delete?");?>')) {
-									delete_order(this.parentElement.parentElement.parentElement
-									,this.parentElement.parentElement.parentElement.firstChild.lastChild.textContent);
-								}
-							})
-							.next()
-								.button({
-									text: false,
-									icons: {
-										primary: "ui-icon-triangle-1-s"
-									}
-								})
-								.click(function() {
-									var menu = $( this ).parent().next();
-									// 鼠标离开菜单,菜单隐藏
-									//menu.mouseleave(function(){
-								  	//	$(this).hide();
-									//	return false;
-									//})
-									// 点击按钮,菜单循环隐藏和显示
-									if(menu[0].style.display=="none"){
-										menu.show().position({ // 菜单出现在合适的位置,真丑陋
-											of:$(this),
-											my:"right top",
-											at:"right bottom",
-											co:"flipfit flipfit"
-										});
-									}else{
-										menu.hide();
-										return true;
-									}
-									// 点击其他元素,菜单隐藏
-									$(document).one( "click", function() {
-										menu.hide();
-										return false;
-									});
-									// 菜单项点击
-									menu.click(function(){
-										alert("<?php echo _("Unimplemented");?>"+this);
-									});
-									return false;
-								})
-								.mouseleave(function(){
-								  	//$(this).parent().next().hide();
-								  	return false;
-								})
-								.parent()
-									.buttonset()
-									.next()
-										.hide().menu();
-			/*
-							$(".menu").menu()
-							.position({ // 菜单出现在合适的位置,真丑陋
-								of:$(this).parent(),
-								my:"right bottom",
-								at:"right top",
-								co:"flipfit flipfit"
-							});
-							*/
+                        $( ".btnManage" ).button({
+							text: false,
+							icons: {
+								primary: "ui-icon-trash"
+							}
+						}).click(function() {
+							if (confirm('<?php echo _("Sure you want to delete?");?>')) {
+								delete_order(this.parentElement.parentElement.parentElement
+								,this.parentElement.parentElement.parentElement.firstChild.lastChild.textContent);
+							}
+						});
+						$( ".btnEdit" ).button({
+							text: false,
+							icons: {
+								primary: "ui-icon-pencil"
+							}
+						}).click(function() {
+							;
+						});
                     },
 					"aaSorting": [[ 9, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
                     // 各个列定义
@@ -411,11 +363,8 @@
                         "mRender" : function(data, type, full) {
                             return '<span>'
 								+'	<button class="btnManage"><?php echo _("Delete");?></button>'
-								+'	<button class="select"><?php echo _("Set");?></button>'
-								+'</span>'
-								+'<ul class="menu">'
-								+'	<li><a href="#"><span class="ui-icon ui-icon-pencil"></span><?php echo _("Edit");?></a></li>'
-								+'</ul>';
+								+'	<button class="btnEdit"><?php echo _("Edit");?></button>'
+								+'</span>';
                         }
                     }]
                 }).columnFilter({
