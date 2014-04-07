@@ -2,37 +2,17 @@
 <?php include_once 'languages.php'; ?>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php echo _("New order");?></title>
-		<style type="text/css" title="currentStyle">
-			@import "css/demo_page.css";
-			@import "css/demo_table.css";
-			@import "css/demos.css";
-			@import "css/jquery.dataTables.css";
-			@import "css/jquery.dataTables_themeroller.css";
-			@import "css/themes/base/jquery.ui.all.css";
-		</style>
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><?php echo _("New order");?></title>
+		<link rel="stylesheet" href="css/demo_page.css">
+		<link rel="stylesheet" href="css/demo_table.css">
 		<link rel="stylesheet" href="css/demos.css">
-		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
-		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
-		<script src="js/ui/jquery.ui.core.js"></script>
-		<script src="js/ui/jquery.ui.widget.js"></script>
-		<script src="js/ui/jquery.ui.mouse.js"></script>
-		<script src="js/ui/jquery.ui.draggable.js"></script>
-		<script src="js/ui/jquery.ui.position.js"></script>
-		<script src="js/ui/jquery.ui.resizable.js"></script>
-		<script src="js/ui/jquery.ui.button.js"></script>
-		<script src="js/ui/jquery.ui.dialog.js"></script>
-		<script src="js/ui/jquery.ui.spinner.js"></script>
-		<script src="js/ui/jquery.ui.menu.js"></script>
-		<script src="js/ui/jquery.ui.autocomplete.js"></script>
-		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
-		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
-		<script type='text/javascript' src="js/external/globalize.js"></script>
-		<style>
+		<link rel="stylesheet" href="css/jquery.dataTables.css">
+		<link rel="stylesheet" href="css/jquery.dataTables_themeroller.css">
+		<link rel="stylesheet" href="css/themes/base/jquery.ui.all.css">
+		<style type="text/css" title="currentStyle">
 			#toolbar {
 				padding: 4px;
 				display: inline-block;
@@ -82,9 +62,23 @@
 				width: 16px;
 				height: 16px; 
 			}
-
 		</style>
-
+		<script type='text/javascript' src="js/jquery-2.1.0.min.js"></script>
+		<script type='text/javascript' src="js/jquery.dataTables.min.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.core.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.widget.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.mouse.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.draggable.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.position.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.resizable.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.button.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.dialog.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.spinner.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.menu.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.autocomplete.js"></script>
+		<script type='text/javascript' src="js/ui/jquery.ui.tooltip.js"></script>
+		<script type='text/javascript' src="js/external/jquery.mousewheel.js"></script>
+		<script type='text/javascript' src="js/external/globalize.js"></script>
 		<script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
 				// 使tip支持html字符串,比如换行
