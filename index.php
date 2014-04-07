@@ -625,7 +625,7 @@
 				</table>
 				<p></p>
 				<div align="right">
-					<label><?php echo _("HV Trade Center");?> v0.1.11 </br></label>
+					<label><?php echo _("HV Trade Center");?> v0.1.12 </br></label>
 					<label><?php echo _("Source Code");?>:<a href='https://github.com/zodiac1111/wtb-db'>https://github.com/zodiac1111/wtb-db</a></label>
 				</div>
 				<div align="right">
