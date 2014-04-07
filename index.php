@@ -196,7 +196,10 @@
 						});
                     },
                     "fnDrawCallback" : function(oSettings) {
-						//$(".tag").
+						//  显示文本
+						$(".text_show_only").prop('readonly', 'readonly');
+						$(".text_show_only").css("background-color",$(".text_show_only").parent().css("background-color"));
+						//管理动作
 						$( ".btnManage" ).parent().buttonset();
                         $( ".btnManage" ).button({
 							text: false,
@@ -217,6 +220,7 @@
 							}
 						}).click(function() {
 							var isEdit=$(this).find(".ui-icon-pencil").length>0?true:false;
+							var tr=$(this).parent().parent().parent(); //一行
 							if (isEdit){
 								$(this).button({
 									text: false,
@@ -226,6 +230,8 @@
 								});
 								$(this).attr("title","<?php echo _("Save");?>");
 								$(this).children().last().text("<?php echo _("Save");?>");
+								tr.find("input").removeClass("text_show_only");
+								tr.find("input").prop('readonly', '');
 							}else{
 								$(this).button({
 									text: false,
@@ -235,6 +241,9 @@
 								});
 								$(this).attr("title","<?php echo _("Edit");?>");
 								$(this).children().last().text("<?php echo _("Edit");?>");
+								tr.find("input").addClass("text_show_only");
+								tr.find("input").prop('readonly', 'readonly');
+								update_info($(this),tr);
 							}
 						});
                     },
@@ -273,7 +282,7 @@
 							}else if(source.obj=="1"){
 								return "--";
 							}else{
-								return "脑洞"+source.obj;
+								return "(⊙_⊙)？"+source.obj;
 							}
 						}, //物品列
 						"bSearchable": true
@@ -488,6 +497,58 @@
                     }
                 });
             }
+            //更新一行,更新数据库
+            function update_info(btn,tr){
+				var oc=tr.find(".c");
+				var ohath=tr.find(".hath");
+				var oqty=tr.find(".qty");
+				var orderid=tr.children()[0].textContent.replace(/[^0-9\.]+/g,"");
+				var c=oc.val().replace(/[^0-9\.]+/g,"");
+				var hath=ohath.val().replace(/[^0-9\.]+/g,"");;
+				var qty=oqty.val().replace(/[^0-9\.]+/g,"");;
+				var note=tr.find(".note").val();
+				//k/m单位
+				if(oqty.val().toLowerCase().indexOf("k") >= 0){
+					qty=qty*1000;
+				}else if(oqty.val().toLowerCase().indexOf("m") >= 0){
+					qty=qty*1000*1000;
+				}
+				if(oc.val().toLowerCase().indexOf("k") >= 0){
+					c=c*1000;
+				}else if(oc.val().toLowerCase().indexOf("m") >= 0){
+					c=c*1000*1000;
+				}
+				if(ohath.val().toLowerCase().indexOf("k") >= 0){
+					hath=hath*1000;
+				}else if(ohath.val().toLowerCase().indexOf("m") >= 0){
+					hath=hath*1000*1000;
+				}
+				$.ajax({
+					type : "post",
+					url : "update.php",
+					contentType : "application/x-www-form-urlencoded; charset=utf-8",
+					dataType : "json",
+					data : "orderid="+orderid+"&c="+c+"&hath="+hath+"&qty="+qty+"&note="+note,
+					beforeSend : function(XMLHttpRequest) {
+						btn.prop("disabled", true);
+						$(tr).children().addClass("loadbar");
+						$(tr).children().prop("disabled", true);
+					},
+					//成功(先成功,后完成)
+					success : function(data, textStatus) {
+						if(data.ret){
+							$("#reload").click();
+						}
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("ERR:" + XMLHttpRequest.responseText);
+					},
+					complete:function(XHR, TS){
+						$(tr).children().removeClass("loadbar");
+						btn.prop("disabled", false);
+					}
+				});
+			}
 		</script>
 	</head>
 	<body>
