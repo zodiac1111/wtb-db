@@ -64,6 +64,9 @@
 				background-repeat: repeat;
 				background-attachment: scroll;
 			}
+			.text_show_only {
+				border:0;
+			}
 			/* 自定义的一些图标 */
 			.ui-button .ui-icon-auction {
 				background-image: url("images/auction.png");
@@ -194,6 +197,7 @@
                     },
                     "fnDrawCallback" : function(oSettings) {
 						//$(".tag").
+						$( ".btnManage" ).parent().buttonset();
                         $( ".btnManage" ).button({
 							text: false,
 							icons: {
@@ -205,13 +209,33 @@
 								,this.parentElement.parentElement.parentElement.firstChild.lastChild.textContent);
 							}
 						});
+						//  编辑条目
 						$( ".btnEdit" ).button({
 							text: false,
 							icons: {
 								primary: "ui-icon-pencil"
 							}
 						}).click(function() {
-							;
+							var isEdit=$(this).find(".ui-icon-pencil").length>0?true:false;
+							if (isEdit){
+								$(this).button({
+									text: false,
+									icons: {
+										primary: "ui-icon-disk"
+									}
+								});
+								$(this).attr("title","<?php echo _("Save");?>");
+								$(this).children().last().text("<?php echo _("Save");?>");
+							}else{
+								$(this).button({
+									text: false,
+									icons: {
+										primary: "ui-icon-pencil"
+									}
+								});
+								$(this).attr("title","<?php echo _("Edit");?>");
+								$(this).children().last().text("<?php echo _("Edit");?>");
+							}
 						});
                     },
 					"aaSorting": [[ 9, "desc" ]], //默认按8列降序排列,时间最晚的显示最前
@@ -282,29 +306,38 @@
                         "mData" : "c",
                         "aTargets" : [5],
                         "mRender" : function(data, type, full) {
+							var v;// 数值
 							if(data=="0" || data=="" || data==null ){
-								return "-"
+								v = "-"
+							}else{
+								v=parseFloat(data).toLocaleString();
 							}
-                            return parseFloat(data).toLocaleString();
+                            return '<input type="text" style="width:100%" class="text_show_only c" value="'+v+'">'
                         }
                     }, {
                         "mData" : "hath",
                         "aTargets" : [6],
                         "mRender" : function(data, type, full) {
+							var v;
 							if(data=="0" || data=="" || data==null ){
-								return "-"
+								v = "-"
+							}else{
+								v=parseFloat(data).toLocaleString();
 							}
-                            return parseFloat(data).toLocaleString();
+                            return '<input type="text" style="width:100%" class="text_show_only hath" value="'+v+'">'
                         }
                     }, {
                         "mData" : "qty",
 						"bSortable": false,
                         "aTargets" : [7],
                         "mRender" : function(data, type, full) {
+							var v;
 							if(data=="0" || data=="" || data==null ){
-								return "<?php echo _("Unlimited");?>"
+								v= "<?php echo _("Unlimited");?>"
+							}else{
+								v=parseInt(data).toLocaleString();
 							}
-							 return parseInt(data).toLocaleString();
+							return '<input type="text" style="width:100%" class="text_show_only qty" value="'+v+'">'
                         }
                     }, {
 						///	 bbs连接
@@ -353,7 +386,7 @@
 						"bSortable": false,
                         "aTargets" : [10],
                         "mRender" : function(data, type, full) {
-                            return data ;
+							return '<input type="text" style="width:100%" class="text_show_only note" value="'+data+'">'
                         }
                     }, {
 						/// 管理按钮
