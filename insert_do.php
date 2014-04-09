@@ -3,14 +3,14 @@ include "conf.php";
 $link = mysql_connect($mysql_host, $mysql_user, $mysql_pwd) or die("Could not connect".mysql_error());
 mysql_select_db($mysql_db) or die("Could not select database:".$link.mysql_error());
 
-$type 	= $_POST["type"];
-$idplayer = $_POST["idplayer"];
-$obj	= $_POST["obj"]; /// 交易的对象:物品或者装备
-$iditem	= $_POST["iditem"];
-$idequip= $_POST["idequip"];
-$qty 	= $_POST["qty"];
-$c	 	= $_POST["c"];
-$hath 	= $_POST["hath"];
+$type 	= settype($_POST["type"],"float");
+$idplayer = settype($_POST["idplayer"],"integer");
+$obj	= settype($_POST["obj"],"integer"); /// 交易的对象:物品或者装备
+$iditem	= settype($_POST["iditem"],"integer");
+$idequip= settype($_POST["idequip"],"integer");
+$qty 	= settype($_POST["qty"],"integer");
+$c	 	= settype($_POST["c"],"float");
+$hath 	= settype($_POST["hath"],"float");
 $note 	= $_POST["note"];
 $src	= $_POST["src"];
 $timestamp=time();
