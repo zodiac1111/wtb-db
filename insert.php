@@ -313,6 +313,10 @@
 					min : 0,
                     numberFormat: "n0"
                 });
+                $("#qty").spinner({
+                    min : -1,
+					numberFormat: "n0"
+                });
                 $("#c").spinner({
                     min : 0,
 					step: 1000,
@@ -515,7 +519,7 @@
 				// 按照东西类型分类
 				if(obj=="0"){ //只有是道具的时候数量才有意义,装备就让数量固定
 					iditem = $("#item_id")[0].textContent.replace(/[^0-9\.]+/g,"");
-					qty = $("#qty")[0].value.replace(/[^0-9\.]+/g,"");
+					qty = $("#qty")[0].value.replace(/[^0-9\.\-]+/g,"");
 					if($("#qty")[0].value.toLowerCase().indexOf("k") >= 0){
 						qty=qty*1000;
 					}else if($("#qty")[0].value.toLowerCase().indexOf("m") >= 0){
@@ -533,7 +537,7 @@
 				}else if($("#c")[0].value.toLowerCase().indexOf("m") >= 0){
 					c=c*1000*1000;
 				}
-                var hath = $("#hath")[0].value.replace(/[^0-9\.]+/g,"");
+                var hath = $("#hath")[0].value.replace(/[^0-9\.\-]+/g,"");
 				if($("#hath")[0].value.toLowerCase().indexOf("k") >= 0){
 					hath=hath*1000;
 				}else if($("#hath")[0].value.toLowerCase().indexOf("m") >= 0){
@@ -596,7 +600,7 @@
 					<!-- ^装备和物品列同时只显示两者之一 -->
 					
 					<th width="10%" title="<?php echo _("Player name");?>"><?php echo _("Player");?></th>
-					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation)");?>"><?php echo _("Qty.");?></th>
+					<th width="10%" title="<?php echo _("Buy/sell quantity (minimum 1, leave blank limitation,-1 mean temporary disable)");?>"><?php echo _("Qty.");?></th>
 					<th width="8%" title="<?php echo _("Leave blank not accept payment by Credit");?>"><?php echo _("Credit");?></th>
 					<th width="7%" title="<?php echo _("Leave blank Hath not accepted as a payment method");?>"><?php echo _("Hath");?></th>
 					<th width="10%" title="<?php echo _("Note(Optional)");?>"><?php echo _("Note");?></th>

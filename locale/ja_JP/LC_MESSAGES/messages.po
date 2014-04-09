@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-07 11:58+0800\n"
+"POT-Creation-Date: 2014-04-09 22:09+0800\n"
 "PO-Revision-Date: 2014-04-05 09:28+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:628
+#: index.php:6 index.php:630
 msgid "HV Trade Center"
 msgstr ""
 
-#: index.php:124 index.php:133 index.php:178 insert.php:386
+#: index.php:124 index.php:133 index.php:178 insert.php:384
 msgid "en_US"
 msgstr "ja_JP"
 
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: index.php:242 index.php:243 index.php:408
+#: index.php:242 index.php:243 index.php:410
 msgid "Edit"
 msgstr ""
 
@@ -54,347 +54,353 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
-#: index.php:359
+#: index.php:347
+msgid "Disable"
+msgstr ""
+
+#: index.php:361
 msgid "link"
 msgstr ""
 
-#: index.php:378
+#: index.php:380
 msgid " second(s) ago"
 msgstr ""
 
-#: index.php:380
+#: index.php:382
 msgid " mintue(s) ago"
 msgstr ""
 
-#: index.php:382
+#: index.php:384
 msgid " hour(s) ago"
 msgstr ""
 
-#: index.php:384
+#: index.php:386
 msgid " day(s) ago"
 msgstr ""
 
-#: index.php:386
+#: index.php:388
 msgid " week(s) ago"
 msgstr ""
 
-#: index.php:407
+#: index.php:409
 msgid "Delete"
 msgstr ""
 
-#: index.php:453 index.php:560 index.php:564 index.php:572 index.php:573
+#: index.php:455 index.php:562 index.php:566 index.php:574 index.php:575
 msgid "Unimplemented"
 msgstr ""
 
-#: index.php:558 insert.php:574
+#: index.php:560 insert.php:572
 msgid "Home"
 msgstr ""
 
-#: index.php:559 insert.php:6
+#: index.php:561 insert.php:8
 msgid "New order"
 msgstr ""
 
-#: index.php:559 insert.php:670
+#: index.php:561 insert.php:668
 msgid "Add"
 msgstr ""
 
-#: index.php:560
+#: index.php:562
 msgid "Auction"
 msgstr ""
 
-#: index.php:562
+#: index.php:564
 msgid "want to buy"
 msgstr ""
 
-#: index.php:562 insert.php:615
+#: index.php:564 insert.php:613
 msgid "WTB"
 msgstr ""
 
-#: index.php:563
+#: index.php:565
 msgid "want to sell"
 msgstr ""
 
-#: index.php:563 insert.php:616
+#: index.php:565 insert.php:614
 msgid "WTS"
 msgstr ""
 
-#: index.php:564 insert.php:617
+#: index.php:566 insert.php:615
 msgid "WTT"
 msgstr ""
 
-#: index.php:567 index.php:591 index.php:613 insert.php:577 insert.php:599
+#: index.php:569 index.php:593 index.php:615 insert.php:575 insert.php:597
 msgid "Item"
 msgstr ""
 
-#: index.php:568 index.php:592 index.php:614 insert.php:578 insert.php:600
+#: index.php:570 index.php:594 index.php:616 insert.php:576 insert.php:598
 msgid "Equip"
 msgstr ""
 
-#: index.php:570
+#: index.php:572
 msgid "reload the order"
 msgstr ""
 
-#: index.php:570
+#: index.php:572
 msgid "Reload"
 msgstr ""
 
-#: index.php:572
+#: index.php:574
 msgid "English"
 msgstr "日本語"
 
-#: index.php:573
+#: index.php:575
 msgid "Set"
 msgstr ""
 
-#: index.php:589
+#: index.php:591
 msgid "id"
 msgstr ""
 
-#: index.php:589 index.php:611
+#: index.php:591 index.php:613
 msgid "ID"
 msgstr ""
 
-#: index.php:590
+#: index.php:592
 msgid "type"
 msgstr ""
 
-#: index.php:590 index.php:612 insert.php:597
+#: index.php:592 index.php:614 insert.php:595
 msgid "Type"
 msgstr ""
 
-#: index.php:591
+#: index.php:593
 msgid "item"
 msgstr ""
 
-#: index.php:593
+#: index.php:595
 msgid "palyer name"
 msgstr ""
 
-#: index.php:593 index.php:615 insert.php:604
+#: index.php:595 index.php:617 insert.php:602
 msgid "Player"
 msgstr ""
 
-#: index.php:594 index.php:595
+#: index.php:596 index.php:597
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:594 index.php:616 insert.php:606
+#: index.php:596 index.php:618 insert.php:604
 msgid "Credit"
 msgstr ""
 
-#: index.php:595 index.php:617 insert.php:607
+#: index.php:597 index.php:619 insert.php:605
 msgid "Hath"
 msgstr ""
 
-#: index.php:596
+#: index.php:598
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:596 index.php:618 insert.php:605
+#: index.php:598 index.php:620 insert.php:603
 msgid "Qty."
 msgstr ""
 
-#: index.php:597
+#: index.php:599
 msgid "BBS link"
 msgstr ""
 
-#: index.php:597 index.php:619
+#: index.php:599 index.php:621
 msgid "Ref."
 msgstr ""
 
-#: index.php:598
+#: index.php:600
 msgid "Last Update time"
 msgstr ""
 
-#: index.php:598 index.php:620
+#: index.php:600 index.php:622
 msgid "Time"
 msgstr ""
 
-#: index.php:599 index.php:621 insert.php:608 insert.php:646
+#: index.php:601 index.php:623 insert.php:606 insert.php:644
 msgid "Note"
 msgstr ""
 
-#: index.php:600
+#: index.php:602
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:600 index.php:622
+#: index.php:602 index.php:624
 msgid "Manage"
 msgstr ""
 
-#: index.php:605
+#: index.php:607
 msgid "Loading data from server..."
 msgstr ""
 
-#: index.php:629
+#: index.php:631
 msgid "Source Code"
 msgstr ""
 
-#: index.php:632
+#: index.php:634
 msgid "Hello, world!"
 msgstr ""
 
-#: insert.php:146
+#: insert.php:140
 msgid "Check link..."
 msgstr ""
 
-#: insert.php:151 insert.php:204
+#: insert.php:145 insert.php:198
 msgid "Invalid link"
 msgstr ""
 
-#: insert.php:169
+#: insert.php:163
 msgid "Searching in Database..."
 msgstr ""
 
-#: insert.php:180
+#: insert.php:174
 msgid "Plz Input EquipName manual"
 msgstr ""
 
-#: insert.php:344
+#: insert.php:342
 msgid "Name or PlayID is void!"
 msgstr ""
 
-#: insert.php:355 insert.php:412 insert.php:465
+#: insert.php:353 insert.php:410 insert.php:463
 msgid "Pending"
 msgstr ""
 
-#: insert.php:418
+#: insert.php:416
 msgid "OK"
 msgstr ""
 
-#: insert.php:444
+#: insert.php:442
 msgid "Player name is void!"
 msgstr ""
 
-#: insert.php:449
+#: insert.php:447
 msgid "Item is void!"
 msgstr ""
 
-#: insert.php:453
+#: insert.php:451
 msgid "Equipment is void!"
 msgstr ""
 
-#: insert.php:472
+#: insert.php:470
 msgid "Server Err"
 msgstr ""
 
-#: insert.php:475
+#: insert.php:473
 msgid "Insert OK"
 msgstr ""
 
-#: insert.php:477
+#: insert.php:475
 msgid "Update OK"
 msgstr ""
 
-#: insert.php:573
+#: insert.php:571
 msgid "Return to home"
 msgstr ""
 
-#: insert.php:581
+#: insert.php:579
 msgid "Add Player"
 msgstr ""
 
-#: insert.php:583
+#: insert.php:581
 msgid "Export the database"
 msgstr ""
 
-#: insert.php:584
+#: insert.php:582
 msgid "Export"
 msgstr ""
 
-#: insert.php:586
+#: insert.php:584
 msgid "How to add a new order"
 msgstr ""
 
-#: insert.php:587
+#: insert.php:585
 msgid "Help"
 msgstr ""
 
-#: insert.php:597
+#: insert.php:595
 msgid "type of order"
 msgstr ""
 
-#: insert.php:600
+#: insert.php:598
 msgid "Equip link"
 msgstr ""
 
-#: insert.php:601
+#: insert.php:599
 msgid "Equip Name"
 msgstr ""
 
-#: insert.php:604
+#: insert.php:602
 msgid "Player name"
 msgstr ""
 
-#: insert.php:605
-msgid "Buy/sell quantity (minimum 1, leave blank limitation)"
+#: insert.php:603
+msgid ""
+"Buy/sell quantity (minimum 1, leave blank limitation,-1 mean temporary "
+"disable)"
 msgstr ""
 
-#: insert.php:606
+#: insert.php:604
 msgid "Leave blank not accept payment by Credit"
 msgstr ""
 
-#: insert.php:607
+#: insert.php:605
 msgid "Leave blank Hath not accepted as a payment method"
 msgstr ""
 
-#: insert.php:608
+#: insert.php:606
 msgid "Note(Optional)"
 msgstr ""
 
-#: insert.php:622 insert.php:634 insert.php:637 insert.php:640 insert.php:643
+#: insert.php:620 insert.php:632 insert.php:635 insert.php:638 insert.php:641
 msgid "eg."
 msgstr ""
 
-#: insert.php:627 insert.php:630
+#: insert.php:625 insert.php:628
 msgid "eq. "
 msgstr ""
 
-#: insert.php:627
+#: insert.php:625
 msgid "equip link"
 msgstr ""
 
-#: insert.php:630
+#: insert.php:628
 msgid "[Equip Name]"
 msgstr ""
 
-#: insert.php:646
+#: insert.php:644
 msgid "eg. Only players level 250 or less"
 msgstr ""
 
-#: insert.php:649
+#: insert.php:647
 msgid "BBS link eg."
 msgstr ""
 
-#: insert.php:649
+#: insert.php:647
 msgid "bbs link"
 msgstr ""
 
-#: insert.php:655
+#: insert.php:653
 msgid "submit the order"
 msgstr ""
 
-#: insert.php:656
+#: insert.php:654
 msgid "Submit"
 msgstr ""
 
-#: insert.php:661
+#: insert.php:659
 msgid "Add player"
 msgstr ""
 
-#: insert.php:663
+#: insert.php:661
 msgid "Player Name"
 msgstr ""
 
-#: insert.php:666
+#: insert.php:664
 msgid "Player ID[?]"
 msgstr ""
 
-#: insert.php:669
+#: insert.php:667
 msgid "Add a new player name to player list"
 msgstr ""
 
-#: insert.php:673
+#: insert.php:671
 msgid "Cancel"
 msgstr ""
 

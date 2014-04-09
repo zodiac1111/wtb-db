@@ -343,6 +343,8 @@
 							var v;
 							if(data=="0" || data=="" || data==null ){
 								v= "<?php echo _("Unlimited");?>"
+							}else if(data<0 ){
+								v= "<?php echo _("Disable");?>"
 							}else{
 								v=parseInt(data).toLocaleString();
 							}
