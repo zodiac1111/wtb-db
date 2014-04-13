@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 22:09+0800\n"
+"POT-Creation-Date: 2014-04-13 19:03+0800\n"
 "PO-Revision-Date: 2014-04-07 12:32+0800\n"
 "Last-Translator: zodiac1111 <zodiac8765@gmail.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: index.php:6 index.php:630
+#: index.php:6 index.php:650
 msgid "HV Trade Center"
 msgstr "HV 交易中心"
 
@@ -34,7 +34,7 @@ msgstr "確定刪除嗎?"
 msgid "Save"
 msgstr "保存"
 
-#: index.php:242 index.php:243 index.php:410
+#: index.php:242 index.php:243 index.php:430
 msgid "Edit"
 msgstr "編輯"
 
@@ -62,179 +62,209 @@ msgstr ""
 msgid "link"
 msgstr "連結"
 
-#: index.php:380
-msgid " second(s) ago"
+#: index.php:381
+#, fuzzy
+msgid " second ago"
 msgstr " 秒前"
 
-#: index.php:382
-msgid " mintue(s) ago"
+#: index.php:383
+#, fuzzy
+msgid " seconds ago"
+msgstr " 秒前"
+
+#: index.php:387
+#, fuzzy
+msgid " mintue ago"
 msgstr " 分鐘前"
 
-#: index.php:384
-msgid " hour(s) ago"
+#: index.php:389
+#, fuzzy
+msgid " mintues ago"
+msgstr " 分鐘前"
+
+#: index.php:393
+#, fuzzy
+msgid " hour ago"
 msgstr " 小時前"
 
-#: index.php:386
-msgid " day(s) ago"
+#: index.php:395
+#, fuzzy
+msgid " hours ago"
+msgstr " 小時前"
+
+#: index.php:399
+#, fuzzy
+msgid " day ago"
 msgstr " 天前"
 
-#: index.php:388
-msgid " week(s) ago"
+#: index.php:401
+#, fuzzy
+msgid " days ago"
+msgstr " 天前"
+
+#: index.php:405
+#, fuzzy
+msgid " week ago"
 msgstr " 周前"
 
-#: index.php:409
+#: index.php:407
+#, fuzzy
+msgid " weeks ago"
+msgstr " 周前"
+
+#: index.php:429
 msgid "Delete"
 msgstr "刪除"
 
-#: index.php:455 index.php:562 index.php:566 index.php:574 index.php:575
+#: index.php:475 index.php:582 index.php:586 index.php:594 index.php:595
 msgid "Unimplemented"
 msgstr "未實現"
 
-#: index.php:560 insert.php:572
+#: index.php:580 insert.php:572
 msgid "Home"
 msgstr "首頁"
 
-#: index.php:561 insert.php:8
+#: index.php:581 insert.php:8
 msgid "New order"
 msgstr "添加一條記錄"
 
-#: index.php:561 insert.php:668
+#: index.php:581 insert.php:668
 msgid "Add"
 msgstr "新增"
 
-#: index.php:562
+#: index.php:582
 msgid "Auction"
 msgstr "拍賣"
 
-#: index.php:564
+#: index.php:584
 msgid "want to buy"
 msgstr "收收購信息"
 
-#: index.php:564 insert.php:613
+#: index.php:584 insert.php:613
 msgid "WTB"
 msgstr "收購"
 
-#: index.php:565
+#: index.php:585
 msgid "want to sell"
 msgstr "出售信息"
 
-#: index.php:565 insert.php:614
+#: index.php:585 insert.php:614
 msgid "WTS"
 msgstr "出售"
 
-#: index.php:566 insert.php:615
+#: index.php:586 insert.php:615
 msgid "WTT"
 msgstr "交換"
 
-#: index.php:569 index.php:593 index.php:615 insert.php:575 insert.php:597
+#: index.php:589 index.php:613 index.php:635 insert.php:575 insert.php:597
 msgid "Item"
 msgstr "物品"
 
-#: index.php:570 index.php:594 index.php:616 insert.php:576 insert.php:598
+#: index.php:590 index.php:614 index.php:636 insert.php:576 insert.php:598
 msgid "Equip"
 msgstr "裝備"
 
-#: index.php:572
+#: index.php:592
 msgid "reload the order"
 msgstr "重新载入数据"
 
-#: index.php:572
+#: index.php:592
 msgid "Reload"
 msgstr "刷新"
 
-#: index.php:574
+#: index.php:594
 msgid "English"
 msgstr "漢語"
 
-#: index.php:575
+#: index.php:595
 msgid "Set"
 msgstr "設置"
 
-#: index.php:591
+#: index.php:611
 msgid "id"
 msgstr "序號"
 
-#: index.php:591 index.php:613
+#: index.php:611 index.php:633
 msgid "ID"
 msgstr "序號"
 
-#: index.php:592
+#: index.php:612
 msgid "type"
 msgstr "類型"
 
-#: index.php:592 index.php:614 insert.php:595
+#: index.php:612 index.php:634 insert.php:595
 msgid "Type"
 msgstr "類型"
 
-#: index.php:593
+#: index.php:613
 msgid "item"
 msgstr "物品"
 
-#: index.php:595
+#: index.php:615
 msgid "palyer name"
 msgstr "玩家名稱"
 
-#: index.php:595 index.php:617 insert.php:602
+#: index.php:615 index.php:637 insert.php:602
 msgid "Player"
 msgstr "玩家"
 
-#: index.php:596 index.php:597
+#: index.php:616 index.php:617
 msgid "- means not accepted"
 msgstr "- 表示不接收"
 
-#: index.php:596 index.php:618 insert.php:604
+#: index.php:616 index.php:638 insert.php:604
 msgid "Credit"
 msgstr "Credit"
 
-#: index.php:597 index.php:619 insert.php:605
+#: index.php:617 index.php:639 insert.php:605
 msgid "Hath"
 msgstr "Hath"
 
-#: index.php:598
+#: index.php:618
 msgid "Quantity of items"
 msgstr "物品的數量"
 
-#: index.php:598 index.php:620 insert.php:603
+#: index.php:618 index.php:640 insert.php:603
 msgid "Qty."
 msgstr "數量"
 
-#: index.php:599
+#: index.php:619
 msgid "BBS link"
 msgstr "電子公告板連結"
 
-#: index.php:599 index.php:621
+#: index.php:619 index.php:641
 msgid "Ref."
 msgstr "參考"
 
-#: index.php:600
+#: index.php:620
 msgid "Last Update time"
 msgstr "最後更新時間"
 
-#: index.php:600 index.php:622
+#: index.php:620 index.php:642
 msgid "Time"
 msgstr "時間"
 
-#: index.php:601 index.php:623 insert.php:606 insert.php:644
+#: index.php:621 index.php:643 insert.php:606 insert.php:644
 msgid "Note"
 msgstr "備註"
 
-#: index.php:602
+#: index.php:622
 msgid "Manage Operation"
 msgstr "管理動作"
 
-#: index.php:602 index.php:624
+#: index.php:622 index.php:644
 msgid "Manage"
 msgstr "管理"
 
-#: index.php:607
+#: index.php:627
 msgid "Loading data from server..."
 msgstr "正在載入資料"
 
-#: index.php:631
+#: index.php:651
 msgid "Source Code"
 msgstr "原始碼"
 
-#: index.php:634
+#: index.php:654
 msgid "Hello, world!"
 msgstr "你好,世界."
 

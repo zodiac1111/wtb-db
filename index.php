@@ -377,15 +377,35 @@
 							var elapse_week=parseInt(elapse_day/7);
 							// 显示成为 X<秒|分钟|小时|天>前
 							if(elapse_second<=60){
-								show_string=elapse_second+"<?php echo _(" second(s) ago");?>";
+								if(elapse_second==1){
+									show_string=elapse_second+"<?php echo _(" second ago");?>";
+								}else{
+									show_string=elapse_second+"<?php echo _(" seconds ago");?>";
+								}
 							}else if(elapse_minute<=60){
-								show_string=elapse_minute+"<?php echo _(" mintue(s) ago");?>";
+								if(elapse_minute==1){
+									show_string=elapse_minute+"<?php echo _(" mintue ago");?>";
+								}else{
+									show_string=elapse_minute+"<?php echo _(" mintues ago");?>";
+								}
 							}else if(elapse_hour<=24){
-								show_string=elapse_hour+"<?php echo _(" hour(s) ago");?>";
+								if(elapse_hour==1){
+									show_string=elapse_hour+"<?php echo _(" hour ago");?>";
+								}else{
+									show_string=elapse_hour+"<?php echo _(" hours ago");?>";
+								}
 							}else if(elapse_day<=7){
-								show_string=elapse_day+"<?php echo _(" day(s) ago");?>";
+								if(elapse_day==1){
+									show_string=elapse_day+"<?php echo _(" day ago");?>";
+								}else{
+									show_string=elapse_day+"<?php echo _(" days ago");?>";
+								}
 							}else if(elapse_week<=4){
-								show_string=elapse_day+"<?php echo _(" week(s) ago");?>";
+								if(elapse_day==1){
+									show_string=elapse_day+"<?php echo _(" week ago");?>";
+								}else{
+									show_string=elapse_day+"<?php echo _(" weeks ago");?>";
+								}
 							}else{
 								show_string=d.toLocaleString() ;
 							}

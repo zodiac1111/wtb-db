@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 22:09+0800\n"
+"POT-Creation-Date: 2014-04-13 19:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:6 index.php:630
+#: index.php:6 index.php:650
 msgid "HV Trade Center"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: index.php:242 index.php:243 index.php:410
+#: index.php:242 index.php:243 index.php:430
 msgid "Edit"
 msgstr ""
 
@@ -61,179 +61,199 @@ msgstr ""
 msgid "link"
 msgstr ""
 
-#: index.php:380
-msgid " second(s) ago"
+#: index.php:381
+msgid " second ago"
 msgstr ""
 
-#: index.php:382
-msgid " mintue(s) ago"
+#: index.php:383
+msgid " seconds ago"
 msgstr ""
 
-#: index.php:384
-msgid " hour(s) ago"
+#: index.php:387
+msgid " mintue ago"
 msgstr ""
 
-#: index.php:386
-msgid " day(s) ago"
+#: index.php:389
+msgid " mintues ago"
 msgstr ""
 
-#: index.php:388
-msgid " week(s) ago"
+#: index.php:393
+msgid " hour ago"
 msgstr ""
 
-#: index.php:409
+#: index.php:395
+msgid " hours ago"
+msgstr ""
+
+#: index.php:399
+msgid " day ago"
+msgstr ""
+
+#: index.php:401
+msgid " days ago"
+msgstr ""
+
+#: index.php:405
+msgid " week ago"
+msgstr ""
+
+#: index.php:407
+msgid " weeks ago"
+msgstr ""
+
+#: index.php:429
 msgid "Delete"
 msgstr ""
 
-#: index.php:455 index.php:562 index.php:566 index.php:574 index.php:575
+#: index.php:475 index.php:582 index.php:586 index.php:594 index.php:595
 msgid "Unimplemented"
 msgstr ""
 
-#: index.php:560 insert.php:572
+#: index.php:580 insert.php:572
 msgid "Home"
 msgstr ""
 
-#: index.php:561 insert.php:8
+#: index.php:581 insert.php:8
 msgid "New order"
 msgstr ""
 
-#: index.php:561 insert.php:668
+#: index.php:581 insert.php:668
 msgid "Add"
 msgstr ""
 
-#: index.php:562
+#: index.php:582
 msgid "Auction"
 msgstr ""
 
-#: index.php:564
+#: index.php:584
 msgid "want to buy"
 msgstr ""
 
-#: index.php:564 insert.php:613
+#: index.php:584 insert.php:613
 msgid "WTB"
 msgstr ""
 
-#: index.php:565
+#: index.php:585
 msgid "want to sell"
 msgstr ""
 
-#: index.php:565 insert.php:614
+#: index.php:585 insert.php:614
 msgid "WTS"
 msgstr ""
 
-#: index.php:566 insert.php:615
+#: index.php:586 insert.php:615
 msgid "WTT"
 msgstr ""
 
-#: index.php:569 index.php:593 index.php:615 insert.php:575 insert.php:597
+#: index.php:589 index.php:613 index.php:635 insert.php:575 insert.php:597
 msgid "Item"
 msgstr ""
 
-#: index.php:570 index.php:594 index.php:616 insert.php:576 insert.php:598
+#: index.php:590 index.php:614 index.php:636 insert.php:576 insert.php:598
 msgid "Equip"
 msgstr ""
 
-#: index.php:572
+#: index.php:592
 msgid "reload the order"
 msgstr ""
 
-#: index.php:572
+#: index.php:592
 msgid "Reload"
 msgstr ""
 
-#: index.php:574
+#: index.php:594
 msgid "English"
 msgstr ""
 
-#: index.php:575
+#: index.php:595
 msgid "Set"
 msgstr ""
 
-#: index.php:591
+#: index.php:611
 msgid "id"
 msgstr ""
 
-#: index.php:591 index.php:613
+#: index.php:611 index.php:633
 msgid "ID"
 msgstr ""
 
-#: index.php:592
+#: index.php:612
 msgid "type"
 msgstr ""
 
-#: index.php:592 index.php:614 insert.php:595
+#: index.php:612 index.php:634 insert.php:595
 msgid "Type"
 msgstr ""
 
-#: index.php:593
+#: index.php:613
 msgid "item"
 msgstr ""
 
-#: index.php:595
+#: index.php:615
 msgid "palyer name"
 msgstr ""
 
-#: index.php:595 index.php:617 insert.php:602
+#: index.php:615 index.php:637 insert.php:602
 msgid "Player"
 msgstr ""
 
-#: index.php:596 index.php:597
+#: index.php:616 index.php:617
 msgid "- means not accepted"
 msgstr ""
 
-#: index.php:596 index.php:618 insert.php:604
+#: index.php:616 index.php:638 insert.php:604
 msgid "Credit"
 msgstr ""
 
-#: index.php:597 index.php:619 insert.php:605
+#: index.php:617 index.php:639 insert.php:605
 msgid "Hath"
 msgstr ""
 
-#: index.php:598
+#: index.php:618
 msgid "Quantity of items"
 msgstr ""
 
-#: index.php:598 index.php:620 insert.php:603
+#: index.php:618 index.php:640 insert.php:603
 msgid "Qty."
 msgstr ""
 
-#: index.php:599
+#: index.php:619
 msgid "BBS link"
 msgstr ""
 
-#: index.php:599 index.php:621
+#: index.php:619 index.php:641
 msgid "Ref."
 msgstr ""
 
-#: index.php:600
+#: index.php:620
 msgid "Last Update time"
 msgstr ""
 
-#: index.php:600 index.php:622
+#: index.php:620 index.php:642
 msgid "Time"
 msgstr ""
 
-#: index.php:601 index.php:623 insert.php:606 insert.php:644
+#: index.php:621 index.php:643 insert.php:606 insert.php:644
 msgid "Note"
 msgstr ""
 
-#: index.php:602
+#: index.php:622
 msgid "Manage Operation"
 msgstr ""
 
-#: index.php:602 index.php:624
+#: index.php:622 index.php:644
 msgid "Manage"
 msgstr ""
 
-#: index.php:607
+#: index.php:627
 msgid "Loading data from server..."
 msgstr ""
 
-#: index.php:631
+#: index.php:651
 msgid "Source Code"
 msgstr ""
 
-#: index.php:634
+#: index.php:654
 msgid "Hello, world!"
 msgstr ""
 
