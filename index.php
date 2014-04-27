@@ -402,9 +402,9 @@
 								}
 							}else if(elapse_week<=4){
 								if(elapse_day==1){
-									show_string=elapse_day+"<?php echo _(" week ago");?>";
+									show_string=elapse_week+"<?php echo _(" week ago");?>";
 								}else{
-									show_string=elapse_day+"<?php echo _(" weeks ago");?>";
+									show_string=elapse_week+"<?php echo _(" weeks ago");?>";
 								}
 							}else{
 								show_string=d.toLocaleString() ;
